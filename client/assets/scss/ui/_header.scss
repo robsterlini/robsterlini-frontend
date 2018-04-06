@@ -1,0 +1,61 @@
+@charset 'UTF-8';
+
+// ==== UI ===============================================================
+// Header
+// =======================================================================
+
+
+// ==== Header ==============================
+// Base
+// ==========================================
+
+.header {
+  background: module-color(header-bg);
+  color: module-color(header-color);
+  left: 0;
+  position: relative;
+  width: 100%;
+
+  .group {
+    display: flex;
+  }
+
+  &__logo {
+    color: inherit;
+    display: inline-block;
+    height: $header-logo-height;
+    margin:  ($header-height - $header-logo-height) / 2;
+    vertical-align: middle;
+    width: $header-logo-height;
+    z-index: 1;
+
+    .logo {
+      background: none;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    line-height: rem(26);
+    margin: 0;
+    vertical-align: middle;
+
+    span {
+
+      &:first-child {
+        color: module-color(header-pretitle-color);
+        display: inline-block;
+        margin-right: rem(10);
+      }
+    }
+  }
+
+  .navigation {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: right;
+    vertical-align: middle;
+    width: 100%;
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parserOptions": {
+      "parser": "babel-eslint",
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+  },
+  "extends": [
+    "esnext",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "semi": 2,
+    "indent": ["error", 2],
+    "import/no-unresolved": 0,
+    "import/no-unassigned-import": 0,
+    "import/prefer-default-export": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "object-curly-spacing": ["error", "always"],
+    "eol-last": ["error", "always"],
+    "no-console": ["error", { allow: ["warn", "error"] }],
+    "prefer-template": 1,
+    "no-useless-concat": 0,
+    "quotes": ["error", "backtick"],
+    "vue/html-indent": ["error", 2],
+    "vue/html-quotes": ["warn", "double"],
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 4,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false
+      }
+    }],
+    "vue/require-default-prop": ["off"],
+    "vue/name-property-casing": ["error", "kebab-case"],
+    "vue/no-duplicate-attributes": ["error", {
+      allowCoexistClass: false,
+      allowCoexistStyle: false,
+    }],
+    "vue/order-in-components": ["error", {
+      order: [
+        "el",
+        "name",
+        "parent",
+        "functional",
+        ["delimiters", "comments"],
+        ["components", "directives", "filters"],
+        "extends",
+        "mixins",
+        "inheritAttrs",
+        "model",
+        ["props", "propsData"],
+        "data",
+        "computed",
+        "watch",
+        "methods",
+        "LIFECYCLE_HOOKS",
+        ["template", "render"],
+        "renderError"
+      ]
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "build/webpack.base.js"
+      }
+    }
+  },
+}

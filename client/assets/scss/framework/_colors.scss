@@ -1,0 +1,125 @@
+@charset 'UTF-8';
+
+// ==== Framework ========================================================
+// Colors
+// =======================================================================
+
+
+// ==== Colors ==============================
+// Base
+// ==========================================
+
+// sass-lint:disable no-color-keywords
+$base-colors: (
+  // Base
+  white: #FFFFFF,
+  black: #000000,
+
+  // Greyscale
+  light: #F5F5F1,
+  light-mix: mix(mix(#161616, #F5F5F1), white, 20%),
+
+  mid-light: mix(#161616, #F5F5F1, 25%),
+  mid: mix(#161616, #F5F5F1),
+  mid-dark: #414141,
+
+  dark: #161616,
+
+  // Brand
+  accent: #AE0000,
+);
+// sass-lint:enable no-color-keywords
+
+
+// ==== Colors ==============================
+// Modules
+// ==========================================
+
+// sass-lint:disable no-color-keywords
+$module-colors: (
+  // Default
+  default-box-shadow: rgba(color(black), 0.33),
+
+  // Base
+  base-bg: color(light),
+  base-color: color(dark),
+  base-selection-bg: color(accent),
+  base-selection-color: color(white),
+
+  // Block
+  block-accent-bg: color(accent),
+  block-accent-color: color(white),
+
+  block-dark-bg: color(dark),
+  block-dark-color: color(white),
+
+  block-light-bg: color(light),
+  block-light-color: color(dark),
+  block-light-blockquote-color: rgba(color(dark), 0.5),
+  block-lightest-bg: color(white),
+
+  block-mid-bg: color(mid-light),
+  block-mid-color: color(dark),
+
+  // Buttons
+  button-light-color: color(accent),
+  button-light-color-hover: color(white),
+  button-light-bg-hover: color(accent),
+
+  button-accent-color: color(light),
+  button-accent-color-hover: color(accent),
+  button-accent-bg-hover: color(light),
+
+  button-dark-color: color(light),
+  button-dark-color-hover: color(dark),
+  button-dark-bg-hover: color(light),
+
+  // Form
+  form-field-bg: color(white),
+  form-field-border: color(light-mix),
+  form-field-border-error: color(accent),
+  form-field-border-focus: color(dark),
+  form-field-autofill-bg: mix(yellow, white, 15%),
+  form-input-color: color(dark),
+  form-input-placeholder-color: color(dark),
+  form-checkbox-bg: color(white),
+
+  // Header
+  header-bg: color(accent),
+  header-color: color(white),
+  header-pretitle-color: rgba(color(white), 0.5),
+
+  // Home
+  home-bg: color(accent),
+
+  // Logo
+  logo-default-color: color(white),
+  logo-default-bg: color(accent),
+
+  // Links
+  link-accent: color(accent),
+
+  // Loader
+  loader-bg: color(accent),
+);
+// sass-lint:enable no-color-keywords
+
+
+// ==== Colors ==============================
+// Social
+// ==========================================
+
+$social-colors: (
+  twitter:   #00ACED,
+  facebook:  #3B5998,
+  instagram: #D93175,
+  gplus:     #CC3732,
+  dribbble:  #EA4C89,
+  pinterest: #CC2127,
+  tumblr:    #44546B,
+  vine:      #00B489,
+  youtube:   #CD201F,
+  medium:    #1A1919,
+  vimeo:     #1AB7EA,
+  linkedin:  #0077B4,
+);

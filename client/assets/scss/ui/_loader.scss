@@ -1,0 +1,133 @@
+@charset 'UTF-8';
+
+// ==== UI ===============================================================
+// Loader
+// =======================================================================
+
+
+// ==== Loader ==============================
+// Set timing variable
+// ==========================================
+
+$timing-transition: 500ms;
+$timing-transition-logo: 200ms;
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition-duration: $timing-transition;
+}
+
+
+// ==== Loader ==============================
+// Base
+// ==========================================
+
+.loader {
+  @include cover(fixed);
+
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 999;
+
+  &__layer {
+    $layer-size: 150vmax;
+
+    @include cover;
+
+    background: module-color(loader-bg);
+    left: -50%;
+    pointer-events: auto;
+    width: 200%;
+  }
+
+  &.is--loading {
+    background: module-color(loader-bg);
+  }
+
+  &__icon {
+    $logo-size: rem(200);
+
+    height: $logo-size;
+    left: 50%;
+    margin: $logo-size / -2 0 0 $logo-size / -2;
+    max-width: none;
+    position: absolute;
+    top: 50%;
+    transform-origin: center;
+    width: $logo-size;
+  }
+
+  &__image {
+    @include cover;
+
+    display: none;
+    height: 100%;
+    width: 100%;
+
+    &--active {
+      display: block;
+    }
+  }
+}
+
+
+// ==== Loader ==============================
+// Interaction
+// ==========================================
+
+.loader {
+
+  // Transition Out
+  transform: translateX(100vw);
+  transition:
+    transform 0ms $timing-transition; // sass-lint:disable-line indentation
+
+  &__layer {
+    animation: loader-in $timing-transition both $easing;
+    @keyframes loader-in {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(100%, 0, 0);
+      }
+    }
+  }
+
+  &__icon {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.5);
+    transition:
+      $timing-transition-logo $easing; // sass-lint:disable-line indentation
+  }
+
+  // Transition In
+  &.is--active {
+    transform: none;
+    transition-delay: 0ms;
+
+    .loader {
+
+      &__layer {
+        animation-name: loader-out;
+
+        @keyframes loader-out {
+          0% {
+            transform: translate3d(-100%, 0, 0);
+          }
+
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+
+      &__icon {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        transition-delay: $timing-transition / 2;
+      }
+    }
+  }
+}

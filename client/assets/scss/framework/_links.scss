@@ -1,0 +1,195 @@
+@charset 'UTF-8';
+
+// ==== Modules ==========================================================
+// Links
+// =======================================================================
+
+
+// ==== Links ===============================
+// Base
+// ==========================================
+
+a,
+.link {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  fill: currentColor;
+  outline: 0;
+  text-decoration-skip: ink;
+  transition:
+    opacity $timing-link $easing-link; // sass-lint:disable-line indentation
+}
+
+// ==== Links ===============================
+// Extends
+// ==========================================
+
+%link {
+
+  &:hover {
+    opacity: 0.75; // TODO: Var
+  }
+
+  &:active {
+    opacity: 0.5; // TODO: Var
+  }
+}
+
+%link-accent {
+  color: module-color(link-accent);
+  fill: module-color(link-accent);
+}
+
+%link-reversed {
+  opacity: 0.33;
+
+  &:hover {
+    opacity: 0.66;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+%link-no-underline {
+  text-decoration: none;
+}
+
+
+// ==== Links ===============================
+// Classes
+// ==========================================
+
+.link {
+  @extend %link;
+
+  &--accent {
+    @extend %link-accent;
+  }
+
+  &--reversed {
+    @extend %link-reversed;
+  }
+
+  &--no-underline {
+    @extend %link-no-underline;
+  }
+
+  &--inherit {
+
+    &:link {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+}
+
+.links {
+
+  a {
+    @extend %link;
+  }
+
+  &--accent {
+
+    a {
+      @extend %link-accent;
+    }
+  }
+
+  &--reversed {
+
+    a {
+      @extend %link-reversed;
+    }
+  }
+
+  &--no-underline {
+
+    a {
+      @extend %link-no-underline;
+    }
+  }
+}
+
+
+// ==== Links ===================================
+// Pseudo
+// ==========================================
+
+.link {
+
+  &__pseudo {
+    transition:
+      opacity $timing-link $easing-link; // sass-lint:disable-line indentation
+
+    // sass-lint:disable force-pseudo-nesting
+    .link--pseudo:hover & {
+      opacity: 0.75; // TODO: Var
+    }
+
+    .link--pseudo:active & {
+      opacity: 0.5; // TODO: Var
+    }
+
+    .link--pseudo-reversed & {
+      opacity: 0.5; // TODO: Var
+    }
+
+    .link--pseudo-reversed:hover & {
+      opacity: 0.75; // TODO: Var
+    }
+
+    .link--pseudo-reversed:active & {
+      opacity: 1; // TODO: Var
+    }
+    // sass-list:enable force-pseudo-nesting
+  }
+}
+
+
+// ==== Links ===============================
+// Variants
+// ==========================================
+
+$link-arrow-size: 0.85em;
+$link-arrow-padding: 0.25em;
+
+.link--arrow {
+  display: table;
+  padding-right: $link-arrow-size + $link-arrow-padding;
+  position: relative;
+
+  &::after {
+    content: '→';
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(#{$link-arrow-padding * -1});
+    transition:
+      opacity $timing-link $easing-link, // sass-lint:disable-line indentation
+      transform $timing-link $easing-link; // sass-lint:disable-line indentation
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.5; // TODO: Var
+  }
+
+  &:hover,
+  &:active {
+
+    &::after {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

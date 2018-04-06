@@ -1,0 +1,54 @@
+@charset 'UTF-8';
+
+// ==== Grid =============================================================
+// Grid
+// =======================================================================
+
+
+// ==== Grid ================================
+// Variables
+// ==========================================
+
+$grid-gutter: rem(20);
+
+
+// ==== Grid ================================
+// Mixins
+// ==========================================
+
+@mixin grid-item($columns) {
+  margin-bottom: $grid-gutter;
+  min-width: 100% / $columns;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  width: 0;
+}
+
+
+// ==== Grid ================================
+// Extends
+// ==========================================
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $grid-gutter * -1;
+  margin-left: $grid-gutter * -1;
+  width: calc(100% + #{$grid-gutter * 2});
+
+  &__item {
+    @include grid-item(3);
+
+    &--3 {
+      @include grid-item(3);
+    }
+
+    &--4 {
+      @include grid-item(4);
+    }
+
+    &--flex {
+      flex-grow: 1;
+    }
+  }
+}

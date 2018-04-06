@@ -1,0 +1,100 @@
+{
+  "name": "vue-boilerplate",
+  "version": "0.1.0",
+  "description": "Fueled Vue Boilerplate",
+  "main": "client/index.js",
+  "scripts": {
+    "test": "",
+    "build": "NODE_ENV=production webpack --config build/webpack.prod.js",
+    "qa": "NODE_ENV=qa webpack --config build/webpack.prod.js",
+    "development": "NODE_ENV=development webpack --config build/webpack.prod.js",
+    "dev": "NODE_ENV=dev node build/server.js",
+    "lint": "npm-run-all --parallel lintJs lintScss",
+    "lintJs": "eslint **/client/**/*.{vue,js} !node_modules/**",
+    "lintJsFix": "eslint --fix **/client/**/*.{vue,js} !node_modules/**",
+    "lintScss": "sass-lint **/client/assets/scss/**/*.scss -v -q"
+  },
+  "author": "Rob Sterlini <sterlini@fueled.com>",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      [
+        "vue-app",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-nested": {}
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie > 8"
+  ],
+  "dependencies": {
+    "array-includes": "^3.0.3",
+    "autosize": "^4.0.0",
+    "axios": "^0.17.1",
+    "babel-runtime": "^6.18.0",
+    "lodash": "^4.17.5",
+    "promise-polyfill": "^6.1.0",
+    "vue-router": "^2.0.0",
+    "vuejs-datepicker": "^0.9.29",
+    "vuex": "^2.0.0",
+    "vuex-router-sync": "^4.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "axios": "^0.17.1",
+    "babel-core": "^6.16.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-vue-app": "^1.1.1",
+    "chalk": "^1.1.3",
+    "copy-webpack-plugin": "^4.4.1",
+    "cross-env": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^4.18.0",
+    "eslint-config-esnext": "^2.0.0",
+    "eslint-config-vue": "latest",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-vue": "^4.2.2",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "friendly-errors-webpack-plugin": "^1.1.2",
+    "highlight.js": "^9.12.0",
+    "html-webpack-plugin": "^2.22.0",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-webpack-plugin": "^1.6.1",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
+    "prerender-spa-plugin": "^2.1.0",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.1",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^6.0.6",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.13.1",
+    "v-clipboard": "^1.0.4",
+    "vue": "^2.5.13",
+    "vue-loader": "^11.0.0",
+    "vue-meta": "^1.4.3",
+    "vue-resource": "^1.3.6",
+    "vue-scrollto": "^2.8.0",
+    "vue-svg-loader": "^0.4.0",
+    "vue-template-compiler": "^2.5.13",
+    "vuelidate": "^0.6.1",
+    "webpack": "^3.11.0",
+    "webpack-bundle-analyzer": "^2.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

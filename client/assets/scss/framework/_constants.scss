@@ -1,0 +1,201 @@
+@charset 'UTF-8';
+
+// ==== Framework ===================================================================
+// Constants
+// =======================================================================
+
+
+// ==== Constants ===========================
+// Typography
+// ==========================================
+
+// Fonts
+$font-default-size: 16;
+$font-weight-bold: 600;
+
+$font-family-body: 'Helvetica Neue';
+$font-family-heading: 'Helvetica Neue';
+$font-family-mono: monospace;
+
+// Variables
+$line-height-body: 1.5;
+$line-height-header: 0.9;
+$strong-weight: $font-weight-bold;
+
+// H1
+$h1-font-size-l: 64;
+$h1-font-size-s: 48;
+
+// H2
+$h2-font-size-l: 52;
+$h2-font-size-s: 36;
+
+// H3
+$h3-font-size-l: 36;
+$h3-font-size-s: 24;
+
+// H Pre
+$h-pre-font-size-l: 28;
+$h-pre-font-size-s: 20;
+
+// H4
+$h4-font-size-l: 26;
+$h4-font-size-s: 20;
+
+// H5
+$h5-font-size-l: 22;
+$h5-font-size-s: 18;
+
+// H6
+$h6-font-size-l: 14;
+$h6-font-size-s: 13;
+
+// Paragraph
+$p-font-size-l: 18;
+$p-font-size-s: 15;
+
+// Huge
+$huge-font-size-l: 60;
+$huge-font-size-s: 34;
+
+// Large
+$large-font-size-l: 24;
+$large-font-size-s: 18;
+
+// Medium
+$medium-font-size-l: 20;
+$medium-font-size-s: 16;
+
+// Small
+$small-font-size-l: 15;
+$small-font-size-s: 13;
+
+// Tiny
+$tiny-font-size-l: 13;
+$tiny-font-size-s: 10;
+
+// Form
+$form-input-font-size-l: 16;
+$form-input-font-size-s: 16;
+
+// Button Primary
+$button-primary-font-size-l: 20;
+$button-primary-font-size-s: 16;
+
+// Button Secondary
+$button-secondary-font-size-l: 15;
+$button-secondary-font-size-s: 13;
+
+// Button Tertiary
+$button-tertiary-font-size-l: 13;
+$button-tertiary-font-size-s: 12;
+
+
+// ==== Constants ===========================
+// Widths and gutters
+// ==========================================
+
+// Dynamic type
+$base-dynamic-type: 1410;
+
+// Layout
+$grid-total-count: 18;
+$grid-items-count: 16;
+$layout-gutter: 100 / $grid-total-count * ($grid-total-count - $grid-items-count) / 2;
+
+// Base
+$base-width: rem($base-dynamic-type);
+$base-gutter: rem(20);
+
+// Header
+$header-height: rem(76);
+$header-logo-height: rem(56);
+
+// Navigation
+$navigation-item-height: rem(48);
+$navigation-item-padding: rem(16);
+
+// Icons
+$icon-size: rem(22);
+$icon-spacing: $base-gutter;
+
+// Form
+$form-input-height: em(64, $form-input-font-size-l);
+$form-input-line-height: 1.5em;
+$form-input-padding: 1.33em;
+$form-border-width: 2px;
+
+// List
+$list-indent: rem(25);
+
+// Styleguide
+$styleguide-sidebar-width: rem(310);
+
+// Table
+$table-border-width: 2px;
+$table-cell-padding: rem(34);
+
+
+// ==== Constants ===========================
+// Timing
+// ==========================================
+
+$timing: 250ms;
+
+$timing-button: $timing;
+$timing-header: $timing;
+$timing-hero: $timing;
+$timing-intro: 2000ms;
+$timing-link: $timing;
+$timing-state: 500ms;
+
+
+// ==== Constants ===========================
+// Easing
+// ==========================================
+
+$easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+$easing-spring: cubic-bezier(0.17, 0.89, 0.36, 2);
+$easing-spring-gentle: cubic-bezier(0.17, 0.89, 0.36, 1.2);
+
+$easing-link: $easing;
+$easing-hero: $easing-spring;
+$easing-loader-logo: $easing-spring-gentle;
+
+
+// ==== Constants ===========================
+// Breakpoints and Tweakpoints
+// ==========================================
+
+$breakpoints: (
+  0:         0, //    0
+  xxs: 16 * 16, //  256
+  xs:  32 * 16, //  512
+  s:   48 * 16, //  768
+  m:   64 * 16, // 1024
+  l:   96 * 16, // 1536
+  xl: 102 * 16, // 1632
+);
+
+$tweakpoints: (
+
+  // Base
+  base-layout-wide: bp(s),
+  base-dynamic-type: $base-dynamic-type,
+
+  // Header
+  header-dynamic-width: 1720, // TODO: Why?
+);
+
+
+// ==== Constants ===========================
+// List Variables
+// ==========================================
+
+// sass-lint:disable indentation
+$list-home-projects:
+  keetoo,
+  quizup,
+  verizon,
+;
+// sass-lint:enable indentation

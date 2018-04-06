@@ -1,0 +1,57 @@
+@charset 'UTF-8';
+
+// ==== Modules ==========================================================
+// Spinner
+// =======================================================================
+
+
+// ==== Spinner =============================
+// Base
+// ==========================================
+
+.spinner {
+  display: block;
+  margin: $base-gutter auto;
+  max-width: rem(50);
+  position: relative;
+  transform: scale(0);
+  // sass-lint:disable indentation
+  transition:
+    opacity $timing $easing,
+    transform $timing $easing;
+  // sass-lint:enable indentation
+  width: 100%;
+
+  &--active {
+    opacity: 1;
+    transform: none;
+  }
+
+  &::before {
+    @include cover;
+
+    animation: spinner 1s infinite linear;
+    background: currentColor;
+    content: '';
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg) scale(0.6);
+    }
+
+    50% {
+      transform: rotate(180deg) scale(0.75);
+    }
+
+    100% {
+      transform: rotate(360deg) scale(0.6);
+    }
+  }
+}

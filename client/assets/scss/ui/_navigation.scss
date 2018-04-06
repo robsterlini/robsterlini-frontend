@@ -1,0 +1,51 @@
+@charset 'UTF-8';
+
+// ==== UI ===============================================================
+// Navigation
+// =======================================================================
+
+
+// ==== Navigation ==========================
+// Base
+// ==========================================
+
+.navigation {
+  max-width: none;
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+
+    &--connect {
+      height: rem(48); // TODO: Var
+      width: rem(48); // TODO: Var
+    }
+  }
+
+  &__link {
+    color: inherit;
+    display: block;
+    line-height: $navigation-item-height - ($navigation-item-padding * 2);
+    padding: $navigation-item-padding;
+    text-decoration: none;
+
+    @at-root {
+
+      %nav-link-active {
+        content: '';
+      }
+    }
+
+    &--active {
+      @extend %nav-link-active;
+    }
+
+    .router-link-active > & {
+      @extend %nav-link-active;
+    }
+  }
+
+  &__icon {
+    margin-left: $icon-spacing;
+  }
+}

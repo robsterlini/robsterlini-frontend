@@ -1,0 +1,117 @@
+@charset 'UTF-8';
+
+// ==== Framework ========================================================
+// Layout
+// =======================================================================
+
+
+// ==== Layout ==============================
+// Page / Main
+// ==========================================
+
+.page,
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+
+// ==== Layout ==============================
+// Group
+// ==========================================
+
+.group {
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  width: 100% / 18 * 16; // TODO: Var
+
+  @at-root {
+
+    %group-first {
+      padding-top: calc(5vw + #{$base-gutter * 2});
+    }
+
+    %group-last {
+      padding-bottom: calc(5vw + #{$base-gutter * 2});
+    }
+  }
+
+  &--first-last {
+    @extend %group-first;
+    @extend %group-last;
+  }
+
+  &--first {
+    @extend %group-first;
+  }
+
+  &--last {
+    @extend %group-last;
+  }
+
+  &--wide {
+    width: 100%;
+  }
+}
+
+
+// ==== Layout ==============================
+// Block
+// ==========================================
+
+.block {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &--grow {
+    flex: 1;
+  }
+
+  &--cover {
+    min-height: 100vh;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--accent {
+    background: module-color(block-accent-bg);
+    color: module-color(block-accent-color);
+  }
+
+  &--dark {
+    background: module-color(block-dark-bg);
+    color: module-color(block-dark-color);
+  }
+
+  &--mid,
+  &--light,
+  &--lightest {
+    background: module-color(block-light-bg);
+    color: module-color(block-light-color);
+
+    .blockquote {
+      color: module-color(block-light-blockquote-color);
+    }
+  }
+
+  &--lightest {
+    background: module-color(block-lightest-bg);
+  }
+
+  &__bg {
+    @include cover;
+
+    background: center no-repeat;
+    background-size: cover;
+  }
+}

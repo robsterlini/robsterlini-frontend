@@ -1,0 +1,73 @@
+@charset 'UTF-8';
+
+// ==== Framework ===================================================================
+// Global
+// =======================================================================
+
+
+// ==== Global ==============================
+// Box sizing fix
+// ==========================================
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+
+// ==== Global ==============================
+// Base setup
+// ==========================================
+
+html,
+body {
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+}
+
+html,
+body,
+input,
+button, {
+  font-family: $font-family-body;
+}
+
+
+// ==== Global ==============================
+// Base layout
+// ==========================================
+
+html {
+  display: flex;
+  min-height: 100%;
+
+  @include min-width(tp(base-dynamic-type)) {
+    font-size: calc(0.56rem + 0.5vw);
+  }
+}
+
+body {
+  background: module-color(base-bg) center no-repeat;
+  color: module-color(base-color);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: em($font-default-size);
+  width: 100%;
+}
+
+
+// ==== Global ==============================
+// Extras
+// ==========================================
+
+::selection {
+  background: module-color(base-selection-bg);
+  color: module-color(base-selection-color);
+}

@@ -1,0 +1,51 @@
+@charset 'UTF-8';
+
+// ==== Mixins ===========================================================
+// Type
+// =======================================================================
+
+
+// ==== Type ============================
+// em/rem size functions
+// ==========================================
+
+
+@function em($target, $content: $font-default-size) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $content + 0em; // sass-lint:disable-line zero-unit
+}
+
+@function rem($target, $content: $font-default-size) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $content + 0rem; // sass-lint:disable-line zero-unit
+}
+
+
+// ==== Type ============================
+// Font sizes function
+// ==========================================
+
+@mixin font-sizes($small, $big: 100, $min: 0) {
+
+  $breaks: bp(s), bp(m), tp(base-dynamic-type);
+
+  $step: ($big - $small) / length($breaks);
+
+  font-size: rem(if($small >= $min, $small, $min));
+
+  @for $i from 1 through length($breaks) {
+    $break: nth($breaks, $i);
+    $modifier: $small + ($i * $step);
+
+    @if ($modifier > $min) {
+
+      @include min-width($break) {
+        font-size: floor(rem($modifier) * 16) / 16;
+      }
+    }
+  }
+}
