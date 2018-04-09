@@ -1,5 +1,6 @@
 <template>
   <div
+    id="app"
     :class="[
       `page`,
       page.classes,
@@ -7,7 +8,6 @@
         'page--is-loaded': state.loaded,
       },
     ]"
-    id="app"
   >
 
     <ui-header/>

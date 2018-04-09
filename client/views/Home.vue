@@ -1,6 +1,6 @@
 <template>
   <main class="main main--home">
-    <module-block block="dark" :grow="true">
+    <module-block :grow="true" block="dark">
       <div class="group group--first-last">
         <h1 class="h1">Hello World!</h1>
 

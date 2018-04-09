@@ -1,5 +1,7 @@
 <template>
   <div
+    v-if="!field.conditional || (field.conditional && conditionalTrue)"
+
     :class="[
       'form__fieldset',
       {
@@ -12,8 +14,8 @@
         'form__fieldset--conditional': field.conditional,
       }
     ]"
+
     :data-form-fieldset="fieldId"
-    v-if="!field.conditional || (field.conditional && conditionalTrue)"
   >
 
     <!-- Label -->
@@ -27,7 +29,9 @@
     >
       <component
         v-if="!field.labelHidden"
+
         :is="labelTag"
+
         :class="[
           `form__label`,
           {
@@ -35,13 +39,14 @@
             'form__label--hidden': field.noLabel || fieldType === `boolean`,
           },
         ]"
+
         :for="fieldId"
       >
         {{ field.label }}
       </component>
 
       <!-- Label Helper -->
-      <span class="form__helper" v-if="!field.labelHidden">
+      <span v-if="!field.labelHidden" :class="`form__helper`">
         <template v-if="field.helper">{{ field.helper }}</template>
         <template v-else-if="fieldValidations.max && fieldValidations.min">{{ `${fieldValidations.min}–${fieldValidations.max} ${isType(`file`) ? `file` : `character`}(s)` }}</template>
         <template v-else-if="fieldValidations.max">{{ `${fieldValidations.max} ${isType(`file`) ? `file` : `character`}(s)` }} <abbr title="maximum">max.</abbr></template>
@@ -51,10 +56,13 @@
 
       <router-link
         v-if="field.forgot"
-        class="link"
+
+        :class="`link`"
+
         :to="{
           name: 'authReset',
         }"
+
         tabindex="-1"
       >
         Forgot?
@@ -69,10 +77,13 @@
           'form__field--toggle': isType(`toggle`),
         }
       ]"
+
       @click="focusField()"
     >
       <!-- Background -->
       <b
+        v-if="!isType(`toggle`)"
+
         :class="[
           'form__field-bg',
           {
@@ -80,11 +91,11 @@
             'form__field-bg--has-errors': valid.$error || serverError,
           }
         ]"
-        v-if="!isType(`toggle`)"
       />
 
       <b
         v-if="field.icon"
+
         :class="[
           `form__icon`,
           `form__icon--${field.icon}`,
@@ -92,22 +103,22 @@
       >
         <module-icon
           :icon="field.icon"
-          color="f-tertiary"
-          :width="48"
-          :height="48"
         />
       </b>
 
       <!-- Prefix -->
       <span
-        class="form__prefix"
         v-if="field.prefix"
+
+        :class="`form__prefix`"
+
         v-html="field.prefix"
       />
 
       <!-- Field -->
       <module-form-field
-        :id="fieldId"
+        ref="field"
+
         :class="[
           'form__input',
           'form__input--' + fieldType,
@@ -117,36 +128,46 @@
             'form__input--readonly': isReadonly,
           }
         ]"
+        :id="fieldId"
+
         :field="field"
         :form-id="formId"
         :min="numberMin"
         :max="numberMax"
         :step="numberStep"
+        :readonly="isReadonly"
+
         @focusBlur="onFocusBlur"
         @keydown.native="onKeydown($event)"
         @change="onChange"
         @fieldTouch="onFieldTouch"
-        :readonly="isReadonly"
-        ref="field"
       />
 
       <!-- Counter -->
-      <!-- <span class="small form__counter" v-if="isType('textarea')">{{ (value || '').length }}{{ (field.validations || {}).maxLength ? '/' + (field.validations || {}).maxLength : '' }}</span> -->
+      <span
+        v-if="isType('textarea')"
+
+        :class="[
+          `small`,
+          `form__counter`,
+        ]"
+      >
+        {{ (value || '').length }}{{ (field.validations || {}).maxLength ? '/' + (field.validations || {}).maxLength : '' }}
+      </span>
 
       <!-- Faux (Files) -->
       <module-button
         v-if="isType(`file`)"
+
         tag="span"
         button="tertiary"
-        size="xs"
-        :ghosted="true"
-        :uppercase="true"
       >
         Choose file
       </module-button>
       <span
-        class="form__input form__input--faux form__input--file-faux"
         v-if="isType(`file`)"
+
+        :class="`form__input form__input--faux form__input--file-faux`"
       >
         <template v-if="!previewEncoded.length">No file{{ field.multiple ? `s` : `` }} selected</template>
         <!-- <template v-else-if="!previewEncoded.length && previewImages.length">Choose other file{{ fieldValidations.maxLength > 1 ? `(s)` : `` }}</template> -->
@@ -158,7 +179,7 @@
       </span>
 
       <!-- Faux (Color) -->
-      <span class="p form__input form__input--faux" v-if="isType('color')">
+      <span v-if="isType('color')" :class="`p form__input form__input--faux`">
         <b aria-hidden="true">
           <b :style="{ backgroundColor: value }"/>
         </b><!--
@@ -171,21 +192,16 @@
       v-if="isType(`file`)"
       class="form-preview"
     >
-      <div class="form-preview__item" v-for="(image, index) in previewImages" :key="index">
+      <div v-for="(image, index) in previewImages" :key="index" :class="`form-preview__item`">
         <span
-          class="form-preview__image"
+          :class="`form-preview__image`"
           :style="{
             backgroundImage: `url(${image.thumbnail || image.image})`,
           }"
         />
-        <span class="form-preview__remove" v-if="field.remove && image.id" @click="$store.dispatch(field.remove, image.id)">
+        <span v-if="field.remove && image.id" :class="`form-preview__remove`" @click="$store.dispatch(field.remove, image.id)">
           <span class="visuallyhidden">Delete image</span>
-          <module-icon
-            icon="cross"
-            color="f-tertiary"
-            :width="32"
-            :height="32"
-          />
+          <module-icon icon="cross" />
         </span>
       </div>
     </div>

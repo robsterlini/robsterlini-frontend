@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    :to="to"
+
     :class="[
       'btn',
       icon ? 'btn--' + (negative ? 'negative' : 'positive') : '',
@@ -17,26 +17,29 @@
         'btn--success': success,
       }
     ]"
+
+    :disabled="disabled || loading || success"
+    :to="to"
+    :href="hrefSet"
+    :target="link ? `_blank` : false"
+
     @mouseover.native="onMouseEnter"
     @mouseover="onMouseEnter"
     @mouseleave.native="onMouseLeave"
     @mouseleave="onMouseLeave"
     @mousedown.native.prevent="onMouseDown"
     @mousedown.prevent="onMouseDown"
-    :disabled="disabled || loading || success"
     @click="onClick"
-    :href="hrefSet"
-    :target="link ? `_blank` : false"
   >
-    <b class="btn__bg" aria-hidden="true"/>
-    <module-spinner class="btn__spinner" :active="loading" />
-    <module-icon class="btn__success" icon="tick"/>
+    <b class="btn__bg" aria-hidden="true" />
+    <module-spinner :class="`btn__spinner`" :active="loading" />
+    <module-icon :class="`btn__success`" icon="tick" />
     <span class="btn__inner">
       <span class="btn__content">
         <span class="btn__label">
           <slot/>
         </span><!--
-        --><module-icon class="btn__icon" :icon="icon" v-if="icon" />
+        --><module-icon v-if="icon" :class="`btn__icon`" :icon="icon" />
       </span>
     </span>
   </component>

@@ -3,9 +3,12 @@
     <router-link
       v-for="route in menus"
       :key="route.path"
-      tag="li"
-      :to="{ name: route.path }"
+
       :class="['navigation__item', 'navigation__item--' + route.path]"
+
+      :to="{ name: route.path }"
+
+      tag="li"
     >
       <a class="navigation__link link">
         <span class="navigation__label">{{ route.name }}</span>

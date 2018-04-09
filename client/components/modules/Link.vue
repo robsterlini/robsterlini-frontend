@@ -1,24 +1,32 @@
 <template>
   <a
-    v-if="anchor"
-    :class="linkClass"
-    :href="`#${anchor}`"
     v-scroll-to="`#${anchor}`"
+
+    v-if="anchor"
+
+    :class="linkClass"
+
+    :href="`#${anchor}`"
   >
     {{ labelSet }}
   </a>
   <a
     v-else-if="!name && !to.name"
+
     :class="linkClass"
+
     :href="url"
+
     target="_blank"
   >
     {{ labelSet }}
   </a>
   <router-link
-    :class="linkClass"
-    :to="to"
     v-else
+
+    :class="linkClass"
+
+    :to="to"
   >
     {{ labelSet }}
   </router-link>

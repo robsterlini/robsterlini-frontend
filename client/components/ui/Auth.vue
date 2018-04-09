@@ -30,13 +30,13 @@
         :form-id="slug"
         :fields="fields[slug]"
 
-        :submit="submit"
-        button-size="l"
-        button="secondary"
-
         :action="requestAction"
         :success="success"
         :fail="fail"
+        :submit="submit"
+
+        button-size="l"
+        button="secondary"
       />
     </div>
 

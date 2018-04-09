@@ -16,21 +16,22 @@
       @fieldReset="onFieldReset(key)"
     />
 
-    <p class="form__errors" v-if="serverErrors._global">{{ serverErrors._global }}</p>
+    <p v-if="serverErrors._global" :class="`form__errors`">{{ serverErrors._global }}</p>
 
-    <div :class="[hideSubmit ? 'visuallyhidden' : 'form__submit']" v-if="!noSubmit">
+    <div v-if="!noSubmit" :class="[hideSubmit ? 'visuallyhidden' : 'form__submit']">
       <module-button
-        type="submit"
-        :button="button || ''"
-        :size="buttonSize || ''"
-        :disabled="$v.$invalid || invalid"
-        :loading="status.loading"
-        :success="status.success"
         :class="[
           {
             'btn--hidden': hideSubmit,
           }
         ]"
+
+        :button="button || ''"
+        :size="buttonSize || ''"
+        :disabled="$v.$invalid || invalid"
+        :loading="status.loading"
+        :success="status.success"
+        type="submit"
       >
         {{ submit || `Submit` }}
       </module-button>

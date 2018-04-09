@@ -6,7 +6,7 @@
   >
 
     <div class="group">
-      <router-link class="header__logo" :to="{ name: 'home' }">
+      <router-link :class="`header__logo`" :to="{ name: 'home' }">
         <module-logo/>
       </router-link>
 
