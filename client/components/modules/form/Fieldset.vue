@@ -430,7 +430,7 @@ export default {
     checkConditional(value) {
       if (value === null) { return false; }
 
-      this.$store.commit(`forms/toggleValidation`, { // TODO: mapMutations
+      this.$store.commit(`forms/TOGGLE_VALIDATION`, { // TODO: mapMutations
         form: this.formId,
         key: this.fieldId,
         field: this.field,

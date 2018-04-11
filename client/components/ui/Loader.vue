@@ -2,7 +2,6 @@
   <div
     :class="[
       'loader',
-      `loader--${custom}`,
       {
         'loader--intro': isIntro,
         'is--active': active,
@@ -40,9 +39,6 @@ export default {
     },
     isIntro() {
       return this.appState.intro;
-    },
-    custom() {
-      return this.$store.state.app.transition.main || `default`;
     },
   },
 };

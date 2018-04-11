@@ -1,7 +1,7 @@
 {
-  "name": "vue-boilerplate",
+  "name": "vue-init",
   "version": "0.1.0",
-  "description": "Fueled Vue Boilerplate",
+  "description": "Fueled Vue Init",
   "main": "client/index.js",
   "scripts": {
     "test": "",
