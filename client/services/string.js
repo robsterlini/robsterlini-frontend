@@ -6,6 +6,8 @@ const toCapitalizedCase = (string) => string ? string.charAt(0).toUpperCase() + 
 
 const toKebabCase = (string) => string ? string.replace(/([a-z])([A-Z])/g, `$1-$2`).toLowerCase() : ``;
 
+const toPlural = (count = 0, string = ``, plural = false) => !string || count === 1 ? string : (plural || `${string}s`);
+
 const stringifyObject = (jsonObj, level = 0) => {
   // Use native stringify for anything that isn’t an object
   if (typeof jsonObj === `string`) {
@@ -55,5 +57,6 @@ const stringifyObject = (jsonObj, level = 0) => {
 export {
   toCapitalizedCase,
   toKebabCase,
+  toPlural,
   stringifyObject,
 };

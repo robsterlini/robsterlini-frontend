@@ -27,7 +27,7 @@ $h1-font-size-l: 64;
 $h1-font-size-s: 48;
 
 // H2
-$h2-font-size-l: 52;
+$h2-font-size-l: 48;
 $h2-font-size-s: 36;
 
 // H3
@@ -127,6 +127,11 @@ $form-border-width: 2px;
 
 // List
 $list-indent: rem(25);
+
+// Logo
+$logo-width: 56;
+$logo-height: 56;
+$logo-width-rem: rem($logo-width);
 
 // Styleguide
 $styleguide-sidebar-width: rem(310);

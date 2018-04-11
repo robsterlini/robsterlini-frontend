@@ -6,8 +6,22 @@
 
         <h2 class="h2">Auth</h2>
         <ul>
-          <li><router-link :to="{ name: `login` }">Log in</router-link></li>
+          <li v-for="(auth, name) in authFlow" :key="name">
+            <router-link :to="{ name }">{{ auth }}</router-link>
+          </li>
         </ul>
+
+        <h2 class="h2">Helpers</h2>
+        <h3 class="h3">Plural <code>toPlural</code></h3>
+        <p>{{ countStr }}</p>
+        <module-button
+          button="dark"
+          level="tertiary"
+
+          @click.native="increaseCounter"
+        >
+          Increase counter
+        </module-button>
       </div>
     </module-block>
   </main>
@@ -19,9 +33,11 @@ import meta from 'models/global/meta';
 
 // Services
 import { createMeta } from 'services/meta';
+import { toPlural } from 'services/string';
 
 // Modules
 import ModuleBlock from 'modules/Block';
+import ModuleButton from 'modules/Button';
 
 // Export
 export default {
@@ -36,18 +52,33 @@ export default {
   // Components
   components: {
     ModuleBlock,
+    ModuleButton,
   },
 
   // Data
   data () {
     return {
-
+      count: 0,
+      authFlow: {
+        login: `Log In`,
+        logout: `Log Out`,
+        register: `Register`,
+        authReset: `Reset`,
+      },
     };
+  },
+  computed: {
+    countStr() {
+      const count = this.count;
+      return `${count} ${toPlural(count, `item`)}, ${count} ${toPlural(count, `country`, `countries`)}`;
+    },
   },
 
   // Methods
   methods: {
-
+    increaseCounter() {
+      this.count++;
+    },
   },
 };
 </script>

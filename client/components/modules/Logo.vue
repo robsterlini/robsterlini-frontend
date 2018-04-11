@@ -2,11 +2,11 @@
   <span
     :class="[
       'logo',
-      color ? `logo--${color}` : ``,
     ]"
   >
     <span class="logo__inner">
-      {{ labelSet }}
+      <image-brand-logo class="logo__image" />
+      <span class="visuallyhidden">{{ label }}</span>
     </span>
   </span>
 </template>
@@ -15,25 +15,22 @@
 // Models
 import config from 'models/global/config';
 
+// Images
+import ImageBrandLogo from 'images/brand/logo.svg?inline';
+
 // Export
 export default {
   name: `module-logo`,
 
   // Components
   components: {
-
-  },
-
-  // Props
-  props: {
-    color: String,
-    label: String,
+    ImageBrandLogo,
   },
 
   // Data
   computed: {
-    labelSet() {
-      return this.label || config.name;
+    label() {
+      return config.name;
     },
   },
 };

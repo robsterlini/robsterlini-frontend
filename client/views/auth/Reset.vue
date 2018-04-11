@@ -9,7 +9,7 @@
       submit="Forgot Password"
       action="requestResetPassword"
     >
-      <span slot="link">Remembered your password? <router-link :to="{ name: 'Login' }">Log in</router-link></span>
+      <span slot="link">Remembered your password? <router-link :to="{ name: 'login' }">Log in</router-link></span>
     </ui-auth>
   </main>
 </template>

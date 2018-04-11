@@ -12,10 +12,22 @@
 .logo {
   display: block;
   max-width: 100%;
-  width: rem(56); // TODO: Var
+  width: $logo-width-rem;
 
   &__inner {
     display: block;
+    padding-top: $logo-height / $logo-width * 100%;
     position: relative;
+  }
+
+  &__image {
+    @include cover;
+
+    height: 100%;
+    width: 100%;
+
+    path {
+      fill: currentColor;
+    }
   }
 }
