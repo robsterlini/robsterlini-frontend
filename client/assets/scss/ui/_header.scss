@@ -13,8 +13,9 @@
   background: module-color(header-bg);
   color: module-color(header-color);
   left: 0;
-  position: relative;
+  position: fixed;
   width: 100%;
+  z-index: $loader-z-index + 1;
 
   .group {
     align-items: center;

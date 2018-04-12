@@ -61,7 +61,7 @@ const actions = {
     commit(`SET_TOKEN`, ``);
     dispatch(`resetUser`);
     setTimeout(() => {
-      router.push({ name: `Home` });
+      router.push({ name: `home` });
     }, 500);
   },
 

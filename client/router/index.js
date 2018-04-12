@@ -2,8 +2,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// Store
+// Vuex
 import store from 'store';
+
+// Config
+import config from 'models/global/config';
 
 // Async load function that handles loading
 const loadAsyncPage = (pageImport) => {
@@ -21,7 +24,7 @@ const loadAsyncPage = (pageImport) => {
             store.dispatch(`app/init`);
           }
 
-        }, store.state.app.state.init ? 0 : 500);
+        }, store.state.app.state.init ? 0 : config.transitionDuration);
 
         resolve(component);
       });

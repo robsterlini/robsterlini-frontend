@@ -18,7 +18,7 @@
       @enter="onLoad()"
       @leave="onLeave()"
     >
-      <router-view :loaded="!appState.loading" :key="$route.fullPath"/>
+      <router-view :key="$route.fullPath"/>
     </transition>
 
     <ui-footer/>

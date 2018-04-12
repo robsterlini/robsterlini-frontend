@@ -17,9 +17,8 @@ const state =  {
   },
   state: {
     init: false,
-    loading: false,
+    loading: true,
     loaded: false,
-    intro: false,
   },
 };
 

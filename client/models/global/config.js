@@ -11,5 +11,5 @@ export default {
   meta: {
     separator: ` • `,
   },
-  transitionDuration: 500,
+  transitionDuration: 300,
 };

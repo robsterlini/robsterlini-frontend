@@ -3,13 +3,13 @@
     :class="[
       'loader',
       {
-        'loader--intro': isIntro,
-        'is--active': active,
+        'loader--intro': appState.intro,
+        'is--intro': !appState.init,
+        'is--active': appState.loading && appState.init,
       }
     ]"
   >
-    <div class="loader__layer"/>
-    <module-logo/>
+    <div class="loader__layer" />
   </div>
 </template>
 
@@ -17,29 +17,15 @@
 // Vuex
 import { mapGetters } from 'vuex';
 
-// Modules
-import ModuleLogo from 'modules/Logo';
-
 // Export
 export default {
   name: `ui-loader`,
-
-  // Components
-  components: {
-    ModuleLogo,
-  },
 
   // Data
   computed: {
     ...mapGetters(`app`, [
       `appState`,
     ]),
-    active() {
-      return this.appState.loading;
-    },
-    isIntro() {
-      return this.appState.intro;
-    },
   },
 };
 </script>

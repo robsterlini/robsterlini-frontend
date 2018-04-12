@@ -100,7 +100,7 @@ $module-colors: (
   link-accent: color(accent),
 
   // Loader
-  loader-bg: color(accent),
+  loader-bg: color(light), // WHY: Matches module-color(base-bg)
 );
 // sass-lint:enable no-color-keywords
 
