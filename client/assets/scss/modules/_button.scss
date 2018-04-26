@@ -27,8 +27,8 @@ $btn-border-width: rem(3);
   font: inherit;
   font-weight: 600; // TODO: Var
   letter-spacing: 0.02em;
-  line-height: $icon-size;
-  margin: 2em $base-gutter 0.5em 0;
+  line-height: unit(icon-width);
+  margin: 2em unit(base-gutter) 0.5em 0;
   outline: 0;
   position: relative;
   text-decoration: none;
@@ -71,7 +71,7 @@ $btn-border-width: rem(3);
   &__label {
     display: block;
     font: inherit;
-    line-height: $icon-size;
+    line-height: unit(icon-width);
     position: relative;
     z-index: 2;
   }
@@ -85,7 +85,7 @@ $btn-border-width: rem(3);
   }
 
   &__success {
-    margin: $icon-size / -2 0 0 $icon-size / -2;
+    margin: unit(icon-width) / -2 0 0 unit(icon-width) / -2;
     transition:
       opacity $timing-button $easing; // sass-lint:disable-line indentation
 
@@ -96,9 +96,9 @@ $btn-border-width: rem(3);
   }
 
   .spinner {
-    margin: $icon-size / -2 0 0 $icon-size / -2;
+    margin: unit(icon-width) / -2 0 0 unit(icon-width) / -2;
     transition-duration: $timing-button;
-    width: $icon-size;
+    width: unit(icon-width);
 
     @at-root {
 
@@ -218,7 +218,7 @@ $btn-border-width: rem(3);
 
     .btn__icon {
       fill: currentColor;
-      margin-top: $icon-size / -2;
+      margin-top: unit(icon-width) / -2;
       position: absolute;
       top: 50%;
     }
@@ -243,7 +243,7 @@ $btn-border-width: rem(3);
     }
 
     .btn__content {
-      padding-right: $icon-size + $btn-icon-spacing;
+      padding-right: unit(icon-width) + $btn-icon-spacing;
     }
   }
 
@@ -254,7 +254,7 @@ $btn-border-width: rem(3);
     }
 
     .btn__content {
-      padding-left: $icon-size + $btn-icon-spacing;
+      padding-left: unit(icon-width) + $btn-icon-spacing;
     }
   }
 }

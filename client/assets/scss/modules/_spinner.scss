@@ -11,7 +11,7 @@
 
 .spinner {
   display: block;
-  margin: $base-gutter auto;
+  margin: unit(base-gutter) auto;
   max-width: rem(50);
   position: relative;
   transform: scale(0);

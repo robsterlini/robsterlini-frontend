@@ -25,10 +25,10 @@
   &__logo {
     color: inherit;
     display: inline-block;
-    height: $header-logo-height;
-    margin:  ($header-height - $header-logo-height) / 2;
+    height: unit(header-logo-width);
+    margin: (unit(header-height) - unit(header-logo-width)) / 2;
     vertical-align: middle;
-    width: $header-logo-height;
+    width: unit(header-logo-width);
     z-index: 1;
 
     .logo {

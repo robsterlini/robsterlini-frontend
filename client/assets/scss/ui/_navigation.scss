@@ -25,8 +25,8 @@
   &__link {
     color: inherit;
     display: block;
-    line-height: $navigation-item-height - ($navigation-item-padding * 2);
-    padding: $navigation-item-padding;
+    line-height: unit(navigation-item-height) - (unit(navigation-item-padding) * 2);
+    padding: unit(navigation-item-padding);
     text-decoration: none;
 
     @at-root {
@@ -43,9 +43,5 @@
     .router-link-active > & {
       @extend %nav-link-active;
     }
-  }
-
-  &__icon {
-    margin-left: $icon-spacing;
   }
 }

@@ -12,10 +12,10 @@
 .icon {
   display: inline-block;
   fill: currentColor;
-  height: $icon-size;
+  height: unit(icon-width);
   position: relative;
   vertical-align: middle;
-  width: $icon-size;
+  width: unit(icon-width);
 
   > svg {
     @include cover;

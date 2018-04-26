@@ -36,16 +36,6 @@
   @include font-sizes($h3-font-size-s, $h3-font-size-l);
 }
 
-%h-pre {
-  @extend %heading;
-
-  @include font-sizes($h-pre-font-size-s, $h-pre-font-size-l);
-
-  font-style: italic;
-  font-weight: 400; // TODO: Var
-  letter-spacing: 0.0125em;
-}
-
 %heading-small {
   display: block;
   font-weight: 600; // TODO: Var
@@ -200,15 +190,6 @@
   @extend %blockquote;
 }
 
-.h--pre {
-  @extend %h-pre;
-
-  + .h1,
-  + .h2 {
-    margin-top: 0.5em;
-  }
-}
-
 
 // ==== Typography ==========================
 // Modifiers
@@ -301,16 +282,16 @@ ul {
     @extend %p;
 
     counter-reset: section;
-    padding-left: $base-gutter * 1.5;
+    padding-left: unit(base-gutter) * 1.5;
 
     @include min-width(500) {
-      padding-left: $base-gutter * 2;
+      padding-left: unit(base-gutter) * 2;
     }
 
     li {
       display: block;
       padding-left: 0;
-      text-indent: $base-gutter * -3;
+      text-indent: unit(base-gutter) * -3;
 
       &::before {
         content: '•';
@@ -318,11 +299,11 @@ ul {
         font-variant-numeric: tabular-nums;
         font-weight: font-weight(medium);
         letter-spacing: -0.03em;
-        margin-left: $base-gutter / -2;
-        padding-right: $base-gutter / 2;
+        margin-left: unit(base-gutter) / -2;
+        padding-right: unit(base-gutter) / 2;
         text-align: right;
         text-indent: 0;
-        width: $base-gutter * 3;
+        width: unit(base-gutter) * 3;
       }
 
       dl,

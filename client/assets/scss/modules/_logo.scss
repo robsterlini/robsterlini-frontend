@@ -12,7 +12,7 @@
 .logo {
   display: block;
   max-width: 100%;
-  width: $logo-width-rem;
+  width: unit(logo-width);
 
   &__inner {
     display: block;
