@@ -20,12 +20,21 @@ const state =  {
     loading: true,
     loaded: false,
   },
+  viewport: {
+    height: null,
+    width: null,
+  },
+  touch: null,
 };
 
 // Getters
 const getters = {
   appState: state => state.state,
   appPage: state => state.page,
+  viewportHeight: state => state.viewport.height,
+  viewportWidth: state => state.viewport.width,
+  viewportMobile: state => state.viewport.width < 768,
+  touch: state => state.touch === null ? null : !!state.touch,
 };
 
 // Mutations
@@ -42,6 +51,13 @@ const mutations = {
     if (!key) return;
 
     Vue.set(state.state, key, false);
+  },
+  UPDATE_VIEWPORT (state, viewport) {
+    state.viewport.height = viewport[0];
+    state.viewport.width = viewport[1];
+  },
+  SET_TOUCH (state, touch) {
+    state.touch = touch;
   },
 };
 
@@ -89,6 +105,24 @@ const actions = {
     setTimeout(() => {
       commit(`SET_STATE`, `loaded`);
     }, config.transitionDuration);
+  },
+
+  updateViewport({ commit }) {
+    clearTimeout(window.updateViewport);
+
+    // WHY: Debounces the update to only fire after all has been resized
+    window.updateViewport = setTimeout(() => {
+      commit(`UPDATE_VIEWPORT`, [
+        window.innerHeight,
+        window.innerWidth,
+      ]);
+    }, 100);
+  },
+
+  setTouch({ commit }) {
+    const isTouch = `ontouchstart` in window || navigator.maxTouchPoints; // WHY: https://stackoverflow.com/a/4819886/2599650
+
+    commit(`SET_TOUCH`, isTouch);
   },
 };
 

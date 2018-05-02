@@ -293,7 +293,7 @@ export default {
       return !!this.value;
     },
     valid() {
-      return this.getForm(this.formId).valid[this.fieldId];
+      return this.getForm(this.formId).valid[this.fieldId] || {};
     },
     labelTag() {
       return this.isType(`toggle`) ? `legend` : `label`;

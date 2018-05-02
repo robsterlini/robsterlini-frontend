@@ -24,6 +24,13 @@
     <ui-footer/>
 
     <ui-loader/>
+
+    <module-modal
+      id="login"
+      :auto="true"
+      :no-close="true"
+      auth="login"
+    />
   </div>
 </template>
 
@@ -43,7 +50,11 @@ import { createMeta } from 'services/meta';
 // Models
 import config from 'models/global/config';
 
+// Modules
+import ModuleModal from 'modules/Modal';
+
 // UI
+import UiAuth from 'ui/Auth';
 import UiHeader from 'ui/Header';
 import UiFooter from 'ui/Footer';
 import UiLoader from 'ui/Loader';
@@ -89,6 +100,8 @@ export default {
 
   // Components
   components: {
+    ModuleModal,
+    UiAuth,
     UiHeader,
     UiFooter,
     UiLoader,
@@ -103,6 +116,17 @@ export default {
       `appState`,
       `appPage`,
     ]),
+    ...mapGetters(`modals`, [
+      `modalActive`,
+    ]),
+  },
+  watch: {
+    modalActive(active) {
+      const classList = document.body.classList;
+      const className = `body--modal-open`;
+
+      active ? classList.add(className) : classList.remove(className);
+    },
   },
 
   // Methods
@@ -111,13 +135,19 @@ export default {
       `openLoader`,
       `updatePage`,
       `closeLoader`,
+      `updateViewport`,
+      `setTouch`,
     ]),
     ...mapActions(`meta`, [
       `updateMeta`,
       `updateMetaTitle`,
     ]),
+    ...mapActions(`modals`, [
+      `closeModal`,
+    ]),
     onLeave() {
       this.openLoader();
+      this.closeModal();
     },
     onLoad() {
       this.updatePage();
@@ -126,6 +156,17 @@ export default {
         this.closeLoader();
       }
     },
+  },
+
+  // Lifecycle
+  created() {
+    this.updateViewport();
+    this.setTouch();
+
+    window.addEventListener(`resize`, () => this.updateViewport(), true);
+  },
+  destroyed() {
+    window.removeEventListener(`resize`, () => this.updateViewport(), true);
   },
 };
 </script>

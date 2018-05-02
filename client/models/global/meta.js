@@ -15,4 +15,12 @@ export default {
       noIndex: true,
     },
   },
+
+  terms: {
+    title: `Terms`,
+    meta: {
+      description: `Terms page description`,
+      noIndex: true,
+    },
+  },
 };

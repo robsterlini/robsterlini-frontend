@@ -5,8 +5,6 @@
       copy="Enter your new password."
       success-copy="Password reset!"
       slug="confirm"
-      submit="Set Password"
-      action="requestConfirmPassword"
     >
       <span slot="link">{{ status.success ? `` : `Remembered your password?` }} <router-link :to="{ name: 'Login' }">Log in</router-link></span>
     </ui-auth>

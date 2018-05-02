@@ -1,7 +1,7 @@
 <template>
   <footer class="block--accent footer">
     <div class="group">
-      Footer here
+      &copy; Copyright {{ new Date().getFullYear() }} • <router-link :to="{ name: `terms` }">Terms</router-link>
     </div>
   </footer>
 </template>

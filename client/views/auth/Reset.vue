@@ -6,8 +6,6 @@
       title="Forgotten Password"
       copy="Enter the address associated with your account. We’ll send you instructions on how to reset your password."
       slug="reset"
-      submit="Forgot Password"
-      action="requestResetPassword"
     >
       <span slot="link">Remembered your password? <router-link :to="{ name: 'login' }">Log in</router-link></span>
     </ui-auth>

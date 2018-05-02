@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run development"
+
+[context.dev]
+  command = "npm run development"
+
+[context.qa]
+  command = "npm run qa"
+
+[context.staging]
+  command = "npm run build"

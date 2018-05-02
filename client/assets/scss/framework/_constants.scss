@@ -19,7 +19,7 @@ $font-family-mono: monospace;
 
 // Variables
 $line-height-body: 1.5;
-$line-height-header: 0.9;
+$line-height-header: 1.25;
 $strong-weight: 600;
 
 // H1
@@ -27,11 +27,11 @@ $h1-font-size-l: 64;
 $h1-font-size-s: 48;
 
 // H2
-$h2-font-size-l: 48;
-$h2-font-size-s: 36;
+$h2-font-size-l: 42;
+$h2-font-size-s: 32;
 
 // H3
-$h3-font-size-l: 36;
+$h3-font-size-l: 32;
 $h3-font-size-s: 24;
 
 // H4
@@ -111,6 +111,7 @@ $timing: 250ms;
 $timing-transition: 300ms;
 $timing-button: $timing;
 $timing-link: $timing;
+$timing-modal: 300ms;
 
 
 // ==== Constants ===========================
@@ -136,6 +137,9 @@ $units: (
   // Base
   base-gutter: unit(2),
 
+  // Auth
+  auth-width: rem(400),
+
   // Form
   // TODO: Abstract from _form.scss
 
@@ -148,6 +152,14 @@ $units: (
 
   // Logo
   logo-width: rem($logo-width),
+
+  // Modal
+  modal-padding: unit(2),
+  modal-wrapper-border-radius: rem(4),
+  modal-wrapper-width: rem(800),
+  modal-content-padding: unit(4),
+  modal-content-padding-mobile: unit(2),
+  modal-content-height: rem(400),
 
   // Navigation
   navigation-item-height: rem(48),
@@ -173,4 +185,7 @@ $tweakpoints: (
   // Base
   base-layout-wide: bp(s),
   base-dynamic-type: $base-dynamic-type,
+
+  // Modal
+  modal-mobile: bp(s),
 );

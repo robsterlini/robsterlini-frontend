@@ -232,8 +232,16 @@ ul {
 
 .typeset {
 
+  &--terms {
+    max-width: rem(720); // TODO: Var
+  }
+
   h1 {
     @extend %h1;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   h2 {

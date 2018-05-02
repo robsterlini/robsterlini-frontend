@@ -1,4 +1,7 @@
 <script>
+// Vuex
+import { mapGetters } from 'vuex';
+
 // Dependencies
 import autosize from 'autosize';
 
@@ -26,13 +29,18 @@ export default {
 
   // Data
   computed: {
+    ...mapGetters(`forms`, [
+      `getModel`,
+    ]),
     isResizeable() {
       const field = this.field;
 
       return field.type === `textarea` && field.resize === true;
     },
     storeValue() {
-      return this.$store.state.forms[this.formId].model[this.id];
+      const model = this.getModel(this.formId) || {};
+      return model[this.id] || null;
+      // return this.$store.state.forms[this.formId].model[this.id];
     },
   },
   watch: {
@@ -70,7 +78,7 @@ export default {
     const children = [];
 
     let tag = `input`;
-    let value = this.$store.state.forms[this.formId].model[this.id]; // TODO: Getter
+    let value = this.storeValue;
 
     const eventObj = {
       event: `input`,

@@ -72,7 +72,7 @@ const actions = {
           dispatch(`updateUser`, response.data || {});
           resolve(response);
           const path = state.redirect;
-          router.push(path ? { path } : { name: `Home` });
+          router.push(path ? { path } : { name: `home` });
           dispatch(`storeRedirect`, ``);
         })
         .catch(error => {

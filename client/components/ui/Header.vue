@@ -29,8 +29,8 @@ export default {
 
   // Components
   components: {
-    UiNavigation,
     ModuleLogo,
+    UiNavigation,
   },
 
   // Data

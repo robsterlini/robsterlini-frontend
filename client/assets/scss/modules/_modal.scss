@@ -1,0 +1,145 @@
+@charset 'UTF-8';
+
+// ==== Modules ==========================================================
+// Modal
+// =======================================================================
+
+
+// ==== Modal ===============================
+// Base
+// ==========================================
+
+.body--modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  display: flex;
+  opacity: 0;
+  padding: unit(modal-padding);
+  position: fixed;
+  transform: translate3d(-100%, 0, 0);
+  // sass-lint:disable indentation
+  transition:
+    opacity $timing-modal $easing,
+    transform 0ms $timing-modal;
+  // sass-lint:enable indentation
+  z-index: 999; // TODO: Var
+
+  &--active {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0ms;
+  }
+
+  &__bg {
+    background: module-color(modal-bg);
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    background: module-color(modal-wrapper-bg);
+    border-radius: unit(modal-wrapper-border-radius);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-height: 100%;
+    max-width: unit(modal-wrapper-width);
+    position: relative;
+    transform: translate3d(0, -#{unit(modal-padding) / 2}, 0);
+    transition: transform $timing-modal $timing-modal $easing;
+    width: 100%;
+
+    .modal--active & {
+      transform: none;
+      transition-delay: 0ms;
+    }
+
+    > div {
+
+      &:first-child {
+        border-top-left-radius: unit(modal-wrapper-border-radius);
+        border-top-right-radius: unit(modal-wrapper-border-radius);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: unit(modal-wrapper-border-radius);
+        border-bottom-right-radius: unit(modal-wrapper-border-radius);
+      }
+    }
+  }
+
+  @at-root {
+
+    %modal-padding {
+      padding: unit(modal-content-padding-mobile);
+
+      @include min-width(tp(modal-mobile)) {
+        padding: unit(modal-content-padding);
+      }
+    }
+  }
+
+  &__header {
+    @extend %modal-padding;
+
+    background: module-color(modal-header-bg);
+    color: module-color(modal-header-color);
+    padding-right: unit(modal-content-padding-mobile) * 1.5 + unit(icon-width);
+    position: relative;
+
+    @include min-width(tp(modal-mobile)) {
+      padding-right: unit(modal-content-padding-mobile) * 1.5 + unit(icon-width);
+    }
+
+    .modal__close {
+      margin-top: unit(icon-width) / -2;
+      top: 50%;
+    }
+  }
+
+  &__footer {
+    @extend %modal-padding;
+
+    background: module-color(modal-footer-bg);
+    color: module-color(modal-footer-color);
+  }
+
+  &__content {
+    @extend %modal-padding;
+
+    overflow-y: auto;
+  }
+
+  &__inner {
+    min-height: unit(modal-content-height);
+
+    &::before,
+    &::after {
+      content: '';
+      display: table;
+    }
+
+    .modal--auto & {
+      min-height: 0;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: unit(modal-content-padding-mobile);
+    z-index: 2;
+
+    @include min-width(tp(modal-mobile)) {
+      right: unit(modal-content-padding);
+    }
+  }
+
+  &__float {
+    display: block;
+    float: right;
+    height: unit(icon-width) + unit(modal-content-padding);
+    margin: unit(modal-content-padding) / -2 unit(modal-content-padding) / -2 0 0;
+    width: unit(icon-width) + unit(modal-content-padding);
+  }
+}

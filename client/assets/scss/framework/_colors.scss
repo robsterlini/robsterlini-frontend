@@ -87,7 +87,6 @@ $module-colors: (
   // Header
   header-bg: color(accent),
   header-color: color(white),
-  header-pretitle-color: rgba(color(white), 0.5),
 
   // Home
   home-bg: color(accent),
@@ -101,6 +100,14 @@ $module-colors: (
 
   // Loader
   loader-bg: color(light), // WHY: Matches module-color(base-bg)
+
+  // Modal
+  modal-bg: rgba(color(dark), 0.5),
+  modal-wrapper-bg: color(light),
+  modal-header-bg: color(accent),
+  modal-header-color: color(white),
+  modal-footer-bg: color(mid),
+  modal-footer-color: color(white),
 );
 // sass-lint:enable no-color-keywords
 

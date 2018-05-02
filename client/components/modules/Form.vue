@@ -135,9 +135,13 @@ export default {
       `updateValid`,
     ]),
     onFieldTouch(id) {
+      if (!this.$v.model[id]) return;
+
       this.$v.model[id].$touch();
     },
     onFieldReset(id) {
+      if (!this.$v.model[id]) return;
+
       this.$v.model[id].$reset();
     },
     submitForm() {
@@ -207,9 +211,9 @@ export default {
   },
   destroyed() {
     if (this.doNotReset !== true) {
-      setTimeout(() => {
-        this.$store.commit(`forms/resetForm`, this.formId);
-      }, 500);
+      this.$store.commit(`forms/resetForm`, this.formId); // TODO: make action and map
+      // setTimeout(() => {
+      // }, 500);
     }
   },
 

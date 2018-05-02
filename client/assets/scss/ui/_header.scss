@@ -36,22 +36,6 @@
     }
   }
 
-  &__title {
-    display: inline-block;
-    line-height: rem(26);
-    margin: 0;
-    vertical-align: middle;
-
-    span {
-
-      &:first-child {
-        color: module-color(header-pretitle-color);
-        display: inline-block;
-        margin-right: rem(10);
-      }
-    }
-  }
-
   .navigation {
     display: inline-block;
     margin: 0;

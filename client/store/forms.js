@@ -10,7 +10,7 @@ const state = {};
 
 // Getters
 const getters = {
-  getForm: (state) => (slug) => state[slug],
+  getForm: (state) => (slug) => state[slug] || {},
   getModel: (state) => (slug) => {
     const model = {};
     const form = state[slug] || {};
@@ -62,7 +62,7 @@ const mutations = { // TODO: Rename with
   },
   resetForm (state, payload) {
     if (state[payload]) {
-      Vue.set(state, payload, null);
+      Vue.set(state, payload, {});
     }
   },
 };
@@ -73,7 +73,8 @@ const actions = {
     const id = payload.id;
     const fields = payload.fields;
 
-    if (state[id] && state[id] !== null) {
+    // console.log(JSON.stringify(state[id]), JSON.stringify({}));
+    if (state[id] && JSON.stringify(state[id]) !== JSON.stringify({})) {
       console.warn(`Form already initialised`);
       return false;
     }
