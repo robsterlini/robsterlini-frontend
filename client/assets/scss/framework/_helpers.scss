@@ -35,10 +35,31 @@
   display: table;
 }
 
+.dib {
+  display: inline-block;
+}
+
+
+// ==== Helpers =============================
+// Vertical Alignment
+// ==========================================
+
+.vam {
+  vertical-align: middle;
+}
+
 
 // ==== Helpers =============================
 // Margins
 // ==========================================
+
+.mt {
+  margin-top: unit(base-gutter);
+}
+
+.mb {
+  margin-top: unit(base-gutter);
+}
 
 .mt0 {
   margin-top: 0;

@@ -1,14 +1,42 @@
 'use strict';
 
+// Services
 import { arrayLoop } from 'services/array';
 
-const toCapitalizedCase = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : ``;
 
-const toKebabCase = (string) => string ? string.replace(/([a-z])([A-Z])/g, `$1-$2`).toLowerCase() : ``;
+// @function toCapitalizedCase(string)
+// Capitalize the first character of a string
+//
+// @param {string} string – The string to capitalize
+// @returns {string} Capitalized string
+export const toCapitalizedCase = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : ``;
 
-const toPlural = (count = 0, string = ``, plural = false) => !string || count === 1 ? string : (plural || `${string}s`);
 
-const stringifyObject = (jsonObj, level = 0) => {
+// @function toKebabCase(string)
+// Turn a camelCase string into a kebab-case-string
+//
+// @param {string} string – The camelCase string to kebab-case
+// @returns {string} camelCase string
+export const toKebabCase = (string) => string ? string.replace(/([a-z])([A-Z])/g, `$1-$2`).toLowerCase() : ``;
+
+
+// @function toPlural(count, string, plural)
+// Pluralize strings by adding s or specifying a plural based on the count
+//
+// @param {number} count – The number by which to pluralized
+// @param {string} string – The string
+// @param {string} [plural] – A plural string
+// @returns {string} Pluralized string
+export const toPlural = (count = 0, string = ``, plural = false) => !string || count === 1 ? string : (plural || `${string}s`);
+
+
+// @function stringifyObject(jsonObj, level)
+// Convert any JSON/JS object into a string that conforms to our JS linting rules
+//
+// @param {array|object} jsonObj – The object to stringify
+// @param {number=0} level – The depth of object (i.e. the number of tabs to add)
+// @returns {string} – strigified object
+export const stringifyObject = (jsonObj, level = 0) => {
   // Use native stringify for anything that isn’t an object
   if (typeof jsonObj === `string`) {
     return `\`${jsonObj}\``;
@@ -52,11 +80,4 @@ const stringifyObject = (jsonObj, level = 0) => {
   });
 
   return obj ? `{ ${obj}\n${indent}}` : `{}`;
-};
-
-export {
-  toCapitalizedCase,
-  toKebabCase,
-  toPlural,
-  stringifyObject,
 };

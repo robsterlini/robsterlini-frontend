@@ -18,15 +18,16 @@ $base-colors: (
   // Greyscale
   light: #F5F5F1,
   light-mix: mix(mix(#161616, #F5F5F1), white, 20%),
-
   mid-light: mix(#161616, #F5F5F1, 25%),
   mid: mix(#161616, #F5F5F1),
   mid-dark: #414141,
-
   dark: #161616,
 
   // Brand
   accent: #AE0000,
+
+  // States
+  success: green,
 );
 // sass-lint:enable no-color-keywords
 
@@ -62,17 +63,25 @@ $module-colors: (
   block-mid-color: color(dark),
 
   // Buttons
-  button-light-color: color(accent),
-  button-light-color-hover: color(white),
-  button-light-bg-hover: color(accent),
+  button-primary-color: color(white),
+  button-primary-bg: color(accent),
+  button-primary-bg-hover: darken(color(accent), 5%),
+  button-primary-border: darken(color(accent), 5%),
 
-  button-accent-color: color(light),
-  button-accent-color-hover: color(accent),
-  button-accent-bg-hover: color(light),
+  button-secondary-color: color(white),
+  button-secondary-bg: color(dark),
+  button-secondary-bg-hover: lighten(color(dark), 10%),
+  button-secondary-border: lighten(color(dark), 10%),
 
-  button-dark-color: color(light),
-  button-dark-color-hover: color(dark),
-  button-dark-bg-hover: color(light),
+  button-tertiary-color: color(dark),
+  button-tertiary-bg: lighten(color(light), 3%),
+  button-tertiary-bg-hover: lighten(color(light), 5%),
+  button-tertiary-border: lighten(color(light), 5%),
+
+  button-disabled-bg: rgba(mix(black, white), 0.5),
+
+  button-success-bg: color(success),
+  button-success-border: darken(color(success), 5%),
 
   // Form
   form-field-bg: color(white),
@@ -102,7 +111,7 @@ $module-colors: (
   loader-bg: color(light), // WHY: Matches module-color(base-bg)
 
   // Modal
-  modal-bg: rgba(color(dark), 0.5),
+  modal-bg: rgba(color(dark), 0.75),
   modal-wrapper-bg: color(light),
   modal-header-bg: color(accent),
   modal-header-color: color(white),

@@ -8,6 +8,13 @@ export default {
     },
   },
 
+  vueInit: {
+    title: `Vue Init`,
+    meta: {
+      description: `Remove this for production`,
+    },
+  },
+
   notFound: {
     title: `Not Found`,
     meta: {

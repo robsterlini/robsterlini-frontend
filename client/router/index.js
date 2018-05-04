@@ -31,6 +31,9 @@ const loadAsyncPage = (pageImport) => {
   });
 };
 
+// Vue Init
+const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
+
 // Base
 const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/404`));
 
@@ -55,11 +58,13 @@ const routes = [
   },
   {
     path: `/`,
+    name: `vue-init`,
+    component: VueInit,
+  },
+  {
+    path: `/home`,
     name: `home`,
     component: Home,
-    params: {
-      modal: ``,
-    },
   },
   {
     path: `/terms`,

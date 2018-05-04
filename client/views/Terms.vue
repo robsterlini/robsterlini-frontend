@@ -9,7 +9,7 @@
 
 <script>
 // Models
-import meta from 'models/global/meta';
+import meta from 'models/meta';
 import termsContent from 'models/content/terms.md';
 
 // Services

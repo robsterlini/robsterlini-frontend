@@ -5,8 +5,8 @@
     :class="[
       'btn',
       icon ? 'btn--' + (negative ? 'negative' : 'positive') : '',
-      'btn--' + (button || 'light'),
-      'btn--' + (level || 'primary'),
+      'btn--' + (button || 'secondary'),
+      'btn--' + (size || 'm'),
       {
         'btn--icon': icon,
         'btn--idle': (!hover && !isHover && !active && !isActive) || (loading),
@@ -75,7 +75,7 @@ export default {
     to: Object,
     anchor: String,
     negative: Boolean,
-    level: {
+    size: {
       type: String,
     },
   },

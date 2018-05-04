@@ -17,7 +17,7 @@
     <module-button
       v-if="!isAuthenticated"
 
-      button="accent"
+      button="tertiary"
       level="tertiary"
 
       @click.native="openModal(`login`)"
@@ -31,7 +31,7 @@
         name: `logout`,
       }"
 
-      button="accent"
+      button="tertiary"
       level="tertiary"
     >
       Log out

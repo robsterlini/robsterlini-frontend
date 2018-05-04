@@ -140,6 +140,16 @@ $units: (
   // Auth
   auth-width: rem(400),
 
+  // Button
+  button-border-width: 2px,
+  button-icon-margin: rem(6),
+  button-height-s: 3em,
+  button-height-m: 3.5em,
+  button-height-l: 4em,
+  button-inner-padding-s: 1em,
+  button-inner-padding-m: 1.5em,
+  button-inner-padding-l: 2em,
+
   // Form
   // TODO: Abstract from _form.scss
 

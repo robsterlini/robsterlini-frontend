@@ -42,8 +42,8 @@
         :fail="fail"
         :submit="submitSet"
 
-        button-size="l"
-        button="secondary"
+        button-size="m"
+        button="primary"
       />
     </div>
 
