@@ -1,6 +1,8 @@
 <template>
   <component
-    :is="tag"
+    :is="linkTag"
+
+    v-bind="linkProps"
 
     :class="[
       'btn',
@@ -19,9 +21,6 @@
     ]"
 
     :disabled="disabled || loading || success"
-    :to="to"
-    :href="hrefSet"
-    :target="link ? `_blank` : false"
 
     @mouseover.native="onMouseEnter"
     @mouseover="onMouseEnter"
@@ -46,11 +45,17 @@
 </template>
 
 <script>
-import VueScrollTo from 'vue-scrollto';
+// Services
+import { getLinkTag, getLinkType, createLinkProps } from 'services/link';
 
+// Modules
 import ModuleIcon from 'modules/Icon';
 import ModuleSpinner from 'modules/Spinner';
 
+// Other
+import VueScrollTo from 'vue-scrollto';
+
+// Export
 export default {
   name: `module-button`,
 
@@ -71,10 +76,12 @@ export default {
       type: String,
     },
     icon: String,
-    link: String,
-    to: Object,
-    anchor: String,
+    link: [
+      String,
+      Object,
+    ],
     negative: Boolean,
+    title: String,
     size: {
       type: String,
     },
@@ -88,11 +95,14 @@ export default {
     };
   },
   computed: {
-    tag() {
-      return this.to ? `router-link` : (this.anchor || this.link ? `a` : `button`);
+    linkType() {
+      return getLinkType(this.link);
     },
-    hrefSet() {
-      return this.anchor || this.link ? `${this.anchor ? `#${this.anchor}` : this.link}` : false;
+    linkTag() {
+      return getLinkTag(this.link);
+    },
+    linkProps() {
+      return createLinkProps(this.link, ``, this.title);
     },
   },
 
@@ -112,9 +122,9 @@ export default {
       this.isHover = false;
     },
     onClick(e) {
-      if (this.anchor) {
+      if (this.linkType === `anchor`) {
         e.preventDefault();
-        VueScrollTo.scrollTo(`#${this.anchor}`, 500, {});
+        VueScrollTo.scrollTo(this.link, 500, {});
       }
     },
   },

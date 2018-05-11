@@ -1,95 +1,73 @@
 <template>
-  <a
-    v-scroll-to="`#${anchor}`"
+  <component
+    :is="linkTag"
 
-    v-if="anchor"
-
-    :class="linkClass"
-
-    :href="`#${anchor}`"
-  >
-    {{ labelSet }}
-  </a>
-  <a
-    v-else-if="!name && !to.name"
+    v-bind="linkProps"
 
     :class="linkClass"
 
-    :href="url"
+    v-html="labelSet"
 
-    target="_blank"
-  >
-    {{ labelSet }}
-  </a>
-  <router-link
-    v-else
-
-    :class="linkClass"
-
-    :to="to"
-  >
-    {{ labelSet }}
-  </router-link>
+    @click="onClick"
+  />
 </template>
 
 <script>
+// Services
+import { getLinkType, getLinkTag, createLinkProps } from 'services/link';
+
+// Other
+import VueScrollTo from 'vue-scrollto';
+
+// Export
 export default {
   name: `module-link`,
 
   // Props
   props: {
-    arrow: Boolean,
-    color: {
-      type: String,
-      default: `inherit`,
-    },
-    name: String,
-    href: String,
-    anchor: String,
+    color: String,
     label: String,
-    component: String,
-    params: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
+    link: [
+      String,
+      Object,
+    ],
+    title: String,
   },
 
   // Data
   computed: {
+    linkType() {
+      return getLinkType(this.link);
+    },
+    linkTag() {
+      return getLinkTag(this.link);
+    },
+    linkProps() {
+      return createLinkProps(this.link, this.labelSet, this.title);
+    },
     labelSet() {
       return this.label || (this.$slots.default ? (this.$slots.default[0] ? this.$slots.default[0].text : ``) : ``);
-    },
-    url() {
-      return this.href || false;
     },
     linkClass() {
       return [
         `link`,
         this.color && this.color !== `inherit` ? `link--${this.color}` : ``,
         {
-          'link--arrow': this.arrow,
+          'link--anchor': this.linkType === `anchor`,
+          'link--external': this.linkType === `a`,
+          'link--internal': this.linkType === `router-link`,
         },
       ];
     },
-    to() {
-      const to = {};
+  },
 
-      if (this.component) {
-        to.name = `styleguideComponent`;
-        to.params = {
-          article: this.component,
-        };
-      } else if (this.name) {
-        to.name = this.name;
-
-        if (this.params) {
-          to.params = this.params;
-        }
+  // Methods
+  methods: {
+    onClick(e) {
+      if (this.linkType === `anchor`) {
+        e.preventDefault();
+        VueScrollTo.scrollTo(this.link, 500, {});
       }
-
-      return to;
     },
   },
 };

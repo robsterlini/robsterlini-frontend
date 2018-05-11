@@ -4,6 +4,9 @@
 [context.branch-deploy]
   command = "npm run development"
 
+[context.deploy-preview]
+  command = "npm run development"
+
 [context.dev]
   command = "npm run development"
 

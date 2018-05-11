@@ -9,7 +9,7 @@
     ]"
     :id="`app`"
 
-    data-env="appEnv"
+    :data-env="appEnv"
   >
     <ui-header/>
 
@@ -69,7 +69,7 @@ export default {
   metaInfo() {
     return {
       titleTemplate(titleChunk) {
-        return `${titleChunk ? `${titleChunk}${config.meta.separator}` : ``}${config.name}`;
+        return `${config.env !== `prod` ? `[${config.env}] ` : ``}${titleChunk ? `${titleChunk}${config.meta.separator}` : ``}${config.name}`;
       },
       htmlAttrs: {
         prefix: `og: http://ogp.me/ns#`,

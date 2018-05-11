@@ -17,7 +17,9 @@ a,
   color: inherit;
   cursor: pointer;
   fill: currentColor;
+  font: inherit;
   outline: 0;
+  text-decoration: underline;
   text-decoration-skip: ink;
   transition:
     opacity $timing-link $easing-link; // sass-lint:disable-line indentation
@@ -148,48 +150,5 @@ a,
       opacity: 1; // TODO: Var
     }
     // sass-list:enable force-pseudo-nesting
-  }
-}
-
-
-// ==== Links ===============================
-// Variants
-// ==========================================
-
-$link-arrow-size: 0.85em;
-$link-arrow-padding: 0.25em;
-
-.link--arrow {
-  display: table;
-  padding-right: $link-arrow-size + $link-arrow-padding;
-  position: relative;
-
-  &::after {
-    content: '→';
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateX(#{$link-arrow-padding * -1});
-    transition:
-      opacity $timing-link $easing-link, // sass-lint:disable-line indentation
-      transform $timing-link $easing-link; // sass-lint:disable-line indentation
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &:active {
-    opacity: 0.5; // TODO: Var
-  }
-
-  &:hover,
-  &:active {
-
-    &::after {
-      opacity: 1;
-      transform: none;
-    }
   }
 }

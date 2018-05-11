@@ -5,7 +5,7 @@
         <h1 class="h1 mt0">Vue Init</h1>
 
         <p class="p">This is a page to demonstrate the features that are built into Vue Init.</p>
-        <p v-if="$route.path === '/' && $route.name === 'vue-init'" class="p">The <code>/</code> route is currently set to <code>VueInit</code> (and the homepage can be found at <router-link :to="{ name: `home` }"><code>/home</code></router-link>, change <code>vue-init</code> and <code>home</code> in <code>router/index.js</code> when you start the project to build the homepage.</p>
+        <p v-if="$route.path === '/' && $route.name === 'vue-init'" class="p">The <code>/</code> route is currently set to <code>VueInit</code> (and the homepage can be found at <router-link :to="{ name: `home` }"><code>/home</code></router-link>, change <code>vue‑init</code> and <code>home</code> in <code>router/index.js</code> when you start the project to build the homepage.</p>
         <p class="p">This page should be commented out (or removed entirely) of the final build (or at the start of a project if you are familiar with its functionality).</p>
       </div>
     </module-block>
@@ -21,8 +21,12 @@
           </li>
         </ul>
 
+
+        <!-- Modules -->
         <h3 class="h3">Modules</h3>
 
+
+        <!-- Modules – Spinner -->
         <h4 class="h4">Spinner</h4>
 
         <module-spinner
@@ -36,6 +40,8 @@
           Toggle spinner
         </module-button>
 
+
+        <!-- Modules – Buttons -->
         <h4 class="h4">Buttons</h4>
 
         <template v-for="(button, index) in [`primary`, `secondary`, `tertiary`]">
@@ -73,15 +79,64 @@
           </module-button>
         </template>
 
+
+        <!-- Modules – Links -->
+        <h4 class="h4">Links</h4>
+
+        <div class="grid">
+          <template v-for="color in [false, `accent`]">
+            <div
+              :key="`link-variant-color-${color || `inherit`}`"
+              class="grid__item"
+            >
+              <ul>
+                <li
+                  v-for="(link, index) in linkVariants"
+                  :key="`link-variant-${index}`"
+                >
+                  <module-link
+                    :color="color || ``"
+                    :label="`${link.label}${color ? ` (${color})` : ``}`"
+                    :link="link.link"
+                    :title="link.title"
+
+                    @click.native="link.onClick ? link.onClick() : null"
+                  />
+                </li>
+              </ul>
+            </div>
+          </template>
+          <div class="grid__item">
+            <module-button
+              v-for="(link, index) in linkVariants"
+              :key="`link-variant-button-${index}`"
+
+              class="mt0"
+
+              size="s"
+
+              :link="link.link"
+
+              @click.native="link.onClick ? link.onClick() : null"
+            >
+              {{ link.label }}
+            </module-button>
+          </div>
+        </div>
+
+
+        <!-- Modules – Modals -->
         <h4 class="h4">Modals</h4>
 
         <module-button
+          class="mt0 mb0"
           @click.native="openModal(`example-modal`)"
         >
           Open Modal (<code>example-modal</code>)
         </module-button>
 
         <module-button
+          class="mt0 mb0"
           @click.native="openModal(`example-modal-2`)"
         >
           Open Modal (<code>example-modal-2</code>)
@@ -150,6 +205,7 @@ import meta from 'models/meta';
 // Modules
 import ModuleBlock from 'modules/Block';
 import ModuleButton from 'modules/Button';
+import ModuleLink from 'modules/Link';
 import ModuleModal from 'modules/Modal';
 import ModuleSpinner from 'modules/Spinner';
 
@@ -167,6 +223,7 @@ export default {
   components: {
     ModuleBlock,
     ModuleButton,
+    ModuleLink,
     ModuleModal,
     ModuleSpinner,
   },
@@ -203,6 +260,34 @@ export default {
           active: true,
         },
       },
+      linkVariants: [
+        {
+          label: `With action`,
+          onClick: () => this.exampleAction(`Click link`),
+        },
+        {
+          label: `Anchor`,
+          link: `#to-plural`,
+        },
+        {
+          label: `External`,
+          link: `https://twitter.com/fueled`,
+        },
+        {
+          label: `Email`,
+          link: `mailto:sterlini@fueled.com`,
+        },
+        {
+          label: `By route name`,
+          link: `login`,
+        },
+        {
+          label: `By route object`,
+          link: {
+            name: `home`,
+          },
+        },
+      ],
     };
   },
   computed: {
@@ -219,6 +304,9 @@ export default {
     ]),
     increaseCounter() {
       this.count++;
+    },
+    exampleAction(str) {
+      alert(`Example: ${str}`); // eslint-disable-line no-alert
     },
   },
 };

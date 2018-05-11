@@ -25,6 +25,7 @@
     "prefer-template": 1,
     "no-useless-concat": 0,
     "quotes": ["error", "backtick"],
+    "vue/attributes-order": 0,
     "vue/html-indent": ["error", 2],
     "vue/html-quotes": ["warn", "double"],
     "vue/max-attributes-per-line": ["error", {
