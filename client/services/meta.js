@@ -1,5 +1,7 @@
 'use strict';
 
+import config from 'config';
+
 function createMeta(meta) {
   /*
     ** TO ADD **
@@ -95,7 +97,7 @@ function createMeta(meta) {
     }
   }
 
-  const isProd = window.FUELED_ENV === `production`;
+  const isProd = config.env === `production`;
   const noFollow = !isProd || meta.noFollow === true;
   const noIndex = !isProd || meta.noIndex === true;
 

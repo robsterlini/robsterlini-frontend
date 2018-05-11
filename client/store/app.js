@@ -1,13 +1,14 @@
 'use strict';
 
+// Config
+import config from 'config';
+
 // Vue
 import Vue from 'vue';
 
-// Config
-import config from 'models/global/config';
-
 // State
 const state =  {
+  env: config.env,
   page: {
     classes: ``,
     name: ``,
@@ -29,6 +30,7 @@ const state =  {
 
 // Getters
 const getters = {
+  appEnv: state => state.env,
   appState: state => state.state,
   appPage: state => state.page,
   viewportHeight: state => state.viewport.height,

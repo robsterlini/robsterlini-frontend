@@ -6,7 +6,7 @@ import Router from 'vue-router';
 import store from 'store';
 
 // Config
-import config from 'models/global/config';
+import config from 'config';
 
 // Async load function that handles loading
 const loadAsyncPage = (pageImport) => {

@@ -1,7 +1,7 @@
 'use strict';
 
-// Models
-import config from 'models/global/config';
+// Config
+import config from 'config';
 
 const twitter = {
   name: `Twitter`,

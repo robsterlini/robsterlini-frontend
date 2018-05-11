@@ -1,6 +1,10 @@
 /* eslint-disable import/default */
 import Vue from 'vue';
 
+import config from 'config';
+
+console.log(`Evironment:`, config.env); // eslint-disable-line no-console
+
 import { sync } from 'vuex-router-sync';
 
 import App from 'components/App';

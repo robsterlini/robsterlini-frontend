@@ -13,7 +13,7 @@
 
 <script>
 // Models
-import config from 'models/global/config';
+import config from 'config';
 
 // Images
 import ImageBrandLogo from 'images/brand/logo.svg?inline';

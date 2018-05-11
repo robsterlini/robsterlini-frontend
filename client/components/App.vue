@@ -8,6 +8,8 @@
       },
     ]"
     :id="`app`"
+
+    data-env="appEnv"
   >
     <ui-header/>
 
@@ -41,14 +43,14 @@
 </style>
 
 <script>
+// Config
+import config from 'config';
+
 // Vuex
 import { mapGetters, mapActions } from 'vuex';
 
 // Services
 import { createMeta } from 'services/meta';
-
-// Models
-import config from 'models/global/config';
 
 // Modules
 import ModuleModal from 'modules/Modal';
@@ -113,6 +115,7 @@ export default {
       `metaTitle`,
     ]),
     ...mapGetters(`app`, [
+      `appEnv`,
       `appState`,
       `appPage`,
     ]),
