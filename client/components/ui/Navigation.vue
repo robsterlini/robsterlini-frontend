@@ -1,40 +1,34 @@
 <template>
   <ul class="p navigation">
-    <router-link
+    <li
       v-for="route in menus"
-      :key="route.path"
+      :key="route.link"
 
-      :class="['navigation__item', 'navigation__item--' + route.path]"
-
-      :to="{ name: route.path }"
-
-      tag="li"
+      :class="[
+        `navigation__item`,
+        `navigation__item--${route.link}`,
+        {
+          'navigation__item--active': route.link === $route.name,
+        },
+      ]"
     >
-      <a class="navigation__link link">
+      <module-link
+        class="navigation__link link"
+
+        :link="route.link"
+        :no-underline="true"
+      >
+        <b class="navigation__marker" />
         <span class="navigation__label">{{ route.name }}</span>
-      </a>
-    </router-link>
+      </module-link>
+    </li>
     <module-button
-      v-if="!isAuthenticated"
-
-      button="tertiary"
-      level="tertiary"
-
-      @click.native="openModal(`login`)"
-    >
-      Log In
-    </module-button>
-    <module-button
-      v-else
-
-      :to="{
-        name: `logout`,
-      }"
+      link="contact"
 
       button="tertiary"
       level="tertiary"
     >
-      Log out
+      Say hi
     </module-button>
   </ul>
 </template>
@@ -48,6 +42,8 @@ import menus from 'models/global/menu';
 
 // Modules
 import ModuleButton from 'modules/Button';
+import ModuleLink from 'modules/Link';
+
 // Export
 export default {
   name: `ui-navigation`,
@@ -55,6 +51,7 @@ export default {
   // Components
   components: {
     ModuleButton,
+    ModuleLink,
   },
 
   // Data
@@ -64,6 +61,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(`app`, [
+      `appPage`,
+    ]),
     ...mapGetters(`auth`, [
       `isAuthenticated`,
     ]),

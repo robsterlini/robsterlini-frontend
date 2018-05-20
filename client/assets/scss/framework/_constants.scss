@@ -13,30 +13,30 @@
 $font-default-size: 16;
 
 // Families
-$font-family-body: 'Helvetica Neue';
-$font-family-heading: 'Helvetica Neue';
-$font-family-mono: monospace;
+$font-family-body: 'freight-sans-pro', sans-serif;
+$font-family-heading: 'freight-text-pro', serif;
+$font-family-mono: 'clone-rounded-latin', monospace;
 
 // Variables
-$line-height-body: 1.5;
+$line-height-body: 1.4;
 $line-height-header: 1.25;
 $strong-weight: 600;
 
 // H1
-$h1-font-size-l: 64;
+$h1-font-size-l: 72;
 $h1-font-size-s: 48;
 
 // H2
-$h2-font-size-l: 42;
-$h2-font-size-s: 32;
+$h2-font-size-l: 36;
+$h2-font-size-s: 28;
 
 // H3
-$h3-font-size-l: 32;
-$h3-font-size-s: 24;
+$h3-font-size-l: 24;
+$h3-font-size-s: 18;
 
 // H4
-$h4-font-size-l: 26;
-$h4-font-size-s: 20;
+$h4-font-size-l: 18;
+$h4-font-size-s: 16;
 
 // H5
 $h5-font-size-l: 22;
@@ -47,8 +47,8 @@ $h6-font-size-l: 14;
 $h6-font-size-s: 13;
 
 // Paragraph
-$p-font-size-l: 18;
-$p-font-size-s: 15;
+$p-font-size-l: 20;
+$p-font-size-s: 16;
 
 // Huge
 $huge-font-size-l: 60;
@@ -59,16 +59,16 @@ $large-font-size-l: 24;
 $large-font-size-s: 18;
 
 // Medium
-$medium-font-size-l: 20;
-$medium-font-size-s: 16;
+$medium-font-size-l: 22;
+$medium-font-size-s: 18;
 
 // Small
-$small-font-size-l: 15;
-$small-font-size-s: 13;
+$small-font-size-l: 18;
+$small-font-size-s: 14;
 
 // Tiny
-$tiny-font-size-l: 13;
-$tiny-font-size-s: 10;
+$tiny-font-size-l: 16;
+$tiny-font-size-s: 12;
 
 // Form
 $form-input-font-size-l: 16;
@@ -79,8 +79,8 @@ $button-primary-font-size-l: 20;
 $button-primary-font-size-s: 16;
 
 // Button Secondary
-$button-secondary-font-size-l: 15;
-$button-secondary-font-size-s: 13;
+$button-secondary-font-size-l: $p-font-size-l;
+$button-secondary-font-size-s: $p-font-size-s;
 
 // Button Tertiary
 $button-tertiary-font-size-l: 13;
@@ -154,6 +154,7 @@ $units: (
   // TODO: Abstract from _form.scss
 
   // Header
+  header-offset: rem(20),
   header-height: rem(72),
   header-logo-width: rem($logo-width),
 

@@ -139,6 +139,7 @@ export default {
       `updatePage`,
       `closeLoader`,
       `updateViewport`,
+      `updateScroll`,
       `setTouch`,
     ]),
     ...mapActions(`meta`, [
@@ -167,9 +168,11 @@ export default {
     this.setTouch();
 
     window.addEventListener(`resize`, () => this.updateViewport(), true);
+    window.addEventListener(`scroll`, () => this.updateScroll(), true);
   },
   destroyed() {
     window.removeEventListener(`resize`, () => this.updateViewport(), true);
+    window.removeEventListener(`resize`, () => this.updateScroll(), true);
   },
 };
 </script>

@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+// ==== Modules ==========================================================
+// Background
+// =======================================================================
+
+
+// ==== Background ==========================
+// Base
+// ==========================================
+
+.bg {
+  background: module-color(base-bg);
+  margin-bottom: -30%;
+  position: relative;
+  padding-top: 50%;
+
+  @include min-width(bp(s)) {
+    top: unit(header-offset) + (unit(header-height) / 2);
+  }
+
+  &__image {
+    background: center no-repeat;
+    background-size: cover;
+    filter: grayscale(0.33);
+
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+
+  &::after {
+    @include cover;
+
+    background: linear-gradient(transparent, module-color(base-bg));
+    content: '';
+    top: 50%;
+    z-index: 1;
+
+    // @include min-width(bp(s)) {
+    //   background: linear-gradient(to right, rgba(module-color(base-bg), 0.75), transparent);
+    //   top: 0;
+    // }
+  }
+}

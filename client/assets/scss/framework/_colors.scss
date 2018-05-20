@@ -21,10 +21,13 @@ $base-colors: (
   mid-light: mix(#161616, #F5F5F1, 25%),
   mid: mix(#161616, #F5F5F1),
   mid-dark: #414141,
-  dark: #161616,
+  dark: #121212,
 
   // Brand
-  accent: #AE0000,
+  accent: #ffb500,
+  // accent: #00a7ff,
+  // accent: #ff3c3c,
+  // accent: #ff3c6f,
 
   // States
   success: green,
@@ -42,9 +45,9 @@ $module-colors: (
   default-box-shadow: rgba(color(black), 0.33),
 
   // Base
-  base-bg: color(light),
-  base-color: color(dark),
-  base-selection-bg: color(accent),
+  base-bg: #403F3F,
+  base-color: darken(#f1f1f1, 15%),
+  base-selection-bg: color(black),
   base-selection-color: color(white),
 
   // Block
@@ -83,6 +86,9 @@ $module-colors: (
   button-success-bg: color(success),
   button-success-border: darken(color(success), 5%),
 
+  // Footer
+  footer-bg: mix(#403F3F, color(dark)),
+
   // Form
   form-field-bg: color(white),
   form-field-border: color(light-mix),
@@ -94,7 +100,7 @@ $module-colors: (
   form-checkbox-bg: color(white),
 
   // Header
-  header-bg: color(accent),
+  header-bg: mix(#403F3F, color(dark)), // TODO: Refactor
   header-color: color(white),
   header-btn-tertiary-color: color(accent),
 
@@ -109,7 +115,7 @@ $module-colors: (
   link-accent: color(accent),
 
   // Loader
-  loader-bg: color(light), // WHY: Matches module-color(base-bg)
+  loader-bg: color(accent), // WHY: Matches module-color(base-bg)
 
   // Modal
   modal-bg: rgba(color(dark), 0.75),

@@ -43,21 +43,35 @@ button, {
 // Base layout
 // ==========================================
 
-html {
+html,
+body {
   display: flex;
-  min-height: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+html {
+  box-sizing: inherit;
+  // font-size: calc(.45rem + .75vw);
+  font-family: $font-family-body;
+  height: 100%;
 
   @include min-width(tp(base-dynamic-type)) {
-    font-size: calc(0.56rem + 0.5vw);
+    font-size: calc(0.56rem + 0.4vw);
   }
+
+  // @media screen and (min-width: 106em) {
+  //   font-size: 1.25rem;
+  // }
+
+  // @media screen and (max-width: 56.625em) {
+  //   font-size: .875rem;
+  // }
 }
 
 body {
   background: module-color(base-bg) center no-repeat;
   color: module-color(base-color);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   font-size: em($font-default-size);
   width: 100%;
 }

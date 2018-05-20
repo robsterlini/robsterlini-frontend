@@ -5,6 +5,7 @@ import config from 'config';
 
 // Vue
 import Vue from 'vue';
+import VueScrollTo from 'vue-scrollto';
 
 // State
 const state =  {
@@ -25,6 +26,7 @@ const state =  {
     height: null,
     width: null,
   },
+  scrollY: 0,
   touch: null,
 };
 
@@ -33,6 +35,7 @@ const getters = {
   appEnv: state => state.env,
   appState: state => state.state,
   appPage: state => state.page,
+  appScrollY: state => state.scrollY,
   viewportHeight: state => state.viewport.height,
   viewportWidth: state => state.viewport.width,
   viewportMobile: state => state.viewport.width < 768,
@@ -57,6 +60,9 @@ const mutations = {
   UPDATE_VIEWPORT (state, viewport) {
     state.viewport.height = viewport[0];
     state.viewport.width = viewport[1];
+  },
+  UPDATE_SCROLL (state, scrollY) {
+    state.scrollY = scrollY;
   },
   SET_TOUCH (state, touch) {
     state.touch = touch;
@@ -99,10 +105,15 @@ const actions = {
     }, config.transitionDuration);
   },
 
-  closeLoader({ commit }) {
+  closeLoader({ commit, rootState }) {
     commit(`UNSET_STATE`, `loading`);
 
-    window.scrollTo(0, 0); // TODO: Fix on back button
+    const hash = rootState.route.hash;
+    if (hash) {
+       VueScrollTo.scrollTo(hash, 300, {});
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     setTimeout(() => {
       commit(`SET_STATE`, `loaded`);
@@ -119,6 +130,10 @@ const actions = {
         window.innerWidth,
       ]);
     }, 100);
+  },
+
+  updateScroll({ commit }) {
+    commit(`UPDATE_SCROLL`, window.pageYOffset);
   },
 
   setTouch({ commit }) {

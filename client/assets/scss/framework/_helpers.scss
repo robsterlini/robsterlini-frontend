@@ -31,13 +31,9 @@
 // Display
 // ==========================================
 
-.dt {
-  display: table;
-}
-
-.dib {
-  display: inline-block;
-}
+.dt { display: table; }
+.di { display: inline-block; }
+.dib { display: inline-block; }
 
 
 // ==== Helpers =============================
@@ -50,24 +46,41 @@
 
 
 // ==== Helpers =============================
+// Flexbox
+// ==========================================
+
+.fb {
+  display: flex;
+}
+
+.fbg {
+  flex-grow: 1;
+}
+
+
+// ==== Helpers =============================
 // Margins
 // ==========================================
 
-.mt {
-  margin-top: unit(base-gutter);
-}
+.m  { margin:        unit(base-gutter); }
+.mb { margin-bottom: unit(base-gutter); }
+.mt { margin-top:    unit(base-gutter); }
 
-.mb {
-  margin-top: unit(base-gutter);
-}
+.ma  { margin:        auto; }
+.mba { margin-bottom: auto; }
+.mla { margin-left:   auto; }
+.mra { margin-right:  auto; }
+.mta { margin-top:    auto; }
 
-.mt0 {
-  margin-top: 0;
-}
+.m0  { margin:        0; }
+.mb0 { margin-bottom: 0; }
+.mt0 { margin-top:    0; }
 
-.mb0 {
-  margin-bottom: 0;
-}
+.mbh { margin-bottom: unit(base-gutter) / 2; }
+.mth { margin-top:    unit(base-gutter) / 2; }
+
+.mb-h { margin-bottom: unit(base-gutter) / -2; }
+.mt-h { margin-top:    unit(base-gutter) / -2; }
 
 
 // ==== Helpers =============================

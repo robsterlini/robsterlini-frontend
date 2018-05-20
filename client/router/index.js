@@ -39,14 +39,11 @@ const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ 
 
 // Top Level Pages
 const Home = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Home`));
-const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
-
-// Auth
-const Login = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Login`));
-const Logout = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Logout`));
-const Register = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Register`));
-const AuthReset = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/auth/Reset`));
-const AuthConfirm = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/auth/Confirm`));
+const Work = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Work`));
+const Life = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Life`));
+const Contact = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Contact`));
+const Cv = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Cv`));
+// const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
 
 Vue.use(Router);
 
@@ -65,53 +62,30 @@ const routes = [
     path: `/home`,
     name: `home`,
     component: Home,
-  },
-  {
-    path: `/terms`,
-    name: `terms`,
-    component: Terms,
-  },
-
-  // Auth
-  {
-    name: `login`,
-    path: `/log-in`,
-    component: Login,
     meta: {
-      noAuth: true,
-    },
-  },
-  {
-    name: `logout`,
-    path: `/log-out`,
-    component: Logout,
-    meta: {
+      noHeader: true,
       noFooter: true,
     },
   },
   {
-    name: `register`,
-    path: `/register`,
-    component: Register,
-    meta: {
-      noAuth: true,
-    },
+    path: `/work`,
+    name: `work`,
+    component: Work,
   },
   {
-    name: `authReset`,
-    path: `/password/forgot`,
-    component: AuthReset,
-    meta: {
-      noAuth: true,
-    },
+    path: `/life`,
+    name: `life`,
+    component: Life,
   },
   {
-    name: `authConfirm`,
-    path: `/password/reset/:token`,
-    component: AuthConfirm,
-    meta: {
-      noAuth: true,
-    },
+    path: `/contact`,
+    name: `contact`,
+    component: Contact,
+  },
+  {
+    path: `/(curriculum-vitae|cv)`,
+    name: `cv`,
+    component: Cv,
   },
 ];
 
@@ -181,5 +155,15 @@ router.beforeEach((to, from, next) => {
     }, 500);
   }
 });
+
+// router.afterEach((to) => {
+//   console.log(to.hash);
+//   if (to.hash) {
+//     console.log(`t`, document.getElementById('fueled'));
+//     setTimeout(() => {
+//       VueScrollTo.scrollTo(to.hash, 1, {});
+//     }, 301);
+//   }
+// });
 
 export default router;

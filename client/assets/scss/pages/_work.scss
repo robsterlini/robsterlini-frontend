@@ -1,0 +1,77 @@
+@charset 'UTF-8';
+
+// ==== Pages ============================================================
+// Work
+// =======================================================================
+
+
+// ==== Work ================================
+// Work Project
+// ==========================================
+
+.work-project {
+
+  &__details {
+
+    @include min-width(bp(m)) {
+      display: inline-block;
+      padding-right: unit(base-gutter);
+      vertical-align: top;
+      width: rem(960 / 4); // TODO: Why
+
+      .small {
+        max-width: none;
+      }
+    }
+  }
+
+  &__detail {
+
+    @include min-width(bp(xs)) {
+      display: inline-block;
+      vertical-align: top;
+      padding-left: unit(base-gutter);
+      width: 33.33%;
+
+      &:first-of-type {
+        padding-left: 0;
+      }
+    }
+
+    @include min-width(bp(m)) {
+      padding-left: 0;
+      width: 100%;
+    }
+
+    dt {
+      display: block;
+    }
+
+    dd {
+
+      &::after {
+        content: ',';
+        margin-right: 0.2em;
+      }
+
+      &:last-child {
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__copy {
+    margin-top: unit(base-gutter);
+
+    @include min-width(bp(m)) {
+      display: inline-block;
+      margin-top: 0;
+      padding-left: unit(base-gutter);
+      vertical-align: top;
+      width: calc(100% - #{rem(960 / 4)}); // TODO: Why
+    }
+  }
+}

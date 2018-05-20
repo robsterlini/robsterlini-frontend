@@ -30,7 +30,6 @@
     @mousedown.prevent="onMouseDown"
     @click="onClick"
   >
-    <b class="btn__bg" aria-hidden="true" />
     <module-spinner :class="`btn__spinner`" :active="loading" />
     <module-icon :class="`btn__success`" icon="tick" />
     <span class="btn__inner">

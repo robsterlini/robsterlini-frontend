@@ -11,5 +11,7 @@ import meta from 'plugins/meta'; // eslint-disable-line no-unused-vars
 
 Vue.use(VueResource);
 Vue.use(Vuelidate);
-Vue.use(VueScrollTo);
+Vue.use(VueScrollTo, {
+  offset: -96, // TODO: Var
+});
 // Vue.use(VueClipboard);

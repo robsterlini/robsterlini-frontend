@@ -10,24 +10,21 @@
 // ==========================================
 
 .logo {
-  display: block;
-  max-width: 100%;
-  width: unit(logo-width);
+  background: module-color(header-bg);
+  color: module-color(base-color);
+  color: color(white);
+  display: table;
+  margin: 1em 0;
+  padding: 0 unit() calc(0.075em + #{rem(2)});
+  transition:
+    color $timing $easing;
+  white-space: nowrap;
 
-  &__inner {
-    display: block;
-    padding-top: $logo-height / $logo-width * 100%;
-    position: relative;
-  }
+  &--link {
 
-  &__image {
-    @include cover;
-
-    height: 100%;
-    width: 100%;
-
-    path {
-      fill: currentColor;
+    &:hover {
+      color: color(accent);
+      opacity: 1;
     }
   }
 }

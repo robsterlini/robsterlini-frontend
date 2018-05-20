@@ -14,12 +14,8 @@
 
   &__item {
     display: inline-block;
+    position: relative;
     vertical-align: middle;
-
-    &--connect {
-      height: rem(48); // TODO: Var
-      width: rem(48); // TODO: Var
-    }
   }
 
   &__link {
@@ -43,10 +39,59 @@
     .router-link-active > & {
       @extend %nav-link-active;
     }
+
+    &:hover {
+      opacity: 1;
+
+      .navigation__marker {
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    top: (unit(header-height) - unit(navigation-item-height)) / -2;
+    left: 0;
+    transform: translateY(#{unit(header-offset) * -1});
+    transition:
+      transform $timing $easing;
+    width: 100%;
+    height: 2px; // TODO: Var
+
+    .header--scrolled & {
+      transform: none;
+    }
+
+    &::before,
+    &::after {
+      @include cover;
+
+      background: currentColor;
+      content: '';
+      transform: scale(0, 1);
+      transform-origin: center left;
+
+      .navigation__item--active & {
+        transform: scale(1, 1);
+      }
+    }
+
+    &::before {
+      transition:
+        transform $timing $easing;
+    }
+
+    &::after {
+      background: color(accent); // TODO: Var
+    }
   }
 
   .btn {
-    margin: 0;
+    margin: 0 0 0 unit(2);
     vertical-align: middle;
   }
 }

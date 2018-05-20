@@ -10,30 +10,67 @@
 // ==========================================
 
 .header {
-  background: module-color(header-bg);
+  align-items: center;
   color: module-color(header-color);
+  display: flex;
   left: 0;
+  height: unit(header-height);
   position: fixed;
   width: 100%;
   z-index: $loader-z-index + 1;
 
+  &--hidden {
+    display: none;
+  }
+
   .group {
+    transform: translateY(#{rem(20)});
     align-items: center;
     display: flex;
+    transition: transform $timing $easing;
+
+    @at-root {
+
+      .header--scrolled {
+
+        .group {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &__bg {
+    @include cover;
+
+    background: module-color(header-bg);
+    bottom: rem(-20);
+    bottom: 0;
+    // height: unit(header-height);
+    opacity: 0;
+    transform: translateY(#{rem(20)});
+    transition:
+      opacity $timing $easing,
+      transform $timing $easing;
+    top: rem(-20);
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+
+    .header--scrolled & {
+      transform: none;
+      opacity: 1;
+    }
   }
 
   &__logo {
-    color: inherit;
-    display: inline-block;
-    height: unit(header-logo-width);
-    margin: (unit(header-height) - unit(header-logo-width)) / 2;
+    align-items: center;
+    // color: inherit;
+    display: inline-flex;
+    // height: unit(header-logo-width);
+    margin: (unit(header-height) - unit(header-logo-width)) / 2 0;
     vertical-align: middle;
-    width: unit(header-logo-width);
     z-index: 1;
-
-    .logo {
-      background: none;
-    }
   }
 
   .navigation {
