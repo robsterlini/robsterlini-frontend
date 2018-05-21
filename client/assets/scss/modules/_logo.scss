@@ -10,9 +10,11 @@
 // ==========================================
 
 .logo {
+  @include font-sizes(18, 22);
+
   background: module-color(header-bg);
-  color: module-color(base-color);
   color: color(white);
+  font-weight: 600; // TODO: Var
   display: table;
   margin: 1em 0;
   padding: 0 unit() calc(0.075em + #{rem(2)});
@@ -21,6 +23,11 @@
   white-space: nowrap;
 
   &--link {
+
+    .h3 {
+      font-weight: inherit;
+      font-size: inherit;
+    }
 
     &:hover {
       color: color(accent);

@@ -9,7 +9,7 @@
 // Variables
 // ==========================================
 
-$grid-gutter: rem(20);
+$grid-gutter: unit(base-gutter);
 
 
 // ==== Grid ================================
@@ -38,6 +38,18 @@ $grid-gutter: rem(20);
 
   &__item {
     @include grid-item(3);
+
+    &--2 {
+      @include grid-item(2);
+
+      &s {
+        @include grid-item(1);
+
+        @include min-width(bp(s)) {
+          @include grid-item(2);
+        }
+      }
+    }
 
     &--3 {
       @include grid-item(3);

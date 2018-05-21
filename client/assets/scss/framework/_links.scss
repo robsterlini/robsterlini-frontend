@@ -79,7 +79,9 @@ a,
     @extend %link-reversed;
   }
 
-  &--no-underline {
+  &--no-underline,
+  &--internal,
+  &--anchor {
     @extend %link-no-underline;
   }
 

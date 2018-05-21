@@ -66,6 +66,10 @@
 .mb { margin-bottom: unit(base-gutter); }
 .mt { margin-top:    unit(base-gutter); }
 
+.m2  { margin:        unit(base-gutter) * 2; }
+.mb2 { margin-bottom: unit(base-gutter) * 2; }
+.mt2 { margin-top:    unit(base-gutter) * 2; }
+
 .ma  { margin:        auto; }
 .mba { margin-bottom: auto; }
 .mla { margin-left:   auto; }
@@ -81,6 +85,15 @@
 
 .mb-h { margin-bottom: unit(base-gutter) / -2; }
 .mt-h { margin-top:    unit(base-gutter) / -2; }
+
+
+// ==== Helpers =============================
+// No wrap
+// ==========================================
+
+.nowrap {
+  white-space: nowrap;
+}
 
 
 // ==== Helpers =============================

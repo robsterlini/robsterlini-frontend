@@ -78,6 +78,18 @@ main {
   &--wide {
     width: 100%;
   }
+
+  &__overlap {
+    max-width: rem(960); // TODO: Var
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - #{rem(20 * 2)}); // TODO: Var
+
+    @include min-width(bp(s)) {
+      width: calc(100vw - #{rem(40 * 2)}); // TODO: Var
+    }
+  }
 }
 
 

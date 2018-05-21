@@ -1,6 +1,6 @@
 'use strict';
 
-function formatBytes(bytes, decimals = 2) {
+export const formatBytes = (bytes, decimals = 2) => {
   if (bytes === 0) {
     return `0 Bytes`;
   }
@@ -12,4 +12,24 @@ function formatBytes(bytes, decimals = 2) {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(decimals))} ${sizes[i]}`;
 }
 
-export { formatBytes };
+export const toNumberWord = (number = ``) => {
+  if (number === `` || isNaN(number)) return number;
+
+  const numbers = [
+    `zero`,
+    `one`,
+    `two`,
+    `three`,
+    `four`,
+    `five`,
+    `six`,
+    `seven`,
+    `eight`,
+    `nine`,
+    `ten`,
+    `eleven`,
+    `twelve`,
+ ];
+
+ return numbers[parseInt(number, 10)] || number;
+}

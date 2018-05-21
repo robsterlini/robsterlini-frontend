@@ -15,28 +15,27 @@
         --><span class="visuallyhidden">, and </span><!--
         --><span class="h1 mb0 home-header__span home-header__span--lego"><small class="type--sc">LEGO</small><span> master</span> builder</span>
       </h1>
-      <!--<h2 class="h3">Hi, I’m Rob</h2>-->
       <div class="home-col home-col--work">
-        <h2 class="h4 mb-h">
+        <h2 class="h3 mb-h">
           <module-link
             label="Work"
             link="work"
             :no-underline="true"
           />
         </h2>
-        <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" />. As a frontend developer I have built websites for agencies like <a href="https://kickpush.co">Kickpush</a>; helped mould the early web presence of startups like <a href="https://web.fixfix.com">FixFix</a>; and worked with established brands like <a href="https://fueled.com/decks/web/#apple/1">Apple</a> and the University of Reading to create innovative web&nbsp;experiences.<module-button link="work" class="m0" /></p>
+        <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" />. As a frontend developer I have collaborated with <module-link :link="{ name: `work`, hash: `#kickpush` }" label="agencies" />, helped mould the early web presence of startups, and worked with established brands like to create innovative web&nbsp;experiences. <module-button link="work" class="m0" /></p>
       </div><!--
       --><div class="home-col home-col--life">
-        <h2 class="h4 mb-h">
+        <h2 class="h3 mb-h">
           <module-link
             label="Life"
             link="life"
             :no-underline="true"
           />
         </h2>
-        <p class="medium mb0">Away from the screen I enjoy cresting hills on my bike before running and then eating everything – I have <a href="https://www.instagram.com/p/BZwpydIgCsd/?taken-by=robsterlini">one <abbr title="Ironman 70.3"><span class="type--sc">IM</span>&hairsp;70.3</abbr></a> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <a href="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini"><small class="type--sc">LEGO</small></a> and <a href="https://twitter.com/search?q=robsterlini%20coys">Spurs</a>&nbsp;too.</p>
+        <p class="medium mb0">Away from the screen I enjoy cresting Bristol’s hills on my bike before running and then eating everything – I have <module-link :link="{ name: `life`, hash: `#triathlon` }">one <abbr title="Ironman 70.3"><span class="type--sc">IM</span>&hairsp;70.3</abbr></module-link> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <module-link :link="{ name: `life`, hash: `#lego` }"><small class="type--sc">LEGO</small></module-link> and <module-link :link="{ name: `life`, hash: `#sports` }">Spurs</module-link>&nbsp;too. <module-button link="life" class="m0" /></p>
       </div>
-      <h2 class="h4 mb0">
+      <h2 class="h3 mb0">
         <module-link
           label="Let’s chat"
           link="contact"

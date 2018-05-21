@@ -14,7 +14,7 @@
   font-family: $font-family-heading;
   font-weight: 500; // TODO: Var
   line-height: $line-height-header;
-  margin: 2em 0 0.75em; // TODO: Var
+  margin: 1.5em 0 0.75em; // TODO: Var
   max-width: 28em;
 
   .link {
@@ -26,8 +26,9 @@
   color: inherit;
   display: block;
   font-family: $font-family-mono;
+  font-weight: 400; // TODO: Var
   letter-spacing: 0.15em;
-  margin: 2em 0 0.5em 0; // TODO: Var
+  margin: 1.5em 0 0.5em 0; // TODO: Var
   text-transform: uppercase;
 
   .link {
@@ -48,6 +49,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.1;
+  margin-top: 2.5em;
   margin-left: -0.2em;
   padding: 0 0.2em;
   width: calc(100% + 0.2em);
@@ -61,15 +63,13 @@
 %h3 {
   @extend %heading-mono;
   @include font-sizes($h3-font-size-s, $h3-font-size-l);
-
-  font-weight: 600;
 }
 
 %h4 {
   @extend %heading-mono;
   @include font-sizes($h4-font-size-s, $h4-font-size-l);
 
-  font-weight: 400;
+  font-weight: 500; // TODO: Var
 }
 
 %paragraph {
@@ -194,12 +194,6 @@
 // ==========================================
 
 .type {
-
-  &--heading {
-    font-family: $font-family-heading;
-    font-style: normal;
-    font-weight: 700; // TODO: Var
-  }
 
   &--sc {
     display: inline;

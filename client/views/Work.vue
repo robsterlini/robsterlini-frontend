@@ -4,7 +4,7 @@
       :image="images.hero"
     />
     <div class="group group--thin group--first-last">
-      <h1 class="h1 mt0">A portfolio of sorts…</h1>
+      <h1 class="h1 mt0 mb0">A portfolio of sorts</h1>
       <p class="large">I’m a typography graduate turned frontend developer with a passion for creating web experiences as part of my role at <module-link link="#fueled">Fueled</module-link> and as a freelance developer.</p>
 
       <div
@@ -28,10 +28,10 @@
             <div
               v-for="(detail, detailId) in details"
 
-              class="work-project__detail mbh"
+              class="work-project__detail mb"
             >
               <template v-if="(project[detailId] || {}).length">
-                <dt class="di type--heading type--sc">{{ toPlural(project[detailId].length, detail.title, detail.plural || ``) }}</dt>
+                <dt class="di h4 mt0 mb0">{{ toPlural(project[detailId].length, detail.title, detail.plural || ``) }}</dt>
                 <dd class="di" v-for="(item, index) in project[detailId]">
                   <template v-if="detailId === `clients`">
                     <template v-if="(item || {}).href"><module-link :link="item.href" :label="item.name" /></template>
@@ -214,7 +214,7 @@ export default {
           copy: [
             `To fund my triathlon addiction I make myself available for frontend development, web design, and anything else\xa0related.`,
           ],
-          cta: `Got a project for me?`,
+          cta: `Got an interesting project?`,
         },
       },
     };
