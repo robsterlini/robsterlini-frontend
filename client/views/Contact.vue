@@ -38,7 +38,6 @@
 <script>
 // Models
 import meta from 'models/meta';
-import termsContent from 'models/content/terms.md';
 
 // Services
 import { createMeta } from 'services/meta';
@@ -49,12 +48,12 @@ import ModuleLink from 'modules/Link';
 
 // Export
 export default {
-  name: `view-terms`,
+  name: `view-contact`,
 
   // Meta data
   metaInfo: {
-    title: meta.terms.title,
-    meta: createMeta(meta.terms.meta),
+    title: meta.contact.title,
+    meta: createMeta(meta.contact.meta),
   },
 
   // Components
@@ -66,7 +65,6 @@ export default {
   // Data
   data() {
     return {
-      termsContent,
       mainContact: {
         email: {
           title: `Email`,

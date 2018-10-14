@@ -32,7 +32,7 @@ const loadAsyncPage = (pageImport) => {
 };
 
 // Vue Init
-const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
+// const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
 
 // Base
 const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/404`));
@@ -40,7 +40,7 @@ const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ 
 // Top Level Pages
 const Home = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Home`));
 const Work = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Work`));
-const Life = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Life`));
+// const Life = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Life`));
 const Contact = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Contact`));
 const Cv = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Cv`));
 // const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
@@ -53,13 +53,13 @@ const routes = [
     name: `notFound`,
     component: NotFound,
   },
+  // {
+  //   path: `/`,
+  //   name: `vue-init`,
+  //   component: VueInit,
+  // },
   {
     path: `/`,
-    name: `vue-init`,
-    component: VueInit,
-  },
-  {
-    path: `/home`,
     name: `home`,
     component: Home,
     meta: {
@@ -72,18 +72,18 @@ const routes = [
     name: `work`,
     component: Work,
   },
-  {
-    path: `/life`,
-    name: `life`,
-    component: Life,
-  },
+  // {
+  //   path: `/life`,
+  //   name: `life`,
+  //   component: Life,
+  // },
   {
     path: `/contact`,
     name: `contact`,
     component: Contact,
   },
   {
-    path: `/(curriculum-vitae|cv)`,
+    path: `/curriculum-vitae`,
     name: `cv`,
     component: Cv,
   },
@@ -95,65 +95,66 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const meta = to.meta;
+  next();
+  // const meta = to.meta;
 
-  const isAuth = meta.auth === true;
-  const isNoAuth = meta.noAuth === true;
+  // const isAuth = meta.auth === true;
+  // const isNoAuth = meta.noAuth === true;
 
-  const userAuthed = store.getters[`auth/isAuthenticated`];
-  const auth_token = localStorage.getItem(`auth_token`); // eslint-disable-line no-unused-vars
+  // const userAuthed = store.getters[`auth/isAuthenticated`];
+  // const auth_token = localStorage.getItem(`auth_token`); // eslint-disable-line no-unused-vars
 
   // Handle a user coming directly to a `modal-path` link
-  if (to.query[`modal-path`]) {
-    next({
-      path: `/${to.query[`modal-path`]}`,
-    });
-    return false;
-  }
+  // if (to.query[`modal-path`]) {
+  //   next({
+  //     path: `/${to.query[`modal-path`]}`,
+  //   });
+  //   return false;
+  // }
 
   // Handle closing an open modal from the current route
-  if (to.name === from.name && (from.query.modal || from.query[`modal-path`])) {
-    store.dispatch(`modals/closeModal`);
-    return false;
-  }
+  // if (to.name === from.name && (from.query.modal || from.query[`modal-path`])) {
+  //   store.dispatch(`modals/closeModal`);
+  //   return false;
+  // }
 
   // Handle initial authentication
-  if (!userAuthed && auth_token) {
-    store.dispatch(`auth/storeRedirect`, to.path);
-    store.dispatch(`auth/requestCurrentUser`, {
-      auth_token,
-      redirect: true,
-    });
-    return false;
-  }
+  // if (!userAuthed && auth_token) {
+  //   store.dispatch(`auth/storeRedirect`, to.path);
+  //   store.dispatch(`auth/requestCurrentUser`, {
+  //     auth_token,
+  //     redirect: true,
+  //   });
+  //   return false;
+  // }
 
   // Handle states that require auth for unauthed users
-  if (isAuth && !userAuthed) {
-    store.dispatch(`auth/storeRedirect`, to.path);
-    next({
-      name: `login`,
-      query: {
-        redirect: to.path,
-      },
-    });
-    return false;
-  }
+  // if (isAuth && !userAuthed) {
+  //   store.dispatch(`auth/storeRedirect`, to.path);
+  //   next({
+  //     name: `login`,
+  //     query: {
+  //       redirect: to.path,
+  //     },
+  //   });
+  //   return false;
+  // }
 
   // Handle states that require no auth for authed users
-  if (isNoAuth && userAuthed) {
-    next({
-      name: `home`,
-    });
-    return false;
-  }
+  // if (isNoAuth && userAuthed) {
+  //   next({
+  //     name: `home`,
+  //   });
+  //   return false;
+  // }
 
-  next();
+  // next();
 
-  if (to.query.modal) {
-    setTimeout(() => {
-      store.dispatch(`modals/openModal`, to.query.modal);
-    }, 500);
-  }
+  // if (to.query.modal) {
+  //   setTimeout(() => {
+  //     store.dispatch(`modals/openModal`, to.query.modal);
+  //   }, 500);
+  // }
 });
 
 // router.afterEach((to) => {

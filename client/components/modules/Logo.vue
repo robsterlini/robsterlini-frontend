@@ -7,7 +7,10 @@
     :link="link"
     :no-underline="true"
   >
-    <span class="h3 mt0 mb0">Rob Sterlini</span>
+    <span class="h3 mt0 mb0">
+      <span class="logo__part logo__part--first">Rob</span>
+      <span class="logo__part logo__part--last">Sterlini</span>
+    </span>
   </module-link>
   <span
     v-else

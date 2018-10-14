@@ -4,7 +4,7 @@
     class="block--accent footer"
   >
     <div class="group">
-      <p class="small mt0 mb0">Built with <module-link link="https://fueled.com">Fueled</module-link>’s Vue Init, see the source on <module-link link="https://github.com/robsterlini/robsterlini-frontend">Github</module-link>.</p>
+      <p class="small mt0 mb0">Built in Vue with Vue Init by <module-link link="https://fueled.com">Fueled</module-link>, see the source on <module-link link="https://github.com/robsterlini/robsterlini-frontend">Github</module-link>.</p>
     </div>
   </footer>
 </template>

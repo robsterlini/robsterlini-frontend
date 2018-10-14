@@ -23,7 +23,16 @@
     display: block;
     line-height: unit(navigation-item-height) - (unit(navigation-item-padding) * 2);
     padding: unit(navigation-item-padding);
+    position: relative;
     text-decoration: none;
+
+    @include max-width(tp(header-small)) {
+      padding-top: unit(navigation-item-padding) / 2;
+
+      .navigation__item:first-child & {
+        margin-left: unit(navigation-item-padding) * -1;
+      }
+    }
 
     @at-root {
 
@@ -47,23 +56,34 @@
 
         &::before {
           transform: scale(1);
+          transform-origin: center left;
         }
       }
     }
   }
 
   &__marker {
+    bottom: 0;
     position: absolute;
-    top: (unit(header-height) - unit(navigation-item-height)) / -2;
-    left: 0;
-    transform: translateY(#{unit(header-offset) * -1});
-    transition:
-      transform $timing $easing;
-    width: 100%;
+    left: unit(navigation-item-padding);
     height: 2px; // TODO: Var
+    right: unit(navigation-item-padding);
 
-    .header--scrolled & {
-      transform: none;
+    @include min-width(tp(header-small)) {
+      bottom: auto;
+      left: 0;
+      right: 0;
+      top: (unit(header-height) - unit(navigation-item-height)) / -2;
+    }
+
+    @include min-width(tp(header-fixed)) {
+      transform: translateY(#{unit(header-offset) * -1});
+      transition:
+        transform $timing $easing;
+
+      .header--scrolled & {
+        transform: none;
+      }
     }
 
     &::before,
@@ -73,7 +93,7 @@
       background: currentColor;
       content: '';
       transform: scale(0, 1);
-      transform-origin: center left;
+      transform-origin: center right;
 
       .navigation__item--active & {
         transform: scale(1, 1);
@@ -86,12 +106,21 @@
     }
 
     &::after {
-      background: color(accent); // TODO: Var
+      @include accent(background);
+
+      // .page--is-loading & {
+      //   background: currentColor;
+      // }
     }
   }
 
   .btn {
     margin: 0 0 0 unit(2);
     vertical-align: middle;
+
+    @include max-width(tp(header-small)) {
+      margin-left: auto;
+      margin-bottom: unit(navigation-item-padding) / 2;
+    }
   }
 }

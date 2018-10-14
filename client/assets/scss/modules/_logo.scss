@@ -23,6 +23,33 @@
   white-space: nowrap;
 
   &--link {
+    position: relative;
+
+    &::before {
+      @include cover;
+      @include accent(background);
+
+      content: '';
+      transform: scale(0, 1);
+      transform-origin: center right;
+      transition: transform $timing $easing;
+    }
+
+    &:hover {
+      color: module-color(header-bg);
+
+      &::before {
+        transform-origin: center left;
+        transform: scale(1, 1);
+      }
+    }
+
+    .link {
+
+      &__label {
+        position: relative;
+      }
+    }
 
     .h3 {
       font-weight: inherit;
@@ -30,7 +57,6 @@
     }
 
     &:hover {
-      color: color(accent);
       opacity: 1;
     }
   }

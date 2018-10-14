@@ -35,7 +35,7 @@
     <span class="btn__inner">
       <span class="btn__content">
         <span class="btn__label">
-          <slot/>
+          <slot v-if="!label" />{{ label || `` }}
         </span><!--
         --><module-icon v-if="icon" :class="`btn__icon`" :icon="icon" />
       </span>
@@ -79,6 +79,7 @@ export default {
       String,
       Object,
     ],
+    label: String,
     negative: Boolean,
     title: String,
     size: {

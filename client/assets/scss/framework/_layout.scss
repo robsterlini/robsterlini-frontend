@@ -10,7 +10,7 @@
 // ==========================================
 
 .page,
-main {
+.main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -23,12 +23,54 @@ main {
   overflow: hidden;
   padding: 0;
   position: relative;
-  // padding-top: unit(header-height) + unit(header-offset);
 
-  @include min-width(bp(s)) {
-    // padding-top: 25vw;
+  @include max-width(tp(header-fixed)) {
+    padding-top: unit(header-height);
+  }
+
+  @include max-width(tp(header-small)) {
+    padding-top: rem(69); // TODO: Var
   }
 }
+
+
+// ==== Life ================================
+// Accent colors
+// ==========================================
+
+$accent-colors: (
+  // home: blue,
+  home: color(secondary),
+  life: color(secondary),
+  contact: #59C3C3,
+  work: #F55D3E,
+);
+
+@each $accent-slug, $accent-color in $accent-colors {
+  .page--#{$accent-slug} {
+    #{--accent}: $accent-color;
+  }
+
+  .loader--#{$accent-slug} {
+
+    .loader__layer--accent {
+      background: $accent-color;
+    }
+  }
+}
+
+// .page--life {
+//   --accent: #ff3c3c;
+// }
+
+// .loader--life {
+
+//   .loader__layer {
+//     background: red;
+//   }
+// }
+
+// #1DA1F3
 
 
 // ==== Layout ==============================
@@ -42,6 +84,22 @@ main {
   position: relative;
   z-index: 2; // TODO: Var
   width: calc(100% - #{rem(20 * 2)}); // TODO: Var
+
+  .page--show-group .main > & {
+    animation: reveal-group $timing-transition 0ms both;
+
+    @keyframes reveal-group {
+      0% {
+        // opacity: 0;
+        transform: translateX(3%);
+      }
+
+      100% {
+        // opacity: 1;
+        transform: none;
+      }
+    }
+  }
 
   @include min-width(bp(s)) {
     width: calc(100% - #{rem(40 * 2)}); // TODO: Var

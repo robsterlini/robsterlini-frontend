@@ -33,6 +33,7 @@
     @include cover;
 
     background: linear-gradient(transparent, module-color(base-bg));
+    bottom: -1px;
     content: '';
     top: 50%;
     z-index: 1;

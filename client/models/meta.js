@@ -23,11 +23,18 @@ export default {
     },
   },
 
-  terms: {
-    title: `Terms`,
+  work: {
+    title: `Work`,
     meta: {
-      description: `Terms page description`,
-      noIndex: true,
+      description: `Lorem ipsum`,
+      // noIndex: true,
+    },
+  },
+
+  contact: {
+    title: `Contact`,
+    meta: {
+      description: `Lorem ipsum`,
     },
   },
 };

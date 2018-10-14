@@ -26,14 +26,8 @@
         <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" />. As a frontend developer I have collaborated with <module-link :link="{ name: `work`, hash: `#kickpush` }" label="agencies" />, helped mould the early web presence of startups, and worked with established brands like to create innovative web&nbsp;experiences. <module-button link="work" class="m0" /></p>
       </div><!--
       --><div class="home-col home-col--life">
-        <h2 class="h3 mb-h">
-          <module-link
-            label="Life"
-            link="life"
-            :no-underline="true"
-          />
-        </h2>
-        <p class="medium mb0">Away from the screen I enjoy cresting Bristol’s hills on my bike before running and then eating everything – I have <module-link :link="{ name: `life`, hash: `#triathlon` }">one <abbr title="Ironman 70.3"><span class="type--sc">IM</span>&hairsp;70.3</abbr></module-link> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <module-link :link="{ name: `life`, hash: `#lego` }"><small class="type--sc">LEGO</small></module-link> and <module-link :link="{ name: `life`, hash: `#sports` }">Spurs</module-link>&nbsp;too. <module-button link="life" class="m0" /></p>
+        <h2 class="h3 mb-h">Life</h2>
+        <p class="medium mb0">Away from the screen I like swimming, cycling, and running; occasionally one after the other… I have <module-link link="https://www.instagram.com/p/BZJncXEAQgv/" :no-underline="true">one <abbr title="Ironman 70.3"><span class="type--sc">IM</span>&hairsp;70.3</abbr></module-link> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <module-link link="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini" :no-underline="true"><small class="type--sc">LEGO</small></module-link> and – for my sins – I am a Spurs season ticket&nbsp;holder.</p>
       </div>
       <h2 class="h3 mb0">
         <module-link

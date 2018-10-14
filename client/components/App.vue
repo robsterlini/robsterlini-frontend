@@ -5,6 +5,8 @@
       appPage.classes,
       {
         'page--is-loaded': appState.loaded,
+        'page--is-loading': appState.loading,
+        'page--show-group': !appState.loading,
       },
     ]"
     :id="`app`"
@@ -26,13 +28,6 @@
     <ui-footer/>
 
     <ui-loader/>
-
-    <module-modal
-      id="login"
-      :auto="true"
-      :no-close="true"
-      auth="login"
-    />
   </div>
 </template>
 
@@ -52,11 +47,7 @@ import { mapGetters, mapActions } from 'vuex';
 // Services
 import { createMeta } from 'services/meta';
 
-// Modules
-import ModuleModal from 'modules/Modal';
-
 // UI
-import UiAuth from 'ui/Auth';
 import UiHeader from 'ui/Header';
 import UiFooter from 'ui/Footer';
 import UiLoader from 'ui/Loader';
@@ -102,8 +93,6 @@ export default {
 
   // Components
   components: {
-    ModuleModal,
-    UiAuth,
     UiHeader,
     UiFooter,
     UiLoader,

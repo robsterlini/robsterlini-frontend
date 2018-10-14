@@ -33,9 +33,10 @@
 .home-header {
 
   &__span {
+    @include accent(color);
+
     margin-top: 0;
     margin-bottom: 0;
-    color: color(accent);
 
     // background: -webkit-linear-gradient(right, lighten(color(accent), 12.5%), color(accent));
     // -webkit-background-clip: text;
@@ -126,7 +127,7 @@
 // ==========================================
 
 .home-credit {
-  color: #888; // TODO: Var
+  color: color(mid); // TODO: Var
   margin: 0;
   width: 100%;
   z-index: 2;

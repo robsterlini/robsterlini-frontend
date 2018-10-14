@@ -3,14 +3,17 @@
     <module-bg
       :image="images.hero"
     />
-    <div class="group group--thin group--first-last">
+    <div class="group group--thi group--first-last">
       <h1 class="h1 mt0 mb0">A portfolio of sorts</h1>
-      <p class="large">I’m a typography graduate turned frontend developer with a passion for creating web experiences as part of my role at <module-link link="#fueled">Fueled</module-link> and as a freelance developer.</p>
+      <p class="large">I’m a typography graduate turned frontend developer with a passion for creating web experiences as part of my role at <module-link link="#fueled">Fueled</module-link> and as a freelance&nbsp;developer.</p>
 
       <div
         v-for="(project, projectId) in projects"
 
-        class="work-project"
+        :class="[
+          `work-project`,
+          `work-project--${projectId}`,
+        ]"
         :id="projectId"
       >
         <h2 class="h2">
@@ -19,6 +22,12 @@
 
             :link="project.link"
             :label="project.title"
+          />
+          <abbr
+            v-else-if="project.abbr"
+
+            :title="project.abbr"
+            v-html="project.title"
           />
           <template v-else>{{ project.title }}</template>
         </h2>
@@ -37,7 +46,7 @@
                     <template v-if="(item || {}).href"><module-link :link="item.href" :label="item.name" /></template>
                     <template v-else>{{ item }}</template>
                   </template>
-                  <template v-else>{{ item }}</template>
+                  <span v-else v-html="item" />
                 </dd>
               </template>
             </div>
@@ -55,11 +64,14 @@
             ]"
           >{{ copy }}</p>
           <module-button
+            v-for="(cta, index) in project.ctas || [{ cta: project.cta || null }]"
+            :key="index"
+
             class="mt0 mb0"
-            link="contact"
-          >
-            {{ project.cta || `Got a question?` }}
-          </module-button>
+
+            :link="cta.link || `contact`"
+            :label="cta.cta || `Got a question?`"
+          />
         </div>
       </div>
     </div>
@@ -90,8 +102,8 @@ export default {
 
   // Meta data
   metaInfo: {
-    title: meta.terms.title,
-    meta: createMeta(meta.terms.meta),
+    title: meta.work.title,
+    meta: createMeta(meta.work.meta),
   },
 
   // Components
@@ -104,15 +116,17 @@ export default {
   // Data
   data() {
     const terms = {
-      fed: `Frontend Development`,
-      design: `Web Design`,
-      vue: `Vue 3`,
+      fed: `Frontend development`,
+      design: `Web design`,
+      brand: `Branding`,
+      vue: `Vue 2`,
       middleman: `Middleman`,
       angular: `Angular 1.6`,
       scss: `Scss`,
       wordpress: `WordPress`,
       gulp: `Gulp`,
-      html: `HTML & CSS`,
+      js: `<span class="type--sc">ES6</span> JavaScript`,
+      html: `<span class="type--sc">HTML</span>, <span class="type--sc">CSS</span>`,
     };
 
     return {
@@ -133,10 +147,10 @@ export default {
       projects: {
         fueled: {
           title: `Leading the frontend push`,
-          link: `https://fueled.com`,
+          link: `https://fueled.com/sterlini`,
           roles: [
             terms.fed,
-            `Team Leadership`,
+            `Team management`,
           ],
           clients: [
             `Apple`,
@@ -152,6 +166,7 @@ export default {
               href: `https://web.fixfix.com`,
               name: `FixFix`,
             },
+            `Vanity Fair`,
           ],
           stacks: [
             terms.vue,
@@ -161,9 +176,9 @@ export default {
             terms.middleman,
           ],
           copy: [
-            `Since joining Fueled in July 2014, I’ve progressed to lead the frontend web team in our efforts to produce high quality, polished webapps.`,
-            `I have built interactive learning games for Apple, engineered web experiences to rescue you when you’re locked out for FixFix, helped visitors get the best value in London for Keetoo.`,
-            `As the team-lead of the Frontend Web Team, I’ve led the charge for better code standards and structure to enable our team to flourish and develop (if you’ll pardon the pun).`,
+            `Since joining Fueled in July 2014, I’ve progressed to lead the frontend web team in our efforts to produce high quality, polished\xa0webapps.`,
+            `I have built interactive learning games for Apple, engineered web experiences to rescue you when you’re locked out for FixFix, helped visitors get the best value in London for\xa0Keetoo.`,
+            `As the team-lead of the Frontend Web Team, I’ve led the charge for better code standards and structure to enable our team to flourish and develop (if you’ll pardon the\xa0pun).`,
           ],
           cta: `Want to know more about Fueled?`,
         },
@@ -186,10 +201,12 @@ export default {
             `Alex & Sam came to me about building the frontend of for the second version of their agency’s site. We worked together closely to deliver a polished experience that perfectly embodied their work ethic and\xa0abilities.`,
             `Since then we have iterated on that build to streamline the user experience, and add a more tailored approach to the case\xa0studies.`,
           ],
-          cta: `Does your agency need a web refresh?`,
+          cta: `Like what you see?`,
+          // cta: `Does your agency need a web refresh?`,
         },
         other: {
-          title: `Size doesn’t matter`,
+          title: `Et al`,
+          abbr: `Latin – and others`,
           clients: [
             {
               href: `https://reading.ac.uk/library`,
@@ -205,16 +222,27 @@ export default {
           roles: [
             terms.fed,
             terms.design,
+            terms.brand,
           ],
           stacks: [
             terms.html,
             terms.scss,
+            terms.js,
+            terms.vue,
             terms.gulp,
           ],
           copy: [
-            `To fund my triathlon addiction I make myself available for frontend development, web design, and anything else\xa0related.`,
+            `Over the years I have built websites for a range of clients in a freelance capacity. Ranging from Masonic lodge sites to entire university web presence rethinks, no project is too big or\xa0small.`,
           ],
-          cta: `Got an interesting project?`,
+          ctas: [
+            {
+              cta: `Got an interesting project?`,
+            },
+            // {
+            //   cta: `Want to see my CV?`,
+            //   link: `cv`,
+            // }
+          ],
         },
       },
     };

@@ -5,8 +5,8 @@ export default [
     name: `Work`,
     link: `work`,
   },
-  {
-    name: `Life`,
-    link: `life`,
-  },
+  // {
+  //   name: `Life`,
+  //   link: `life`,
+  // },
 ];

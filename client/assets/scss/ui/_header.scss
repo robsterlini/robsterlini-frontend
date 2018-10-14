@@ -14,27 +14,37 @@
   color: module-color(header-color);
   display: flex;
   left: 0;
-  height: unit(header-height);
+  // height: unit(header-height);
   position: fixed;
   width: 100%;
   z-index: $loader-z-index + 1;
+
+  @include min-width(tp(header-small)) {
+    height: unit(header-height);
+  }
 
   &--hidden {
     display: none;
   }
 
   .group {
-    transform: translateY(#{rem(20)});
-    align-items: center;
-    display: flex;
-    transition: transform $timing $easing;
 
-    @at-root {
+    @include min-width(tp(header-small)) {
+      align-items: center;
+      display: flex;
+    }
 
-      .header--scrolled {
+    @include min-width(tp(header-fixed)) {
+      transform: translateY(#{rem(20)});
+      transition: transform $timing $easing;
 
-        .group {
-          transform: none;
+      @at-root {
+
+        .header--scrolled {
+
+          .group {
+            transform: none;
+          }
         }
       }
     }
@@ -46,43 +56,58 @@
     background: module-color(header-bg);
     bottom: rem(-20);
     bottom: 0;
-    // height: unit(header-height);
-    opacity: 0;
-    transform: translateY(#{rem(20)});
-    transition:
-      opacity $timing $easing,
-      transform $timing $easing;
     top: rem(-20);
-    // position: absolute;
-    // left: 0;
-    // top: 0;
 
-    .header--scrolled & {
-      transform: none;
-      opacity: 1;
+    @include min-width(tp(header-fixed)) {
+      opacity: 0;
+      transition:
+        opacity $timing $easing,
+        transform $timing $easing;
+      transform: translateY(#{rem(20)});
+
+      .header--scrolled & {
+        transform: none;
+        opacity: 1;
+      }
     }
   }
 
   &__logo {
     align-items: center;
-    // color: inherit;
-    display: inline-flex;
-    // height: unit(header-logo-width);
-    margin: (unit(header-height) - unit(header-logo-width)) / 2 0;
-    vertical-align: middle;
+    margin: 0;
     z-index: 1;
+
+    @include min-width(tp(header-small)) {
+      display: inline-flex;
+      margin: (unit(header-height) - unit(header-logo-width)) / 2 0;
+      vertical-align: middle;
+    }
+
+    @include max-width(tp(header-small)) {
+      margin-top: rem(10);
+      padding-left: 0;
+
+      .logo__part--last {
+        // display: none;
+      }
+    }
   }
 
   .navigation {
-    display: inline-block;
+    align-items: center;
+    display: flex;
     margin: 0;
     position: relative;
-    text-align: right;
-    vertical-align: middle;
     width: 100%;
+
+    @include min-width(tp(header-small)) {
+      display: inline-block;
+      text-align: right;
+      vertical-align: middle;
+    }
   }
 
   .btn--tertiary {
-    color: module-color(header-btn-tertiary-color);
+    @include accent(color);
   }
 }

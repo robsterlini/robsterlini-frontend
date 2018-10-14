@@ -34,7 +34,7 @@ $btn-icon-spacing: rem(12);
   text-decoration: none;
   // sass-lint:disable indentation
   transition:
-    color $timing-button $easing,
+    // color $timing-button $easing,
     transform $timing-button $easing;
   // sass-lint:enable indentation
   user-select: none;
@@ -67,7 +67,9 @@ $btn-icon-spacing: rem(12);
     z-index: 2;
 
     &::after {
-      color: color(accent); // TODO: Var
+      // color: color(accent); // TODO: Var
+      @include accent(color);
+
       content: ' →';
       display: inline-block;
       position: relative;

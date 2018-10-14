@@ -28,7 +28,7 @@ $h1-font-size-s: 48;
 
 // H2
 $h2-font-size-l: 36;
-$h2-font-size-s: 28;
+$h2-font-size-s: 24;
 
 // H3
 $h3-font-size-l: 18;
@@ -108,7 +108,7 @@ $logo-height: 56;
 
 $timing: 250ms;
 
-$timing-transition: 300ms;
+$timing-transition: 600ms;
 $timing-button: $timing;
 $timing-link: $timing;
 $timing-modal: 300ms;
@@ -196,6 +196,10 @@ $tweakpoints: (
   // Base
   base-layout-wide: bp(s),
   base-dynamic-type: $base-dynamic-type,
+
+  // Header
+  header-fixed: bp(s),
+  header-small: bp(xs),
 
   // Modal
   modal-mobile: bp(s),

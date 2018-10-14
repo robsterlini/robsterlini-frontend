@@ -13,6 +13,10 @@
 
   &__details {
 
+    > .small {
+      max-width: 36em;
+    }
+
     @include min-width(bp(m)) {
       display: inline-block;
       padding-right: unit(base-gutter);
@@ -26,6 +30,27 @@
   }
 
   &__detail {
+
+    @include min-max-width(280, bp(xs)) {
+      padding-left: 6em;
+      margin-bottom: 0.5rem !important; // TODO: Var and refactor
+      position: relative;
+
+      .work-project--fueled &,
+      .work-project--other & {
+
+        &:first-of-type {
+          min-height: 2.8em;
+        }
+      }
+
+      dt {
+        width: 6em;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
 
     @include min-width(bp(xs)) {
       display: inline-block;
@@ -73,5 +98,21 @@
       vertical-align: top;
       width: calc(100% - #{rem(960 / 4)}); // TODO: Why
     }
+
+    .btn {
+      display: table;
+    }
+  }
+}
+
+
+// ==== Work ================================
+// Others
+// ==========================================
+
+.work-project--other {
+
+  .h2 {
+    font-style: italic;
   }
 }

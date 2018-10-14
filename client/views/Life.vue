@@ -7,9 +7,10 @@
       <h1 class="h1 mt0 mb0">Not work</h1>
       <p class="large">A <module-link link="work">work</module-link>-life balance is so important, so away from my frontend development environments I try and spend time outside with an elevated heart&nbsp;rate, inside cooking (read eating), or building with&nbsp;<span class="type--sc">LEGO</span>.</p>
 
-      <h2 class="h2">Swim, Bike, Run</h2>
+      <h2 class="h2">Swim, Bike, Run, (eat)</h2>
       <p class="p">Since taking on the sport in {{ new Date(triathlons[0].date).getFullYear() }}, I have {{ triathlonsCount }} under my belt, including my first <abbr class="nowrap" title="Ironman 70.3"><span class="type--sc">IM</span>&hairsp;70.3</abbr> – a half Ironman distance made up of a 1.2 mile swim, a 56 mile bike, and a <span class="nowrap">half-marathon</span>&nbsp;run.</p>
-      <p class="p">Training for triathlon keeps life varied with three disciplines to keep on top of, whether that’s swimming in a reservoir head-to-toe in neoprene, cresting Bristol’s hills atop Cleo (my Canyon), or pushing the floor down along the Toe Path or the Thames back in London.</p>
+      <p class="p">Training for triathlon keeps life varied with three disciplines to keep on top of, whether that’s swimming in a reservoir head-to-toe in neoprene, clipping merrily up hills on <module-link link="https://www.instagram.com/p/BUmYHM0FYjG">Cleo</module-link>, getting aero with <module-link link="https://www.instagram.com/p/BW5hVZhAm-d/">Alice</module-link>, or pushing the earth down along the&nbsp;Thames.</p>
+      <p class="p">That amount of cardio works up quite a hunger, but with my healthy (read large), Italian appetite, I've got that covered&nbsp;too.</p>
 
       <div class="group__overlap">
         <div class="life-triathlon__images grid">
@@ -23,9 +24,10 @@
         </div>
       </div>
 
-      <h2 class="h2">Less active</h2>
+      <h2 class="h2">Being less active</h2>
       <h3 class="h3" id="lego">Bricks on bricks</h3>
-      <p class="p">I’ve built with <span class="type--sc">LEGO</span> since I was a very young boy, but the jewel in my collection – <module-link link="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini"><abbr title="Ultimate Collector Series">UCS</abbr> Millenium Falcon 75192</module-link> – was built over the Christmas holiday in 2017.</p>
+      <p class="p">I’ve built with <span class="type--sc">LEGO</span> since I was a very young boy, but the jewel in my collection – <module-link link="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini"><abbr title="Ultimate Collector Series">UCS</abbr> Millenium Falcon 75192</module-link> – was built over the Christmas holiday in&nbsp;2017.</p>
+      <p class="p">I’ve also got an <module-link link="https://instagram.com/hopeaitchison">awesome fiancé</module-link> who supported me getting <module-link link="https://www.instagram.com/p/BDTc0gYP-8b/?taken-by=robsterlini"><span class="type--sc">LEGO</span> Batman and Ironman</module-link> indelibly inked onto my&nbsp;quad.</p>
 
       <h3 class="h3" id="sports">Sports</h3>
       <p class="p">Aside from participating in triathlon, it is also one of the sports in a long list that I follow avidly. I am a <module-link link="https://twitter.com/search?q=robsterlini%20coys"><abbr title="Tottenham Hotspur FC">Spurs</abbr></module-link> season ticket holder – for my sins; I stay up late to watch the Patriots in the NFL, and get behind Team&nbsp;Sky in the pro peleton.</p>
@@ -127,6 +129,11 @@ export default {
           event: `Ironman Weymouth`,
           distance: `half-iron`,
           date: `17/9/2017`,
+        },
+        {
+          event: `Royal Windsor Triathlon`,
+          distance: `olympic`,
+          date: `17/6/2018`,
         },
       ],
       marathons: [
