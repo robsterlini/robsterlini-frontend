@@ -109,9 +109,9 @@ export default {
       `appState`,
       `appPage`,
     ]),
-    ...mapGetters(`modals`, [
-      `modalActive`,
-    ]),
+    // ...mapGetters(`modals`, [
+    //   `modalActive`,
+    // ]),
     random() {
       return Math.floor(Math.random() * 4) + 1;
     },

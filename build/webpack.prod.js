@@ -79,7 +79,7 @@ base.plugins.push(
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest'
   }),
-  new BundleAnalyzerPlugin(),
+  // new BundleAnalyzerPlugin(),
   new webpack.optimize.ModuleConcatenationPlugin(),
   // new PrerenderSpaPlugin(
   //   path.join(__dirname, '../dist'),

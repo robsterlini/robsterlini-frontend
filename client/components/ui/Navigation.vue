@@ -64,9 +64,6 @@ export default {
     ...mapGetters(`app`, [
       `appPage`,
     ]),
-    ...mapGetters(`auth`, [
-      `isAuthenticated`,
-    ]),
   },
 
   // Methods

@@ -90,12 +90,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(`auth`, [
-      `isAuthenticated`,
-    ]),
-    ...mapGetters(`modals`, [
-      `modalActive`,
-    ]),
+    // ...mapGetters(`auth`, [
+    //   `isAuthenticated`,
+    // ]),
+    // ...mapGetters(`modals`, [
+    //   `modalActive`,
+    // ]),
     active() {
       return this.modalActive === this.id;
     },
