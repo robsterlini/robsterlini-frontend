@@ -58,7 +58,7 @@
 
     &--loaded {
 
-      .page--show-group & {
+      .page--is-loaded & {
         animation: bg-reveal $timing-transition $easing both;
       }
 

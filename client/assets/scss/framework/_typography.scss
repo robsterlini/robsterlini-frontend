@@ -205,6 +205,10 @@
     text-transform: lowercase;
     font-size: 1em;
   }
+
+  &--nb {
+    white-space: nowrap;
+  }
 }
 
 abbr {

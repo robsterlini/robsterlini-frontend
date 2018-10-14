@@ -52,9 +52,11 @@ export default {
   },
   watch: {
     image(image) {
+      if (!image) return ``;
+
       this.loaded = false;
 
-      setTimeout(() => this.loadImage(image), 400);
+      setTimeout(() => this.loadImage(image), 250);
     },
   },
 
