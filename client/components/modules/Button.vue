@@ -6,11 +6,9 @@
 
     :class="[
       'btn',
-      icon ? 'btn--' + (negative ? 'negative' : 'positive') : '',
       'btn--' + (button || 'secondary'),
       'btn--' + (size || 'm'),
       {
-        'btn--icon': icon,
         'btn--idle': (!hover && !isHover && !active && !isActive) || (loading),
         'btn--hover': (hover ||isHover || active || isActive) && !disabled && !loading,
         'btn--active': (active || isActive) && !disabled && !hover && !loading,
@@ -31,13 +29,11 @@
     @click="onClick"
   >
     <module-spinner :class="`btn__spinner`" :active="loading" />
-    <module-icon :class="`btn__success`" icon="tick" />
     <span class="btn__inner">
       <span class="btn__content">
         <span class="btn__label">
           <slot v-if="!label" />{{ label || `` }}
-        </span><!--
-        --><module-icon v-if="icon" :class="`btn__icon`" :icon="icon" />
+        </span>
       </span>
     </span>
   </component>
@@ -48,7 +44,7 @@
 import { getLinkTag, getLinkType, createLinkProps } from 'services/link';
 
 // Modules
-import ModuleIcon from 'modules/Icon';
+// import ModuleIcon from 'modules/Icon';
 import ModuleSpinner from 'modules/Spinner';
 
 // Other
@@ -60,7 +56,7 @@ export default {
 
   // Components
   components: {
-    ModuleIcon,
+    // ModuleIcon,
     ModuleSpinner,
   },
 
@@ -74,7 +70,7 @@ export default {
     button: {
       type: String,
     },
-    icon: String,
+    // icon: String,
     link: [
       String,
       Object,

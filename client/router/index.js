@@ -32,19 +32,19 @@ const loadAsyncPage = (pageImport) => {
 };
 
 // Vue Init
-// const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
+// const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/VueInit`));
 
 // Base
-const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Error`));
-const Error = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Error`));
+const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Error`));
+const Error = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Error`));
 
 // Top Level Pages
-const Home = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Home`));
-const Work = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Work`));
-// const Life = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Life`));
-const Contact = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Contact`));
-// const Cv = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Cv`));
-// const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
+const Home = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Home`));
+const Work = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Work`));
+// const Life = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Life`));
+const Contact = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Contact`));
+// const Cv = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Cv`));
+// const Terms = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Terms`));
 
 Vue.use(Router);
 

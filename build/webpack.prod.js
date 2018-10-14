@@ -70,16 +70,16 @@ base.plugins.push(
     /highlight\.js\/lib\/languages$/,
     new RegExp(`^./(${['javascript', 'xml', 'json'].join('|')})$`)
   ),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    minChunks: module => {
-      return module.resource && /\.(js|css|es6)$/.test(module.resource) && module.resource.indexOf('node_modules') !== -1
-    }
-  }),
+  // new webpack.optimize.CommonsChunkPlugin({
+  //   name: 'vendor',
+  //   minChunks: module => {
+  //     return module.resource && /\.(js|css|es6)$/.test(module.resource) && module.resource.indexOf('node_modules') !== -1
+  //   }
+  // }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest'
   }),
-  // new BundleAnalyzerPlugin(),
+  new BundleAnalyzerPlugin(),
   new webpack.optimize.ModuleConcatenationPlugin(),
   // new PrerenderSpaPlugin(
   //   path.join(__dirname, '../dist'),
