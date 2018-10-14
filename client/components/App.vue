@@ -139,12 +139,12 @@ export default {
       `updateMeta`,
       `updateMetaTitle`,
     ]),
-    ...mapActions(`modals`, [
-      `closeModal`,
-    ]),
+    // ...mapActions(`modals`, [
+    //   `closeModal`,
+    // ]),
     onLeave() {
       this.openLoader();
-      this.closeModal();
+      // this.closeModal();
     },
     onLoad() {
       this.updatePage();

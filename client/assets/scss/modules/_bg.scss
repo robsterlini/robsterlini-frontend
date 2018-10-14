@@ -10,7 +10,7 @@
 // ==========================================
 
 .bg {
-  background: module-color(base-bg);
+  background: module-color(bg-bg);
   margin-bottom: -35%;
   position: relative;
   padding-top: 50%;
@@ -28,9 +28,46 @@
     background-size: cover;
     filter: grayscale(0.33);
 
-    opacity: 0.5;
+    opacity: 0;
     mix-blend-mode: overlay;
+    // transition:
+    //   opacity $timing $easing,
+    //   transform $timing $easing;
+    // transform: translateY(-2%);
     z-index: 1;
+
+    animation: bg-hide $timing $easing both;
+
+    @keyframes bg-hide {
+      0% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    &--loaded {
+      animation: bg-reveal $timing-transition $easing both;
+
+      @keyframes bg-reveal {
+        0% {
+          opacity: 0;
+          transform: translateY(-1%);
+        }
+
+        100% {
+          opacity: 0.5;
+          transform: none;
+        }
+      }
+      // opacity: 0.5;
+      // transform: none;
+      // transition:
+      //   opacity $timing $easing,
+      //   transform $timing $easing;
+    }
   }
 
   &::after {
