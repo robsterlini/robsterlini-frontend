@@ -85,8 +85,8 @@
       }
 
       &--accent {
-        animation-delay: $timing-transition * 0.33;
-        animation-duration: $timing-transition * 0.66;
+        animation-delay: $timing-transition * 0.5;
+        animation-duration: $timing-transition * 0.5;
       }
 
       @keyframes loader-in {
