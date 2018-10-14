@@ -58,6 +58,16 @@ const routes = [
     path: `/410`,
     name: `gone`,
     component: Error,
+    meta: {
+      errorCode: 410,
+    },
+    alias: [
+      `/journal`,
+      `/journal/*`,
+      `/cv`,
+      `/colophon`,
+      `/archive`,
+    ],
   },
   // {
   //   path: `/`,

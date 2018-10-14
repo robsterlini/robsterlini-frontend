@@ -25,11 +25,12 @@ export default {
 
   // Meta data
   metaInfo() {
-    const errorMeta = meta[this.$route.name];
-
     return {
-      title: errorMeta.title,
-      meta: createMeta(errorMeta.meta),
+      title: this.content.metaTitle || this.content.title,
+      meta: createMeta({
+        noIndex: true,
+        description: this.content.metaDescription,
+      }),
     };
   },
 
@@ -40,19 +41,26 @@ export default {
 
   // Data
   computed: {
+    errorCode() {
+      return (this.$route.meta || {}).errorCode || 404;
+    },
     content() {
       const content = {
-        notFound: {
+        '404': {
           title: `Well, bollocks!`,
           copy: `It looks like you’re\xa0lost…`,
+          metaTitle: `Oops!`,
+          description: `Page not found.`,
         },
-        gone: {
+        '410': {
           title: `Reshuffled`,
           copy: `This site has been through many changes, and along the way this page has been\xa0removed.`,
+          metaTitle: `Gone`,
+          description: `Page removed.`,
         },
       };
 
-      return content[this.$route.name];
+      return content[this.errorCode.toString()];
     },
   },
 };
