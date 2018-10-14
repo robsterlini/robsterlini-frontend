@@ -2,6 +2,7 @@
   <div
     :class="[
       `page`,
+      `page--c${random}`,
       appPage.classes,
       {
         'page--is-loaded': appState.loaded,
@@ -111,6 +112,9 @@ export default {
     ...mapGetters(`modals`, [
       `modalActive`,
     ]),
+    random() {
+      return Math.floor(Math.random() * 4) + 1;
+    },
   },
   watch: {
     modalActive(active) {

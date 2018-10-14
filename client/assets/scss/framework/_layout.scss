@@ -38,39 +38,42 @@
 // Accent colors
 // ==========================================
 
-$accent-colors: (
-  // home: blue,
-  home: color(secondary),
-  life: color(secondary),
-  contact: #59C3C3,
-  work: #F55D3E,
-);
+// $accent-colors: (
+//   work: color(secondary),
+//   life: color(secondary),
+//   contact: #59C3C3,
+// );
 
-@each $accent-slug, $accent-color in $accent-colors {
-  .page--#{$accent-slug} {
-    #{--accent}: $accent-color;
-  }
+// @each $accent-slug, $accent-color in $accent-colors {
+//   .page--#{$accent-slug} {
+//     #{--accent}: $accent-color;
+//   }
 
-  .loader--#{$accent-slug} {
+//   .loader--#{$accent-slug} {
 
-    .loader__layer--accent {
-      background: $accent-color;
-    }
-  }
-}
-
-// .page--life {
-//   --accent: #ff3c3c;
-// }
-
-// .loader--life {
-
-//   .loader__layer {
-//     background: red;
+//     .loader__layer--accent {
+//       background: $accent-color;
+//     }
 //   }
 // }
 
-// #1DA1F3
+$accent-colors:
+  color(accent),
+  color(secondary),
+  #59C3C3,
+  #a97acb;
+
+@for $i from 1 through length($accent-colors) {
+  $accent-color: nth($accent-colors, $i);
+
+  .page--c#{$i} {
+    #{--accent}: $accent-color;
+  }
+}
+
+.loader__layer.loader__layer--accent { // TODO: Refactor
+  @include accent(background-color);
+}
 
 
 // ==== Layout ==============================

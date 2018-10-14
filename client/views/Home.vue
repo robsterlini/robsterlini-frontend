@@ -23,7 +23,7 @@
             :no-underline="true"
           />
         </h2>
-        <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" />. As a frontend developer I have collaborated with <module-link :link="{ name: `work`, hash: `#kickpush` }" label="agencies" />, helped mould the early web presence of startups, and worked with established brands like to create innovative web&nbsp;experiences. <module-button link="work" class="m0" /></p>
+        <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" />. In my role at Fueled, and as a freelance developer I have helped mould the early web presence of startups, collaborated <module-link :link="{ name: `work`, hash: `#kickpush` }" label="agencies" />, and worked with established brands like to create innovative web&nbsp;experiences. <module-button link="work" class="m0" /></p>
       </div><!--
       --><div class="home-col home-col--life">
         <h2 class="h3 mb-h">Life</h2>

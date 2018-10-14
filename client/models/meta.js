@@ -2,9 +2,9 @@
 
 export default {
   home: {
-    title: `Home`,
+    // title: `Frontend developer`,
     meta: {
-      description: `Homepage description`,
+      description: `Rob Sterlini is a frontend developer, amateur triathlete, and LEGO Master Builder.`,
     },
   },
 
