@@ -32,6 +32,10 @@
 
 .home-header {
 
+  .logo {
+    background: rgba(module-color(header-bg), 0.5);
+  }
+
   &__span {
     @include accent(color);
 
@@ -42,25 +46,25 @@
     // -webkit-background-clip: text;
     // -webkit-text-fill-color: transparent;
 
-    @media screen and (max-width: 31.5em) {
-      font-size: 3.25rem;
+    @include max-width(504) {
+      font-size: 3rem;
     }
 
-    @media screen and (max-width: 26.25em) {
+    @include max-width(420) {
       font-size: 2.75rem;
     }
 
-    @media screen and (max-width: 17em) {
+    @include max-width(272) {
       width: calc(100% + 0.2em);
     }
 
-    @media screen and (max-width: 15.625em) {
+    @include max-width(250) {
       font-size: calc((100vw - 2.5rem) / 5.5);
     }
 
     &--dev {
 
-      @media screen and (max-width: 22.75em) {
+      @include max-width(364) {
 
         span {
           display: none;
@@ -83,7 +87,7 @@
       margin-bottom: 0.5em;
       margin-top: -0.05em;
 
-      @media screen and (max-width: 23.325em) {
+      @include max-width(380) {
 
         span {
           display: none;
@@ -105,6 +109,10 @@
 
 .home-col {
   max-width: rem(960 / 3 * 2); // TODO: Var
+
+  .btn {
+    vertical-align: text-bottom;
+  }
 
   @include min-width(bp(m)) {
     display: inline-block;

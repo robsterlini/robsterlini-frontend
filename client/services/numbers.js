@@ -1,5 +1,10 @@
 'use strict';
 
+export const toFixedNumber = (number, x, base = 10) => {
+  const pow = Math.pow(base, x);
+  return +(Math.round(number * pow) / pow);
+};
+
 export const formatBytes = (bytes, decimals = 2) => {
   if (bytes === 0) {
     return `0 Bytes`;

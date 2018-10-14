@@ -3,7 +3,7 @@
     <module-bg
       :image="images.hero"
     />
-    <div class="group group--thi group--first-last">
+    <div class="group group--first-last">
       <h1 class="h1 mb0">A portfolio of sorts</h1>
       <p class="large">I’m a typography graduate turned frontend developer with a passion for creating web experiences, both at <module-link link="#fueled">Fueled</module-link> and as a freelance&nbsp;developer.</p>
 

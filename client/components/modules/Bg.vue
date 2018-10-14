@@ -1,24 +1,38 @@
 <template>
   <span
     class="bg"
+
+    id="bg"
   >
     <span
-      :class="[
-        `cover`,
-        `bg__image`,
-        {
-          'bg__image--loaded': loaded,
-        },
-      ]"
+      class="cover bg__bg"
 
       :style="{
-        backgroundImage: `url(${imageSet})`,
+        transform: `translate3d(0, ${scrollY}%, 0)`,
       }"
-    />
+    >
+      <span
+        :class="[
+          `cover`,
+          `bg__image`,
+          {
+            'bg__image--loaded': loaded,
+          },
+        ]"
+
+        :style="{
+          backgroundImage: `url(${imageSet})`,
+        }"
+      />
+    </span>
   </span>
 </template>
 
 <script>
+// Services
+import { createScroll, destroyScroll } from 'services/scroll';
+import { toFixedNumber } from 'services/numbers';
+
 // Export
 export default {
   name: `module-bg`,
@@ -33,13 +47,14 @@ export default {
     return {
       loaded: false,
       imageSet: ``,
+      scrollY: 0,
     };
   },
   watch: {
     image(image) {
       this.loaded = false;
 
-      setTimeout(() => this.loadImage(image), 250);
+      setTimeout(() => this.loadImage(image), 400);
     },
   },
 
@@ -67,7 +82,16 @@ export default {
   created() {
     if (!this.image) return;
 
-    this.loadImage(this.image)
+    this.loadImage(this.image);
+  },
+  mounted() {
+    createScroll(`bg`, {
+      el: this.$el,
+      move: e => {
+        const elHeight = this.$el.clientHeight;
+        this.scrollY = toFixedNumber((e.scrollY / elHeight * 100) / 5, 3);
+      },
+    });
   },
 };
 </script>
