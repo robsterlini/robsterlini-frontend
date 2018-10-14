@@ -21,7 +21,7 @@
   color: module-color(base-color);
   flex-shrink: 0;
   overflow: hidden;
-  padding: 0;
+  padding: unit(header-height) * 2 0 0;
   position: relative;
 
   @include max-width(tp(header-fixed)) {
@@ -29,7 +29,7 @@
   }
 
   @include max-width(tp(header-small)) {
-    padding-top: rem(69); // TODO: Var
+    padding-top: rem(79); // TODO: Var
   }
 }
 

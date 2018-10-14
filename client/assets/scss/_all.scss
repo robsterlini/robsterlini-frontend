@@ -36,12 +36,12 @@
 // ==========================================
 
 @import 'modules/bg';
-@import 'modules/icon';
+// @import 'modules/icon';
 @import 'modules/spinner';
 @import 'modules/button';
-@import 'modules/form';
+// @import 'modules/form';
 @import 'modules/logo';
-@import 'modules/modal';
+// @import 'modules/modal';
 
 
 // ==== Scss ================================
@@ -52,7 +52,7 @@
 @import 'ui/navigation';
 @import 'ui/footer';
 @import 'ui/loader';
-@import 'ui/auth';
+// @import 'ui/auth';
 
 
 // ==== Scss ================================
@@ -61,7 +61,8 @@
 
 @import 'pages/home';
 @import 'pages/work';
-@import 'pages/life';
+// @import 'pages/life';
+@import 'pages/contact';
 
 
 // ==== Scss ================================

@@ -11,13 +11,17 @@
 
 .bg {
   background: module-color(base-bg);
-  margin-bottom: -30%;
+  margin-bottom: -35%;
   position: relative;
   padding-top: 50%;
 
-  @include min-width(bp(s)) {
-    top: unit(header-offset) + (unit(header-height) / 2);
+  @include min-width(tp(header-fixed)) {
+    top: unit(header-height) * -2;
   }
+
+  // @include min-width(bp(s)) {
+  //   top: unit(header-offset) + (unit(header-height) / 2);
+  // }
 
   &__image {
     background: center no-repeat;

@@ -50,7 +50,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.1;
-  margin-top: 2.5em;
+  margin-top: 2em;
   margin-left: -0.2em;
   padding: 0 0.2em;
   width: calc(100% + 0.2em);
@@ -157,6 +157,10 @@
 
 .h1 {
   @extend %h1;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .h2 {
