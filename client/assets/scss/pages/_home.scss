@@ -59,7 +59,7 @@
     }
 
     @include max-width(250) {
-      font-size: calc((100vw - 2.5rem) / 5.5);
+      font-size: calc((100vw - 2.5rem) / 4.9);
     }
 
     &--dev {

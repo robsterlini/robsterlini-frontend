@@ -13,7 +13,7 @@
         --><span class="visuallyhidden">, </span><!--
         --><span class="h1 home-header__span home-header__span--tri" @mouseover="changeBg(`tri`)" @mousedown="changeBg(`tri`)"><span>Amateur </span>triathlete</span><!--
         --><span class="visuallyhidden">, and </span><!--
-        --><span class="h1 mb0 home-header__span home-header__span--lego" @mouseover="changeBg(`lego`)" @mousedown="changeBg(`lego`)"><small class="type--sc">LEGO</small><span> master</span> builder</span>
+        --><span class="h1 home-header__span home-header__span--lego" @mouseover="changeBg(`lego`)" @mousedown="changeBg(`lego`)"><small class="type--sc">LEGO</small><span> master</span> builder</span>
       </h1>
       <div class="home-col home-col--work">
         <h2 class="h3 mb-h">
