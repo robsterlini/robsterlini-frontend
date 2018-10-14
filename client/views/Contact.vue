@@ -1,7 +1,7 @@
 <template>
   <main class="main main--work">
     <div class="group group--first-last">
-      <h1 class="h1 mb0">Let’s Chat!</h1>
+      <h1 class="h1 mb0">Let’s chat!</h1>
       <p class="large">Get in touch about anything, and everything.</p>
 
       <div class="grid mb2">

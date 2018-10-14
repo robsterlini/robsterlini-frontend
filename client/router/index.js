@@ -35,14 +35,15 @@ const loadAsyncPage = (pageImport) => {
 // const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
 
 // Base
-const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/404`));
+const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Error`));
+const Error = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Error`));
 
 // Top Level Pages
 const Home = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Home`));
 const Work = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Work`));
 // const Life = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Life`));
 const Contact = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Contact`));
-const Cv = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Cv`));
+// const Cv = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Cv`));
 // const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
 
 Vue.use(Router);
@@ -51,7 +52,12 @@ const routes = [
   {
     path: `*`,
     name: `notFound`,
-    component: NotFound,
+    component: Error,
+  },
+  {
+    path: `/410`,
+    name: `gone`,
+    component: Error,
   },
   // {
   //   path: `/`,
@@ -82,11 +88,11 @@ const routes = [
     name: `contact`,
     component: Contact,
   },
-  {
-    path: `/curriculum-vitae`,
-    name: `cv`,
-    component: Cv,
-  },
+  // {
+  //   path: `/curriculum-vitae`,
+  //   name: `cv`,
+  //   component: Cv,
+  // },
 ];
 
 const router = new Router({

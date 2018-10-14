@@ -59,9 +59,9 @@
 
 $accent-colors:
   color(accent),
+  #3fbff5,
   color(secondary),
-  #59C3C3,
-  #a97acb;
+  #22e2c3;
 
 @for $i from 1 through length($accent-colors) {
   $accent-color: nth($accent-colors, $i);

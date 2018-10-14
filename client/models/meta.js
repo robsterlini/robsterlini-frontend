@@ -16,9 +16,17 @@ export default {
   },
 
   notFound: {
-    title: `Not Found`,
+    title: `Oops!`,
     meta: {
       description: `This page was not found.`,
+      noIndex: true,
+    },
+  },
+
+  gone: {
+    title: `Gone!`,
+    meta: {
+      description: `This page was removed.`,
       noIndex: true,
     },
   },
@@ -26,15 +34,14 @@ export default {
   work: {
     title: `Work`,
     meta: {
-      description: `Lorem ipsum`,
-      // noIndex: true,
+      description: `I’m a typography graduate turned frontend developer with a passion for creating web experiences, both at `,
     },
   },
 
   contact: {
     title: `Contact`,
     meta: {
-      description: `Lorem ipsum`,
+      description: `Whether you wanna chat about a freelance project, or just fancy a natter, here you’ll find all the details you need to reach me!`,
     },
   },
 };
