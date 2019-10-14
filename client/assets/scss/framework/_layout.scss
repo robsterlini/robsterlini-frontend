@@ -10,7 +10,7 @@
 // ==========================================
 
 .page,
-main {
+.main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -18,7 +18,61 @@ main {
 }
 
 .main {
-  padding-top: unit(header-height);
+  color: module-color(base-color);
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: unit(header-height) * 2 0 0;
+  position: relative;
+
+  @include max-width(tp(header-fixed)) {
+    padding-top: unit(header-height);
+  }
+
+  @include max-width(tp(header-small)) {
+    padding-top: rem(79); // TODO: Var
+  }
+}
+
+
+// ==== Life ================================
+// Accent colors
+// ==========================================
+
+// $accent-colors: (
+//   work: color(secondary),
+//   life: color(secondary),
+//   contact: #59C3C3,
+// );
+
+// @each $accent-slug, $accent-color in $accent-colors {
+//   .page--#{$accent-slug} {
+//     #{--accent}: $accent-color;
+//   }
+
+//   .loader--#{$accent-slug} {
+
+//     .loader__layer--accent {
+//       background: $accent-color;
+//     }
+//   }
+// }
+
+$accent-colors:
+  color(accent),
+  #3fbff5,
+  color(secondary),
+  #22e2c3;
+
+@for $i from 1 through length($accent-colors) {
+  $accent-color: nth($accent-colors, $i);
+
+  .page--c#{$i} {
+    #{--accent}: $accent-color;
+  }
+}
+
+.loader__layer.loader__layer--accent { // TODO: Refactor
+  @include accent(background-color);
 }
 
 
@@ -28,18 +82,40 @@ main {
 
 .group {
   margin: 0 auto;
+  max-width: rem(960); // TODO: Var
   padding: 0;
   position: relative;
-  width: 100% / 18 * 16; // TODO: Var
+  z-index: 2; // TODO: Var
+  width: calc(100% - #{rem(20 * 2)}); // TODO: Var
+
+  .page--show-group .main > & {
+    animation: reveal-group $timing-transition 0ms both;
+
+    @keyframes reveal-group {
+      0% {
+        // opacity: 0;
+        transform: translateX(3%);
+      }
+
+      100% {
+        // opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  @include min-width(bp(s)) {
+    width: calc(100% - #{rem(40 * 2)}); // TODO: Var
+  }
 
   @at-root {
 
     %group-first {
-      padding-top: calc(5vw + #{unit(base-gutter) * 2});
+      padding-top: rem(40);
     }
 
     %group-last {
-      padding-bottom: calc(5vw + #{unit(base-gutter) * 2});
+      padding-bottom: rem(40 * 2);
     }
   }
 
@@ -56,8 +132,24 @@ main {
     @extend %group-last;
   }
 
+  &--thin {
+    max-width: rem(960 / 4 * 3);
+  }
+
   &--wide {
     width: 100%;
+  }
+
+  &__overlap {
+    max-width: rem(960); // TODO: Var
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - #{rem(20 * 2)}); // TODO: Var
+
+    @include min-width(bp(s)) {
+      width: calc(100vw - #{rem(40 * 2)}); // TODO: Var
+    }
   }
 }
 

@@ -10,24 +10,54 @@
 // ==========================================
 
 .logo {
-  display: block;
-  max-width: 100%;
-  width: unit(logo-width);
+  @include font-sizes(18, 22);
 
-  &__inner {
-    display: block;
-    padding-top: $logo-height / $logo-width * 100%;
+  background: module-color(header-bg);
+  color: color(white);
+  font-weight: 500; // TODO: Var
+  display: table;
+  margin: 1em 0;
+  padding: 0 unit() calc(0.075em + #{rem(2)});
+  transition:
+    color $timing $easing;
+  white-space: nowrap;
+
+  &--link {
     position: relative;
-  }
 
-  &__image {
-    @include cover;
+    &::before {
+      @include cover;
+      @include accent(background);
 
-    height: 100%;
-    width: 100%;
+      content: '';
+      transform: scale(0, 1);
+      transform-origin: center right;
+      transition: transform $timing $easing;
+    }
 
-    path {
-      fill: currentColor;
+    &:hover {
+      color: module-color(header-bg);
+
+      &::before {
+        transform-origin: center left;
+        transform: scale(1, 1);
+      }
+    }
+
+    .link {
+
+      &__label {
+        position: relative;
+      }
+    }
+
+    .h3 {
+      font-weight: inherit;
+      font-size: inherit;
+    }
+
+    &:hover {
+      opacity: 1;
     }
   }
 }

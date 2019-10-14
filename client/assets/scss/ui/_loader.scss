@@ -24,7 +24,8 @@
 
   overflow: hidden;
   pointer-events: none;
-  z-index: $loader-z-index;
+  // z-index: $loader-z-index;
+  z-index: 999;
 
   &__layer {
     $layer-size: 150vmax;
@@ -49,15 +50,23 @@
     transform 0ms $timing-transition; // sass-lint:disable-line indentation
 
   &__layer {
-    animation: loader-in $timing-transition both $easing;
+    animation: loader-out $timing-transition both cubic-bezier(.71, .56, .13, 1);
 
-    @keyframes loader-in {
+    &--bg {
+      background: module-color(loader-bg);
+    }
+
+    &--accent {
+      background: module-color(loader-bg-accent);
+    }
+
+    @keyframes loader-out {
       0% {
-        opacity: 1;
+        transform: none;
       }
 
       100% {
-        opacity: 0;
+        transform: translateX(100%);
       }
     }
   }
@@ -68,15 +77,25 @@
     transition-delay: 0ms;
 
     .loader__layer {
-      animation-name: loader-out;
+      animation-name: loader-in;
+      animation-easing: ease-out;
 
-      @keyframes loader-out {
+      &--bg {
+        animation-duration: $timing-transition / 2;
+      }
+
+      &--accent {
+        animation-delay: $timing-transition * 0.5;
+        animation-duration: $timing-transition * 0.5;
+      }
+
+      @keyframes loader-in {
         0% {
-          opacity: 0;
+          transform: translateX(-100%);
         }
 
         100% {
-          opacity: 1;
+          transform: none;
         }
       }
     }

@@ -47,7 +47,7 @@ base.plugins.push(
   new HtmlWebpackPlugin({
     title: config.title,
     template: path.resolve(__dirname, 'index.html'),
-    filename: path.join(__dirname, '../dist/404.html'),
+    filename: path.join(__dirname, '../dist/200.html'),
     env: JSON.stringify(process.env.NODE_ENV),
     inject: 'head',
     chunksSortMode: 'dependency',
@@ -70,30 +70,30 @@ base.plugins.push(
     /highlight\.js\/lib\/languages$/,
     new RegExp(`^./(${['javascript', 'xml', 'json'].join('|')})$`)
   ),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    minChunks: module => {
-      return module.resource && /\.(js|css|es6)$/.test(module.resource) && module.resource.indexOf('node_modules') !== -1
-    }
-  }),
+  // new webpack.optimize.CommonsChunkPlugin({
+  //   name: 'vendor',
+  //   minChunks: module => {
+  //     return module.resource && /\.(js|css|es6)$/.test(module.resource) && module.resource.indexOf('node_modules') !== -1
+  //   }
+  // }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest'
   }),
   // new BundleAnalyzerPlugin(),
   new webpack.optimize.ModuleConcatenationPlugin(),
-  new PrerenderSpaPlugin(
-    path.join(__dirname, '../dist'),
-    prerenderMap,
-    {
-      captureAfterDocumentEvent: 'custom-post-render-event',
-      postProcessHtml: function (context) {
-        return context.html.replace(
-          `<div class="intro is--running">`,
-          `<div class="intro">`
-        )
-      }
-    }
-  )
+  // new PrerenderSpaPlugin(
+  //   path.join(__dirname, '../dist'),
+  //   prerenderMap,
+  //   {
+  //     captureAfterDocumentEvent: 'custom-post-render-event',
+  //     postProcessHtml: function (context) {
+  //       return context.html.replace(
+  //         `<div class="intro is--running">`,
+  //         `<div class="intro">`
+  //       )
+  //     }
+  //   }
+  // )
 );
 
 // extract css in standalone css files

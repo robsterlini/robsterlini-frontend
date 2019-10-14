@@ -37,3 +37,7 @@
 
   @return $color;
 }
+
+@mixin accent($property) {
+  #{$property}: var(--accent, color(accent));
+}

@@ -10,21 +10,23 @@
 // ==========================================
 
 // sass-lint:disable no-color-keywords
+$color-dark: #2D2A32;
+$color-white: #FAFDF6;
+
 $base-colors: (
   // Base
-  white: #FFFFFF,
+  white: $color-white,
   black: #000000,
 
   // Greyscale
-  light: #F5F5F1,
-  light-mix: mix(mix(#161616, #F5F5F1), white, 20%),
-  mid-light: mix(#161616, #F5F5F1, 25%),
-  mid: mix(#161616, #F5F5F1),
-  mid-dark: #414141,
-  dark: #161616,
+  light: mix($color-white, $color-dark, 90%),
+  mid: mix($color-dark, $color-white, 33.33%),
+  dark: $color-dark,
+  off-dark: darken($color-dark, 5%),
 
   // Brand
-  accent: #AE0000,
+  accent: #F45B69,
+  secondary: #ffb500,
 
   // States
   success: green,
@@ -42,10 +44,13 @@ $module-colors: (
   default-box-shadow: rgba(color(black), 0.33),
 
   // Base
-  base-bg: color(light),
-  base-color: color(dark),
-  base-selection-bg: color(accent),
+  base-bg: color(dark),
+  base-color: color(light),
+  base-selection-bg: color(black),
   base-selection-color: color(white),
+
+  // Bg
+  bg-bg: color(off-dark),
 
   // Block
   block-accent-bg: color(accent),
@@ -59,7 +64,7 @@ $module-colors: (
   block-light-blockquote-color: rgba(color(dark), 0.5),
   block-lightest-bg: color(white),
 
-  block-mid-bg: color(mid-light),
+  block-mid-bg: color(mid),
   block-mid-color: color(dark),
 
   // Buttons
@@ -83,9 +88,13 @@ $module-colors: (
   button-success-bg: color(success),
   button-success-border: darken(color(success), 5%),
 
+  // Footer
+  footer-bg: color(dark),
+  footer-color: color(mid),
+
   // Form
   form-field-bg: color(white),
-  form-field-border: color(light-mix),
+  form-field-border: color(light),
   form-field-border-error: color(accent),
   form-field-border-focus: color(dark),
   form-field-autofill-bg: mix(yellow, white, 15%),
@@ -94,7 +103,8 @@ $module-colors: (
   form-checkbox-bg: color(white),
 
   // Header
-  header-bg: color(accent),
+  // header-bg: mix(#403F3F, color(dark)), // TODO: Refactor
+  header-bg: color(off-dark),
   header-color: color(white),
   header-btn-tertiary-color: color(accent),
 
@@ -109,7 +119,8 @@ $module-colors: (
   link-accent: color(accent),
 
   // Loader
-  loader-bg: color(light), // WHY: Matches module-color(base-bg)
+  loader-bg-accent: color(accent),
+  loader-bg: color(off-dark), // WHY: Matches module-color(base-bg)
 
   // Modal
   modal-bg: rgba(color(dark), 0.75),

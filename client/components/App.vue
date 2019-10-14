@@ -2,9 +2,12 @@
   <div
     :class="[
       `page`,
+      `page--c${random}`,
       appPage.classes,
       {
         'page--is-loaded': appState.loaded,
+        'page--is-loading': appState.loading,
+        'page--show-group': !appState.loading,
       },
     ]"
     :id="`app`"
@@ -26,13 +29,6 @@
     <ui-footer/>
 
     <ui-loader/>
-
-    <module-modal
-      id="login"
-      :auto="true"
-      :no-close="true"
-      auth="login"
-    />
   </div>
 </template>
 
@@ -52,11 +48,7 @@ import { mapGetters, mapActions } from 'vuex';
 // Services
 import { createMeta } from 'services/meta';
 
-// Modules
-import ModuleModal from 'modules/Modal';
-
 // UI
-import UiAuth from 'ui/Auth';
 import UiHeader from 'ui/Header';
 import UiFooter from 'ui/Footer';
 import UiLoader from 'ui/Loader';
@@ -102,8 +94,6 @@ export default {
 
   // Components
   components: {
-    ModuleModal,
-    UiAuth,
     UiHeader,
     UiFooter,
     UiLoader,
@@ -119,9 +109,12 @@ export default {
       `appState`,
       `appPage`,
     ]),
-    ...mapGetters(`modals`, [
-      `modalActive`,
-    ]),
+    // ...mapGetters(`modals`, [
+    //   `modalActive`,
+    // ]),
+    random() {
+      return Math.floor(Math.random() * 4) + 1;
+    },
   },
   watch: {
     modalActive(active) {
@@ -139,18 +132,19 @@ export default {
       `updatePage`,
       `closeLoader`,
       `updateViewport`,
+      `updateScroll`,
       `setTouch`,
     ]),
     ...mapActions(`meta`, [
       `updateMeta`,
       `updateMetaTitle`,
     ]),
-    ...mapActions(`modals`, [
-      `closeModal`,
-    ]),
+    // ...mapActions(`modals`, [
+    //   `closeModal`,
+    // ]),
     onLeave() {
       this.openLoader();
-      this.closeModal();
+      // this.closeModal();
     },
     onLoad() {
       this.updatePage();
@@ -167,9 +161,11 @@ export default {
     this.setTouch();
 
     window.addEventListener(`resize`, () => this.updateViewport(), true);
+    window.addEventListener(`scroll`, () => this.updateScroll(), true);
   },
   destroyed() {
     window.removeEventListener(`resize`, () => this.updateViewport(), true);
+    window.removeEventListener(`resize`, () => this.updateScroll(), true);
   },
 };
 </script>

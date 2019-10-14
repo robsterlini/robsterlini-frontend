@@ -23,37 +23,25 @@ $btn-icon-spacing: rem(12);
   cursor: pointer;
   display: inline-block;
   font: inherit;
-  font-weight: 600; // TODO: Var
+  font-family: $font-family-mono;
+  font-weight: 400; // TODO: Var
   letter-spacing: 0.02em;
   line-height: unit(icon-width);
   margin: 2em unit(base-gutter) 0.5em 0;
   outline: 0;
+  padding-bottom: 0.2em;
   position: relative;
   text-decoration: none;
   // sass-lint:disable indentation
   transition:
-    color $timing-button $easing,
+    // color $timing-button $easing,
     transform $timing-button $easing;
   // sass-lint:enable indentation
   user-select: none;
   vertical-align: top;
 
-  &__bg {
-    @include cover;
-
-    border: unit(button-border-width) solid;
-    content: '';
-    transform: scale(1) translate3d(0, 0, 0);
-    transition:
-      $timing-button $easing; // sass-lint:disable-line indentation
-    transition-property: background-color, transform;
-    will-change: background;
-  }
-
   &__inner {
     display: flex;
-    min-height: unit(button-height-m);
-    padding: 0 unit(button-inner-padding-m);
     transition:
       opacity $timing-button $timing-button $easing; // sass-lint:disable-line indentation
 
@@ -77,6 +65,19 @@ $btn-icon-spacing: rem(12);
     line-height: unit(icon-width);
     position: relative;
     z-index: 2;
+
+    &::after {
+      // color: color(accent); // TODO: Var
+      @include accent(color);
+
+      content: ' →';
+      display: inline-block;
+      position: relative;
+      top: 0.09em;
+      transition:
+        opacity $timing $easing,
+        transform $timing $easing;
+    }
   }
 
   &__success,
@@ -119,13 +120,23 @@ $btn-icon-spacing: rem(12);
 
   &.btn--hover {
 
-    .btn__bg {
-      transform: scale(0.98, 0.97) translate3d(0, 0, 0);
+    .btn__label {
+
+      &::after {
+        transform: translateX(#{rem(4)}); // TODO: Var
+      }
     }
   }
 
   &.btn--active {
-    transform: translate3d(0, rem(2), 0);
+
+    .btn__label {
+
+      &::after {
+        opacity: 0;
+        transform: translateX(#{rem(8)}); // TODO: Var
+      }
+    }
   }
 }
 
@@ -140,16 +151,8 @@ $btn-icon-spacing: rem(12);
   &--primary {
     color: module-color(button-primary-color);
 
-    .btn__bg {
-      background-color: module-color(button-primary-bg);
-      border-color: module-color(button-primary-border);
-    }
-
     &.btn--hover {
 
-      .btn__bg {
-        background-color: module-color(button-primary-bg-hover);
-      }
     }
   }
 
@@ -157,33 +160,8 @@ $btn-icon-spacing: rem(12);
   &--secondary {
     color: module-color(button-secondary-color);
 
-    .btn__bg {
-      background-color: module-color(button-secondary-bg);
-      border-color: module-color(button-secondary-border);
-    }
-
     &.btn--hover {
 
-      .btn__bg {
-        background-color: module-color(button-secondary-bg-hover);
-      }
-    }
-  }
-
-  // Tertiary
-  &--tertiary {
-    color: module-color(button-tertiary-color);
-
-    .btn__bg {
-      background-color: module-color(button-tertiary-bg);
-      border-color: module-color(button-tertiary-border);
-    }
-
-    &.btn--hover {
-
-      .btn__bg {
-        background-color: module-color(button-tertiary-bg-hover);
-      }
     }
   }
 }
@@ -197,29 +175,14 @@ $btn-icon-spacing: rem(12);
 
   &--l {
     @include font-sizes($button-primary-font-size-s, $button-primary-font-size-l);
-
-    .btn__inner {
-      min-height: unit(button-height-l);
-      padding: 0 unit(button-inner-padding-l);
-    }
   }
 
   &--m {
     @include font-sizes($button-secondary-font-size-s, $button-secondary-font-size-l);
-
-    .btn__inner {
-      min-height: unit(button-height-m);
-      padding: 0 unit(button-inner-padding-m);
-    }
   }
 
   &--s {
     @include font-sizes($button-tertiary-font-size-s, $button-tertiary-font-size-l);
-
-    .btn__inner {
-      min-height: unit(button-height-s);
-      padding: 0 unit(button-inner-padding-s);
-    }
   }
 }
 

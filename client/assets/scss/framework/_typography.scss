@@ -12,58 +12,62 @@
 %heading {
   display: block;
   font-family: $font-family-heading;
-  font-weight: bold; // TODO: Var
+  font-weight: 500; // TODO: Var
   line-height: $line-height-header;
-  margin: 2em 0 0.75em; // TODO: Var
+  margin: 1.5em 0 0.75em; // TODO: Var
   max-width: 28em;
+
+  .link {
+    text-decoration: none;
+  }
+}
+
+%heading-mono {
+  color: inherit;
+  display: block;
+  font-family: $font-family-mono;
+  font-weight: 400; // TODO: Var
+  letter-spacing: 0.15em;
+  margin: 1.5em 0 0.5em 0; // TODO: Var
+  text-transform: uppercase;
+
+  .link {
+    text-decoration: none;
+  }
 }
 
 %h1 {
   @extend %heading;
 
   @include font-sizes($h1-font-size-s, $h1-font-size-l);
+  @include accent(color);
+
+  // color: color(dark); // TODO: Var
+  // color: color(accent);
+  display: table;
+  font-family: $font-family-heading;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-top: 2em;
 }
 
 %h2 {
   @extend %heading;
-
   @include font-sizes($h2-font-size-s, $h2-font-size-l);
 }
 
 %h3 {
-  @extend %heading;
-
+  @extend %heading-mono;
   @include font-sizes($h3-font-size-s, $h3-font-size-l);
 }
 
-%heading-small {
-  display: block;
-  font-weight: 600; // TODO: Var
-  line-height: $line-height-body;
-  margin: 1em 0 0.75em;
-  max-width: 42em;
-}
-
 %h4 {
-  @extend %heading-small;
-
+  @extend %heading-mono;
   @include font-sizes($h4-font-size-s, $h4-font-size-l);
 
-}
-
-%h5 {
-  @extend %heading-small;
-
-  @include font-sizes($h5-font-size-s, $h5-font-size-l);
-}
-
-%h6 {
-  @extend %heading-small;
-
-  @include font-sizes($h6-font-size-s, $h6-font-size-l);
-
-  opacity: 0.75;
-  text-transform: uppercase;
+  font-weight: 500; // TODO: Var
 }
 
 %paragraph {
@@ -71,7 +75,7 @@
   font-weight: 400; // TODO: Var
   line-height: $line-height-body;
   margin: 1em 0;
-  max-width: 42em;
+  max-width: 32em;
 }
 
 %size-p {
@@ -102,6 +106,8 @@
 %large {
   @extend %paragraph;
   @extend %size-large;
+
+  max-width: 24em;
 }
 
 %medium {
@@ -148,6 +154,10 @@
 
 .h1 {
   @extend %h1;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .h2 {
@@ -160,14 +170,6 @@
 
 .h4 {
   @extend %h4;
-}
-
-.h5 {
-  @extend %h5;
-}
-
-.h6 {
-  @extend %h6;
 }
 
 .p {
@@ -192,24 +194,22 @@
 
 
 // ==== Typography ==========================
-// Modifiers
-// ==========================================
-
-.h {
-
-  &--first {
-    margin-top: 0;
-  }
-
-  &--lower {
-    text-transform: none;
-  }
-}
-
-
-// ==== Typography ==========================
 // Extras
 // ==========================================
+
+.type {
+
+  &--sc {
+    display: inline;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 1em;
+  }
+
+  &--nb {
+    white-space: nowrap;
+  }
+}
 
 abbr {
   border: 0;
@@ -254,14 +254,6 @@ ul {
 
   h4 {
     @extend %h4;
-  }
-
-  h5 {
-    @extend %h5;
-  }
-
-  h6 {
-    @extend %h6;
   }
 
   p {

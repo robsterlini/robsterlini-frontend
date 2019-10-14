@@ -1,22 +1,28 @@
 <template>
-  <span
-    :class="[
-      'logo',
-    ]"
+  <module-link
+    v-if="link"
+
+    class="logo logo--link"
+
+    :link="link"
+    :no-underline="true"
   >
-    <span class="logo__inner">
-      <image-brand-logo class="logo__image" />
-      <span class="visuallyhidden">{{ label }}</span>
+    <span class="h3 mt0 mb0">
+      <span class="logo__part logo__part--first">Rob</span>
+      <span class="logo__part logo__part--last">Sterlini</span>
     </span>
+  </module-link>
+  <span
+    v-else
+    class="logo h3"
+  >
+    Rob Sterlini
   </span>
 </template>
 
 <script>
-// Models
-import config from 'config';
-
-// Images
-import ImageBrandLogo from 'images/brand/logo.svg?inline';
+// Modules
+import ModuleLink from 'modules/Link';
 
 // Export
 export default {
@@ -24,7 +30,12 @@ export default {
 
   // Components
   components: {
-    ImageBrandLogo,
+    ModuleLink,
+  },
+
+  // Props
+  props: {
+    link: String,
   },
 
   // Data

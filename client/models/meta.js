@@ -2,9 +2,9 @@
 
 export default {
   home: {
-    title: `Home`,
+    // title: `Frontend developer`,
     meta: {
-      description: `Homepage description`,
+      description: `Rob Sterlini is a frontend developer, amateur triathlete, and LEGO Master Builder.`,
     },
   },
 
@@ -16,18 +16,32 @@ export default {
   },
 
   notFound: {
-    title: `Not Found`,
+    title: `Oops!`,
     meta: {
       description: `This page was not found.`,
       noIndex: true,
     },
   },
 
-  terms: {
-    title: `Terms`,
+  gone: {
+    title: `Gone!`,
     meta: {
-      description: `Terms page description`,
+      description: `This page was removed.`,
       noIndex: true,
+    },
+  },
+
+  work: {
+    title: `Work`,
+    meta: {
+      description: `I’m a typography graduate turned frontend developer with a passion for creating web experiences, both at `,
+    },
+  },
+
+  contact: {
+    title: `Contact`,
+    meta: {
+      description: `Whether you wanna chat about a freelance project, or just fancy a natter, here you’ll find all the details you need to reach me!`,
     },
   },
 };

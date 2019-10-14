@@ -1,0 +1,78 @@
+@charset 'UTF-8';
+
+// ==== Modules ==========================================================
+// Background
+// =======================================================================
+
+
+// ==== Background ==========================
+// Base
+// ==========================================
+
+.bg {
+  background: module-color(bg-bg);
+  margin-bottom: -35%;
+  position: relative;
+  padding-top: 50%;
+
+  @include min-width(tp(header-fixed)) {
+    top: unit(header-height) * -2;
+  }
+
+  // @include min-width(bp(s)) {
+  //   top: unit(header-offset) + (unit(header-height) / 2);
+  // }
+
+  &__bg {
+    background: module-color(bg-bg);
+
+    &::after {
+      @include cover;
+
+      background: linear-gradient(transparent, module-color(base-bg));
+      bottom: -1px;
+      content: '';
+      top: 50%;
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    animation: bg-hide $timing $easing both;
+    background: module-color(bg-bg) center no-repeat;
+    background-size: cover;
+    filter: grayscale(0.33);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    z-index: 1;
+
+    @keyframes bg-hide {
+      0% {
+        opacity: 0.66;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    &--loaded {
+
+      .page--is-loaded & {
+        animation: bg-reveal $timing-transition $easing both;
+      }
+
+      @keyframes bg-reveal {
+        0% {
+          opacity: 0;
+          transform: translateY(-1%);
+        }
+
+        100% {
+          opacity: 0.66;
+          transform: none;
+        }
+      }
+    }
+  }
+}
