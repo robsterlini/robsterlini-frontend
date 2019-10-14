@@ -16,21 +16,22 @@
       @fieldReset="onFieldReset(key)"
     />
 
-    <p class="form__errors" v-if="serverErrors._global">{{ serverErrors._global }}</p>
+    <p v-if="serverErrors._global" :class="`form__errors`">{{ serverErrors._global }}</p>
 
-    <div :class="[hideSubmit ? 'visuallyhidden' : 'form__submit']" v-if="!noSubmit">
+    <div v-if="!noSubmit" :class="[hideSubmit ? 'visuallyhidden' : 'form__submit']">
       <module-button
-        type="submit"
-        :button="button || ''"
-        :size="buttonSize || ''"
-        :disabled="$v.$invalid || invalid"
-        :loading="status.loading"
-        :success="status.success"
         :class="[
           {
             'btn--hidden': hideSubmit,
           }
         ]"
+
+        :button="button || ''"
+        :size="buttonSize || ''"
+        :disabled="$v.$invalid || invalid"
+        :loading="status.loading"
+        :success="status.success"
+        type="submit"
       >
         {{ submit || `Submit` }}
       </module-button>
@@ -134,9 +135,13 @@ export default {
       `updateValid`,
     ]),
     onFieldTouch(id) {
+      if (!this.$v.model[id]) return;
+
       this.$v.model[id].$touch();
     },
     onFieldReset(id) {
+      if (!this.$v.model[id]) return;
+
       this.$v.model[id].$reset();
     },
     submitForm() {
@@ -206,9 +211,9 @@ export default {
   },
   destroyed() {
     if (this.doNotReset !== true) {
-      setTimeout(() => {
-        this.$store.commit(`forms/resetForm`, this.formId);
-      }, 500);
+      this.$store.commit(`forms/resetForm`, this.formId); // TODO: make action and map
+      // setTimeout(() => {
+      // }, 500);
     }
   },
 

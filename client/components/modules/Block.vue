@@ -1,6 +1,7 @@
 <template>
   <component
     :is="tag || 'section'"
+
     :class="[
       'block',
       `block--${block || 'accent'}`,
@@ -15,13 +16,15 @@
     <b
       v-if="image"
 
-      class="block__bg"
+      :class="[
+        `block__bg`
+      ]"
 
       :style="{
         backgroundImage: `url('${image}')`,
       }"
     />
-    <span class="anchor" :id="slug" v-if="slug">
+    <span v-if="slug" :id="slug" class="anchor">
       <span v-if="trigger" data-header-trigger=""/>
     </span>
 

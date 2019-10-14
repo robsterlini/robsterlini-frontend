@@ -1,23 +1,36 @@
 'use strict';
 
+// Vue
+import Vue from 'vue';
+
+// State
 const state = {
-  separator: ` | `,
-  root: `https://fueled.com`,
   meta: [],
   title: ``,
 };
 
+// Getters
 const getters = {
-  separator: state => state.separator,
   metaTitle: state => state.title,
 };
 
+// Mutations
 const mutations = {
-  updateMeta(state, payload) {
-    state.meta = payload;
+  SET_META (state, meta) {
+    Vue.set(state, `meta`, meta);
   },
-  updateTitle(state, payload) {
-    state.title = payload;
+  SET_TITLE (state, title) {
+    state.title = title;
+  },
+};
+
+// Actions
+const actions = {
+  updateMeta({ commit }, meta) {
+    commit(`SET_META`, meta);
+  },
+  updateMetaTitle({ commit }, title) {
+    commit(`SET_TITLE`, title);
   },
 };
 
@@ -26,4 +39,5 @@ export default {
   state,
   getters,
   mutations,
+  actions,
 };

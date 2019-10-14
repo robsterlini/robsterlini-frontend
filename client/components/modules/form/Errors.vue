@@ -1,6 +1,6 @@
 <template>
   <transition-expand-height>
-    <ul class="form__errors errors" v-show="show">
+    <ul v-show="show" :class="[`form__errors`, `errors`]">
       <li class="errors__item">{{ serverError || error }}</li>
     </ul>
   </transition-expand-height>

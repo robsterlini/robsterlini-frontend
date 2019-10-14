@@ -12,4 +12,8 @@
 .footer {
   background: module-color(footer-bg);
   color: module-color(footer-color);
+
+  .group {
+    padding: unit(base-gutter) 0;
+  }
 }

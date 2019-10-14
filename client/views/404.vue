@@ -6,12 +6,10 @@
 
 <script>
 // Models
-import meta from 'models/global/meta';
+import meta from 'models/meta';
 
 // Services
 import { createMeta } from 'services/meta';
-
-// Modules
 
 // Export
 export default {
@@ -21,10 +19,6 @@ export default {
   metaInfo: {
     title: meta.notFound.title,
     meta: createMeta(meta.notFound.meta),
-  },
-
-  // Components
-  components: {
   },
 };
 </script>

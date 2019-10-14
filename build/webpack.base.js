@@ -39,6 +39,7 @@ module.exports = {
             '.css',
             '.json',
             '.svg',
+            '.md'
         ],
         alias: {
             root: path.join(__dirname, '../client'),
@@ -96,7 +97,14 @@ module.exports = {
             {
                 test: /\.s[a|c]ss$/,
                 loader: 'style!css!sass'
-            }
+            },
+            {
+              test: /\.md$/,
+              loader: 'vue-markdown-loader',
+              options: {
+                wrapper: 'article',
+              },
+            },
         ]
     },
     plugins: [

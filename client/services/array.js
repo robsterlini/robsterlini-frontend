@@ -2,6 +2,15 @@
 
 import includes from 'array-includes';
 
+// @function arrayLoop(array, callback)
+// Easily loop through arrays, objects and numbers
+//
+// @param {array|object|number} array – The iterable item
+// @param {arrayLoop~callback} callback – Each item is iterated through
+//
+// @callback arrayLoop~callback
+// @param {number|string} index – For objects this is the key, for arrays/number this is the index
+// @param {string|object} value – For objects this is the object, for arrays this is the array item, for numbers this is the index
 function arrayLoop(array, callback) {
   const isNum = typeof(array) === `number`;
   if (Array.isArray(array) || isNum) {

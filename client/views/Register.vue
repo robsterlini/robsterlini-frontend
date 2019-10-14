@@ -3,8 +3,6 @@
     <ui-auth
       title="Register"
       slug="register"
-      submit="Create Account"
-      action="requestRegisterVendor"
     >
       <span slot="link">Already have an account? <router-link :to="{ name: 'login' }">Log in</router-link></span>
     </ui-auth>

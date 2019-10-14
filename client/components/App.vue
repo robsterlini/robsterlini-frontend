@@ -2,14 +2,15 @@
   <div
     :class="[
       `page`,
-      page.classes,
+      appPage.classes,
       {
-        'page--is-loaded': state.loaded,
+        'page--is-loaded': appState.loaded,
       },
     ]"
-    id="app"
-  >
+    :id="`app`"
 
+    :data-env="appEnv"
+  >
     <ui-header/>
 
     <transition
@@ -17,15 +18,21 @@
       mode="out-in"
       @appear="onLoad()"
       @enter="onLoad()"
-      @before-leave="onBeforeLeave()"
       @leave="onLeave()"
     >
-      <router-view :loaded="!state.loading" :key="$route.fullPath"/>
+      <router-view :key="$route.fullPath"/>
     </transition>
 
     <ui-footer/>
 
     <ui-loader/>
+
+    <module-modal
+      id="login"
+      :auto="true"
+      :no-close="true"
+      auth="login"
+    />
   </div>
 </template>
 
@@ -36,13 +43,20 @@
 </style>
 
 <script>
+// Config
+import config from 'config';
+
 // Vuex
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 // Services
 import { createMeta } from 'services/meta';
 
+// Modules
+import ModuleModal from 'modules/Modal';
+
 // UI
+import UiAuth from 'ui/Auth';
 import UiHeader from 'ui/Header';
 import UiFooter from 'ui/Footer';
 import UiLoader from 'ui/Loader';
@@ -55,84 +69,107 @@ export default {
   metaInfo() {
     return {
       titleTemplate(titleChunk) {
-        return `${titleChunk ? titleChunk + this.$store.state.meta.separator : ``}Fueled`;
+        return `${config.env !== `prod` ? `[${config.env}] ` : ``}${titleChunk ? `${titleChunk}${config.meta.separator}` : ``}${config.name}`;
       },
       htmlAttrs: {
         prefix: `og: http://ogp.me/ns#`,
       },
       meta: createMeta({
         type: `website`,
-        url: this.$store.state.meta.root + this.$route.fullPath,
+        url: `${config.rootUrl}${this.$route.fullPath}`,
         title: this.metaTitle,
-        twitterHandle: `@fueled`,
+        twitterHandle: `@${config.social.twitter}`,
         twitterCard: `summary`,
-        company: `Fueled`,
-        image: `https://fueled.com/assets/images/logo.png`,
-        generator: `Fueled VueJS – https://github.com/fueled/vue-boilerplate`,
+        company: config.name,
+        image: config.logoUrl,
+        generator: `Fueled VueJS – https://github.com/fueled/vue-init`,
       }),
       changed(metaInfo/*, added, removed*/) {
-        if (metaInfo.title !== this.metaTitle) {
-          this.$store.commit(`meta/updateTitle`, metaInfo.title);
+        if (metaInfo.title !== this.metaTitle && this.updateMetaTitle) {
+          this.updateMetaTitle(metaInfo.title);
         }
 
         if (this.$route.name && metaInfo.titleChunk) {
           document.dispatchEvent(new Event(`custom-post-render-event`));
         }
 
-        this.$store.commit(`meta/updateMeta`, metaInfo);
+        if (this.updateMeta) {
+          this.updateMeta(metaInfo);
+        }
       },
     };
   },
 
   // Components
   components: {
+    ModuleModal,
+    UiAuth,
     UiHeader,
     UiFooter,
     UiLoader,
   },
 
   // Data
-  data() {
-    return {
-      ticking: false,
-      scrollY: 0,
-    };
-  },
   computed: {
     ...mapGetters(`meta`, [
       `metaTitle`,
     ]),
-    ...mapState(`app`, {
-      page: state => state.page,
-      state: state => state.state,
-    }),
-    ...mapState(`header`, {
-      header: state => state,
-    }),
+    ...mapGetters(`app`, [
+      `appEnv`,
+      `appState`,
+      `appPage`,
+    ]),
+    ...mapGetters(`modals`, [
+      `modalActive`,
+    ]),
+  },
+  watch: {
+    modalActive(active) {
+      const classList = document.body.classList;
+      const className = `body--modal-open`;
+
+      active ? classList.add(className) : classList.remove(className);
+    },
   },
 
   // Methods
   methods: {
-    onBeforeLeave() {
-      const route = this.$route;
-      const loader = route.meta.loader;
-
-      if (this.page.transition === loader || !loader) {
-        this.$store.commit(`app/setTransition`, {
-          main: loader,
-        });
-      }
-    },
+    ...mapActions(`app`, [
+      `openLoader`,
+      `updatePage`,
+      `closeLoader`,
+      `updateViewport`,
+      `setTouch`,
+    ]),
+    ...mapActions(`meta`, [
+      `updateMeta`,
+      `updateMetaTitle`,
+    ]),
+    ...mapActions(`modals`, [
+      `closeModal`,
+    ]),
     onLeave() {
-      this.$store.dispatch(`app/openLoader`);
+      this.openLoader();
+      this.closeModal();
     },
     onLoad() {
-      this.$store.dispatch(`app/updatePage`);
+      this.updatePage();
 
-      if (this.state.init) {
-        this.$store.dispatch(`app/closeLoader`);
+      if (this.appState.init) {
+        this.closeLoader();
       }
     },
+  },
+
+  // Lifecycle
+  created() {
+    this.updateViewport();
+    this.setTouch();
+
+    window.addEventListener(`resize`, () => this.updateViewport(), true);
+  },
+  destroyed() {
+    window.removeEventListener(`resize`, () => this.updateViewport(), true);
   },
 };
 </script>

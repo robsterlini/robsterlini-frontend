@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
 // ==== All ==============================================================
-// Fueled Frontend Scss
+// Scss
 // =======================================================================
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // Mixins
 // ==========================================
 
@@ -13,10 +13,11 @@
 @import 'mixins/breakpoints';
 @import 'mixins/color';
 @import 'mixins/math';
+@import 'mixins/unit';
 @import 'mixins/helpers';
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // Framework
 // ==========================================
 
@@ -30,18 +31,19 @@
 @import 'framework/grid';
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // Modules
 // ==========================================
 
 @import 'modules/icon';
+@import 'modules/spinner';
 @import 'modules/button';
 @import 'modules/form';
 @import 'modules/logo';
-@import 'modules/spinner';
+@import 'modules/modal';
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // UI
 // ==========================================
 
@@ -49,16 +51,17 @@
 @import 'ui/navigation';
 @import 'ui/footer';
 @import 'ui/loader';
+@import 'ui/auth';
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // Pages
 // ==========================================
 
 @import 'pages/home';
 
 
-// ==== Fueled Frontend Scss ================
+// ==== Scss ================================
 // Helper override
 // ==========================================
 

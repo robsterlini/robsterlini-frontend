@@ -9,34 +9,30 @@
 // Typography
 // ==========================================
 
-// Fonts
+// Base
 $font-default-size: 16;
-$font-weight-bold: 600;
 
+// Families
 $font-family-body: 'Helvetica Neue';
 $font-family-heading: 'Helvetica Neue';
 $font-family-mono: monospace;
 
 // Variables
 $line-height-body: 1.5;
-$line-height-header: 0.9;
-$strong-weight: $font-weight-bold;
+$line-height-header: 1.25;
+$strong-weight: 600;
 
 // H1
 $h1-font-size-l: 64;
 $h1-font-size-s: 48;
 
 // H2
-$h2-font-size-l: 52;
-$h2-font-size-s: 36;
+$h2-font-size-l: 42;
+$h2-font-size-s: 32;
 
 // H3
-$h3-font-size-l: 36;
+$h3-font-size-l: 32;
 $h3-font-size-s: 24;
-
-// H Pre
-$h-pre-font-size-l: 28;
-$h-pre-font-size-s: 20;
 
 // H4
 $h4-font-size-l: 26;
@@ -92,48 +88,18 @@ $button-tertiary-font-size-s: 12;
 
 
 // ==== Constants ===========================
-// Widths and gutters
+// Variables
 // ==========================================
 
 // Dynamic type
 $base-dynamic-type: 1410;
 
-// Layout
-$grid-total-count: 18;
-$grid-items-count: 16;
-$layout-gutter: 100 / $grid-total-count * ($grid-total-count - $grid-items-count) / 2;
+// Loader
+$loader-z-index: 99;
 
-// Base
-$base-width: rem($base-dynamic-type);
-$base-gutter: rem(20);
-
-// Header
-$header-height: rem(76);
-$header-logo-height: rem(56);
-
-// Navigation
-$navigation-item-height: rem(48);
-$navigation-item-padding: rem(16);
-
-// Icons
-$icon-size: rem(22);
-$icon-spacing: $base-gutter;
-
-// Form
-$form-input-height: em(64, $form-input-font-size-l);
-$form-input-line-height: 1.5em;
-$form-input-padding: 1.33em;
-$form-border-width: 2px;
-
-// List
-$list-indent: rem(25);
-
-// Styleguide
-$styleguide-sidebar-width: rem(310);
-
-// Table
-$table-border-width: 2px;
-$table-cell-padding: rem(34);
+// Logo
+$logo-width: 56;
+$logo-height: 56;
 
 
 // ==== Constants ===========================
@@ -142,12 +108,10 @@ $table-cell-padding: rem(34);
 
 $timing: 250ms;
 
+$timing-transition: 300ms;
 $timing-button: $timing;
-$timing-header: $timing;
-$timing-hero: $timing;
-$timing-intro: 2000ms;
 $timing-link: $timing;
-$timing-state: 500ms;
+$timing-modal: 300ms;
 
 
 // ==== Constants ===========================
@@ -161,6 +125,56 @@ $easing-spring-gentle: cubic-bezier(0.17, 0.89, 0.36, 1.2);
 $easing-link: $easing;
 $easing-hero: $easing-spring;
 $easing-loader-logo: $easing-spring-gentle;
+
+
+// ==== Constants ===========================
+// Units
+// ==========================================
+
+$unit: rem(8);
+
+$units: (
+  // Base
+  base-gutter: unit(2),
+
+  // Auth
+  auth-width: rem(400),
+
+  // Button
+  button-border-width: 2px,
+  button-icon-margin: rem(6),
+  button-height-s: 3em,
+  button-height-m: 3.5em,
+  button-height-l: 4em,
+  button-inner-padding-s: 1em,
+  button-inner-padding-m: 1.5em,
+  button-inner-padding-l: 2em,
+
+  // Form
+  // TODO: Abstract from _form.scss
+
+  // Header
+  header-height: rem(72),
+  header-logo-width: rem($logo-width),
+
+  // Icon
+  icon-width: rem(22),
+
+  // Logo
+  logo-width: rem($logo-width),
+
+  // Modal
+  modal-padding: unit(2),
+  modal-wrapper-border-radius: rem(4),
+  modal-wrapper-width: rem(800),
+  modal-content-padding: unit(4),
+  modal-content-padding-mobile: unit(2),
+  modal-content-height: rem(400),
+
+  // Navigation
+  navigation-item-height: rem(48),
+  navigation-item-padding: unit(2),
+);
 
 
 // ==== Constants ===========================
@@ -178,24 +192,10 @@ $breakpoints: (
 );
 
 $tweakpoints: (
-
   // Base
   base-layout-wide: bp(s),
   base-dynamic-type: $base-dynamic-type,
 
-  // Header
-  header-dynamic-width: 1720, // TODO: Why?
+  // Modal
+  modal-mobile: bp(s),
 );
-
-
-// ==== Constants ===========================
-// List Variables
-// ==========================================
-
-// sass-lint:disable indentation
-$list-home-projects:
-  keetoo,
-  quizup,
-  verizon,
-;
-// sass-lint:enable indentation

@@ -1,12 +1,14 @@
 <template>
   <component
-    :is="tag"
-    :to="to"
+    :is="linkTag"
+
+    v-bind="linkProps"
+
     :class="[
       'btn',
       icon ? 'btn--' + (negative ? 'negative' : 'positive') : '',
-      'btn--' + (button || 'light'),
-      'btn--' + (level || 'primary'),
+      'btn--' + (button || 'secondary'),
+      'btn--' + (size || 'm'),
       {
         'btn--icon': icon,
         'btn--idle': (!hover && !isHover && !active && !isActive) || (loading),
@@ -17,37 +19,43 @@
         'btn--success': success,
       }
     ]"
+
+    :disabled="disabled || loading || success"
+
     @mouseover.native="onMouseEnter"
     @mouseover="onMouseEnter"
     @mouseleave.native="onMouseLeave"
     @mouseleave="onMouseLeave"
     @mousedown.native.prevent="onMouseDown"
     @mousedown.prevent="onMouseDown"
-    :disabled="disabled || loading || success"
     @click="onClick"
-    :href="hrefSet"
-    :target="link ? `_blank` : false"
   >
-    <b class="btn__bg" aria-hidden="true"/>
-    <module-spinner class="btn__spinner" :active="loading" />
-    <module-icon class="btn__success" icon="tick"/>
+    <b class="btn__bg" aria-hidden="true" />
+    <module-spinner :class="`btn__spinner`" :active="loading" />
+    <module-icon :class="`btn__success`" icon="tick" />
     <span class="btn__inner">
       <span class="btn__content">
         <span class="btn__label">
           <slot/>
         </span><!--
-        --><module-icon class="btn__icon" :icon="icon" v-if="icon" />
+        --><module-icon v-if="icon" :class="`btn__icon`" :icon="icon" />
       </span>
     </span>
   </component>
 </template>
 
 <script>
-import VueScrollTo from 'vue-scrollto';
+// Services
+import { getLinkTag, getLinkType, createLinkProps } from 'services/link';
 
+// Modules
 import ModuleIcon from 'modules/Icon';
 import ModuleSpinner from 'modules/Spinner';
 
+// Other
+import VueScrollTo from 'vue-scrollto';
+
+// Export
 export default {
   name: `module-button`,
 
@@ -68,11 +76,13 @@ export default {
       type: String,
     },
     icon: String,
-    link: String,
-    to: Object,
-    anchor: String,
+    link: [
+      String,
+      Object,
+    ],
     negative: Boolean,
-    level: {
+    title: String,
+    size: {
       type: String,
     },
   },
@@ -85,11 +95,14 @@ export default {
     };
   },
   computed: {
-    tag() {
-      return this.to ? `router-link` : (this.anchor || this.link ? `a` : `button`);
+    linkType() {
+      return getLinkType(this.link);
     },
-    hrefSet() {
-      return this.anchor || this.link ? `${this.anchor ? `#${this.anchor}` : this.link}` : false;
+    linkTag() {
+      return getLinkTag(this.link);
+    },
+    linkProps() {
+      return createLinkProps(this.link, ``, this.title);
     },
   },
 
@@ -109,9 +122,9 @@ export default {
       this.isHover = false;
     },
     onClick(e) {
-      if (this.anchor) {
+      if (this.linkType === `anchor`) {
         e.preventDefault();
-        VueScrollTo.scrollTo(`#${this.anchor}`, 500, {});
+        VueScrollTo.scrollTo(this.link, 500, {});
       }
     },
   },

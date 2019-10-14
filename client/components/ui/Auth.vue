@@ -8,10 +8,17 @@
     ]"
   >
 
-    <h1
-      v-if="title"
-      class="f-h-cond f-h-50 tc"
-    >{{ title }}</h1>
+    <tag
+      v-if="titleSet !== null"
+      :is="modal ? `h2` : `h1`"
+      :class="[
+        `mt0`,
+        modal ? `h3` : `h2`,
+        {
+          'mt0': modal,
+        }
+      ]"
+    >{{ titleSet }}</tag>
     <p
       v-if="copy"
       class="p tc"
@@ -27,20 +34,20 @@
           `auth__form--${slug}`,
         ]"
 
-        :form-id="slug"
+        :form-id="formId"
         :fields="fields[slug]"
-
-        :submit="submit"
-        button-size="l"
-        button="secondary"
 
         :action="requestAction"
         :success="success"
         :fail="fail"
+        :submit="submitSet"
+
+        button-size="m"
+        button="primary"
       />
     </div>
 
-    <p class="auth__footer small tc">
+    <p v-if="hasFooter" class="auth__footer small tc">
       <slot name="link" />
     </p>
   </div>
@@ -51,7 +58,7 @@
 import { mapGetters } from 'vuex';
 
 // Models
-import { login, register, reset, confirm } from 'models/auth';
+import { _forms, login, register, reset, confirm } from 'models/auth';
 
 // Modules
 import ModuleForm from 'modules/Form';
@@ -72,12 +79,12 @@ export default {
     title: String,
     copy: String,
     successCopy: String,
+    modal: Boolean,
     slug: {
       type: String,
       required: true,
     },
     submit: String,
-    action: String,
     success: {
       type: Function,
       default() {
@@ -108,11 +115,29 @@ export default {
       `getModel`,
       `getStatus`,
     ]),
+    formId() {
+      return `${this.slug}${this.modal ? `-modal` : ``}`;
+    },
     model() {
-      return this.getModel(this.slug);
+      return this.getModel(this.formId);
     },
     status() {
-      return this.getStatus(this.slug);
+      return this.getStatus(this.formId);
+    },
+    action() {
+      return _forms.actions[this.slug];
+    },
+    submitSet() {
+      return this.submit || _forms.submit[this.slug] || ``;
+    },
+    titleSet() {
+      if (typeof this.title !== `undefined`) {
+        return this.title || null;
+      }
+      return _forms.title[this.slug] || null;
+    },
+    hasFooter() {
+      return !!this.$slots.link;
     },
   },
 

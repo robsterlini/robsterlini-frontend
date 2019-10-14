@@ -1,21 +1,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import appStore from 'store/app';
-import formsStore from 'store/forms';
-import metaStore from 'store/meta';
-import authStore from 'store/auth';
+import app from 'store/app';
+import forms from 'store/forms';
+import meta from 'store/meta';
+import modals from 'store/modals';
+import auth from 'store/auth';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({ // eslint-disable-line import/no-named-as-default-member
-  state: {},
-  mutations: {},
   modules: {
-    app: appStore,
-    forms: formsStore,
-    meta: metaStore,
-    auth: authStore,
+    app,
+    forms,
+    meta,
+    modals,
+    auth,
   },
 });
 

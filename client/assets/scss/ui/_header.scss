@@ -13,40 +13,26 @@
   background: module-color(header-bg);
   color: module-color(header-color);
   left: 0;
-  position: relative;
+  position: fixed;
   width: 100%;
+  z-index: $loader-z-index + 1;
 
   .group {
+    align-items: center;
     display: flex;
   }
 
   &__logo {
     color: inherit;
     display: inline-block;
-    height: $header-logo-height;
-    margin:  ($header-height - $header-logo-height) / 2;
+    height: unit(header-logo-width);
+    margin: (unit(header-height) - unit(header-logo-width)) / 2;
     vertical-align: middle;
-    width: $header-logo-height;
+    width: unit(header-logo-width);
     z-index: 1;
 
     .logo {
       background: none;
-    }
-  }
-
-  &__title {
-    display: inline-block;
-    line-height: rem(26);
-    margin: 0;
-    vertical-align: middle;
-
-    span {
-
-      &:first-child {
-        color: module-color(header-pretitle-color);
-        display: inline-block;
-        margin-right: rem(10);
-      }
     }
   }
 
@@ -57,5 +43,9 @@
     text-align: right;
     vertical-align: middle;
     width: 100%;
+  }
+
+  .btn--tertiary {
+    color: module-color(header-btn-tertiary-color);
   }
 }

@@ -1,6 +1,6 @@
 import { HTTP } from './http';
 
-export const requestRegisterVendor = (model) => new Promise((resolve, reject) => HTTP.post(`/auth/register`, model)
+export const requestRegisterUser = (model) => new Promise((resolve, reject) => HTTP.post(`/auth/register`, model)
   .then(response => ((response.status === 201) ? resolve : reject)(response))
   .catch(error => reject(error.response)));
 

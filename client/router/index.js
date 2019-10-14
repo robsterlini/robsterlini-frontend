@@ -2,8 +2,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// Store
+// Vuex
 import store from 'store';
+
+// Config
+import config from 'config';
 
 // Async load function that handles loading
 const loadAsyncPage = (pageImport) => {
@@ -21,18 +24,22 @@ const loadAsyncPage = (pageImport) => {
             store.dispatch(`app/init`);
           }
 
-        }, store.state.app.state.init ? 0 : 500);
+        }, store.state.app.state.init ? 0 : config.transitionDuration);
 
         resolve(component);
       });
   });
 };
 
+// Vue Init
+const VueInit = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/VueInit`));
+
 // Base
 const NotFound = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/404`));
 
 // Top Level Pages
 const Home = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Home`));
+const Terms = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Terms`));
 
 // Auth
 const Login = () => loadAsyncPage(import(/* webpackChunkName: "page-base" */ `views/Login`));
@@ -51,8 +58,18 @@ const routes = [
   },
   {
     path: `/`,
+    name: `vue-init`,
+    component: VueInit,
+  },
+  {
+    path: `/home`,
     name: `home`,
     component: Home,
+  },
+  {
+    path: `/terms`,
+    name: `terms`,
+    component: Terms,
   },
 
   // Auth
@@ -112,15 +129,29 @@ router.beforeEach((to, from, next) => {
   const userAuthed = store.getters[`auth/isAuthenticated`];
   const auth_token = localStorage.getItem(`auth_token`); // eslint-disable-line no-unused-vars
 
+  // Handle a user coming directly to a `modal-path` link
+  if (to.query[`modal-path`]) {
+    next({
+      path: `/${to.query[`modal-path`]}`,
+    });
+    return false;
+  }
+
+  // Handle closing an open modal from the current route
+  if (to.name === from.name && (from.query.modal || from.query[`modal-path`])) {
+    store.dispatch(`modals/closeModal`);
+    return false;
+  }
+
   // Handle initial authentication
-  // if (!userAuthed && auth_token) {
-  //   store.dispatch(`auth/storeRedirect`, to.path);
-  //   store.dispatch(`auth/requestCurrentUser`, {
-  //     auth_token,
-  //     redirect: true,
-  //   });
-  //   return false;
-  // }
+  if (!userAuthed && auth_token) {
+    store.dispatch(`auth/storeRedirect`, to.path);
+    store.dispatch(`auth/requestCurrentUser`, {
+      auth_token,
+      redirect: true,
+    });
+    return false;
+  }
 
   // Handle states that require auth for unauthed users
   if (isAuth && !userAuthed) {
@@ -143,6 +174,12 @@ router.beforeEach((to, from, next) => {
   }
 
   next();
+
+  if (to.query.modal) {
+    setTimeout(() => {
+      store.dispatch(`modals/openModal`, to.query.modal);
+    }, 500);
+  }
 });
 
 export default router;
