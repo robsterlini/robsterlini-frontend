@@ -4,12 +4,25 @@
 
     v-bind="linkProps"
 
-    :class="linkClass"
-
-    v-html="labelSet"
+    :class="[
+      `link`,
+      color && color !== `inherit` ? `link--${color}` : ``,
+      {
+        'link--anchor': linkType === `anchor`,
+        'link--external': linkType === `a`,
+        'link--internal': linkType === `router-link`,
+        'link--no-underline': noUnderline,
+      },
+    ]"
 
     @click="onClick"
-  />
+  >
+    <span v-if="label" class="link__label" v-html="label" />
+    <span v-else class="link__label">
+      <slot />
+    </span>
+  </component>
+  </component>
 </template>
 
 <script>
@@ -32,6 +45,7 @@ export default {
       Object,
     ],
     title: String,
+    noUnderline: Boolean,
   },
 
   // Data
@@ -43,21 +57,7 @@ export default {
       return getLinkTag(this.link);
     },
     linkProps() {
-      return createLinkProps(this.link, this.labelSet, this.title);
-    },
-    labelSet() {
-      return this.label || (this.$slots.default ? (this.$slots.default[0] ? this.$slots.default[0].text : ``) : ``);
-    },
-    linkClass() {
-      return [
-        `link`,
-        this.color && this.color !== `inherit` ? `link--${this.color}` : ``,
-        {
-          'link--anchor': this.linkType === `anchor`,
-          'link--external': this.linkType === `a`,
-          'link--internal': this.linkType === `router-link`,
-        },
-      ];
+      return createLinkProps(this.link, this.label, this.title);
     },
   },
 
@@ -66,7 +66,7 @@ export default {
     onClick(e) {
       if (this.linkType === `anchor`) {
         e.preventDefault();
-        VueScrollTo.scrollTo(this.link, 500, {});
+        VueScrollTo.scrollTo(this.link, 500);
       }
     },
   },

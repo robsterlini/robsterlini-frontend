@@ -1,10 +1,9 @@
 const config = {
-  name: `Fueled`,
-  rootUrl: `https://fueled.com`,
-  logoUrl: `https://fueled.com/assets/images/logo.png`,
+  name: `Rob Sterlini`,
+  rootUrl: `https://robsterlini.co.uk`,
+  logoUrl: `https://robsterlini.co.uk/assets/images/logo.png`,
   social: {
-    twitter: `fueled`,
-    facebook: `Fueled`,
+    twitter: `robsterlini`,
   },
   meta: {
     separator: ` • `,
@@ -13,8 +12,8 @@ const config = {
 };
 
 const apiMap = {
-  dev: `https://backend.popshop-dev.fueled.engineering/api`,
-  qa: `https://backend.CHANGE_ME-dev.fueled.engineering/api`,
+  dev: `https://backend.CHANGE_ME-dev.fueled.engineering/api`,
+  qa: `https://backend.CHANGE_ME-qa.fueled.engineering/api`,
   prod: `https://backend.CHANGE_ME.com/api/`,
 };
 

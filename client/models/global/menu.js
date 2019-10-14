@@ -2,9 +2,11 @@
 
 export default [
   {
-    name: `Home`,
-    model: `Home`,
-    id: 1,
-    path: `home`,
+    name: `Work`,
+    link: `work`,
   },
+  // {
+  //   name: `Life`,
+  //   link: `life`,
+  // },
 ];

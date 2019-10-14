@@ -10,42 +10,104 @@
 // ==========================================
 
 .header {
-  background: module-color(header-bg);
+  align-items: center;
   color: module-color(header-color);
+  display: flex;
   left: 0;
+  // height: unit(header-height);
   position: fixed;
   width: 100%;
   z-index: $loader-z-index + 1;
 
+  @include min-width(tp(header-small)) {
+    height: unit(header-height);
+  }
+
+  &--hidden {
+    display: none;
+  }
+
   .group {
-    align-items: center;
-    display: flex;
+
+    @include min-width(tp(header-small)) {
+      align-items: center;
+      display: flex;
+    }
+
+    @include min-width(tp(header-fixed)) {
+      transform: translateY(#{rem(20)});
+      transition: transform $timing $easing;
+
+      @at-root {
+
+        .header--scrolled {
+
+          .group {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__bg {
+    @include cover;
+
+    background: module-color(header-bg);
+    bottom: rem(-20);
+    bottom: 0;
+    top: rem(-20);
+
+    @include min-width(tp(header-fixed)) {
+      opacity: 0;
+      transition:
+        opacity $timing $easing,
+        transform $timing $easing;
+      transform: translateY(#{rem(20)});
+
+      .header--scrolled & {
+        transform: none;
+        opacity: 1;
+      }
+    }
   }
 
   &__logo {
-    color: inherit;
-    display: inline-block;
-    height: unit(header-logo-width);
-    margin: (unit(header-height) - unit(header-logo-width)) / 2;
-    vertical-align: middle;
-    width: unit(header-logo-width);
+    align-items: center;
+    margin: 0;
     z-index: 1;
 
-    .logo {
-      background: none;
+    @include min-width(tp(header-small)) {
+      display: inline-flex;
+      margin: (unit(header-height) - unit(header-logo-width)) / 2 0;
+      vertical-align: middle;
+    }
+
+    @include max-width(tp(header-small)) {
+      margin-top: rem(10);
+      padding-left: 0;
+
+      .logo__part--last {
+        // display: none;
+      }
     }
   }
 
   .navigation {
-    display: inline-block;
+    align-items: center;
+    display: flex;
     margin: 0;
     position: relative;
-    text-align: right;
-    vertical-align: middle;
     width: 100%;
+
+    @include min-width(tp(header-small)) {
+      display: inline-block;
+      text-align: right;
+      vertical-align: middle;
+    }
   }
 
   .btn--tertiary {
-    color: module-color(header-btn-tertiary-color);
+    @include accent(color);
   }
 }

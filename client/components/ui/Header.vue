@@ -2,13 +2,18 @@
   <header
     :class="[
       'header',
+      {
+        'header--hidden': appPage.meta.noFooter,
+        'header--scrolled': appScrollY > 0,
+      },
     ]"
   >
-
+    <span class="header__bg" />
     <div class="group">
-      <router-link :class="`header__logo`" :to="{ path: `/` }">
-        <module-logo/>
-      </router-link>
+      <module-logo
+        class="header__logo"
+        link="home"
+      />
 
       <ui-navigation/>
     </div>
@@ -17,6 +22,9 @@
 </template>
 
 <script>
+// Vuex
+import { mapGetters } from 'vuex';
+
 // Modules
 import ModuleLogo from 'modules/Logo';
 
@@ -35,12 +43,10 @@ export default {
 
   // Data
   computed: {
-    page() {
-      return this.$store.state.app.page;
-    },
-    loading() {
-      return this.$store.state.app.state.loading;
-    },
+    ...mapGetters(`app`, [
+      `appPage`,
+      `appScrollY`,
+    ]),
   },
 };
 </script>

@@ -14,13 +14,15 @@ a,
   appearance: none;
   background: none;
   border: 0;
-  color: inherit;
+  color: white; // TODO: Var
   cursor: pointer;
   fill: currentColor;
   font: inherit;
+  letter-spacing: unset;
   outline: 0;
   text-decoration: underline;
   text-decoration-skip: ink;
+  text-transform: unset;
   transition:
     opacity $timing-link $easing-link; // sass-lint:disable-line indentation
 }
@@ -77,7 +79,9 @@ a,
     @extend %link-reversed;
   }
 
-  &--no-underline {
+  &--no-underline,
+  &--internal,
+  &--anchor {
     @extend %link-no-underline;
   }
 
