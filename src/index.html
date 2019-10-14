@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+    <div class="background" id="bg" aria-role="presentation">
+      <figure class="background__background">
+        <img
+          class="background__image background__image--preview"
+          src="<%= require('./images/motherclucker-leon-poly.svg')%>"
+          alt=""
+        />
+        <img
+          class="background__image"
+
+          id="background"
+        />
+      </figure>
+      <figure class="background__spotlight" aria-hidden="true">
+        <img
+          class="background__image background__image--preview"
+          src="<%= require('./images/motherclucker-leon-poly.svg')%>"
+          alt=""
+        />
+        <img
+          class="background__image"
+
+          id="spotlight"
+        />
+      </figure>
+    </div>
+
+    <div aria-role="toolbar" label="Theme customisation">
+      <button data-theme-change="default">OS default</button>
+      <button data-theme-change="dark">Dark</button>
+      <button data-theme-change="light">Light</button>
+    </div>
+
+    <main class="main">
+      <h1 class="title">Rob Sterlini-Aitchison</h1>
+      <p class="text">A typography-loving designer turned frontend developer with a focus on building smooth interactions and exciting web&nbsp;experiences.</p>
+      <p class="text">Currently leading the frontend engineering team at&nbsp;<a href="https://fueled.com/sterlini">Fueled</a>.</p>
+
+      <ul class="links">
+        <% var contactKeys = Object.keys(htmlWebpackPlugin.options.contact); for (var i = 0; i < contactKeys.length; i++) { %>
+          <li>
+            <a href="<%= htmlWebpackPlugin.options.contact[contactKeys[i]] %>"><%= contactKeys[i] %></a>
+          </li>
+        <% } %>
+      </ul>
+    </main>
+
+  </body>
+</html>

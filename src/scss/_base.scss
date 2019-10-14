@@ -1,0 +1,27 @@
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+::selection {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}
+
+html,
+body {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+
+  background: var(--c-bg);
+  color: var(--c-color);
+}

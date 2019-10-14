@@ -1,0 +1,30 @@
+$c-dark: #1d2026;
+$c-light: #e7e9ec;
+
+@mixin body-dark-colors {
+  --c-bg: #{$c-dark};
+  --c-color: #{$c-light};
+  --c-accent: #EF545E;
+}
+
+@mixin body-light-colors {
+  --c-bg: #{$c-light};
+  --c-color: #{$c-dark};
+  --c-accent: #E02938;
+}
+
+body  {
+  @include body-dark-colors;
+
+  @media (prefers-color-scheme: light) {
+    @include body-light-colors;
+  }
+}
+
+[data-theme='dark'] {
+  @include body-dark-colors;
+}
+
+[data-theme='light'] {
+  @include body-light-colors;
+}

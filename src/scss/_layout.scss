@@ -1,0 +1,117 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(12, 8.333333333%);
+  margin: auto 0 0;
+  padding: 0.5 / 12 * 100vw 0;
+  position: relative;
+  z-index: 2;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 0;
+    grid-template-rows: 48vw auto auto auto;
+    align-content: flex-start;
+  }
+
+  @media screen and (max-width: 650px) {
+    grid-template-rows: auto auto auto auto;
+    margin-top: 38vw;
+  }
+}
+
+.title {
+  font-family: 'Grad', serif;
+  font-weight: 600;
+  color: var(--c-accent);
+  font-size: calc(70px + 4vw);
+  margin: 0;
+  grid-column: 2 / span 5;
+  line-height: 0.9;
+
+  @media screen and (max-width: 1024px) {
+    font-size: calc(50px + 3vw);
+    margin: auto 0 1vw;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 44px;
+  }
+
+  &__alt {
+    font-family: 'Grad Alt', 'Grad', serif;
+  }
+}
+
+.text,
+.links {
+  font-family: 'Grad', serif;
+  margin: 0.5em 0 0;
+  grid-column: 2 / span 4;
+  font-size: calc(12px + 0.85vw);
+  padding-right: 1vw;
+  line-height: 1.5;
+
+  @media screen and (max-width: 1024px) {
+    padding-right: 0;
+    grid-column: 2 / -2;
+    font-size: 21px;
+    max-width: 24em;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+.links {
+  margin-top: 1em;
+
+  li {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+
+  a {
+    display: block;
+
+    &::after {
+      color: var(--c-accent);
+      content: '→';
+      margin-left: 0.25em;
+      position: relative;
+      top: 0.05em;
+      transition: 250ms ease-out;
+      transition-property: opacity, transform;
+      display: inline-block;
+    }
+
+    &:hover,
+    &:focus {
+
+      &::after {
+        transform: translateX(0.15em);
+      }
+    }
+
+    &:active {
+
+      &::after {
+        opacity: 0;
+        transform: translateX(0.25em);
+      }
+    }
+  }
+}
+
+[aria-role='toolbar'] {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  right: 1 / 12 * 100%;
+}
