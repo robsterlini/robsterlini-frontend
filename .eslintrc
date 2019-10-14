@@ -21,11 +21,11 @@
     "comma-dangle": ["error", "always-multiline"],
     "object-curly-spacing": ["error", "always"],
     "eol-last": ["error", "always"],
-    "no-console": ["error", { allow: ["warn", "error"] }],
+    "import/no-nodejs-modules": ["error", {"allow": ["config"]}],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "prefer-template": 1,
     "no-useless-concat": 0,
     "quotes": ["error", "backtick"],
-    "vue/attributes-order": 0,
     "vue/html-indent": ["error", 2],
     "vue/html-quotes": ["warn", "double"],
     "vue/max-attributes-per-line": ["error", {
@@ -38,11 +38,12 @@
     "vue/require-default-prop": ["off"],
     "vue/name-property-casing": ["error", "kebab-case"],
     "vue/no-duplicate-attributes": ["error", {
-      allowCoexistClass: false,
-      allowCoexistStyle: false,
+      "allowCoexistClass": false,
+      "allowCoexistStyle": false
     }],
+    "vue/no-v-html": ["off"],
     "vue/order-in-components": ["error", {
-      order: [
+      "order": [
         "el",
         "name",
         "parent",
@@ -62,13 +63,11 @@
         ["template", "render"],
         "renderError"
       ]
+    }],
+    "vue/singleline-html-element-content-newline": ["warn", {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["pre", "textarea", "p", "h1", "h2", "h3", "h4", "h5", "h6", "span", "template", "li", "module-button", "module-copy", "module-code", ...INLINE_ELEMENTS]
     }]
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "build/webpack.base.js"
-      }
-    }
-  },
+  }
 }

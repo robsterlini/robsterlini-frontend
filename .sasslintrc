@@ -4,12 +4,12 @@
     "bem-depth": [2, {
       "max-depth": 1
     }],
-    "border-zero": [2, {
-      "convention": 0
-    }],
     "brace-style": [2, {
       "style": "stroustrup",
       "allow-single-line": false,
+    }],
+    "border-zero": [2, {
+      "convention": 0
     }],
     "class-name-format": [2, {
       "convention": "hyphenatedbem"
@@ -48,7 +48,9 @@
     "mixins-before-declarations": [2, {
       "exclude": [
         "min-width",
-        "max-width"
+        "max-width",
+        "min-max-width",
+        "contact-form-fieldset"
       ]
     }],
     "leading-zero": [2, {
