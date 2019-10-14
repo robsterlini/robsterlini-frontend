@@ -39,7 +39,7 @@
   "dependencies": {
     "array-includes": "^3.0.3",
     "autosize": "^4.0.0",
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "babel-runtime": "^6.18.0",
     "lodash": "^4.17.5",
     "promise-polyfill": "^6.1.0",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "babel-core": "^6.16.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.2",
