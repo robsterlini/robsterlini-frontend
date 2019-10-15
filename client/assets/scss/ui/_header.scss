@@ -11,7 +11,7 @@
 
 .header {
   align-items: center;
-  color: module-color(header-color);
+  color: var(--link-color);
   display: flex;
   left: 0;
   // height: unit(header-height);
@@ -21,6 +21,10 @@
 
   @include min-width(tp(header-small)) {
     height: unit(header-height);
+  }
+
+  @include max-width(290) { // TODO: Var
+    position: absolute;
   }
 
   &--hidden {
@@ -53,7 +57,7 @@
   &__bg {
     @include cover;
 
-    background: module-color(header-bg);
+    background: var(--bg-bg);
     bottom: rem(-20);
     bottom: 0;
     top: rem(-20);
@@ -108,6 +112,13 @@
   }
 
   .btn--tertiary {
-    @include accent(color);
+    color: var(--accent-AA);
+  }
+
+  &--scrolled {
+
+    .btn--tertiary {
+      color: var(--accent-AAA);
+    }
   }
 }

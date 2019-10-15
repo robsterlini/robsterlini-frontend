@@ -26,8 +26,14 @@
         <p class="medium mb0">By day I lead the frontend efforts at <module-link :link="{ name: `work`, hash: `#fueled` }" label="Fueled" @mouseover.native="changeBg(`dev`)" />. In my role at Fueled, and as a freelance developer I have helped mould the early web presence of startups, collaborated <module-link :link="{ name: `work`, hash: `#kickpush` }" label="agencies" />, and worked with established brands like to create innovative web&nbsp;experiences. <module-button link="work" class="m0" /></p>
       </div><!--
       --><div class="home-col home-col--life">
-        <h2 class="h3 mb-h">Life</h2>
-        <p class="medium mb0">Away from the screen I like swimming, cycling, and running; occasionally one after the other… I have <module-link link="https://www.instagram.com/p/BZJncXEAQgv/" :no-underline="true" @mouseover.native="changeBg(`tri`)">one <abbr title="Ironman 70.3"  class="type--sc type--nb">IM&hairsp;70.3</abbr></module-link> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <module-link link="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini" :no-underline="true" @mouseover.native="changeBg(`lego`)"><span class="type--sc">LEGO</span></module-link> and – for my sins – I am a Spurs season ticket&nbsp;holder.</p>
+        <h2 class="h3 mb-h">
+          <module-link
+            label="Life"
+            link="life"
+            :no-underline="true"
+          />
+        </h2>
+        <p class="medium mb0">Away from the screen I like swimming, cycling, and running; occasionally one after the other… I have <module-link link="https://www.instagram.com/p/BZJncXEAQgv/" :no-underline="true" @mouseover.native="changeBg(`tri`)">one <abbr title="Ironman 70.3"  class="type--sc type--nb">IM&hairsp;70.3</abbr></module-link> under my belt and still have my sights firmly set on a full Ironman. I’m pretty into <module-link link="https://www.instagram.com/p/BdFEVqxgspJ/?taken-by=robsterlini" :no-underline="true" @mouseover.native="changeBg(`lego`)"><span class="type--sc">LEGO</span></module-link>, and – for my sins – I am a Spurs season ticket&nbsp;holder. <module-button link="life" class="m0" /></p>
       </div>
       <!-- @mouseover="changeBg(`dev`)" -->
       <h2 class="h3 mb0">
@@ -109,7 +115,8 @@ export default {
   },
   computed: {
     hoverImage() {
-      return this.images[this.hoverSlug] || ``;
+      return images.dev;
+      // return this.images[this.hoverSlug] || ``;
     },
   },
 

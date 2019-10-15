@@ -33,38 +33,32 @@
 .home-header {
 
   .logo {
-    background: rgba(module-color(header-bg), 0.5);
+    background: var(--bg-bg-50);
   }
 
   &__span {
-    @include accent(color);
-
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
 
-    // background: -webkit-linear-gradient(right, lighten(color(accent), 12.5%), color(accent));
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-
-    @include max-width(504) {
-      font-size: 3rem;
+    @include max-width(520) {
+      font-size: 2.75rem;
     }
 
-    @include max-width(420) {
-      font-size: 2.75rem;
+    @include max-width(448) {
+      font-size: 2.5rem;
     }
 
     @include max-width(272) {
       width: calc(100% + 0.2em);
     }
 
-    @include max-width(250) {
-      font-size: calc((100vw - 2.5rem) / 4.9);
+    @include max-width(290) {
+      font-size: calc((100vw - 2.5rem) / 6.1);
     }
 
     &--dev {
 
-      @include max-width(364) {
+      @include max-width(414) {
 
         span {
           display: none;
@@ -74,7 +68,7 @@
 
     &--tri {
 
-      @media screen and (max-width: 22.25em) {
+      @include max-width(386) {
         text-transform: capitalize;
 
         span {
@@ -87,7 +81,7 @@
       margin-bottom: 0.5em;
       margin-top: -0.05em;
 
-      @include max-width(380) {
+      @include max-width(411) {
 
         span {
           display: none;
@@ -135,16 +129,16 @@
 // ==========================================
 
 .home-credit {
-  color: color(mid); // TODO: Var
   margin: 0;
+  opacity: 0.7;
   width: 100%;
   z-index: 2;
 
   @include min-width(bp(s)) {
     bottom: 0;
     position: absolute;
-    text-align: right;
     right: 0;
+    text-align: right;
   }
 
   .small {

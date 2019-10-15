@@ -20,6 +20,7 @@ $btn-icon-spacing: rem(12);
   appearance: none;
   background: none;
   border: 0;
+  color: var(--link-color); // TODO: Var
   cursor: pointer;
   display: inline-block;
   font: inherit;
@@ -67,8 +68,7 @@ $btn-icon-spacing: rem(12);
     z-index: 2;
 
     &::after {
-      // color: color(accent); // TODO: Var
-      @include accent(color);
+      color: var(--accent-AA);
 
       content: ' →';
       display: inline-block;
@@ -142,32 +142,6 @@ $btn-icon-spacing: rem(12);
 
 
 // ==== Button ==========================
-// Colors
-// ==========================================
-
-.btn {
-
-  // Primary
-  &--primary {
-    color: module-color(button-primary-color);
-
-    &.btn--hover {
-
-    }
-  }
-
-  // Secondary
-  &--secondary {
-    color: module-color(button-secondary-color);
-
-    &.btn--hover {
-
-    }
-  }
-}
-
-
-// ==== Button ==========================
 // Sizes
 // ==========================================
 
@@ -202,30 +176,6 @@ $btn-icon-spacing: rem(12);
       top: 50%;
     }
   }
-
-  &--positive {
-
-    .btn__icon {
-      right: 0;
-    }
-
-    .btn__content {
-      margin-right: unit(button-icon-margin) / -4;
-      padding-right: unit(icon-width) + unit(button-icon-margin);
-    }
-  }
-
-  &--negative {
-
-    .btn__icon {
-      left: 0;
-    }
-
-    .btn__content {
-      margin-left: unit(button-icon-margin) / -4;
-      padding-left: unit(icon-width) + unit(button-icon-margin);
-    }
-  }
 }
 
 // ==== Button ==========================
@@ -237,24 +187,6 @@ $btn-icon-spacing: rem(12);
   &:disabled {
     cursor: default;
     pointer-events: none;
-  }
-
-  &--success {
-
-    .btn__bg {
-      background-color: module-color(button-success-bg);
-      border-color: module-color(button-success-border);
-    }
-  }
-
-  &--disabled {
-    background: module-color(button-disabled-bg);
-
-    .btn__bg,
-    .btn__label,
-    .btn__icon {
-      opacity: 0.5;
-    }
   }
 
   &--hidden {

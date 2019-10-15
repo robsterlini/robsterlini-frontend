@@ -97,7 +97,7 @@ function createMeta(meta) {
     }
   }
 
-  const isProd = config.env === `production`;
+  const isProd = config.env === `prod`;
   const noFollow = !isProd || meta.noFollow === true;
   const noIndex = !isProd || meta.noIndex === true;
 

@@ -102,6 +102,10 @@ export default {
           link: `https://codepen.io/robsterlini/`,
           label: `Codepen`,
         },
+        linkedin: {
+          link: `https://www.linkedin.com/in/robsterlini/`,
+          label: `LinkedIn`,
+        },
       },
     };
   },

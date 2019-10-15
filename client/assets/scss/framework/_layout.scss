@@ -38,41 +38,43 @@
 // Accent colors
 // ==========================================
 
-// $accent-colors: (
-//   work: color(secondary),
-//   life: color(secondary),
-//   contact: #59C3C3,
-// );
+// $accent-colors-dark:
+//   color(accent),
+//   // #3fbff5,
+//   // color(secondary),
+//   // #22e2c3,
+// ;
 
-// @each $accent-slug, $accent-color in $accent-colors {
-//   .page--#{$accent-slug} {
+// $accent-colors-light:
+//   #c23030, // Red
+//   #2363ad, // Blue
+//   #c23030,
+//   #c23030,
+//   // #00b3ff,
+//   // darken(color(secondary), 10%),
+//   // #08b79b,
+// ;
+
+// @for $i from 1 through length($accent-colors-dark) {
+//   $accent-color: nth($accent-colors-dark, $i);
+
+//   .page--c#{$i} {
 //     #{--accent}: $accent-color;
 //   }
+// }
 
-//   .loader--#{$accent-slug} {
+// @media (prefers-color-scheme: light) {
+//   @for $i from 1 through length($accent-colors-light) {
+//     $accent-color: nth($accent-colors-light, $i);
 
-//     .loader__layer--accent {
-//       background: $accent-color;
+//     .page--c#{$i} {
+//       #{--accent}: $accent-color;
 //     }
 //   }
 // }
 
-$accent-colors:
-  color(accent),
-  #3fbff5,
-  color(secondary),
-  #22e2c3;
-
-@for $i from 1 through length($accent-colors) {
-  $accent-color: nth($accent-colors, $i);
-
-  .page--c#{$i} {
-    #{--accent}: $accent-color;
-  }
-}
-
 .loader__layer.loader__layer--accent { // TODO: Refactor
-  @include accent(background-color);
+  background-color: var(--accent-AA);
 }
 
 
@@ -85,8 +87,8 @@ $accent-colors:
   max-width: rem(960); // TODO: Var
   padding: 0;
   position: relative;
-  z-index: 2; // TODO: Var
   width: calc(100% - #{rem(20 * 2)}); // TODO: Var
+  z-index: 2; // TODO: Var
 
   .page--show-group .main > & {
     animation: reveal-group $timing-transition 0ms both;
@@ -141,73 +143,14 @@ $accent-colors:
   }
 
   &__overlap {
+    left: 50%;
     max-width: rem(960); // TODO: Var
     position: relative;
-    left: 50%;
     transform: translateX(-50%);
     width: calc(100vw - #{rem(20 * 2)}); // TODO: Var
 
     @include min-width(bp(s)) {
       width: calc(100vw - #{rem(40 * 2)}); // TODO: Var
     }
-  }
-}
-
-
-// ==== Layout ==============================
-// Block
-// ==========================================
-
-.block {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  position: relative;
-  width: 100%;
-  z-index: 2;
-
-  &--grow {
-    flex: 1;
-  }
-
-  &--cover {
-    min-height: 100vh;
-  }
-
-  &--center {
-    justify-content: center;
-  }
-
-  &--accent {
-    background: module-color(block-accent-bg);
-    color: module-color(block-accent-color);
-  }
-
-  &--dark {
-    background: module-color(block-dark-bg);
-    color: module-color(block-dark-color);
-  }
-
-  &--mid,
-  &--light,
-  &--lightest {
-    background: module-color(block-light-bg);
-    color: module-color(block-light-color);
-
-    .blockquote {
-      color: module-color(block-light-blockquote-color);
-    }
-  }
-
-  &--lightest {
-    background: module-color(block-lightest-bg);
-  }
-
-  &__bg {
-    @include cover;
-
-    background: center no-repeat;
-    background-size: cover;
   }
 }

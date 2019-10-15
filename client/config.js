@@ -1,5 +1,5 @@
 const config = {
-  name: `Rob Sterlini`,
+  name: `Rob Sterlini-Aitchison`,
   rootUrl: `https://robsterlini.co.uk`,
   logoUrl: `https://robsterlini.co.uk/assets/images/logo.png`,
   social: {
@@ -9,12 +9,6 @@ const config = {
     separator: ` • `,
   },
   transitionDuration: 300,
-};
-
-const apiMap = {
-  dev: `https://backend.CHANGE_ME-dev.fueled.engineering/api`,
-  qa: `https://backend.CHANGE_ME-qa.fueled.engineering/api`,
-  prod: `https://backend.CHANGE_ME.com/api/`,
 };
 
 const envMap = {
@@ -28,5 +22,4 @@ const env = envMap[process.env.NODE_ENV] || `dev`; // eslint-disable-line no-und
 export default {
   ...config,
   env,
-  api: apiMap[env],
 };

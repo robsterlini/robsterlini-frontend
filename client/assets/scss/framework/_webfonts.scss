@@ -4,15 +4,28 @@
 // Webfonts
 // =======================================================================
 
+@import url("//hello.myfonts.net/count/3a5752");
 
-// ==== Webfonts ========================
-// Freight
+
+// ==== Webfonts ============================
+// Grad
 // ==========================================
 
-// @font-face {
-//   font-family: 'freight-pro-web';
-//   font-style: italic;
-//   font-weight: bold;
-//   src: url('/assets/fonts/freight/freight-text-pro-bold-italic.woff2') format('woff2'),
-//        url('/assets/fonts/freight/freight-text-pro-bold-italic.woff') format('woff'); // sass-lint:disable-line indentation
-// }
+@font-face {
+  font-family: 'grad';
+  font-weight: 600;
+  src: url('/assets/fonts/grad/3A5752_0_0.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'grad';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/assets/fonts/grad/3A5752_4_0.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'grad';
+  font-weight: 400;
+  src: url('/assets/fonts/grad/3A5752_3_0.woff2') format('woff2');
+}

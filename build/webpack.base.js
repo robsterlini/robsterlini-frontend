@@ -84,7 +84,7 @@ module.exports = {
                 oneOf: [
                     {
                         resourceQuery: /inline/, // foo.svg?inline
-                        use: 'vue-svg-loader',
+                        loader: 'vue-svg-loader',
                     },
                     {
                         loader: 'file-loader',
@@ -119,25 +119,6 @@ module.exports = {
                 to: './'
             },
         ]),
-        new ImageminPlugin({
-            disable: process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'qa', // Disable during development
-            optipng: null,
-            jpegtran: null,
-            pngquant: {
-                quality: '80-100'
-            },
-            svgo: {
-                options: {
-                    removeViewBox: false
-                }
-            },
-            plugins: [
-                imageminMozjpeg({
-                    quality: 80,
-                    progressive: true
-                })
-            ]
-        })
     ],
     target: 'web'
 }
