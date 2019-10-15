@@ -202,30 +202,6 @@ $btn-icon-spacing: rem(12);
       top: 50%;
     }
   }
-
-  &--positive {
-
-    .btn__icon {
-      right: 0;
-    }
-
-    .btn__content {
-      margin-right: unit(button-icon-margin) / -4;
-      padding-right: unit(icon-width) + unit(button-icon-margin);
-    }
-  }
-
-  &--negative {
-
-    .btn__icon {
-      left: 0;
-    }
-
-    .btn__content {
-      margin-left: unit(button-icon-margin) / -4;
-      padding-left: unit(icon-width) + unit(button-icon-margin);
-    }
-  }
 }
 
 // ==== Button ==========================
@@ -237,24 +213,6 @@ $btn-icon-spacing: rem(12);
   &:disabled {
     cursor: default;
     pointer-events: none;
-  }
-
-  &--success {
-
-    .btn__bg {
-      background-color: module-color(button-success-bg);
-      border-color: module-color(button-success-border);
-    }
-  }
-
-  &--disabled {
-    background: module-color(button-disabled-bg);
-
-    .btn__bg,
-    .btn__label,
-    .btn__icon {
-      opacity: 0.5;
-    }
   }
 
   &--hidden {

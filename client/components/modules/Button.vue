@@ -9,16 +9,14 @@
       'btn--' + (button || 'secondary'),
       'btn--' + (size || 'm'),
       {
-        'btn--idle': (!hover && !isHover && !active && !isActive) || (loading),
-        'btn--hover': (hover ||isHover || active || isActive) && !disabled && !loading,
-        'btn--active': (active || isActive) && !disabled && !hover && !loading,
-        'btn--disabled': !success && !loading && disabled,
-        'btn--loading': loading,
-        'btn--success': success,
+        'btn--idle': (!hover && !isHover && !active && !isActive),
+        'btn--hover': (hover ||isHover || active || isActive) && !disabled,
+        'btn--active': (active || isActive) && !disabled && !hover,
+        'btn--disabled': disabled,
       }
     ]"
 
-    :disabled="disabled || loading || success"
+    :disabled="disabled"
 
     @mouseover.native="onMouseEnter"
     @mouseover="onMouseEnter"
@@ -28,7 +26,6 @@
     @mousedown.prevent="onMouseDown"
     @click="onClick"
   >
-    <module-spinner :class="`btn__spinner`" :active="loading" />
     <span class="btn__inner">
       <span class="btn__content">
         <span class="btn__label">
@@ -43,10 +40,6 @@
 // Services
 import { getLinkTag, getLinkType, createLinkProps } from 'services/link';
 
-// Modules
-// import ModuleIcon from 'modules/Icon';
-import ModuleSpinner from 'modules/Spinner';
-
 // Other
 import VueScrollTo from 'vue-scrollto';
 
@@ -54,29 +47,19 @@ import VueScrollTo from 'vue-scrollto';
 export default {
   name: `module-button`,
 
-  // Components
-  components: {
-    // ModuleIcon,
-    ModuleSpinner,
-  },
-
   // Props
   props: {
     active: Boolean,
     hover: Boolean,
     disabled: Boolean,
-    loading: Boolean,
-    success: Boolean,
     button: {
       type: String,
     },
-    // icon: String,
     link: [
       String,
       Object,
     ],
     label: String,
-    negative: Boolean,
     title: String,
     size: {
       type: String,

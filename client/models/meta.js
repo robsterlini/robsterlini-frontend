@@ -4,14 +4,7 @@ export default {
   home: {
     // title: `Frontend developer`,
     meta: {
-      description: `Rob Sterlini is a frontend developer, amateur triathlete, and LEGO Master Builder.`,
-    },
-  },
-
-  vueInit: {
-    title: `Vue Init`,
-    meta: {
-      description: `Remove this for production`,
+      description: `Rob Sterlini-Aitchison is a frontend developer, amateur triathlete, and LEGO Master Builder.`,
     },
   },
 

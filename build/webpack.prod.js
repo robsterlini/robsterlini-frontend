@@ -9,12 +9,8 @@ const webpack = require('webpack')
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
-const PrerenderSpaPlugin = require('prerender-spa-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-// Models
-const prerenderMap = require('../client/models/global/_prerender')
 
 // Extras
 const rm = require('rimraf')
@@ -81,19 +77,6 @@ base.plugins.push(
   }),
   // new BundleAnalyzerPlugin(),
   new webpack.optimize.ModuleConcatenationPlugin(),
-  // new PrerenderSpaPlugin(
-  //   path.join(__dirname, '../dist'),
-  //   prerenderMap,
-  //   {
-  //     captureAfterDocumentEvent: 'custom-post-render-event',
-  //     postProcessHtml: function (context) {
-  //       return context.html.replace(
-  //         `<div class="intro is--running">`,
-  //         `<div class="intro">`
-  //       )
-  //     }
-  //   }
-  // )
 );
 
 // extract css in standalone css files
