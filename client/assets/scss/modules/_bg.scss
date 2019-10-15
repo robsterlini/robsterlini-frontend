@@ -10,7 +10,7 @@
 // ==========================================
 
 .bg {
-  background: module-color(bg-bg);
+  background: var(--bg-bg);
   margin-bottom: -35%;
   position: relative;
   padding-top: 50%;
@@ -24,12 +24,12 @@
   // }
 
   &__bg {
-    background: module-color(bg-bg);
+    background: var(--bg-bg);
 
     &::after {
       @include cover;
 
-      background: linear-gradient(transparent, module-color(base-bg));
+      background: linear-gradient(transparent, var(--base-bg));
       bottom: -1px;
       content: '';
       top: 50%;
@@ -39,12 +39,17 @@
 
   &__image {
     animation: bg-hide $timing $easing both;
-    background: module-color(bg-bg) center no-repeat;
+    background: var(--bg-bg) center no-repeat;
     background-size: cover;
     filter: grayscale(0.33);
-    opacity: 0;
     mix-blend-mode: overlay;
+    opacity: 0;
+    transform-origin: center bottom;
     z-index: 1;
+
+    @media (prefers-color-scheme: light) {
+      mix-blend-mode: unset;
+    }
 
     @keyframes bg-hide {
       0% {
@@ -53,6 +58,18 @@
 
       100% {
         opacity: 0;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      @keyframes bg-hide {
+        0% {
+          opacity: 0.15;
+        }
+
+        100% {
+          opacity: 0;
+        }
       }
     }
 
@@ -65,12 +82,26 @@
       @keyframes bg-reveal {
         0% {
           opacity: 0;
-          transform: translateY(-1%);
+          transform: scale(1.015);
         }
 
         100% {
-          opacity: 0.66;
+          opacity: 0.75;
           transform: none;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        @keyframes bg-reveal {
+          0% {
+            opacity: 0;
+            transform: scale(1.015);
+          }
+
+          100% {
+            opacity: 0.15;
+            transform: none;
+          }
         }
       }
     }

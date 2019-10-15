@@ -41,7 +41,7 @@ const Error = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/
 // Top Level Pages
 const Home = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Home`));
 const Work = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Work`));
-// const Life = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Life`));
+const Life = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Life`));
 const Contact = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Contact`));
 // const Cv = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Cv`));
 // const Terms = () => loadAsyncPage(import(/* webpackChunkName: "views" */ `views/Terms`));
@@ -88,11 +88,11 @@ const routes = [
     name: `work`,
     component: Work,
   },
-  // {
-  //   path: `/life`,
-  //   name: `life`,
-  //   component: Life,
-  // },
+  {
+    path: `/life`,
+    name: `life`,
+    component: Life,
+  },
   {
     path: `/contact`,
     name: `contact`,

@@ -14,7 +14,7 @@ a,
   appearance: none;
   background: none;
   border: 0;
-  color: white; // TODO: Var
+  color: var(--link-color); // TODO: Var
   cursor: pointer;
   fill: currentColor;
   font: inherit;
@@ -27,12 +27,12 @@ a,
     opacity $timing-link $easing-link; // sass-lint:disable-line indentation
 }
 
+
 // ==== Links ===============================
-// Extends
+// Classes
 // ==========================================
 
-%link {
-
+.link {
   &:hover {
     opacity: 0.75; // TODO: Var
   }
@@ -40,49 +40,11 @@ a,
   &:active {
     opacity: 0.5; // TODO: Var
   }
-}
-
-%link-accent {
-  color: module-color(link-accent);
-  fill: module-color(link-accent);
-}
-
-%link-reversed {
-  opacity: 0.33;
-
-  &:hover {
-    opacity: 0.66;
-  }
-
-  &:active {
-    opacity: 1;
-  }
-}
-
-%link-no-underline {
-  text-decoration: none;
-}
-
-
-// ==== Links ===============================
-// Classes
-// ==========================================
-
-.link {
-  @extend %link;
-
-  &--accent {
-    @extend %link-accent;
-  }
-
-  &--reversed {
-    @extend %link-reversed;
-  }
 
   &--no-underline,
   &--internal,
   &--anchor {
-    @extend %link-no-underline;
+    text-decoration: none;
   }
 
   &--inherit {
@@ -91,68 +53,5 @@ a,
       opacity: 1;
       text-decoration: none;
     }
-  }
-}
-
-.links {
-
-  a {
-    @extend %link;
-  }
-
-  &--accent {
-
-    a {
-      @extend %link-accent;
-    }
-  }
-
-  &--reversed {
-
-    a {
-      @extend %link-reversed;
-    }
-  }
-
-  &--no-underline {
-
-    a {
-      @extend %link-no-underline;
-    }
-  }
-}
-
-
-// ==== Links ===================================
-// Pseudo
-// ==========================================
-
-.link {
-
-  &__pseudo {
-    transition:
-      opacity $timing-link $easing-link; // sass-lint:disable-line indentation
-
-    // sass-lint:disable force-pseudo-nesting
-    .link--pseudo:hover & {
-      opacity: 0.75; // TODO: Var
-    }
-
-    .link--pseudo:active & {
-      opacity: 0.5; // TODO: Var
-    }
-
-    .link--pseudo-reversed & {
-      opacity: 0.5; // TODO: Var
-    }
-
-    .link--pseudo-reversed:hover & {
-      opacity: 0.75; // TODO: Var
-    }
-
-    .link--pseudo-reversed:active & {
-      opacity: 1; // TODO: Var
-    }
-    // sass-list:enable force-pseudo-nesting
   }
 }

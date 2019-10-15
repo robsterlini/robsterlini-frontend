@@ -6,7 +6,6 @@
 
     :class="[
       `link`,
-      color && color !== `inherit` ? `link--${color}` : ``,
       {
         'link--anchor': linkType === `anchor`,
         'link--external': linkType === `a`,
@@ -38,7 +37,6 @@ export default {
 
   // Props
   props: {
-    color: String,
     label: String,
     link: [
       String,

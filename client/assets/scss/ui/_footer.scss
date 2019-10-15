@@ -10,8 +10,6 @@
 // ==========================================
 
 .footer {
-  background: module-color(footer-bg);
-  color: module-color(footer-color);
 
   .group {
     padding: unit(base-gutter) 0 unit(base-gutter) * 2;
@@ -20,7 +18,7 @@
   .small {
 
     &::before {
-      @include accent(background-color);
+      background-color: var(--accent-AA);
 
       content: '';
       display: block;

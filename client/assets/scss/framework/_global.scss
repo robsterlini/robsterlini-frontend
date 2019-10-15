@@ -26,12 +26,6 @@
 // ==========================================
 
 html,
-body {
-  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-}
-
-html,
 body,
 input,
 button, {
@@ -52,29 +46,48 @@ body {
 
 html {
   box-sizing: inherit;
-  // font-size: calc(.45rem + .75vw);
   font-family: $font-family-body;
   height: 100%;
 
   @include min-width(tp(base-dynamic-type)) {
     font-size: calc(0.56rem + 0.4vw);
   }
-
-  // @media screen and (min-width: 106em) {
-  //   font-size: 1.25rem;
-  // }
-
-  // @media screen and (max-width: 56.625em) {
-  //   font-size: .875rem;
-  // }
 }
 
 body {
-  background: module-color(base-bg) center no-repeat;
-  color: module-color(base-color);
+  #{--base-bg}: module-color(base-bg-dark);
+  #{--base-color}: module-color(base-color-dark);
+
+  #{--bg-bg}: module-color(bg-bg-dark);
+  #{--bg-bg-50}: rgba(module-color(bg-bg-dark), 0.5);
+
+  #{--link-color}: module-color(link-dark);
+
+  #{--accent-AA}: #EB3f4f;
+  #{--accent-AAA}: lighten(#F44A5A, 4%);
+
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+
+  background: var(--base-bg) center no-repeat;
+  color: var(--base-color);
   font-size: em($font-default-size);
   width: 100%;
+
+  @media (prefers-color-scheme: light) {
+    #{--base-bg}: module-color(base-bg-light);
+    #{--base-color}: module-color(base-color-light);
+
+    #{--bg-bg}: module-color(bg-bg-light);
+    #{--bg-bg-50}: rgba(module-color(bg-bg-light), 0.5);
+
+    #{--link-color}: module-color(link-light);
+
+    #{--accent-AA}: darken(#EB3f4f, 3%);
+    #{--accent-AAA}: #CD1828;
+  }
 }
+
 
 
 // ==== Global ==============================
@@ -82,6 +95,6 @@ body {
 // ==========================================
 
 ::selection {
-  background: module-color(base-selection-bg);
-  color: module-color(base-selection-color);
+  background: var(--base-color);
+  color: var(--base-bg);
 }

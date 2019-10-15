@@ -5,7 +5,7 @@
     />
     <div class="group group--first-last">
       <h1 class="h1 mb0">A portfolio of sorts</h1>
-      <p class="large">I’m a typography graduate turned frontend developer with a passion for creating web experiences, both at <module-link link="#fueled">Fueled</module-link> and as a freelance&nbsp;developer.</p>
+      <p class="large">I’m a typography graduate turned frontend engineer with a passion for creating web experiences, both at <module-link link="#fueled">Fueled</module-link> and as a freelance&nbsp;developer.</p>
 
       <div
         v-for="(project, projectId) in projects"
@@ -119,14 +119,15 @@ export default {
       fed: `Frontend development`,
       design: `Web design`,
       brand: `Branding`,
-      vue: `Vue 2`,
+      vue: `Vue 2 and Vuex`,
       middleman: `Middleman`,
       angular: `Angular 1.6`,
       scss: `Scss`,
       wordpress: `WordPress`,
       gulp: `Gulp`,
       js: `<span class="type--sc">ES6</span> JavaScript`,
-      html: `<span class="type--sc">HTML</span>, <span class="type--sc">CSS</span>`,
+      html: `<span class="type--sc">HTML</span>`,
+      webpack: `Webpack 4`,
     };
 
     return {
@@ -149,11 +150,19 @@ export default {
           title: `Leading the frontend push`,
           link: `https://fueled.com/sterlini`,
           roles: [
-            terms.fed,
-            `Team management`,
+            // terms.fed,
+            `Lead Frontend Engineer`,
+            `Associate Leadership member`,
+            // `Team management`,
           ],
           clients: [
             `Apple`,
+            `Vanity Fair`,
+            `Remedy Partners`,
+            {
+              href: `https://omstars.com`,
+              name: `Omstars`,
+            },
             {
               href: `https://keetoo.com`,
               name: `Keetoo`,
@@ -166,11 +175,12 @@ export default {
               href: `https://web.fixfix.com`,
               name: `FixFix`,
             },
-            `Vanity Fair`,
           ],
           stacks: [
-            terms.vue,
+            terms.js,
             terms.scss,
+            terms.vue,
+            terms.webpack,
             terms.wordpress,
             terms.angular,
             terms.middleman,
@@ -179,6 +189,7 @@ export default {
             `Since joining Fueled in July 2014, I’ve progressed to lead the frontend web team in our efforts to produce high quality, polished\xa0webapps.`,
             `I have built interactive learning games for Apple, engineered web experiences to rescue you when you’re locked out for FixFix, helped visitors get the best value in London for\xa0Keetoo.`,
             `As the team-lead of the Frontend Web Team, I’ve led the charge for better code standards and structure to enable our team to flourish and develop (if you’ll pardon the\xa0pun).`,
+            `One of the largest projects to date has been the overhaul of the fueled site itself. Refactoring a legacy codebase into a Vue SPA was a challenging, but necessary task. In June 2019, FDC4 went live; it continues to be maintained and iterated upon, with an abstracted component library and design system in the works as you read this.`,
           ],
           cta: `Want to know more about Fueled?`,
         },

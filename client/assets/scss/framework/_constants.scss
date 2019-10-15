@@ -13,17 +13,18 @@
 $font-default-size: 16;
 
 // Families
-$font-family-body: 'freight-sans-pro', sans-serif;
-$font-family-heading: 'freight-text-pro', serif;
+$font-family-body: 'grad', 'freight-sans-pro', sans-serif;
+$font-family-heading: 'grad', 'freight-text-pro', serif;
 $font-family-mono: 'clone-rounded-latin', monospace;
 
 // Variables
-$line-height-body: 1.4;
+$line-height-body: 1.5;
+$line-height-large: 1.4;
 $line-height-header: 1.25;
 $strong-weight: 600;
 
 // H1
-$h1-font-size-l: 72;
+$h1-font-size-l: 64;
 $h1-font-size-s: 48;
 
 // H2

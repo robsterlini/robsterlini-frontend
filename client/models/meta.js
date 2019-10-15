@@ -27,7 +27,13 @@ export default {
   work: {
     title: `Work`,
     meta: {
-      description: `I’m a typography graduate turned frontend developer with a passion for creating web experiences, both at `,
+      description: `Typography graduate turned frontend engineer with a passion for creating web experiences, both at an agency and as a freelance developer.`,
+    },
+  },
+
+  life: {
+    title: `Life`,
+    meta: {
     },
   },
 

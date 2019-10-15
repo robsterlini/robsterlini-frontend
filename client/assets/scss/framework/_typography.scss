@@ -12,7 +12,7 @@
 %heading {
   display: block;
   font-family: $font-family-heading;
-  font-weight: 500; // TODO: Var
+  font-weight: 400; // TODO: Var
   line-height: $line-height-header;
   margin: 1.5em 0 0.75em; // TODO: Var
   max-width: 28em;
@@ -40,15 +40,15 @@
   @extend %heading;
 
   @include font-sizes($h1-font-size-s, $h1-font-size-l);
-  @include accent(color);
 
-  // color: color(dark); // TODO: Var
-  // color: color(accent);
+  @include max-width(320) {
+    font-size: rem($h1-font-size-s) * 0.85;
+  }
+
+  color: var(--accent-AA);
   display: table;
   font-family: $font-family-heading;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: 600;
   line-height: 1.1;
   margin-top: 2em;
 }
@@ -72,7 +72,9 @@
 
 %paragraph {
   display: block;
+  font-variant-numeric: oldstyle-nums;
   font-weight: 400; // TODO: Var
+  letter-spacing: 0.01em;
   line-height: $line-height-body;
   margin: 1em 0;
   max-width: 32em;
@@ -120,33 +122,6 @@
   @extend %size-small;
 }
 
-%blockquote {
-  @extend %size-huge;
-
-  font-family: $font-family-heading;
-  font-style: italic;
-  margin: 1em 0 0.5em;
-  max-width: 18em;
-  text-transform: uppercase;
-
-  cite {
-    @extend %p;
-
-    display: block;
-    font-family: $font-family-body;
-    font-style: normal;
-    margin-top: 0.5em;
-    text-transform: none;
-
-    &::before {
-      content: '– ';
-    }
-  }
-
-  a {
-    @extend %link;
-  }
-}
 
 // ==== Typography ==========================
 // Classes
@@ -188,10 +163,6 @@
   @extend %small;
 }
 
-.blockquote {
-  @extend %blockquote;
-}
-
 
 // ==== Typography ==========================
 // Extras
@@ -223,138 +194,4 @@ abbr {
 
 ul {
   list-style: none;
-}
-
-
-// ==== Typography ==========================
-// Typeset
-// ==========================================
-
-.typeset {
-
-  &--terms {
-    max-width: rem(720); // TODO: Var
-  }
-
-  h1 {
-    @extend %h1;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  h2 {
-    @extend %h2;
-  }
-
-  h3 {
-    @extend %h3;
-  }
-
-  h4 {
-    @extend %h4;
-  }
-
-  p {
-    @extend %p;
-  }
-
-  li,
-  dl {
-    margin: 0.5em auto;
-  }
-
-  small {
-    @extend %small;
-  }
-
-  blockquote {
-    @extend %blockquote;
-  }
-
-  strong {
-    font-weight: $strong-weight;
-  }
-
-  ol,
-  ul {
-    @extend %p;
-
-    counter-reset: section;
-    padding-left: unit(base-gutter) * 1.5;
-
-    @include min-width(500) {
-      padding-left: unit(base-gutter) * 2;
-    }
-
-    li {
-      display: block;
-      padding-left: 0;
-      text-indent: unit(base-gutter) * -3;
-
-      &::before {
-        content: '•';
-        display: inline-block;
-        font-variant-numeric: tabular-nums;
-        font-weight: font-weight(medium);
-        letter-spacing: -0.03em;
-        margin-left: unit(base-gutter) / -2;
-        padding-right: unit(base-gutter) / 2;
-        text-align: right;
-        text-indent: 0;
-        width: unit(base-gutter) * 3;
-      }
-
-      dl,
-      table {
-        text-indent: 0;
-      }
-    }
-  }
-
-  ul {
-
-    > li {
-
-      &::before {
-        color: color(accent);
-      }
-    }
-  }
-
-  ol {
-
-    > li {
-      counter-increment: section;
-
-      &::before {
-        content: counter(section) '.';
-      }
-    }
-
-    ol {
-      counter-reset: item;
-
-      > li {
-        counter-increment: item;
-
-        &::before {
-          content: counter(section, lower-alpha) '.' counter(item) '.';
-        }
-      }
-
-      ol {
-        counter-reset: subsection;
-
-        > li {
-          counter-increment: subsection;
-
-          &::before {
-            content: '(' counter(subsection, lower-alpha) ')';
-          }
-        }
-      }
-    }
-  }
 }

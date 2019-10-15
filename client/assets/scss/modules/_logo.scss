@@ -10,37 +10,42 @@
 // ==========================================
 
 .logo {
-  @include font-sizes(18, 22);
+  @include font-sizes(16, 20);
 
-  background: module-color(header-bg);
-  color: color(white);
-  font-weight: 500; // TODO: Var
+  background: var(--bg-bg);
+  color: var(--link-color);
   display: table;
+  font-weight: 500; // TODO: Var
   margin: 1em 0;
-  padding: 0 unit() calc(0.075em + #{rem(2)});
-  transition:
-    color $timing $easing;
+  padding: 0 unit(0.85) calc(0.075em + #{rem(2)}) unit();
+  transition: color $timing $easing;
   white-space: nowrap;
+
+  @include max-width(290) { // TODO: Var
+    white-space: normal;
+    width: 5em;
+  }
 
   &--link {
     position: relative;
 
     &::before {
       @include cover;
-      @include accent(background);
 
+      background: var(--accent-AA);
+      bottom: -1px;
       content: '';
-      transform: scale(0, 1);
+      transform: translate3d(0, 0, 0) scale(0, 1);
       transform-origin: center right;
       transition: transform $timing $easing;
     }
 
     &:hover {
-      color: module-color(header-bg);
+      color: var(--bg-bg);
 
       &::before {
+        transform: translate3d(0, 0, 0) scale(1, 1);
         transform-origin: center left;
-        transform: scale(1, 1);
       }
     }
 
@@ -52,8 +57,8 @@
     }
 
     .h3 {
-      font-weight: inherit;
       font-size: inherit;
+      font-weight: inherit;
     }
 
     &:hover {

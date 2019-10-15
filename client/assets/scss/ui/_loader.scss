@@ -32,7 +32,7 @@
 
     @include cover;
 
-    background: module-color(loader-bg);
+    background: var(--bg-bg);
     pointer-events: auto;
   }
 }
@@ -54,10 +54,6 @@
 
     &--bg {
       background: module-color(loader-bg);
-    }
-
-    &--accent {
-      background: module-color(loader-bg-accent);
     }
 
     @keyframes loader-out {

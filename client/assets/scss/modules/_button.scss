@@ -20,6 +20,7 @@ $btn-icon-spacing: rem(12);
   appearance: none;
   background: none;
   border: 0;
+  color: var(--link-color); // TODO: Var
   cursor: pointer;
   display: inline-block;
   font: inherit;
@@ -67,8 +68,7 @@ $btn-icon-spacing: rem(12);
     z-index: 2;
 
     &::after {
-      // color: color(accent); // TODO: Var
-      @include accent(color);
+      color: var(--accent-AA);
 
       content: ' →';
       display: inline-block;
@@ -136,32 +136,6 @@ $btn-icon-spacing: rem(12);
         opacity: 0;
         transform: translateX(#{rem(8)}); // TODO: Var
       }
-    }
-  }
-}
-
-
-// ==== Button ==========================
-// Colors
-// ==========================================
-
-.btn {
-
-  // Primary
-  &--primary {
-    color: module-color(button-primary-color);
-
-    &.btn--hover {
-
-    }
-  }
-
-  // Secondary
-  &--secondary {
-    color: module-color(button-secondary-color);
-
-    &.btn--hover {
-
     }
   }
 }
