@@ -1,0 +1,5 @@
+2007 Mine starts when I realised I was bad at RPGs, but was good at designing web graphics for players of RPGs. Forum signatures turned into forum skins which required code. No biggie, I learned to hack away at the PHP in front of me until it did what I needed it to.
+2010 From there I followed the digital design route and went to the University of Reading where I fell in love with typography. Web type was my bread and butter, and it allowed me to keep tinkering with code for personal projects, and freelance clients.
+2013 I graduated with a first, and stuck around to be the one-man design-development team behind the relaunch of the university website.
+As a freelance developer, I’ve had the pleasure of working with agencies like Kickpush to help them shape their web presence; brought a masonic lodge* into the digital age; worked with creatives in developing their visions for companies like Unifie. There was a time that I was the designer for KSI, but that’s a story for another day!
+\*I’m not a mason, just a developer!

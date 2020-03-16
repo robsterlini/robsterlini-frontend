@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% set css %}
+      {% include "base.css" %}
+    {% endset %}
+    <style>{{ css | postcss | safe }}</style>
+  </head>
+  <body class="page">
+    <div aria-hidden="true" class="background" id="background"></div>
+    {% include "header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    <!-- {% include "footer.njk" %} -->
+    <script>window.onload = () => {
+      const body = document.body;
+      const wHeight = window.innerHeight;
+
+      console.log(wHeight);
+
+      body.classList.add('page--loaded');
+      body.style.overflow = 'hidden';
+      setTimeout(() => {
+        body.style.overflow = 'visible';
+      }, 1500);
+
+      let timeout;
+      const bg = document.getElementById(`background`);
+
+      const updateBg = () => {
+        bg.style.transform = `translate3d(0, ${window.scrollY / wHeight * 10}%, 0)`;
+      };
+
+      updateBg();
+
+      window.addEventListener('scroll', event => {
+
+        if (timeout) {
+          window.cancelAnimationFrame(timeout);
+        }
+
+        timeout = window.requestAnimationFrame(() => {
+          updateBg();
+        });
+      }, false);
+    };</script>
+  </body>
+</html>
