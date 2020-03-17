@@ -5,7 +5,14 @@
   font-family: 'ibm-plex-mono';
   font-weight: 400;
   font-style: normal;
-  src: url(fonts/plex-400-latin1.woff2);
+  src: url(fonts/plex-400.woff2);
+}
+
+@font-face {
+  font-family: 'ibm-plex-mono';
+  font-weight: 600;
+  font-style: normal;
+  src: url(fonts/plex-600.woff2);
 }
 
 @font-face {
@@ -33,8 +40,17 @@ body {
 ::selection {
   background: $color-accent;
   color: $color-light;
+  text-shadow: none;
 }
 
+/* WHY: 768 - 1 */
+@media screen and (max-width: 47.9375em) {
+  body {
+    --unit: 2rem;
+  }
+}
+
+/* WHY: 1440 */
 @media screen and (min-width: 90em) {
   body {
     --unit: 3.75rem;
@@ -55,7 +71,7 @@ body {
 }
 
 .page--loaded .background {
-  opacity: 0.25;
+  opacity: 1;
   will-change: transform;
 }
 
@@ -99,6 +115,7 @@ header {
   width: calc(var(--unit) * 0.066);
   height: calc(var(--unit) * 5);
   position: relative;
+  background-color: $color-accent;
 }
 
 .hero {
@@ -106,15 +123,33 @@ header {
 }
 
 .hero__figure {
+  background: $color-light;
   grid-row: 1 / -1;
   grid-column: 4 / span 10;
   margin: calc(var(--unit) * 1) 0 calc(var(--unit) * 2);
   overflow: hidden;
   position: relative;
-  transform: translateY(calc(var(--unit) / -2));
+  /*transform: translateY(calc(var(--unit) / -2));*/
   transition: transform 1500ms ease-out;
   user-select: none;
   height: calc(var(--unit) * 14);
+}
+
+.hero__figure::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FAD7D7;
+  /*background: $color-light;*/
+  transition: transform 500ms ease-out;
+  z-index: 2;
+}
+
+.section--loaded .hero__figure::after {
+  transform: translateY(-100%);
 }
 
 .hero__image {
@@ -123,20 +158,20 @@ header {
   left: 0;
   object-fit: cover;
   object-position: bottom center;
-  opacity: 0;
+  opacity: 0.334;
   height: calc(100% + calc(var(--unit) * 2));
   width: 100%;
   transition:
-    opacity 1500ms ease-out,
+    opacity 1000ms 500ms ease-out,
     transform 1500ms ease-out;
-  transform: translateY(var(--unit));
+  transform: translateY(calc(var(--unit) * -0.5));
 }
 
-.page--loaded .hero__figure {
+.section--loaded .hero__figure {
   transform: none;
 }
 
-.page--loaded .hero__image {
+.section--loaded .hero__image {
   opacity: 1;
   transform: none;
 }
@@ -151,26 +186,20 @@ header {
   position: relative;
   overflow: hidden;
   color: $color-dark;
-  transform: translateY(-25%);
+  transform: translateX(-1%);
   opacity: 0;
   transition:
-    opacity 250ms 0ms ease-out,
-    transform 750ms 0ms ease-out;
+    opacity 750ms 0ms ease-out,
+    transform 1250ms 0ms ease-out;
+  z-index: 3;
 }
 
-.page--loaded .hero__title {
+.section--loaded .hero__title {
   opacity: 1;
   transform: none;
 }
 
-.hero__title > span {
-  display: block;
-  position: relative;
-  /*transform: translateY(-50%);*/
-  transition: transform 500ms 0ms ease-out;
-}
-
-.page--loaded .hero__title > span {
+.section--loaded .hero__title > span {
   transform: none;
 }
 
@@ -182,12 +211,16 @@ header {
   margin: 0 0 calc(var(--unit) * 0.5);
   position: relative;
   opacity: 0;
+  transform: translateX(calc(var(--unit) * 0.25));
   transition:
-    opacity 1000ms 250ms ease-out;
+    opacity 750ms 250ms ease-out,
+    transform 1000ms 250ms ease-out;
+  z-index: 3;
 }
 
-.page--loaded .hero__subtitle {
+.section--loaded .hero__subtitle {
   opacity: 1;
+  transform: none;
 }
 
 .hero__subtitle > span {
@@ -195,15 +228,14 @@ header {
 }
 
 .hero__separator {
-  background-color: $color-accent;
   margin-top: calc(var(--unit) * -3);
   transform: scale(1, 0);
   transform-origin: center top;
   transition: transform 750ms 750ms ease-out;
 }
 
-.page--loaded .hero__separator {
-  transform: none;
+.section--loaded + .hero__separator {
+  transform: scale(1, 1);
 }
 
 .story {
@@ -230,10 +262,14 @@ header {
 .story__column p {
   margin-bottom: 2em;
   line-height: 1.5;
-  font-size: calc(var(--unit) * 0.334);
+  font-size: calc(var(--unit) * 0.4);
 }
 
 .story__column strong:first-child {
   font-weight: 600;
   color: $color-accent;
+}
+
+.life__title {
+  grid-column: 13 / -3;
 }

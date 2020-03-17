@@ -16,37 +16,42 @@
       {{ content | safe }}
     </main>
     <!-- {% include "footer.njk" %} -->
-    <script>window.onload = () => {
-      const body = document.body;
-      const wHeight = window.innerHeight;
+    <script>
+      let bg;
+      let wHeight = 0;
 
-      console.log(wHeight);
-
-      body.classList.add('page--loaded');
-      body.style.overflow = 'hidden';
-      setTimeout(() => {
-        body.style.overflow = 'visible';
-      }, 1500);
-
-      let timeout;
-      const bg = document.getElementById(`background`);
-
-      const updateBg = () => {
+      const onScroll = () => {
         bg.style.transform = `translate3d(0, ${window.scrollY / wHeight * 10}%, 0)`;
       };
 
-      updateBg();
+      window.onload = () => {
+        const body = document.body;
+        wHeight = window.innerHeight;
+        const hero = document.getElementById(`hero`);
 
-      window.addEventListener('scroll', event => {
+        console.log(wHeight);
 
-        if (timeout) {
-          window.cancelAnimationFrame(timeout);
-        }
+        body.classList.add('page--loaded');
+        hero.classList.add('section--loaded');
+        body.style.overflow = 'hidden';
+        setTimeout(() => {
+          body.style.overflow = 'visible';
+        }, 1500);
 
-        timeout = window.requestAnimationFrame(() => {
-          updateBg();
-        });
-      }, false);
-    };</script>
+        let timeout;
+        bg = document.getElementById(`background`);
+
+        onScroll();
+
+        window.addEventListener('scroll', event => {
+
+          if (timeout) {
+            window.cancelAnimationFrame(timeout);
+          }
+
+          timeout = window.requestAnimationFrame(onScroll);
+        }, false);
+      };
+    </script>
   </body>
 </html>
