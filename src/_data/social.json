@@ -1,0 +1,36 @@
+{
+  "codepen": {
+    "name": "Codepen",
+    "username": "robsterlini",
+    "link": "https://codepen.io/robsterlini/"
+  },
+  "email": {
+    "name": "Email",
+    "username": "hi@robsterlini.co.uk",
+    "link": "mailto:hi@robsterlini.co.uk"
+  },
+  "github": {
+    "name": "Github",
+    "username": "@robsterlini",
+    "link": "https://github.com/robsterlini"
+  },
+  "instagram": {
+    "name": "Instagram",
+    "username": "@robsterlini",
+    "link": "https://instagram.com/robsterlini"
+  },
+  "linkedin": {
+    "name": "LinkedIn",
+    "username": "/in/robsterlini",
+    "link": "https://www.linkedin.com/in/robsterlini/"
+  },
+  "strava": {
+    "name": "Strava",
+    "link": "https://www.strava.com/athletes/6578573"
+  },
+  "twitter": {
+    "name": "Twitter",
+    "username": "@robsterlini",
+    "link": "https://twitter.com/robsterlini"
+  }
+}

@@ -1,0 +1,162 @@
+.hero {
+  margin-bottom: var(--unit);
+
+  @include min-width(540) {
+    margin-bottom: 0;
+    grid-template-rows: 1fr auto auto calc(var(--unit) * 3);
+  }
+
+  .m-figure {
+    grid-column: 1 / span 10;
+    grid-row: 1 / 2;
+    margin: 0;
+    pointer-events: none;
+
+    @include max-width(540) {
+      --figure-ratio: 1 !important; // WHY: Forces a square image in the hero
+    }
+
+    @include min-width(540) {
+      margin-bottom: calc(var(--unit) * 2);
+      margin-top: calc(var(--unit) * 1);
+    }
+
+    @include min-width(540) {
+      grid-row: 1 / -1;
+    }
+
+    @include max-width(768) {
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @include min-width(768) {
+      grid-column: 4 / span 10;
+    }
+
+    &__image {
+      filter: grayscale(0.2) contrast(1.25);
+      mix-blend-mode: screen;
+
+      @media (prefers-color-scheme: light) {
+        mix-blend-mode: unset;
+        opacity: 0.667;
+      }
+    }
+
+    &__picture {
+
+      &::after {
+        background: linear-gradient(to bottom right, transparent 50%, var(--c-background));
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0.85;
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        transition: transform 500ms ease-out;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__separator {
+
+    &--1 {
+      grid-column: 9;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__arrow {
+    color: var(--c-accent);
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 250ms ease-out;
+
+    &:hover,
+    &:focus {
+      transform: translateY(10%);
+    }
+  }
+
+  &__title {
+    font-size: 12.5vw;
+    font-style: normal;
+    grid-column: 10 / -2;
+    grid-row: 1;
+    margin: calc(var(--unit) * 1) 0 auto;
+    max-width: 5em;
+    padding-top: 0.05em;
+    position: relative;
+    z-index: 3;
+
+    &::before {
+      // WHY: Sizes it to the width of the title which is particularly important in
+      //      the hero
+      width: 4.15em;
+    }
+
+    @include min-width(360) {
+      --hero-title-chunk-unit-width: 9.5;
+
+      font-size: calc(var(--unit) * 1.25);
+    }
+
+    @include min-width(540) {
+      font-size: calc(var(--unit) * 1.5);
+      grid-row: 2;
+      grid-column: 10 / -1;
+      max-width: none;
+      margin-bottom: 0;
+      margin-top: 0;
+
+      &::before {
+        width: 5.4em;
+      }
+    }
+
+    @include min-width(768) {
+      font-size: calc(var(--unit) * 1.75);
+      grid-column: 13 / -1;
+    }
+
+    @include min-width(960) {
+      font-size: calc(var(--unit) * 1.967);
+    }
+  }
+
+  &__subtitle {
+    grid-column: 3 / -3;
+    grid-row: 3;
+    line-height: 1.3;
+    font-weight: 500;
+    font-size: calc(var(--unit) * 0.5);
+    margin: calc(var(--unit) * 0.5) 0 0;
+    position: relative;
+    z-index: 3;
+
+    @include min-width(540) {
+      grid-column: 10 / -1;
+    }
+
+    @include min-width(768) {
+      grid-column: 13 / -1;
+      font-size: calc(var(--unit) * 0.585);
+    }
+
+    @include min-width(960) {
+      font-size: calc(var(--unit) * 0.667);
+    }
+
+    > span {
+      display: block;
+    }
+  }
+}
+
+

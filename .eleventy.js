@@ -1,42 +1,78 @@
-const postcss = require('postcss');
+const sass = require('node-sass');
+const markdownIt = require("markdown-it");
 
-module.exports = function(config) {
+const input = `src`;
+const output = `dist`;
 
-  config.addNunjucksAsyncFilter('postcss', function(code, callback) {
-    const css = postcss([
-      require('postcss-import')({
-        path: [
-          'src/site/_includes/css/',
-        ],
-      }),
-      require('postcss-simple-vars')({
-        silent: true
-      }),
-      require('autoprefixer')(),
-      require('cssnano')(),
-    ])
-      .use(require("postcss-import")())
-      .process(code, {
-        from: undefined,
-      })
-      .then(function(result) {
-        callback(null, result.css);
-      });
+module.exports = function(eleventyConfig) {
+
+  const md = new markdownIt({
+    html: true
   });
 
-  config.addLayoutAlias('default', 'base.njk');
+  eleventyConfig.addPairedShortcode(`markdown`, (content) => md.render(content));
+  eleventyConfig.addPairedShortcode(`smallCaps`, (content) => `<span class="sc">${content}</span>`);
 
-  config.addPassthroughCopy('src/site/images');
-  config.addPassthroughCopy('src/site/fonts');
+  eleventyConfig.addNunjucksFilter("avoryUnderline", (value, ...args) => {
+    return args.reduce((acc, k) => acc.replace(k, `<span class="test">${k}</span>`), value);
+  });
+  eleventyConfig.addNunjucksFilter(`pictureSet`, (widths, filetypes, path) => {
+    filetypes = filetypes.filter((v, i, a) => a.indexOf(v) === i);
+
+    const pictureSet = [];
+
+    filetypes.forEach(fileType => {
+      const srcSet = [];
+
+      Object.keys(widths).forEach(widthKey => {
+        const widthSize = widths[widthKey];
+        srcSet.push(`${path}-${widthKey}.${fileType} ${widthSize}`);
+      });
+
+      pictureSet.push({
+        fileType,
+        srcSet,
+      });
+    });
+    return pictureSet;
+  });
+  eleventyConfig.addNunjucksAsyncFilter(`scss`, function(data, callback) {
+    const scssOptions = {
+      data,
+      includePaths: [
+        `${input}/_includes`,
+      ],
+    };
+    sass.render(scssOptions, (error, result) => {
+      callback(null, !error ? result.css : ``);
+
+      if (error) {
+        console.error(`Error`, error.line, error.message);
+      }
+    });
+  });
+
+  eleventyConfig.addLayoutAlias(`default`, `base.njk`);
+
+  const filesToCopy = [
+    `${input}/images`,
+    `${input}/fonts`,
+    `${input}/favicon.svg`,
+    `${input}/favicon.png`,
+  ];
+
+  filesToCopy.forEach(file => {
+    eleventyConfig.addPassthroughCopy(file);
+  });
 
   return {
     dir: {
-      input: 'src/site',
-      output: 'dist',
+      input,
+      output,
     },
-    templateFormats : ['njk', 'md'],
-    htmlTemplateEngine : 'njk',
-    markdownTemplateEngine : 'njk',
+    templateFormats : [`njk`, `md`],
+    htmlTemplateEngine : `njk`,
+    markdownTemplateEngine : `njk`,
     passthroughFileCopy: true,
   };
 };

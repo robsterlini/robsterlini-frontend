@@ -1,0 +1,196 @@
+---
+title: Rob Sterlini-Aitchison | Frontend developer
+description: Test
+layout: default
+---
+
+{% import 'components/images.njk' as images %}
+{% import 'components/projects.njk' as projects %}
+{% import 'components/typography.njk' as typography %}
+
+<section class="grid hero" id="hero" data-section="hero">
+  <span class="m-separator m-separator--vertical hero__separator--1"></span>
+  {{ images.responsiveFigure(
+    path="images/profile",
+    filetypes=["jpg"],
+    widths={
+      "150": "500w",
+      "300": "1200w",
+      "600": "1400w",
+      "1200": "2400w"
+    },
+    width="1200",
+    height="1672",
+    alt="Rob Sterlini-Aitchison in profile, taken by Leon Deriglazov"
+  ) }}
+  {{ typography.heading(level="h1", "Rob Sterlini-Aitchison", replace="Rob", class="hero__title", reveal=true) }}
+  <!--<h1 class="heading heading--h1 hero__title">
+    <span class="hero__title-chunk">
+      <span class="test">Rob</span> Sterlini-Aitchison
+    </span>
+  </h1>-->
+  <p class="hero__subtitle reveal">
+    <span>Frontend developer, </span>
+    <span>amateur triathlete, </span>
+    <span><span class="sc">LEGO</span> Master builder </span>
+    <span>&&nbsp;more <a href="#story" class="hero__arrow">↓</a></span>
+
+  </p>
+</section>
+
+<section class="grid story" id="story" data-section="story">
+  <span class="m-separator m-separator--horizontal story__separator--1"></span>
+  <span class="m-separator m-separator--vertical story__separator--2"></span>
+  <span class="label label--vertical story__label"><span>Work</span></span>
+
+  {{ typography.heading(index.headings.work, replace="developer", class="story__title", reveal=true) }}
+  <div class="story__column story__column--1 paragraph-children reveal">
+    {% markdown %}{% include "pages/_index/story-1.md" %}{% endmarkdown %}
+  </div>
+  <div class="story__column story__column--2 paragraph-children reveal reveal--2">
+    {% markdown %}{% include "pages/_index/story-2.md" %}{% endmarkdown %}
+    <p>
+      <a class="btn" href="#">Check out my CV</a>
+      <a class="btn" href="#contact">Got an interesting project?</a>
+    </p>
+  </div>
+</section>
+
+<section class="grid projects" data-section="projects">
+  <span class="m-separator m-separator--horizontal projects__separator--1"></span>
+  <span class="m-separator m-separator--vertical projects__separator--2"></span>
+  <h3 class="label projects__label"><span>Projects</span></h3>
+
+  {{ typography.heading(index.headings.projects, replace="small", class="projects__title", reveal=true) }}
+
+  <div class="projects__item projects__item--fueled reveal reveal--2">
+    {{ typography.heading("Agency life", level="h3") }}
+
+    <p class="paragraph">Having worked at an agency since 2014, I’ve had the chance to work with a variety of clients: tech giants like <strong>Apple</strong> who needed a tool to gamify the learning for call center operators; fledgling start ups like <a href="https://jumpstart.me" ref="noreferrer noopener" target="_blank"><strong>Jumpstart</strong></a>, <strong>FixFix</strong> and <strong>Veritooth</strong> looking for their vision for solving every day problems to be imagined for the web; and large enterprises like <a href="https://svclnk.com" ref="noreferrer noopener" target="_blank"><strong>ServiceLink</strong></a> who needed a brand refresh and a frontend stack&nbsp;overhaul.</p>
+
+    <p class="paragraph">In late 2017 I began spearheading the frontend efforts to replace the existing <a href="https://fueled.com" ref="noreferrer noopener" target="_blank"><strong>fueled.com</strong></a> stack with a modern and extensible Vue.js component library to be consumed as an {% smallCaps %}NPM{% endsmallCaps %}&nbsp;package. At an agency, it’s rare to get an opportunity to work on the same project so leading the <abbr title="development">dev</abbr> effort gives the best of both&nbsp;worlds.</p>
+  <!--</div>
+
+  <div class="projects__item projects__item--freelance reveal reveal--3">-->
+    {{ typography.heading("Work outside Fueled", level="h3") }}
+
+    <p class="paragraph">Having worked at an agency since 2014, I’ve had the chance to work with a variety of clients: tech giants like <strong>Apple</strong> who needed a tool to gamify the learning for call center operators; fledgling start ups like <strong>FixFix</strong> and <strong>Veritooth</strong> looking for their vision for solving every day problems to be imagined for the web; and large enterprises like <a href="https://svclnk.com" ref="noreferrer noopener" target="_blank"><strong>ServiceLink</strong></a> who needed a brand refresh and a frontend stack&nbsp;overhaul.</p>
+  </div>
+
+  <div class="projects__logos">
+    {% for logo in ["apple", "fueled", "kickpush", "servicelink", "jumpstart", "veritooth", "fixfix", "tony-robbins"] %}
+      <div class="projects__logo reveal" style="--project-logo-index: {{ loop.index }};">
+        {% set project_logo = "inline-svg/" + logo + ".svg" %}
+        {% include project_logo %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <!--{{ projects.project(
+    slug="apple",
+    index="1",
+    image="inline-svg/apple.svg",
+    title="The gamification of learning",
+    byline="An AngularJS web app",
+    copy="Nunc suscipit, ipsum in accumsan vehicula, tortor turpis volutpat diam, ut bibendum ante enim ornare neque. Aliquam sapien odio, pellentesque ac justo eu, pulvinar sagittis est. "
+  ) }}
+
+  {{ projects.project(
+    slug="kickpush",
+    index="2",
+    image="inline-svg/kickpush.svg",
+    title="Freelance agency collaboration",
+    byline="A Middleman <abbr title=\"static site generator\">SSG</abbr> site",
+    copy="Suspendisse nec mauris mauris. Curabitur pharetra rutrum orci ut feugiat. Donec euismod posuere dolor vel fringilla. Nullam aliquet accumsan quam, vitae facilisis leo aliquet viverra. Mauris quis blandit felis. Maecenas eget eros eget urna mollis finibus et et nisl."
+  ) }}
+
+  {{ projects.project(
+    slug="fueled",
+    index="3",
+    image="inline-svg/fueled.svg",
+    title="A <span class=\"test\">component</span>-first redesign",
+    byline="A VueJS component library",
+    copy="Curabitur eget elementum augue, eu ullamcorper dui. Suspendisse et est in justo elementum placerat. Vestibulum posuere arcu at feugiat finibus. Nullam quis varius ex, eu laoreet nibh. Mauris neque nibh, aliquam eget malesuada in, porta non odio."
+  ) }}-->
+</section>
+
+<section class="grid life" data-section="life">
+  <span class="m-separator m-separator--horizontal life__separator--1"></span>
+  <span class="m-separator m-separator--vertical life__separator--2"></span>
+  <span class="label life__label"><span>Life</span></span>
+
+  {{ typography.heading(index.headings.life, replace="away", class="life__title", reveal=true) }}
+  <div class="life__content paragraph-children reveal">
+    {% markdown %}{% include "pages/_index/life.md" %}{% endmarkdown %}
+  </div>
+
+  {{ images.responsiveFigure(
+    class="life__figure--bike",
+    path="images/bike",
+    filetypes=["jpg"],
+    widths={
+      "150": "500w",
+      "300": "1200w",
+      "600": "1400w",
+      "1200": "2400w"
+    },
+    width="864",
+    height="639",
+    alt="Mid-sportive wave"
+  ) }}
+  {{ images.responsiveFigure(
+    class="life__figure--falcon",
+    path="images/falcon",
+    filetypes=["jpg"],
+    widths={
+      "150": "500w",
+      "300": "1200w",
+      "600": "1400w",
+      "1200": "2400w"
+    },
+    width="741",
+    height="992",
+    alt="Building the UCS Millenium Falcon at Christmas"
+  ) }}
+</section>
+
+
+<section class="grid contact" data-section="contact" id="contact">
+  <span class="m-separator m-separator--horizontal contact__separator--1"></span>
+  <span class="m-separator m-separator--vertical contact__separator--2"></span>
+  <span class="label label--vertical contact__label"><span>Contact</span></span>
+
+  {{ typography.heading(index.headings.contact, replace="chat", class="contact__title", reveal=true) }}
+
+  <div class="contact__method contact__method--email reveal">
+    {{ typography.heading(social.email.name, level="h3") }}
+    <p class="paragraph">If you want me on a freelance job; you’re dying to ask a super-duper long question; or you just want to grab a coffee then ping me an email and we’ll go from&nbsp;there!</p>
+    <p class="paragraph">
+      <a class="btn" href="mailto:{{ social.email.link }}">{{ social.email.username }}</a>
+    </p>
+  </div>
+  <div class="contact__method contact__method--twitter reveal reveal--2">
+  {{ typography.heading(social.twitter.name, level="h3") }}
+    <p class="paragraph">If you can squeeze it into 280 of your juiciest characters then Twitter is the place to do it! Be warned though, my timeline has no profanity&nbsp;filter.</p>
+    <p class="paragraph">
+      <a class="btn" href="{{ social.twitter.link }}">{{ social.twitter.username }}</a>
+    </p>
+  </div>
+  <div class="contact__social reveal reveal--3">
+    <h3 class="heading heading--h3">Social</h3>
+    <ul class="paragraph">
+      {% for key in ["instagram", "github", "strava", "codepen", "linkedin"] %}
+        {% set socialItem = social[key] %}
+        <li>
+          <a class="btn{% if loop.first %} btn--first{% endif %}" href="{{ socialItem.link }}">{{ socialItem.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="contact__colophon">
+    <p class="small"><a href="/">robsterlini.co.uk</a> was built using <a href="https://www.11ty.dev/" rel="noreferrer">Eleventy</a> and hosted on <a href="https://netlify.com">Netlify</a>, the code is available on <a href="https://github.com/robsterlini/robsterlini-frontend" rel="noreferrer">Github</a>. The type is set in Avory and Clone Rounded from <a href="https://www.rosettatype.com/">Rosetta</a>. The headshot was taken by <a href="https://instagram.com/leonty">Leon Deriglazov</a>.</p>
+  </div>
+</section>
+
+<script>{% include "pages/_index/_index.js" %}</script>

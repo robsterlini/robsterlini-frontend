@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <meta name="author" content="Rob Sterlini-Aitchison">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Eleventy, https://github.com/robsterlini/robsterlini-frontend">
+
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    {% set webfonts = [
+      "a-600",
+      "c-500"
+    ] %}
+    {% for webfont in webfonts %}<link rel="preload" href="fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
+    {% endfor %}
+
+    {% set css %}
+      {% include "styles.scss" %}
+    {% endset %}
+    <style>{{ css | scss | safe }}</style>
+  </head>
+  <body class="page">
+    {% include "header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    <!-- {% include "footer.njk" %} -->
+  </body>
+</html>

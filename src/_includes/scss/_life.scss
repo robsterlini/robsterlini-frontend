@@ -1,0 +1,121 @@
+.life {
+  #{--label-delay}: 0.5;
+  grid-template-rows: auto auto 1fr;
+
+  &__label {
+    grid-row: 1;
+
+    @include min-width(540) {
+      grid-column: 19 / -1;
+    }
+  }
+
+  &__separator {
+
+    &--1 {
+      grid-row: 1;
+
+      @include min-width(540) {
+        grid-column: 18 / -2;
+      }
+    }
+
+    &--2 {
+      grid-row: 1 / 4;
+      grid-column: 18;
+      margin-bottom: var(--unit);
+    }
+  }
+
+  &__figure {
+
+    &--bike {
+      grid-column: 1 / span 14;
+      align-self: flex-start;
+
+      @include max-width(540) {
+        grid-row: 3;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      @include min-width(540) {
+        grid-column: 15 / -1;
+        grid-row: 1 / span 2;
+        margin-top: calc(var(--unit) * 1.1);
+        width: 100%;
+      }
+
+      @include min-max-width(540, 1320) {
+
+        &::after {
+          display: none;
+        }
+      }
+
+      @include min-width(960) {
+        grid-column: 13 / -1;
+      }
+    }
+
+    &--falcon {
+      align-self: flex-start;
+      grid-column: 15 / -1;
+      grid-row: 3;
+      margin-bottom: calc(var(--unit) * 2);
+      margin-top: calc(var(--unit) * 1);
+      z-index: 3;
+
+      @include min-width(540) {
+        grid-column: 16 / -2;
+        margin-bottom: 0;
+      }
+
+      @include max-width(540) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    grid-column: 3 / -2;
+    grid-row: 1;
+    margin-top: var(--unit);
+    max-width: 6.25em;
+    z-index: 3;
+
+    @include min-width(540) {
+      grid-column: 4 / span 11;
+      margin-top: 0;
+    }
+
+    @include min-width(768) {
+      grid-column: 5 / span 10;
+    }
+  }
+
+  &__content {
+    align-self: flex-start;
+    grid-column: 2 / -2;
+    margin-bottom: var(--unit);
+
+    @include min-width(540) {
+      grid-column: 3 / span 11;
+      grid-row: 2 / span 2;
+      margin-bottom: 0;
+      padding-bottom: calc(var(--unit) * 3);
+    }
+
+    @include min-width(768) {
+      grid-column: 4 / span 10;
+    }
+
+    @include min-width(960) {
+      grid-column: 4 / span 8;
+    }
+  }
+}
