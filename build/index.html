@@ -1,14 +1,466 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-GB">
+<head>
+  <title>Rob Sterlini-Aitchison – Frontend Developer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="https://use.typekit.net/jws7hmd.css">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:500|Fira+Sans:400,500i,600i|IBM+Plex+Serif:400i,500i&amp;subset=latin-ext" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="body-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="body-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="heading-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="heading-600-sc.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Rob Sterlini-Aitchison – Frontend Developer">
+  <meta name="description" content="Rob Sterlini-Aitchison is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://robsterlini.co.uk/">
+  <meta property="og:title" content="Rob Sterlini-Aitchison – Frontend Developer">
+  <meta property="og:description" content="Rob Sterlini-Aitchison is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things.">
+  <meta property="og:image" content="https://robsterlini.co.uk/index-meta.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://robsterlini.co.uk/">
+  <meta property="twitter:title" content="Rob Sterlini-Aitchison – Frontend Developer">
+  <meta property="twitter:description" content="Rob Sterlini-Aitchison is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things.">
+  <meta property="twitter:image" content="https://robsterlini.co.uk/index-meta.png">
+  <meta name="twitter:label1" value="Let’s chat!" />
+  <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
+  <meta name="twitter:label2" value="Tweet me!" />
+  <meta name="twitter:data2" value="@robsterlini" />
+
+  <style>
+    @font-face {
+      font-family: 'rsa-heading';
+      src: url('heading-600.woff2') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'rsa-heading-sc';
+      src: url('heading-600-sc.woff2') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'rsa-body';
+      src: url('body-300.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'rsa-body';
+      src: url('body-500.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    html, body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 100%;
+    }
+
+    html {
+      --c-header-color: #EEE7E7;
+      --c-header-bg: #110E14;
+      --c-header-accent: #f75c6a;
+
+      --c-body-bg: #19161C;
+      --c-body-color: #EEE7E7;
+      --c-body-color-50: rgba(238, 231, 231, 0.66);
+      --c-body-accent: #f75c6a;
+
+      --c-contrast-background: #000;
+      --c-contrast-color: #FFF;
+      --c-contrast-accent: #FBCDD1;
+
+      background: var(--c-body-color);
+    }    
+
+    @media (prefers-color-scheme: light) {
+      html {
+        --c-header-bg: #FCFBFB;
+        --c-header-color: #19161C;
+        --c-header-accent: #EA3243;
+
+        --c-body-bg: #EEE7E7;
+        --c-body-color: #19161C;
+        --c-body-color-50: rgba(25, 22, 28, 0.66);
+        --c-body-accent: #EA3243;
+
+        --c-contrast-background: #FFF;
+        --c-contrast-color: #000;
+        --c-contrast-accent: #6C000A;
+      }
+    }
+
+    @media (prefers-contrast: high) {
+      html {
+        --c-header-bg: var(--c-contrast-background);
+        --c-header-color: var(--c-contrast-color);
+        --c-header-accent: var(--c-contrast-accent);
+
+        --c-body-bg: var(--c-contrast-background);
+        --c-body-color: var(--c-contrast-color);
+        --c-body-color-50: var(--c-contrast-color);
+        --c-body-accent: var(--c-contrast-accent);
+      }
+    }
+
+    body {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+
+      background: var(--c-header-bg);
+      color: var(--c-header-color);
+      font-family: 'rsa-body', sans-serif;
+      font-size: 1rem;
+      font-variant-numeric: oldstyle-nums;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    @media screen and (min-width: 48rem) {
+      body {
+        font-size: 1.125rem;
+      }
+    }
+
+    ::selection {
+      background: var(--c-body-color);
+      color: var(--c-body-bg);
+    }
+
+    header {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: auto auto 1em;
+      padding-top: 5vw;
+      animation: opacity 500ms 500ms ease-out both;
+    }
+
+    @keyframes opacity {
+      from {
+        opacity: 0;
+      }
+    }
+
+    header::before {
+      animation: header-before 500ms 500ms ease-out both;
+      content: '\2013\2013\2013\2013';
+      color: var(--c-header-accent);
+      letter-spacing: -0.2em;
+      margin-right: 0.5em;
+      width: 1.75em;
+      display: inline-block;
+      transform-origin: center left;
+    }
+
+    @keyframes header-before {
+      0% {
+        transform: scale(0, 1);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    @media screen and (max-width: 29.9375rem) {
+      header {
+        font-size: 1.25rem;
+        width: 0.875em;
+      }
+
+      header::before {
+        content: '\2013\2013';
+      }
+    }
+
+    abbr {
+      text-decoration: none;
+      border-bottom: 0;
+    }
+
+    main {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .group {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 80rem;
+      width: 92%;
+    }
+
+    a {
+      color: inherit;
+      font-weight: 500;
+      transition: 125ms ease-in-out;
+      transition-property: color, opacity, text-decoration-color;
+      text-decoration: unerline;
+      text-decoration-color: var(--c-body-color-50, currentColor);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--c-body-accent);
+      text-decoration-color: currentColor;
+      border: 0;
+    }
+
+    a:focus {
+      outline: var(--c-body-color-50) 1px dotted;
+    }
+
+    a:active {
+      opacity: 0.66;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: 'rsa-heading', serif;
+      font-weight: 600;
+      color: var(--c-header-accent);
+      max-width: 18em;
+      margin: 0 0 4vw;
+      font-size: 5.5vw;
+      font-size: clamp(2rem, calc(2rem + 2.5vw), 4rem);
+      animation: h1 1500ms 250ms ease-out both;
+    }
+
+    @keyframes h1 {
+      from {
+        opacity: 0;
+      }
+    }
+
+    @media screen and (max-width: 29.9375rem) {
+
+      .h1-hide {
+        display: none;
+      }
+    }
+
+    .sc {
+      font-variant-caps: small-caps;
+      text-transform: lowercase;
+    }
+
+    h1 .sc {
+      font-family: 'rsa-heading-sc', 'rsa-heading', serif;
+      font-variant-caps: initial;
+    }
+
+    .angle {
+      display: block;
+      height: 2vw;
+      width: 100%;
+      margin-top: -1vw;
+    }
+
+    .angle path {
+      fill: var(--c-body-bg);
+    }
+
+    .columns,
+    footer,
+    .angle {
+      opacity: 0;
+      transform: translateY(2vw);
+      transition: 1000ms ease-out;
+      transition-property: opacity, transform;
+    }
+
+    .fonts-loaded .columns,
+    .fonts-loaded footer,
+    .fonts-loaded .angle {
+      opacity: 1;
+      transform: none;
+    }
+
+    .columns {
+      background: var(--c-body-bg);
+      color: var(--c-body-color);
+      padding: 3vw 0 4vw;
+    }
+
+    .columns .group {
+      display: grid;
+      grid-gap: 4vw;
+    }
+
+    @keyframes opacity-transform {
+      from {
+        transform: translateY(0.5vw);
+        opacity: 0;
+      }
+    }
+
+    .work,
+    .life,
+    .contact {
+      animation: opacity-transform 500ms 500ms ease-out both;
+    }
+
+    .life {
+      animation-delay: 625ms;
+    }
+
+    .contact {
+      animation-delay: 750ms;
+    }
+
+    @media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
+      .columns .group {
+        grid-template-columns: 2fr 1fr;
+      }
+
+      .life {
+        grid-row: 2;
+      }
+
+      .contact {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+    }
+
+    @media screen and (min-width: 64rem) {
+      .columns .group {
+        grid-template-columns: 2fr 2fr 1fr;
+      }
+    }
+
+    .columns p {
+      display: inline-block;
+      margin-top: 0;
+      line-height: 1.45;
+      margin-bottom: 0.5em;
+      max-width: 36em;
+    }
+
+    .lead {
+      color: var(--c-body-accent);
+      font-variant: small-caps;
+      font-weight: 500;
+      text-transform: lowercase;
+    }
+
+    .lead a {
+      text-decoration-color: currentColor;
+    }
+
+    .lead a:hover,
+    .lead a:focus {
+      color: var(--c-body-color);
+    }
+
+    .social {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .social li {
+      padding-left: 1em;
+    }
+
+    .social li::before {
+      content: '\25B6';
+      /*content: '—';*/
+      color: var(--c-body-accent);
+      font-family: inherit;
+      font-weight: 500;
+      display: inline-block;
+      margin-left: -1em;
+      width: 1em;
+    }
+
+    footer {
+      background: var(--c-body-bg);
+      color: var(--c-body-color);
+      font-size: 0.875rem;
+      padding: 0 0 2vw;
+    }
+
+    footer .group {
+      animation: opacity 500ms 1000ms ease-out both;
+    }
+
+    footer p {
+      margin: 0;
+      max-width: 52em;
+    }
+  </style>
+</head>
+<body>
+  <header class="group">Rob Sterlini-Aitchison</header>
+  <main>
+    <div class="group">
+      <h1>Frontend dev<span class="h1-hide">eloper</span>, typo<span class="h1-hide">graphy</span> enthusiast, <span class="h1-hide">amateur </span>triathlete, <span class="sc">LEGO</span> master builder.</h1>
+    </div>
+    <svg class="angle" preserveAspectRatio="none" viewBox="0 0 1019 76" xmlns="http://www.w3.org/2000/svg"><path d="M1019 0v76H0z" fill="#D8D8D8" fill-rule="evenodd"/></svg>
+    <div class="columns">
+      <div class="group">
+        <div class="work">
+          <p><span class="lead">By day I am a Lead Frontend Engineer at <a href="https://fueled.com/team/rob-sterlini-aitchison" target="_blank" rel="nofollow">Fueled</a>.</span> In the nearly six years I have been at Fueled, I have led the development on projects for <strong>Apple</strong>, crafted digital experiences for global personalities like <strong>Tony Robbins</strong>, and developed innovative web presences for fledgling start-ups like <strong>Keetoo</strong>, and&nbsp;<strong>Omstars</strong>.</p>
+          <p>In 2018, I began spearheading the rebuild of <a href="https://fueled.com"><strong>fueled.com</strong></a> underpinned by an extensible, consistent Vue.js component library that aligned with a brand refresh within the organisation.</p>
+        </div>
+        <div class="life">
+          <p><span class="lead">Away from the screen I like swimming, cycling, and running&hellip;</span> occasionally one after the other. I&apos;ve been participating in triathlon since 2015 and have <a href="https://www.instagram.com/p/BZJncXEAQgv/" target="_blank" rel="nofollow">one <abbr title="Ironman 70.3" class="sc">IM&nbsp;70.3</abbr></a> under my belt with my sights firmly set on a full Ironman in 2021.</p>
+          <p>I&apos;m pretty into <span class="sc">LEGO</span>, you might have heard me banging the <a href="http://legonotlegos.com" target="_blank" rel="nofollow"><span class="sc">LEGO</span>&nbsp;not&nbsp;Legos</a> drum on Twitter, where you&apos;d also find me tweeting about my beloved&nbsp;Spurs.</p>
+          <p>When the season is right I love outdoor activities like skiing, hiking, and recently <a href="https://www.instagram.com/p/B7_0MLWn_ii/" target="_blank" rel="nofollow">scuba&nbsp;diving!</a></p>
+        </div>
+        <div class="contact">
+          <p><span class="lead">Wanna say hi?</span> Email me at <a href="mailto:hi@robsterlini.co.uk">hi@robsterlini.co.uk</a> or tweet me at <a href="https://twitter.com/robsterlini" target="_blank" rel="nofollow">@robsterlini</a>.</p>
+          <p>Catch me elsewhere on the internet:</p>
+          <ul class="social">
+            <li><a href="https://instagram.com/robsterlini" target="_blank" rel="nofollow">Instagram</a></li>
+            <li><a href="https://github.com/robsterlini" target="_blank" rel="nofollow">Github</a></li>
+            <li><a href="https://www.strava.com/athletes/6578573" target="_blank" rel="nofollow">Strava</a></li>
+            <li><a href="https://codepen.io/robsterlini/" target="_blank" rel="nofollow">Codepen</a></li>
+            <li><a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="nofollow">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="group">
+      <p>
+        <a href="https://robsterlini.co.uk">robsterlini.co.uk</a> is hosted on <a href="https://netlify.com" target="_blank" rel="nofollow">Netlify</a> with code coming to Github soon&trade;. Typefaces are by <a href="https://p22.com/family-Mackinac" target="_blank" rel="nofollow">P22</a> and <a href="https://www.rosettatype.com/Clone" target="_blank" rel="nofollow">Rosetta</a>, and are self-served. No cookies, no tracking, no&nbsp;nothing!</div>
+      </p>
+  </footer>
+
+  <script type="text/javascript">
+    (function () {
+      function setFontsLoaded() {
+        document.documentElement.className += ' fonts-loaded';
+      }
+
+      if (!('fonts' in document)) {
+        setFontsLoaded();
+        return;
+      };
+      document.fonts.load('1em rsa-body').then(setFontsLoaded);
+    })();
+  </script>
+</body>
 </html>
