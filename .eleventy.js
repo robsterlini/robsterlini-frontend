@@ -1,58 +1,54 @@
 const sass = require('node-sass');
 const markdownIt = require("markdown-it");
+const htmlmin = require('html-minifier');
 
 const input = `src`;
 const output = `dist`;
 
 module.exports = function(eleventyConfig) {
 
-  const md = new markdownIt({
-    html: true
+  // Shortcodes
+  eleventyConfig.addPairedShortcode('markdown', (content) => {
+    const md = new markdownIt({ html: true });
+
+    return md.render(content);
   });
+  eleventyConfig.addPairedShortcode('smallCaps', (content) => `<span class="sc">${content}</span>`);
 
-  eleventyConfig.addPairedShortcode(`markdown`, (content) => md.render(content));
-  eleventyConfig.addPairedShortcode(`smallCaps`, (content) => `<span class="sc">${content}</span>`);
-
-  eleventyConfig.addNunjucksFilter("avoryUnderline", (value, ...args) => {
-    return args.reduce((acc, k) => acc.replace(k, `<span class="test">${k}</span>`), value);
-  });
-  eleventyConfig.addNunjucksFilter(`pictureSet`, (widths, filetypes, path) => {
-    filetypes = filetypes.filter((v, i, a) => a.indexOf(v) === i);
-
-    const pictureSet = [];
-
-    filetypes.forEach(fileType => {
-      const srcSet = [];
-
-      Object.keys(widths).forEach(widthKey => {
-        const widthSize = widths[widthKey];
-        srcSet.push(`${path}-${widthKey}.${fileType} ${widthSize}`);
+  // Transforms
+  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+    if (outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
       });
+      return minified;
+    }
 
-      pictureSet.push({
-        fileType,
-        srcSet,
-      });
-    });
-    return pictureSet;
+    return content;
   });
-  eleventyConfig.addNunjucksAsyncFilter(`scss`, function(data, callback) {
+
+  // Filters
+  eleventyConfig.addNunjucksAsyncFilter('scss', function(data, callback) {
     const scssOptions = {
       data,
       includePaths: [
         `${input}/_includes`,
       ],
+      outputStyle: 'compressed',
     };
     sass.render(scssOptions, (error, result) => {
-      callback(null, !error ? result.css : ``);
+      callback(null, !error ? result.css : '');
 
       if (error) {
-        console.error(`Error`, error.line, error.message);
+        console.error('Error', error.line, error.message);
       }
     });
   });
 
-  eleventyConfig.addLayoutAlias(`default`, `base.njk`);
+  // Layout Aliases
+  eleventyConfig.addLayoutAlias('default', 'base.njk');
 
   const filesToCopy = [
     `${input}/images`,
@@ -70,9 +66,9 @@ module.exports = function(eleventyConfig) {
       input,
       output,
     },
-    templateFormats : [`njk`, `md`],
-    htmlTemplateEngine : `njk`,
-    markdownTemplateEngine : `njk`,
+    templateFormats : ['njk', 'md'],
+    htmlTemplateEngine : 'njk',
+    markdownTemplateEngine : 'njk',
     passthroughFileCopy: true,
   };
 };

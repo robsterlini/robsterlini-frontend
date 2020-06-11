@@ -1,0 +1,15 @@
+.footer {
+  background: var(--c-body-bg);
+  color: var(--c-body-color);
+  font-size: 0.875rem;
+  padding: 0 0 3vw;
+
+  .group {
+    animation: opacity 500ms 1000ms ease-out both;
+  }
+
+  p {
+    margin: 0;
+    max-width: 52em;
+  }
+}

@@ -2,8 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
+    <!-- Primary Meta Tags -->
     <title>{{ title }}</title>
+    <meta name="title" content="{{ title }}">
     <meta name="description" content="{{ description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robsterlini.co.uk/">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="https://robsterlini.co.uk/images/index-meta.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://robsterlini.co.uk/">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:image" content="https://robsterlini.co.uk/images/index-meta.png">
+    <meta name="twitter:label1" value="Let’s chat!" />
+    <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
+    <meta name="twitter:label2" value="Tweet me!" />
+    <meta name="twitter:data2" value="@robsterlini" />
 
     <meta name="author" content="Rob Sterlini-Aitchison">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +33,16 @@
     <link rel="alternate icon" type="image/png" href="favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <link rel="preload" href="body-300.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="body-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="heading-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="heading-600-sc.woff2" as="font" type="font/woff2" crossorigin>
+
     {% set webfonts = [
-      "a-600",
-      "c-500"
+      "body-300",
+      "body-500",
+      "heading-600",
+      "heading-600-sc"
     ] %}
     {% for webfont in webfonts %}<link rel="preload" href="fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
@@ -25,10 +53,22 @@
     <style>{{ css | scss | safe }}</style>
   </head>
   <body class="page">
-    {% include "header.njk" %}
-    <main>
-      {{ content | safe }}
-    </main>
-    <!-- {% include "footer.njk" %} -->
+    <!-- {% include "header.njk" %} -->
+    {{ content | safe }}
+    {% include "footer.njk" %}
+
+    <script type="text/javascript">
+      (function () {
+        function setFontsLoaded() {
+          document.documentElement.className += ' fonts-loaded';
+        }
+
+        if (!('fonts' in document)) {
+          setFontsLoaded();
+          return;
+        };
+        document.fonts.load('1em rsa-body').then(setFontsLoaded);
+      })();
+    </script>
   </body>
 </html>

@@ -1,35 +1,8 @@
-@import 'scss/reset';
-@import 'scss/constants';
+@import 'scss/mixins';
+
 @import 'scss/webfonts';
-
-@mixin max-width($max-width) {
-  @media screen and (max-width: #{($max-width - 1) / 16}em) {
-    @content;
-  }
-}
-
-@mixin min-width($min-width) {
-  @media screen and (min-width: #{$min-width / 16}em) {
-    @content;
-  }
-}
-
-@mixin min-max-width($min-width, $max-width) {
-  @media screen and (min-width: #{$min-width / 16}em) and (max-width: #{($max-width - 1) / 16}em)  {
-    @content;
-  }
-}
-
 @import 'scss/base';
-@import 'scss/grid';
 @import 'scss/typography';
-
-@import 'scss/header';
-@import 'scss/figure';
-
 @import 'scss/hero';
-
-@import 'scss/story';
-@import 'scss/life';
-@import 'scss/projects';
-@import 'scss/contact';
+@import 'scss/list';
+@import 'scss/footer';

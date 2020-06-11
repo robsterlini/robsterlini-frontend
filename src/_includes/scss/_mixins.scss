@@ -1,0 +1,17 @@
+@mixin max-width($max-width) {
+  @media screen and (max-width: #{($max-width - 1) / 16}em) {
+    @content;
+  }
+}
+
+@mixin min-width($min-width) {
+  @media screen and (min-width: #{$min-width / 16}em) {
+    @content;
+  }
+}
+
+@mixin min-max-width($min-width, $max-width) {
+  @media screen and (min-width: #{$min-width / 16}em) and (max-width: #{($max-width - 1) / 16}em)  {
+    @content;
+  }
+}

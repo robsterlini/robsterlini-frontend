@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  padding-left: 1em;
+}
+
+.list li::before {
+  content: '\25B6';
+  color: var(--c-body-accent);
+  font-family: inherit;
+  font-weight: 500;
+  display: inline-block;
+  margin-left: -1em;
+  width: 1em;
+}

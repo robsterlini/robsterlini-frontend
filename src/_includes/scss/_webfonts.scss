@@ -1,35 +1,31 @@
 @font-face {
+  font-family: 'rsa-heading';
+  src: url('heading-600.woff2') format('woff2');
+  font-weight: 600;
   font-display: swap;
-  font-family: 'clone';
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rsa-heading-sc';
+  src: url('heading-600-sc.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rsa-body';
+  src: url('body-300.woff2') format('woff2');
   font-weight: 300;
-  src: url('fonts/c-300.woff2');
+  font-display: swap;
+  font-style: normal;
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'clone';
+  font-family: 'rsa-body';
+  src: url('body-500.woff2') format('woff2');
   font-weight: 500;
-  src: url('fonts/c-500.woff2');
-}
-
-@font-face {
   font-display: swap;
-  font-family: 'avory';
-  font-weight: 600;
-  src: url('fonts/a-600.woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'avory';
-  font-weight: 800;
-  src: url('fonts/a-800.woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'avory';
-  font-style: italic;
-  font-weight: 600;
-  src: url('fonts/a-600i.woff2');
+  font-style: normal;
 }

@@ -1,0 +1,63 @@
+@import 'scss/mixins';
+
+.home-hero-hide {
+
+  @include max-width(480) {
+    display: none;
+  }
+}
+
+.home-content {
+  padding: 5vw 0 4vw;
+
+  &__wrapper {
+    display: grid;
+    grid-gap: 4vw;
+
+    @include min-width(1024) {
+      grid-template-columns: 2fr 2fr 1fr;
+    }
+  }
+
+  @at-root {
+
+    [class^='home-content__section--'] {
+      animation: opacity-transform 500ms 500ms ease-out both;
+
+      @keyframes opacity-transform {
+        from {
+          transform: translateY(0.5vw);
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__section {
+
+    &--life {
+      animation-delay: 625ms;
+    }
+
+    &--contact {
+      animation-delay: 750ms;
+    }
+  }
+
+  // @media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
+  @include min-max-width(788, 1024) {
+    &__wrapper {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    &__section--life {
+      grid-row: 2;
+    }
+
+    &__section--contact {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+}
+
