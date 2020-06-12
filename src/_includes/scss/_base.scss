@@ -100,10 +100,12 @@ body {
   font-weight: 300;
   letter-spacing: -0.01em;
   opacity: 0;
-  transition: opacity 1000ms ease-out;
+  transition: opacity 800ms ease-out;
+  visibility: hidden;
 
   .fonts-loaded & {
     opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -150,10 +152,5 @@ a {
   &:active {
     opacity: 0.66;
   }
-}
-
-* {
-  animation: none !important;
-  transition: none !important;
 }
 
