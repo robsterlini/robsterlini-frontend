@@ -22,6 +22,11 @@
     }
   }
 
+  @media (prefers-reduced-motion) {
+    animation-name: opacity;
+    animation-duration: 500ms;
+  }
+
   a {
     color: var(--c-header-bg);
     display: inline-block;

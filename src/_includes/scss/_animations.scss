@@ -28,3 +28,23 @@
     opacity: 0;
   }
 }
+
+@media (prefers-reduced-motion) {
+  @keyframes opacity-transform {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scale-from-left {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scale-from-top {
+    from {
+      opacity: 0;
+    }
+  }
+}

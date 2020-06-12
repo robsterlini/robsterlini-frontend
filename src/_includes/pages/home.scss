@@ -17,7 +17,7 @@
   @at-root {
 
     [class^='home-content__section--'] {
-      animation: opacity-transform 500ms 500ms ease-out both;
+      animation: opacity-transform 500ms 300ms ease-out both;
 
       > p:last-child {
         margin-bottom: 0;
@@ -28,11 +28,11 @@
   &__section {
 
     &--life {
-      animation-delay: 625ms;
+      animation-delay: 425ms;
     }
 
     &--contact {
-      animation-delay: 750ms;
+      animation-delay: 550ms;
 
       > p:last-child {
         margin-top: 2vw;
