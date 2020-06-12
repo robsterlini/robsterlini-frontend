@@ -47,6 +47,15 @@
       {% include "styles.scss" %}
     {% endset %}
     <style>{{ css | scss | safe }}</style>
+
+    <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
+    <script>
+      addEventListener('DOMContentLoaded', function() {
+        webVitals.getCLS(console.log);
+        webVitals.getFID(console.log);
+        webVitals.getLCP(console.log);
+      });
+    </script>-->
   </head>
   <body class="page">
     {% if not no_header %}
