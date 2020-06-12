@@ -73,7 +73,6 @@
         var contrastPreferenceSelect = document.getElementById('contrast-preference');
 
         function setPreference(name, value) {
-          console.log('SET ITEM');
           localStorage.setItem(name + '-preference', value);
           document.documentElement.dataset[name + 'Preference'] = value;
         }

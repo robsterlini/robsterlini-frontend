@@ -39,6 +39,17 @@ html, body {
   --c-contrast-accent: #6C000A;
 }
 
+@mixin contrast-colors {
+  --c-header-bg: var(--c-contrast-background);
+  --c-header-color: var(--c-contrast-color);
+  --c-header-accent: var(--c-contrast-accent);
+
+  --c-body-bg: var(--c-contrast-background);
+  --c-body-color: var(--c-contrast-color);
+  --c-body-color-50: var(--c-contrast-color);
+  --c-body-accent: var(--c-contrast-accent);
+}
+
 [data-color-preference='auto'] {
   @include dark-colors;
 
@@ -57,26 +68,12 @@ html, body {
 
 [data-contrast-preference='auto'] {
   @media (prefers-contrast: high) {
-    --c-header-bg: var(--c-contrast-background);
-    --c-header-color: var(--c-contrast-color);
-    --c-header-accent: var(--c-contrast-accent);
-
-    --c-body-bg: var(--c-contrast-background);
-    --c-body-color: var(--c-contrast-color);
-    --c-body-color-50: var(--c-contrast-color);
-    --c-body-accent: var(--c-contrast-accent);
+    @include contrast-colors;
   }
 }
 
 [data-contrast-preference='high'] {
-  --c-header-bg: var(--c-contrast-background);
-  --c-header-color: var(--c-contrast-color);
-  --c-header-accent: var(--c-contrast-accent);
-
-  --c-body-bg: var(--c-contrast-background);
-  --c-body-color: var(--c-contrast-color);
-  --c-body-color-50: var(--c-contrast-color);
-  --c-body-accent: var(--c-contrast-accent);
+  @include contrast-colors;
 }
 
 html {

@@ -219,7 +219,7 @@ del {
 
     &--full {
       clear: both;
-      width: 100%;
+      max-width: 100%;
     }
 
     &__caption {
