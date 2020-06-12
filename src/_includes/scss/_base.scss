@@ -1,12 +1,11 @@
-html, body, .main {
-  margin: 0;
+html, body {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 100%;
 }
 
-html {
+@mixin dark-colors {
   --c-header-color: #EEE7E7;
   --c-header-bg: #110E14;
   --c-header-accent: #f75c6a;
@@ -16,28 +15,47 @@ html {
   --c-body-color-50: rgba(238, 231, 231, 0.66);
   --c-body-accent: #f75c6a;
 
+  --figure-opacity: 0.9;
+
   --c-contrast-background: #000;
   --c-contrast-color: #FFF;
   --c-contrast-accent: #FBCDD1;
+}
 
-  background: var(--c-body-bg);
-  line-height: 1.45; // TODO: Var
+@mixin light-colors {
+  --c-header-bg: #FCFBFB;
+  --c-header-color: #19161C;
+  --c-header-accent: #{darken(#EA3243, 5%)};
+
+  --c-body-bg: #EEE7E7;
+  --c-body-color: #19161C;
+  --c-body-color-50: rgba(25, 22, 28, 0.66);
+  --c-body-accent: #{darken(#EA3243, 5%)};
+
+  --figure-opacity: 1;
+
+  --c-contrast-background: #FFF;
+  --c-contrast-color: #000;
+  --c-contrast-accent: #6C000A;
+}
+
+[data-color-preference='auto'] {
+  @include dark-colors;
 
   @media (prefers-color-scheme: light) {
-    --c-header-bg: #FCFBFB;
-    --c-header-color: #19161C;
-    --c-header-accent: #EA3243;
-
-    --c-body-bg: #EEE7E7;
-    --c-body-color: #19161C;
-    --c-body-color-50: rgba(25, 22, 28, 0.66);
-    --c-body-accent: #EA3243;
-
-    --c-contrast-background: #FFF;
-    --c-contrast-color: #000;
-    --c-contrast-accent: #6C000A;
+    @include light-colors;
   }
+}
 
+[data-color-preference='dark'] {
+  @include dark-colors;
+}
+
+[data-color-preference='light'] {
+  @include light-colors;
+}
+
+[data-contrast-preference='auto'] {
   @media (prefers-contrast: high) {
     --c-header-bg: var(--c-contrast-background);
     --c-header-color: var(--c-contrast-color);
@@ -50,13 +68,37 @@ html {
   }
 }
 
+[data-contrast-preference='high'] {
+  --c-header-bg: var(--c-contrast-background);
+  --c-header-color: var(--c-contrast-color);
+  --c-header-accent: var(--c-contrast-accent);
+
+  --c-body-bg: var(--c-contrast-background);
+  --c-body-color: var(--c-contrast-color);
+  --c-body-color-50: var(--c-contrast-color);
+  --c-body-accent: var(--c-contrast-accent);
+}
+
+html {
+  background: var(--c-body-bg);
+  line-height: 1.45; // TODO: Var
+  font-size: 0.9375rem;
+
+  @include min-width(384) {
+    font-size: 1rem;
+  }
+
+  @include min-width(768) {
+    font-size: 1.125rem;
+  }
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
   color: var(--c-body-color);
   font-family: 'rsa-body', sans-serif;
-  font-size: 1rem;
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -66,15 +108,15 @@ body {
   .fonts-loaded & {
     opacity: 1;
   }
-
-  @include min-width(768) {
-    font-size: 1.125rem;
-  }
 }
 
 ::selection {
   background: var(--c-body-color);
   color: var(--c-body-bg);
+}
+
+.main {
+  padding: 5vw 0 4vw;
 }
 
 .group {
@@ -89,21 +131,27 @@ a {
   font-weight: 500;
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
-  text-decoration: unerline;
+  text-decoration: underline;
   text-decoration-color: var(--c-body-color-50, currentColor);
+
+  code {
+    text-decoration: inherit;
+    text-decoration-color: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--c-body-accent);
+    text-decoration-color: currentColor;
+    border: 0;
+  }
+
+  &:focus {
+    outline: var(--c-body-color-50) 1px dotted;
+  }
+
+  &:active {
+    opacity: 0.66;
+  }
 }
 
-a:hover,
-a:focus {
-  color: var(--c-body-accent);
-  text-decoration-color: currentColor;
-  border: 0;
-}
-
-a:focus {
-  outline: var(--c-body-color-50) 1px dotted;
-}
-
-a:active {
-  opacity: 0.66;
-}

@@ -19,7 +19,7 @@
   },
   "homepage": "https://robsterlini.co.uk",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.11.0",
     "markdown-it": "^10.0.0",
     "node-sass": "^4.13.1"
   },

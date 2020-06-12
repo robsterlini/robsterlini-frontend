@@ -1,8 +1,17 @@
 @import 'scss/mixins';
 
+@import 'scss/reset';
+
 @import 'scss/webfonts';
 @import 'scss/base';
+@import 'scss/animations';
+
 @import 'scss/typography';
-@import 'scss/hero';
 @import 'scss/list';
+@import 'scss/fieldset';
+@import 'scss/figure';
+@import 'scss/alert';
+
+@import 'scss/nav';
+@import 'scss/hero';
 @import 'scss/footer';

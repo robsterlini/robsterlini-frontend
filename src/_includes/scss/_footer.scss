@@ -2,14 +2,49 @@
   background: var(--c-body-bg);
   color: var(--c-body-color);
   font-size: 0.875rem;
-  padding: 0 0 3vw;
 
-  .group {
+  &__wrapper {
     animation: opacity 500ms 1000ms ease-out both;
+    padding: calc(2vw + 1rem) 0;
+    position: relative;
+
+    &::before {
+      background: var(--c-header-bg);
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 2px;
+      border-radius: 1px;
+      animation: scale-from-left 500ms 1250ms ease-out both;
+      transform-origin: center left;
+    }
   }
 
   p {
-    margin: 0;
     max-width: 52em;
+  }
+
+  @include min-width(1024) {
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-rows: auto 1fr;
+
+      p {
+        grid-area: 1 / 1 / span 2 / span 18;
+        margin-bottom: 0;
+      }
+
+      .fieldset {
+        margin-right: 0;
+        grid-column: 21 / span 4;
+
+        &:nth-of-type(2) {
+          grid-row: 2;
+        }
+      }
+    }
   }
 }

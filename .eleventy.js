@@ -14,6 +14,20 @@ module.exports = function(eleventyConfig) {
     return md.render(content);
   });
   eleventyConfig.addPairedShortcode('smallCaps', (content) => `<span class="sc">${content}</span>`);
+  const figure = ([ image, alt, caption, link, label ], args = {}) => {
+    const { layout } = args;
+    let captionMarkup = '';
+
+    if (caption) {
+      const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="nofollow">${label}</a>` : '';
+      captionMarkup = `<figcaption class="figure__caption">${caption}${linkMarkup}</figcaption>`;
+    }
+
+    return `<figure class="figure figure--${layout}"><img src="/images/${image}" loading="lazy" alt="${alt}" />${captionMarkup}</figure>`;
+  };
+
+  eleventyConfig.addShortcode('figureInset', (...args) => figure(args, { layout: 'inset' }));
+  eleventyConfig.addShortcode('figureFull', (...args) => figure(args, { layout: 'full' }));
 
   // Transforms
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
@@ -21,7 +35,8 @@ module.exports = function(eleventyConfig) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        minifyJS: true
       });
       return minified;
     }
@@ -30,6 +45,24 @@ module.exports = function(eleventyConfig) {
   });
 
   // Filters
+  const getJournalEntries = ({ all = [] } = {}) => all.filter(entry => entry.url.startsWith('/journal/')).reverse();
+  eleventyConfig.addNunjucksFilter('getFirstJournalEntry', collections => {
+    const [entry] = getJournalEntries(collections);
+    return entry;
+  });
+  eleventyConfig.addNunjucksFilter('getJournalEntries', getJournalEntries);
+  eleventyConfig.addNunjucksFilter("formatDate", function(value) {
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    return new Intl.DateTimeFormat('en-GB', options).format(value);
+  });
+  eleventyConfig.addNunjucksFilter("isOldDate", function(value) {
+    return new Date() - new Date(value) > 1.577e+10;
+    return true;
+  });
   eleventyConfig.addNunjucksAsyncFilter('scss', function(data, callback) {
     const scssOptions = {
       data,
@@ -48,7 +81,8 @@ module.exports = function(eleventyConfig) {
   });
 
   // Layout Aliases
-  eleventyConfig.addLayoutAlias('default', 'base.njk');
+  eleventyConfig.addLayoutAlias('default', 'layouts/base.njk');
+  eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
   const filesToCopy = [
     `${input}/images`,

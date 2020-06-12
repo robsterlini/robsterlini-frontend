@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-color-preference="auto" data-contrast-preference="auto">
+  <head>
+    <meta charset="utf-8">
+    <base href="/"/>
+
+    <!-- Primary Meta Tags -->
+    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini-Aitchison" }}</title>
+    <meta name="title" content="{{ title }}">
+    <meta name="description" content="{{ description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://robsterlini.co.uk{{ page.url | url }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="https://robsterlini.co.uk/images/index-meta.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://robsterlini.co.uk{{ page.url | url }}">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:image" content="https://robsterlini.co.uk/images/index-meta.png">
+    <meta name="twitter:label1" value="Let’s chat!" />
+    <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
+    <meta name="twitter:label2" value="Tweet me!" />
+    <meta name="twitter:data2" value="@robsterlini" />
+
+    <meta name="author" content="Rob Sterlini-Aitchison">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Eleventy, https://github.com/robsterlini/robsterlini-frontend">
+
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    {% set webfonts = [
+      "body-300",
+      "body-500",
+      "heading-600",
+      "heading-600-sc"
+    ] %}
+    {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
+    {% endfor %}
+
+    {% set css %}
+      {% include "styles.scss" %}
+    {% endset %}
+    <style>{{ css | scss | safe }}</style>
+  </head>
+  <body class="page">
+    {% if not no_header %}
+      {% include "nav.njk" %}
+    {% endif %}
+    {{ content | safe }}
+    {% include "footer.njk" %}
+
+    <script type="text/javascript">
+      (function () {
+        function setFontsLoaded() {
+          document.documentElement.className += ' fonts-loaded';
+        }
+
+        if (!('fonts' in document)) {
+          setFontsLoaded();
+          return;
+        };
+        document.fonts.load('1em rsa-body').then(setFontsLoaded);
+      })();
+
+      (function () {
+        var colorPreferenceSelect = document.getElementById('color-preference');
+        var contrastPreferenceSelect = document.getElementById('contrast-preference');
+
+        function setPreference(name, value) {
+          console.log('SET ITEM');
+          localStorage.setItem(name + '-preference', value);
+          document.documentElement.dataset[name + 'Preference'] = value;
+        }
+
+        function getPreference(name) {
+          return localStorage.getItem(name + '-preference') || 'auto';
+        }
+
+        colorPreferenceSelect.addEventListener('change', function(e) {
+          setPreference('color', e.target.value);
+        });
+
+        contrastPreferenceSelect.addEventListener('change', function(e) {
+          setPreference('contrast', e.target.value);
+        });
+
+        if (window.matchMedia) {
+          var lightMode = window.matchMedia('(prefers-color-scheme: light)');
+          var highContrast = window.matchMedia('(prefers-contrast: high)');
+
+          function setAutoPreferenceAutoLabel(preferenceSelect, label) {
+            preferenceSelect[0].innerText = 'Auto (' + label + ')';
+          }
+
+          lightMode.addListener(function(e) {
+            setAutoPreferenceAutoLabel(colorPreferenceSelect, e.matches);
+          });
+
+          highContrast.addListener(function(e) {
+            setAutoPreferenceAutoLabel(contrastPreferenceSelect, e.matches);
+          });
+
+          setAutoPreferenceAutoLabel(colorPreferenceSelect, lightMode.matches ? 'Light' : 'Dark');
+          setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
+        }
+
+        var colorPreference = getPreference('color');
+        var contrastPreference = getPreference('contrast');
+
+        colorPreferenceSelect.value = colorPreference;
+        setPreference('color', colorPreference);
+
+        contrastPreferenceSelect.value = contrastPreference;
+        setPreference('contrast', contrastPreference);
+      })();
+    </script>
+  </body>
+</html>

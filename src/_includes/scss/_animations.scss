@@ -1,0 +1,30 @@
+@keyframes opacity-transform {
+  from {
+    transform: translateY(0.5vw);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-from-left {
+  0% {
+    transform: scale(0, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes scale-from-top {
+  0% {
+    transform: scale(1, 0);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+}

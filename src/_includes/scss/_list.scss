@@ -1,19 +1,53 @@
-.list {
+%list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1em;
+
+  li {
+    padding-left: 1em;
+    margin-bottom: 0.25em;
+
+    &::before {
+      content: '\25B6';
+      color: var(--c-body-accent);
+      font-family: inherit;
+      font-weight: 500;
+      display: inline-block;
+      margin-left: -1em;
+      width: 1em;
+    }
+  }
 }
 
-.list li {
-  padding-left: 1em;
+%ordered-list {
+  @extend %list;
+
+  counter-reset: list;
+
+  li {
+    counter-increment: list;
+
+    &::before {
+      content: counter(list) '. ';
+    }
+  }
 }
 
-.list li::before {
-  content: '\25B6';
-  color: var(--c-body-accent);
-  font-family: inherit;
-  font-weight: 500;
-  display: inline-block;
-  margin-left: -1em;
-  width: 1em;
+.list {
+  @extend %list;
+}
+
+.list--ordered {
+  @extend %ordered-list;
+}
+
+.typeset {
+
+  ul {
+    @extend %list;
+  }
+
+  ol {
+    @extend %ordered-list;
+  }
 }

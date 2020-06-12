@@ -1,14 +1,22 @@
 @font-face {
   font-family: 'rsa-heading';
-  src: url('heading-600.woff2') format('woff2');
+  src: url('fonts/heading-600.woff2') format('woff2');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
+  font-family: 'rsa-heading';
+  src: url('fonts/heading-400i.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
   font-family: 'rsa-heading-sc';
-  src: url('heading-600-sc.woff2') format('woff2');
+  src: url('fonts/heading-600-sc.woff2') format('woff2');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
@@ -16,7 +24,7 @@
 
 @font-face {
   font-family: 'rsa-body';
-  src: url('body-300.woff2') format('woff2');
+  src: url('fonts/body-300.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: normal;
@@ -24,7 +32,7 @@
 
 @font-face {
   font-family: 'rsa-body';
-  src: url('body-500.woff2') format('woff2');
+  src: url('fonts/body-500.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: normal;

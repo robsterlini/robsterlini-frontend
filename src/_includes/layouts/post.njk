@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set css %}{% include "pages/post.scss" %}{% endset %}
+<style>{{ css | scss | safe }}</style>
+
+{% set children = "" %}
+{% if page.date | isOldDate %}
+  {% set children %}
+    <div class="post-alert alert" role="alert"><strong class="sc">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</div>
+  {% endset %}
+{% endif %}
+{{ hero(title, header=page.date | formatDate, children=children | safe) }}
+
+{% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
+
+<main class="main">
+  <article class="group typeset post-article">
+    {{ content | safe }}
+  </article>
+</main>
