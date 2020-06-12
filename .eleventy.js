@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
     let captionMarkup = '';
 
     if (caption) {
-      const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="nofollow">${label}</a>` : '';
+      const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="rel="noopener"">${label}</a>` : '';
       captionMarkup = `<figcaption class="figure__caption">${caption}${linkMarkup}</figcaption>`;
     }
 
