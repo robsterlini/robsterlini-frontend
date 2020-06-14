@@ -66,14 +66,4 @@
       margin-bottom: 0;
     }
   }
-
-  @media print {
-    flex: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-
-    &__angle {
-      display: none;
-    }
-  }
 }

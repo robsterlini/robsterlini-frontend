@@ -8,10 +8,6 @@
   text-align: right;
   animation: nav 1000ms 500ms ease-out both;
 
-  @media print {
-    display: none;
-  }
-
   @keyframes nav {
     0% {
       opacity: 0;

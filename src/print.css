@@ -1,0 +1,38 @@
+html[data-color-preference] {
+  --c-header-bg: white;
+  --c-header-color: black;
+  --c-header-accent: black;
+
+  --c-body-bg: white;
+  --c-body-color: black;
+  --c-body-color-50: black;
+  --c-body-accent: black;
+
+  --figure-opacity: 1;
+
+  font-size: 13px;
+}
+
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.main {
+  margin-bottom: auto;
+}
+
+.footer .fieldset,
+.nav {
+  display: none;
+}
+
+.hero {
+  flex: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hero__angle {
+  display: none;
+}

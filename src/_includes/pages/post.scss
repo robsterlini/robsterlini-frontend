@@ -1,5 +1,103 @@
 @import 'scss/mixins';
+@import 'scss/type';
 
 .post-alert {
   animation: opacity 500ms 500ms ease-out both;
+}
+
+.post-article {
+  max-width: 60rem;
+
+  h1 {
+    @extend %h1;
+  }
+
+  h2 {
+    @extend %h2;
+  }
+
+  h3 {
+    @extend %h3;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > p:first-child {
+    @extend %lead;
+
+    a {
+      @extend %lead-a;
+    }
+  }
+
+  code {
+    color: var(--c-body-accent);
+    display: inline-block;
+    font-size: 1.15em;
+  }
+
+  a {
+
+    code {
+      color: inherit;
+      text-decoration-color: inherit;
+    }
+  }
+
+  pre {
+    background: var(--c-header-bg);
+    clear: both;
+    padding: 1.8em 2em 2em;
+    font-size: 1rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    margin: 2rem 0;
+
+    @include min-width(768) {
+      font-size: 1.25rem;
+    }
+
+    code {
+      font-size: 1em;
+    }
+  }
+
+  blockquote {
+    @extend %blockquote;
+  }
+
+  .figure {
+    counter-increment: section;
+
+    &--inset {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 90%;
+
+      @include min-width(384) {
+        float: right;
+        max-width: 47.5%;
+        margin-top: 0;
+        margin-left: 5%;
+        margin-right: 0;
+      }
+    }
+
+    &--full {
+      clear: both;
+      max-width: 100%;
+    }
+
+    &__caption {
+
+      &::before {
+        @extend %lead;
+
+        content: 'Fig. ' counter(section) " ";
+        margin-right: 0.1em;
+      }
+    }
+  }
 }
