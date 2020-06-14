@@ -99,12 +99,12 @@ body {
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
   opacity: 0;
-  transition: opacity 250ms ease-out;
-  // visibility: hidden;
+  transition: opacity 500ms ease-out;
+  visibility: hidden;
 
   .fonts-loaded & {
     opacity: 1;
-    // visibility: visible;
+    visibility: visible;
   }
 }
 
