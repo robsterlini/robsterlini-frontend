@@ -25,6 +25,12 @@
     max-width: 52em;
   }
 
+  @media print {
+    .fieldset {
+      display: none;
+    }
+  }
+
   @include min-width(1024) {
 
     &__wrapper {

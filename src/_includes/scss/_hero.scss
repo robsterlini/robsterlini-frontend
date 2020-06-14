@@ -28,18 +28,17 @@
   }
 
   &__header {
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: color 500ms 250ms ease-out;
-    color: transparent;
+    margin: 0;
     width: 100%;
 
-    .fonts-loaded & {
-      color: var(--c-header-color);
-    }
+    > span {
+      opacity: 0;
+      transition: opacity 500ms 250ms ease-out;
 
-    @include max-width(768) {
-      font-size: 1.25rem;
+      .fonts-loaded & {
+        opacity: 1;
+        color: var(--c-header-color);
+      }
     }
 
     &::before {
@@ -65,6 +64,16 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  @media print {
+    flex: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    &__angle {
+      display: none;
     }
   }
 }

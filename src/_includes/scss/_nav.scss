@@ -8,6 +8,10 @@
   text-align: right;
   animation: nav 1000ms 500ms ease-out both;
 
+  @media print {
+    display: none;
+  }
+
   @keyframes nav {
     0% {
       opacity: 0;
@@ -31,15 +35,15 @@
     color: var(--c-header-bg);
     display: inline-block;
     pointer-events: auto;
-    padding: 1em 0.33em 0.4em;
+    padding: 1.25em 0.25em 0.75em;
     text-decoration: none;
     transition: 250ms ease-in-out;
     transition-property: opacity, transform;
     font-family: 'rsa-heading', serif;
     line-height: 1.2;
-    font-size: 1rem;
+    font-size: 1.25rem;
     transform: translateY(-0.25em);
-    width: 2.5em;
+    width: 2.25em;
     text-align: center;
     position: relative;
 
@@ -59,11 +63,18 @@
 
     &:hover,
     &:focus {
-
+      outline: 0;
       transform: none;
 
       &::before {
         background: var(--c-header-color);
+      }
+    }
+
+    &:focus {
+
+      &::before {
+        outline: var(--c-body-color-50) 1px dotted;
       }
     }
 

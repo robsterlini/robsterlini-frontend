@@ -1,7 +1,9 @@
 {% macro hero(heading, header='', children='') %}
 <div class="hero">
   <div class="group">
-    <header class="hero__header">{{ header }}</header>
+    <header class="hero__header h3">
+      <span>{{ header }}</span>
+    </header>
     <h1 class="h1">{{ heading }}</h1>
     {{ children }}
   </div>

@@ -79,15 +79,15 @@ To really test whether I was okay shipping something unfinished, I had to releas
 
 ## Next steps…
 
-In the coming days I have built a few extra features (you can see them pretty plainly as you are reading one right now):
+In the days that followed I built a few extra features (you can see them pretty plainly as you are reading one right now):
 
 1. Port it to Eleventy and switch the CSS up for Sass
 1. <del>Reinstate the journal (maybe with _some_ of the old posts)</del>
-1. <del>Add better colour and contrast preferences</del>
+1. Add better colour and contrast preferences
 1. <del>Add load animations for a smoother first impression</del>
 1. Add a sitemap
 1. <del>Write a journal entry about starting afresh</del>
 
-All being well, there will be a follow-up entry to this to detail some of the above, and most likely a few other ideas I had a long the way.
+All being well, there will be a follow-up entry to this to detail finishing off the list above, and most likely a few other ideas I had a long the way.
 
 I’d absolutely love it if you took a moment to let me know what you think about the new site [in a tweet](https://twitter.com/robsterlini) or any of the other social channels listed on [the homepage](/) – good or bad, I can take it!

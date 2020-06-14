@@ -17,6 +17,7 @@ del {
   font-family: 'rsa-heading', serif;
   font-weight: 600;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 
   .sc {
     font-family: 'rsa-heading-sc', 'rsa-heading', serif;
@@ -39,16 +40,16 @@ del {
 %h2 {
   @extend %heading-large;
 
-  margin-top: 2em;
-  margin-bottom: 1em;
-  font-size: 1.875rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.667em;
+  font-size: 1.75rem;
 }
 
 %h3 {
   font-weight: 500;
-  font-size: 1.5rem;
-  margin-top: 1.5em;
-  margin-bottom: 0.667em;
+  font-size: 1.4rem;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 %blockquote {

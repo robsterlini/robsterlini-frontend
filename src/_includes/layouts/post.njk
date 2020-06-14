@@ -10,7 +10,7 @@ layout: layouts/base.njk
 {% set children = "" %}
 {% if page.date | isOldDate %}
   {% set children %}
-    <div class="post-alert alert" role="alert"><strong class="sc">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</div>
+    <div class="post-alert alert" role="alert"><strong class="lead">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</div>
   {% endset %}
 {% endif %}
 {{ hero(title, header=page.date | formatDate, children=children | safe) }}

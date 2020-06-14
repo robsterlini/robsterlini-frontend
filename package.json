@@ -1,7 +1,7 @@
 {
   "name": "robsterlini-frontend",
   "version": "1.0.0",
-  "description": "Rob Sterlini-Aitchison",
+  "description": "Rob Sterlini",
   "scripts": {
     "develop": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy",
@@ -12,7 +12,7 @@
     "url": "git+https://robsterlini@github.com/robsterlini/robsterlini-frontend.git"
   },
   "keywords": [],
-  "author": "Rob Sterlini-Aitchison <hi@robsterlini.co.uk> (https://robsterlini.co.uk)",
+  "author": "Rob Sterlini <hi@robsterlini.co.uk> (https://robsterlini.co.uk)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/robsterlini/robsterlini-frontend/issues"

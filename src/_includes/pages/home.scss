@@ -8,6 +8,9 @@
 }
 
 .home-content {
+  animation: none;
+  padding-bottom: 4vw;
+  padding-top: 4vw;
 
   &__wrapper {
     display: grid;

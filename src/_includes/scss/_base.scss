@@ -76,6 +76,25 @@ html, body {
   @include contrast-colors;
 }
 
+@media print {
+  [data-color-preference] {
+    @include light-colors;
+    @include contrast-colors;
+
+    --c-contrast-accent: var(--c-body-color);
+  }
+
+  * {
+
+    &,
+    &::before,
+    &::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
 html {
   background: var(--c-body-bg);
   line-height: 1.45; // TODO: Var
@@ -88,6 +107,10 @@ html {
   @include min-width(768) {
     font-size: 1.125rem;
   }
+
+  @media print {
+    font-size: 13px;
+  }
 }
 
 body {
@@ -98,7 +121,6 @@ body {
   font-family: 'rsa-body', sans-serif;
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
-  letter-spacing: -0.01em;
   opacity: 0;
   transition: opacity 250ms ease-out;
   visibility: hidden;
@@ -115,7 +137,12 @@ body {
 }
 
 .main {
-  padding: 5vw 0 4vw;
+  animation: opacity-transform 500ms 500ms ease-out both;
+  padding: 8vw 0;
+
+  @media print {
+    margin-bottom: auto;
+  }
 }
 
 .group {
