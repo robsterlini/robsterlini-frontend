@@ -5,7 +5,7 @@
     <base href="/"/>
 
     <!-- Primary Meta Tags -->
-    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini-Aitchison" }}</title>
+    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini" }}</title>
     <meta name="title" content="{{ title }}">
     <meta name="description" content="{{ description }}">
 
@@ -27,7 +27,7 @@
     <meta name="twitter:label2" value="Tweet me!" />
     <meta name="twitter:data2" value="@robsterlini" />
 
-    <meta name="author" content="Rob Sterlini-Aitchison">
+    <meta name="author" content="Rob Sterlini">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Eleventy, https://github.com/robsterlini/robsterlini-frontend">
 
@@ -42,7 +42,7 @@
       "heading-600",
       "heading-600-sc"
     ] %}
-    {% for webfont in webfonts %}<!--<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>-->
+    {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
     {% set css %}
