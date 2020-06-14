@@ -5,7 +5,10 @@
 
   li {
     padding-left: 1em;
-    margin-bottom: 0.25em;
+
+    & + li {
+      margin-top: 0.25em;
+    }
 
     &::before {
       content: '\25B6';

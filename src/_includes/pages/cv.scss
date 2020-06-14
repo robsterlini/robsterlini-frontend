@@ -1,0 +1,82 @@
+@import 'scss/mixins';
+
+.cv {
+
+  .group {
+    display: grid;
+    grid-gap: 0 6%;
+
+    @include min-width(1024) {
+      grid-template-columns: 5fr 8fr;
+      grid-template-rows: auto auto 1fr;
+    }
+  }
+}
+
+.cv-section {
+
+  @at-root {
+
+    [class^='cv-section--'] {
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--elevator {
+
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  @include min-width(1024) {
+
+    &--elevator {
+      grid-column: 1;
+
+      > :last-child > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &--skills {
+      grid-row: 2;
+    }
+
+    &--employment {
+      grid-row: 1 / span 3;
+      grid-column: 2;
+
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.cv-references {
+  color: var(--c-body-color-50);
+  font-weight: 500;
+  margin-top: 3em;
+  margin-bottom: 0;
+  font-size: 0.9375rem;
+
+  @include min-width(1024) {
+    grid-column: 2;
+  }
+}
+
+@media print {
+
+  .footer {
+    display: none;
+  }
+
+  .cv-save {
+    display: none;
+  }
+}
+

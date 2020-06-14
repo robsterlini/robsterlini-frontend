@@ -8,6 +8,10 @@
   position: relative;
   z-index: 3;
 
+  > :last-child {
+    margin-bottom: 0;
+  }
+
   &__angle {
     animation: scale-from-top 900ms 0ms ease-out both;
     display: block;
@@ -60,9 +64,5 @@
   .h1 {
     animation: opacity 1100ms 200ms ease-out both;
     margin-bottom: 0.25em;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 }

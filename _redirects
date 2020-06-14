@@ -2,4 +2,6 @@ https://robsterlini-frontend.netlify.com/* https://robsterlini.co.uk/:splat 301!
 /work           /                   301
 /life           /                   301
 /contact        /                   301
+/cv             /curriculum-vitae   301
+/resume         /curriculum-vitae   301
 /journal/parkrun-changed-my-life/ /journal/2016/parkrun-changed-my-life/ 301

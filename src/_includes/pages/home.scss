@@ -14,7 +14,7 @@
 
   &__wrapper {
     display: grid;
-    grid-gap: 2vw 4vw;
+    grid-gap: 1rem 6%;
   }
 
   @at-root {
@@ -67,7 +67,7 @@
 
     &__wrapper {
       grid-template-columns: 4fr 4fr 3fr;
-      grid-gap: 0 4%;
+      grid-gap: 0 6%;
     }
   }
 }
