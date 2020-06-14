@@ -90,7 +90,7 @@ module.exports = function(eleventyConfig) {
     `${input}/favicon.svg`,
     `${input}/favicon.png`,
     `${input}/print.css`,
-    `_redirects`,
+    `${input}/_redirects`,
   ];
 
   filesToCopy.forEach(file => {
