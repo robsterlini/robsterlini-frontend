@@ -22,26 +22,26 @@
 
   label {
     font-weight: 500;
-    color: var(--c-body-accent);
+    color: var(--c-bA);
     margin-right: 0.5em;
   }
 
   select {
     background: none;
     padding-right: 0.625rem;
-    color: var(--c-body-color);
-    border-bottom: 1px solid var(--c-body-color-50);
+    color: var(--c-bC);
+    border-bottom: 1px solid var(--c-bC-50);
     transition: border-color 125ms ease-in-out;
     font-variant-caps: all-small-caps;
 
     &:hover,
     &:focus {
-      border-color: var(--c-body-color);
+      border-color: var(--c-bC);
     }
 
     &:focus {
-      border-color: var(--c-body-color);
-      outline: var(--c-body-color-50) 1px dotted;
+      border-color: var(--c-bC);
+      outline: var(--c-bC-50) 1px dotted;
     }
   }
 }

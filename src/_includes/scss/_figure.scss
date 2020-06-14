@@ -1,5 +1,5 @@
 .figure {
-  background: var(--c-header-bg);
+  background: var(--c-hB);
   display: table;
   margin: 2rem 0;
   border-radius: 2px;
@@ -10,11 +10,11 @@
     height: auto;
     max-width: 100%;
     width: auto;
-    opacity: var(--figure-opacity);
+    opacity: var(--figO, 1);
   }
 
   &__caption {
-    background: var(--c-header-bg);
+    background: var(--c-hB);
     padding: 0.25em 0.5em 0.4em;
     font-size: 0.825rem;
     display: table-caption;
@@ -26,7 +26,7 @@
   }
 
   &__link {
-    color: var(--c-body-color-50);
+    color: var(--c-bC-50);
     font-variant-caps: all-small-caps;
   }
 }

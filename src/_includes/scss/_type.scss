@@ -15,7 +15,7 @@
 %h1 {
   @extend %heading-large;
 
-  color: var(--c-header-accent);
+  color: var(--c-bA);
   max-width: 18em;
   margin: calc(0.25em + 1vw) 0 calc(0.25em + 2vw);
 
@@ -63,7 +63,7 @@
 
   &::before {
     content: '“';
-    color: var(--c-body-accent);
+    color: var(--c-bA);
     display: block;
     font-weight: 600;
     font-style: normal;
@@ -86,7 +86,7 @@
 }
 
 %lead {
-  color: var(--c-body-accent);
+  color: var(--c-bA);
   font-variant: all-small-caps;
   font-weight: 500;
 }
@@ -96,6 +96,6 @@
 
   &:hover,
   &:focus {
-    color: var(--c-body-color);
+    color: var(--c-bC);
   }
 }

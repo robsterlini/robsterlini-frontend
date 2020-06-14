@@ -1,6 +1,6 @@
 .footer {
-  background: var(--c-body-bg);
-  color: var(--c-body-color);
+  background: var(--c-bB);
+  color: var(--c-bC);
   font-size: 0.875rem;
 
   &__wrapper {
@@ -9,7 +9,7 @@
     position: relative;
 
     &::before {
-      background: var(--c-header-bg);
+      background: var(--c-hB);
       content: '';
       position: absolute;
       width: 100%;

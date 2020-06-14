@@ -33,16 +33,12 @@ html[data-color-preference] {
   background: initial;
   page-break-after: always;
 
-  --c-header-bg: white;
-  --c-header-color: black;
-  --c-header-accent: black;
+  --c-hB: white;
 
-  --c-body-bg: white;
-  --c-body-color: black;
-  --c-body-color-50: black;
-  --c-body-accent: black;
-
-  --figure-opacity: 1;
+  --c-bB: white;
+  --c-bC: black;
+  --c-bC-50: black;
+  --c-bA: black;
 
   font-size: 13px;
 }

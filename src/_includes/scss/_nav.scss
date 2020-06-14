@@ -28,7 +28,7 @@
   }
 
   a {
-    color: var(--c-header-bg);
+    color: var(--c-hB);
     display: inline-block;
     pointer-events: auto;
     padding: 1.25em 0.25em 0.75em;
@@ -44,7 +44,7 @@
     position: relative;
 
     &::before {
-      background: var(--c-header-accent);
+      background: var(--c-bA);
       position: absolute;
       content: '';
       top: -0.25em;
@@ -63,14 +63,14 @@
       transform: none;
 
       &::before {
-        background: var(--c-header-color);
+        background: var(--c-bC);
       }
     }
 
     &:focus {
 
       &::before {
-        outline: var(--c-body-color-50) 1px dotted;
+        outline: var(--c-bC-50) 1px dotted;
       }
     }
 
