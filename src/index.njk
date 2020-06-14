@@ -11,7 +11,7 @@ no_header: true
 {% set css %}{% include "pages/home.scss" %}{% endset %}
 <style>{{ css | scss | safe }}</style>
 
-{% set h1 %}Frontend dev<span class="home-hero-hide">eloper</span>, typo<span class="home-hero-hide">graphy</span> enthusiast, <span class="home-hero-hide">amateur </span>triathlete, &amp; <span class="sc">LEGO</span> master builder.{% endset %}
+{% set h1 %}Frontend dev<span class="home-hero-hide">eloper</span>, typo<span class="home-hero-hide">graphy</span> enthusiast, <span class="home-hero-hide">amateur </span>triathlete, &amp;&nbsp;<span class="sc">LEGO</span> master builder.{% endset %}
 
 {{ hero(h1 | safe, header='Rob Sterlini') }}
 
