@@ -91,7 +91,7 @@ body {
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
   opacity: 0;
-  transition: opacity 500ms ease-out;
+  transition: opacity 300ms ease-out;
   visibility: hidden;
 
   .fonts-loaded & {
@@ -106,7 +106,7 @@ body {
 }
 
 .main {
-  animation: opacity-transform 500ms 500ms ease-out both;
+  animation: opacity-transform 400ms 250ms ease-out both;
   padding: 8vw 0;
 }
 

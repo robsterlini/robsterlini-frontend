@@ -19,7 +19,7 @@
   }
 
   &__angle {
-    animation: scale-from-top 900ms 0ms ease-out both;
+    animation: scale-from-top 800ms 0ms ease-out both;
     display: block;
     height: 2vw;
     width: 100%;
@@ -42,7 +42,7 @@
 
     > span {
       opacity: 0;
-      transition: opacity 500ms 250ms ease-out;
+      transition: opacity 400ms 250ms ease-out;
 
       .fonts-loaded & {
         opacity: 1;
@@ -68,7 +68,7 @@
   }
 
   .h1 {
-    animation: opacity 1300ms 200ms ease-out both;
+    animation: opacity 1000ms 200ms ease-out both;
     margin-bottom: 0.25em;
   }
 }

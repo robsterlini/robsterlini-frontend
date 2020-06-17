@@ -23,7 +23,7 @@
   @at-root {
 
     [class^='home-content__section--'] {
-      animation: opacity-transform 500ms 300ms ease-out both;
+      animation: opacity-transform 400ms 250ms ease-out both;
 
       > p:last-child {
         margin-bottom: 0;
@@ -33,12 +33,7 @@
 
   &__section {
 
-    &--life {
-      animation-delay: 425ms;
-    }
-
     &--contact {
-      animation-delay: 550ms;
 
       > p:last-child {
         margin-top: 2vw;
@@ -56,13 +51,16 @@
       grid-template-columns: 2fr 1fr;
     }
 
-    &__section--life {
-      grid-row: 2;
-    }
+    &__section {
 
-    &__section--contact {
-      grid-column: 2;
-      grid-row: 1 / span 2;
+      &--life {
+        grid-row: 2;
+      }
+
+      &--contact {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
     }
   }
 
@@ -70,6 +68,17 @@
 
     &__wrapper {
       grid-template-columns: 4fr 4fr 3fr;
+    }
+
+    &__section {
+
+      &--life {
+        animation-delay: 375ms;
+      }
+
+      &--contact {
+        animation-delay: 500ms;
+      }
     }
   }
 }

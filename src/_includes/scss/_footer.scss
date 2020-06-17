@@ -5,7 +5,7 @@
   margin-top: auto;
 
   &__wrapper {
-    animation: opacity 500ms 1000ms ease-out both;
+    animation: opacity 400ms 700ms ease-out both;
     padding: calc(2vw + 1rem) 0;
     position: relative;
 
@@ -17,7 +17,7 @@
       top: 0;
       height: 2px;
       border-radius: 1px;
-      animation: scale-from-left 500ms 1250ms ease-out both;
+      animation: scale-from-left 400ms 800ms ease-out both;
       transform-origin: center left;
     }
   }
