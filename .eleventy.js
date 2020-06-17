@@ -57,7 +57,6 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.addNunjucksFilter('getJournalEntries', getJournalEntries);
   eleventyConfig.addNunjucksFilter("formatDate", function(date, format = 'default') {
-    console.log(date, format);
 
     if (format === 'w3c-datetime') {
       return new Intl.DateTimeFormat('en-GB', {})
