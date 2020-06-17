@@ -59,12 +59,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addNunjucksFilter("formatDate", function(date, format = 'default') {
 
     if (format === 'w3c-datetime') {
-      return new Intl.DateTimeFormat('en-GB', {})
+      const [month, day, year] = new Intl.DateTimeFormat('en-GB', {})
         .format(date)
         .split('/')
-        .reverse()
-        .map(part => part.length === 1 ? `0${part}` : part)
-        .join('-');
+        .map(part => part.length === 1 ? `0${part}` : part);
+
+      return [year, month, day].join('-');
     }
 
     const options = {
