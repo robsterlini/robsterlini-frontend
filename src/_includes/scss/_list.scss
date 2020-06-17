@@ -1,23 +1,27 @@
+%list-item {
+  padding-left: 1em;
+
+  &::before {
+    content: '\25B6';
+    color: var(--c-bA);
+    font-family: inherit;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: -1em;
+    width: 1em;
+  }
+}
+
 %list {
   list-style: none;
   padding: 0;
   margin: 0 0 1em;
 
   li {
-    padding-left: 1em;
+    @extend %list-item;
 
     & + li {
       margin-top: 0.25em;
-    }
-
-    &::before {
-      content: '\25B6';
-      color: var(--c-bA);
-      font-family: inherit;
-      font-weight: 500;
-      display: inline-block;
-      margin-left: -1em;
-      width: 1em;
     }
   }
 }
@@ -38,6 +42,10 @@
 
 .list {
   @extend %list;
+
+  &__item {
+    @extend %list-item;
+  }
 }
 
 .list--ordered {

@@ -1,0 +1,50 @@
+---
+title: The journal
+description: The sporadic ramblings of Rob Sterlini.
+layout: default
+sitemap_priority: 0.8
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set css %}{% include "pages/journal.scss" %}{% endset %}
+<style>{{ css | scss | safe }}</style>
+
+{{ hero("The journal" | safe) }}
+
+<main class="main journal">
+  <div class="group">
+    {% set entries = collections | getJournalEntries %}
+    {% for entry in entries %}
+        {% if loop.index == 1 %}
+          <div class="journal-latest">
+            <h2 class="p">
+              <span class="lead">Latest entry</span>
+              <span class="h2">{{ entry.data.title }}</span>
+            </h2>
+            <p><span class="journal-latest__date">{{ entry.date | formatDate }}</span> {{ entry.data.description }}</p>
+            <p class="list__item">
+              <a class="journal-first" href="{{ entry.url | url }}">Read the entry</a>
+            </p>
+          </div>
+
+          <div class="journal-older">
+            <h2 class="p"><span class="lead">Older entries</span></h2>
+            <ul class="list">
+        {% endif %}
+
+        {% if loop.index >= 1 %}
+              <li>
+                <a href="{{ entry.url | url }}">
+                  {{ entry.data.title }}, <span>{{ entry.date | formatDate }}</span>.
+                </a>
+              </li>
+        {% endif %}
+
+        {% if loop.last %}
+            </ul>
+          </div>
+        {% endif %}
+    {% endfor %}
+  </div>
+</main>

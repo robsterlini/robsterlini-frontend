@@ -2,7 +2,7 @@
 <div class="hero">
   <div class="group">
     <header class="hero__header h3">
-      <span>{{ header }}</span>
+      {% if header %}<span>{{ header }}</span>{% endif %}
     </header>
     <h1 class="h1">{{ heading }}</h1>
     {{ children }}

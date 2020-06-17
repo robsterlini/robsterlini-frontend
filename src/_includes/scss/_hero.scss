@@ -2,14 +2,20 @@
   background: var(--c-hB);
   display: flex;
   align-items: flex-end;
-  flex: 1;
   margin-bottom: 1vw;
   padding: 6vw 0 4vw;
   position: relative;
   z-index: 3;
 
-  > :last-child {
-    margin-bottom: 0;
+  @include min-width(768) {
+    flex: 1;
+  }
+
+  .group {
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__angle {

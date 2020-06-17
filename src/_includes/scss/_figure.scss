@@ -27,6 +27,7 @@
 
   &__link {
     color: var(--c-bC-50);
-    font-variant-caps: all-small-caps;
+    font-variant-caps: small-caps;
+    text-transform: lowercase;
   }
 }

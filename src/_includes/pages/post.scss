@@ -1,8 +1,14 @@
 @import 'scss/mixins';
 @import 'scss/type';
 
-.post-alert {
+.post-description {
+  margin-bottom: 2em;
+  margin-top: -0.5em;
   animation: opacity 500ms 500ms ease-out both;
+}
+
+.post-alert {
+  animation: opacity 500ms 1000ms ease-out both;
 }
 
 .post-article {

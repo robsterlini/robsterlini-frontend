@@ -2,7 +2,10 @@ html,
 body,
 fieldset,
 figure,
-blockquote {
+blockquote,
+dl,
+dd,
+dt {
   padding: 0;
   margin: 0;
 }

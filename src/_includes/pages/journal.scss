@@ -1,0 +1,62 @@
+@import 'scss/mixins';
+
+.journal {
+
+  .group {
+    display: grid;
+    grid-gap: $grid-row-gap $grid-column-gap;
+
+    @include min-width(768) {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    @include min-width(960) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+}
+
+.journal-latest {
+
+  .h2 {
+    margin-top: 0.25em;
+  }
+
+  &__date {
+    font-weight: 500;
+  }
+}
+
+.journal-older {
+
+  li > a > span {
+    font-weight: 300;
+    text-decoration: none;
+  }
+}
+
+.journal-entry {
+  // list-style: none;
+
+  // a {
+  //   text-decoration: none;
+
+  //   &:hover,
+  //   &:focus {
+
+  //     .h2 {
+  //       text-decoration-color: currentColor;
+  //     }
+  //   }
+  // }
+
+  // .h2 {
+  //   text-decoration: underline;
+  //   text-decoration-color: var(--c-bC-50, currentColor);
+  //   transition: text-decoration-color 125ms ease-in-out;
+  //   margin-top: 0.25em;
+  // }
+
+  // .lead {
+  // }
+}

@@ -1,9 +1,14 @@
 @import 'scss/type';
 
-p {
+p,
+.p {
   margin-top: 0;
   margin-bottom: 0.5em;
   max-width: 36em;
+}
+
+.p {
+  font-size: 1rem;
 }
 
 del {
@@ -12,7 +17,7 @@ del {
 }
 
 .sc {
-  font-variant-caps: all-small-caps;
+  @include sc;
 }
 
 .h1 {

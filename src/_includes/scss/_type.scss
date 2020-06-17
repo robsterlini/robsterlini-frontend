@@ -3,6 +3,7 @@
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  display: block;
 
   .sc {
     font-family: 'rsa-heading-sc', 'rsa-heading', serif;
@@ -86,8 +87,9 @@
 }
 
 %lead {
+  @include sc;
+
   color: var(--c-bA);
-  font-variant: all-small-caps;
   font-weight: 500;
 }
 

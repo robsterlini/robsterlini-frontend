@@ -45,19 +45,35 @@ module.exports = function(eleventyConfig) {
   });
 
   // Filters
-  const getJournalEntries = ({ all = [] } = {}) => all.filter(entry => entry.url.startsWith('/journal/')).reverse();
+  const getJournalEntries = ({ all = [] } = {}) => all
+    .filter(entry => {
+      return entry.url.startsWith('/journal/') && entry.url !== '/journal/';
+    })
+    .reverse();
+
   eleventyConfig.addNunjucksFilter('getFirstJournalEntry', collections => {
     const [entry] = getJournalEntries(collections);
     return entry;
   });
   eleventyConfig.addNunjucksFilter('getJournalEntries', getJournalEntries);
-  eleventyConfig.addNunjucksFilter("formatDate", function(value) {
+  eleventyConfig.addNunjucksFilter("formatDate", function(date, format = 'default') {
+    console.log(date, format);
+
+    if (format === 'w3c-datetime') {
+      return new Intl.DateTimeFormat('en-GB', {})
+        .format(date)
+        .split('/')
+        .reverse()
+        .join('-');
+    }
+
     const options = {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     };
-    return new Intl.DateTimeFormat('en-GB', options).format(value);
+
+    return new Intl.DateTimeFormat('en-GB', options).format(date);
   });
   eleventyConfig.addNunjucksFilter("isOldDate", function(value) {
     return new Date() - new Date(value) > 1.577e+10;

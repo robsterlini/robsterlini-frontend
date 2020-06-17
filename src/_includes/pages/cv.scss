@@ -4,7 +4,7 @@
 
   .group {
     display: grid;
-    grid-gap: 0 6%;
+    grid-gap: 0 $grid-column-gap;
 
     @include min-width(1024) {
       grid-template-columns: 5fr 8fr;
@@ -60,13 +60,22 @@
 .cv-references {
   color: var(--c-bC-50);
   font-weight: 500;
-  margin-top: 3em;
+  margin-top: 2em;
   margin-bottom: 0;
   font-size: 0.9375rem;
+}
 
-  @include min-width(1024) {
-    grid-column: 2;
+dd {
+  font-weight: 500;
+
+  &::after {
+    content: ': ';
   }
+}
+
+dd,
+dt {
+  display: inline;
 }
 
 @media print {
