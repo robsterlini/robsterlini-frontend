@@ -63,6 +63,7 @@ module.exports = function(eleventyConfig) {
         .format(date)
         .split('/')
         .reverse()
+        .map(part => part.length === 1 ? `0${part}` : part)
         .join('-');
     }
 
