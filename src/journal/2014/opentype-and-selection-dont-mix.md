@@ -3,6 +3,7 @@ title: Opentype and ::selection don’t mix
 date: 2014-04-29
 description: Fixing the dubious way that Chrome on <span class='sc'>OSX</span> borks OpenType features when used with a custom ::selection.
 layout: post
+tags: journal
 ---
 
 ## The problem

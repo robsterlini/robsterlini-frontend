@@ -1,11 +1,15 @@
 const sass = require('node-sass');
 const markdownIt = require("markdown-it");
 const htmlmin = require('html-minifier');
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const input = `src`;
 const output = `dist`;
 
 module.exports = function(eleventyConfig) {
+
+  // Plugins
+  eleventyConfig.addPlugin(pluginRss);
 
   // Shortcodes
   eleventyConfig.addPairedShortcode('markdown', (content) => {
@@ -51,22 +55,17 @@ module.exports = function(eleventyConfig) {
     })
     .reverse();
 
+  eleventyConfig.addNunjucksFilter('getPageDataFromCollections', (collections, url) => {
+    const [test] = collections.all.filter(collection => collection.url === url) || [];
+    return test ? test.data : {};
+  });
+
   eleventyConfig.addNunjucksFilter('getFirstJournalEntry', collections => {
     const [entry] = getJournalEntries(collections);
     return entry;
   });
   eleventyConfig.addNunjucksFilter('getJournalEntries', getJournalEntries);
-  eleventyConfig.addNunjucksFilter("formatDate", function(date, format = 'default') {
-
-    if (format === 'w3c-datetime') {
-      const [month, day, year] = new Intl.DateTimeFormat('en-GB', {})
-        .format(date)
-        .split('/')
-        .map(part => part.length === 1 ? `0${part}` : part);
-
-      return [year, month, day].join('-');
-    }
-
+  eleventyConfig.addNunjucksFilter("formatDate", date => {
     const options = {
       year: 'numeric',
       month: 'long',
@@ -75,11 +74,11 @@ module.exports = function(eleventyConfig) {
 
     return new Intl.DateTimeFormat('en-GB', options).format(date);
   });
-  eleventyConfig.addNunjucksFilter("isOldDate", function(value) {
+  eleventyConfig.addNunjucksFilter('isOldDate', value => {
     return new Date() - new Date(value) > 1.577e+10;
     return true;
   });
-  eleventyConfig.addNunjucksAsyncFilter('scss', function(data, callback) {
+  eleventyConfig.addNunjucksAsyncFilter('scss', (data, callback) => {
     const scssOptions = {
       data,
       includePaths: [
@@ -87,13 +86,16 @@ module.exports = function(eleventyConfig) {
       ],
       outputStyle: 'compressed',
     };
-    sass.render(scssOptions, (error, result) => {
+
+    const scssCallback = (error, result) => {
       callback(null, !error ? result.css : '');
 
       if (error) {
         console.error('Error', error.line, error.message);
       }
-    });
+    };
+
+    sass.render(scssOptions, scssCallback);
   });
 
   // Layout Aliases

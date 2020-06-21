@@ -5,11 +5,12 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for page in collections.all %}
-  {% set mappedUrl %}https://robsterlini.co.uk{{ page.url | url }}{% endset %}
+{% if page.data.sitemap_priority !== 0 %}
   <url>
-    <loc>{{ mappedUrl }}</loc>
-    <lastmod>{{ page.date | formatDate('w3c-datetime') }}</lastmod>
+    <loc>{{ page.url | absoluteUrl(global.url) }}</loc>
+    <lastmod>{{ page.date | rssDate }}</lastmod>
     <priority>{{ page.data.sitemap_priority if page.data.sitemap_priority else 0.6 }}</priority>
   </url>
+{% endif %}
 {%- endfor %}
 </urlset>
