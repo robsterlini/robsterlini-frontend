@@ -1,6 +1,15 @@
----
-layout: layouts/base.njk
-sitemap_priority: 0.5
+---js
+{
+  layout: "layouts/base.njk",
+  sitemap_priority: 0.5,
+  hero_header: "The journal",
+  meta_label1: "Posted on",
+  meta_data1: function(post) {
+    return new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(post.date);
+  },
+  meta_label2: "Read other entries",
+  meta_data2: "robsterlini.co.uk/journal/"
+}
 ---
 
 {% from "components/hero.html" import hero %}

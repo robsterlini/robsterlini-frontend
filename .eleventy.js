@@ -55,6 +55,25 @@ module.exports = function(eleventyConfig) {
     })
     .reverse();
 
+  eleventyConfig.addNunjucksFilter('generateMetaValue', (meta, defaultValue, page, post) => {
+    console.log(page);
+    const parsedValue = typeof(meta) === 'function' ? meta(page) : meta;
+
+    return parsedValue || defaultValue;
+  });
+
+  eleventyConfig.addNunjucksFilter('generateSocialImage', ({ header, title }) => {
+    const cloudinaryEncode = (text = '') => {
+      const unencodedText = `${text}`
+        .replace(/&amp;/g, '%26')
+        .replace(/\,/g, '%2C');
+
+      return  encodeURIComponent(unencodedText);
+    };
+
+    return `https://res.cloudinary.com/dym2d96h6/image/upload/w_1440,h_720,q_100/w_900,h_86,c_fit,y_160,x_155,g_north_west,co_rgb:FFF,l_text:rs-b-600.otf_56_bold_left_:${cloudinaryEncode(header)}/w_1200,h_420,y_280,x_70,c_fit,g_north_west,co_rgb:F75C6A,l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:${cloudinaryEncode(title)}/v1592751314/robsterlini/blog-post-card.png`;
+  });
+
   eleventyConfig.addNunjucksFilter('getPageDataFromCollections', (collections, url) => {
     const [test] = collections.all.filter(collection => collection.url === url) || [];
     return test ? test.data : {};

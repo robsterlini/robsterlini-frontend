@@ -10,23 +10,31 @@
     <meta name="description" content="{{ description }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
+    {% set socialImageText = {
+      title: hero_h1 if hero_h1 else title,
+      header: hero_header if hero_header else "Rob Sterlini"
+    } %}
+    {% set socialImage = socialImageText | generateSocialImage %}
+    {% set pageUrl = page.url | url | absoluteUrl(global.url) %}
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://robsterlini.co.uk{{ page.url | url }}">
+    <meta property="og:url" content="{{ pageUrl }}">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
-    <meta property="og:image" content="https://robsterlini.co.uk{{ image if image else "/images/index-meta.png" }}">
+    <meta property="og:image" content="{{ socialImage }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://robsterlini.co.uk{{ page.url | url }}">
+    <meta property="twitter:url" content="{{ pageUrl }}">
     <meta property="twitter:title" content="{{ title }}">
     <meta property="twitter:description" content="{{ description }}">
-    <meta property="twitter:image" content="https://robsterlini.co.uk{{ image if image else "/images/index-meta.png" }}">
-    <meta name="twitter:label1" value="Let’s chat!" />
-    <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
-    <meta name="twitter:label2" value="Tweet me!" />
-    <meta name="twitter:data2" value="@robsterlini" />
+    <meta property="twitter:image" content="{{ socialImage }}">
+
+    <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
+    <meta name="twitter:data1" value="{{ meta_data1 | generateMetaValue(global.email, page) }}" />
+    <meta name="twitter:label2" value="{{ meta_label2 if meta_label2 else 'Tweet me'}}" />
+    <meta name="twitter:data2" value="{{ meta_data2 | generateMetaValue('@robsterlini', page) }}" />
 
     <meta name="author" content="Rob Sterlini">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
