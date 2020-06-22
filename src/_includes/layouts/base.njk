@@ -70,9 +70,7 @@
     </script>-->
   </head>
   <body class="page">
-    {% if not no_header %}
-      {% include "nav.njk" %}
-    {% endif %}
+    {% include "nav.njk" %}
     {{ content | safe }}
     {% include "footer.njk" %}
 
@@ -87,6 +85,11 @@
           return;
         };
         document.fonts.load('1em rsa-body').then(setFontsLoaded);
+
+        function toggleMenu() {
+          document.documentElement.classList.toggle('js--menu');
+        };
+        document.getElementById('toggle-menu').addEventListener('click', toggleMenu);
       })();
 
       (function () {

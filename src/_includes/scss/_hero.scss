@@ -39,6 +39,12 @@
   &__header {
     margin: 0;
     width: 100%;
+    padding-right: 8rem;
+    box-sizing: border-box;
+
+    @media(hover: hover) and (pointer: fine) {
+      padding-right: 4rem
+    }
 
     > span {
       opacity: 0;
