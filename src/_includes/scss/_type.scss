@@ -17,9 +17,8 @@
   @extend %heading-large;
 
   color: var(--c-bA);
-  max-width: 18em;
+  max-width: 16em;
   margin: calc(0.25em + 1vw) 0 calc(0.25em + 2vw);
-
   font-size: 5.5vw;
   font-size: clamp(2rem, calc(2rem + 2.5vw), 4rem);
 }
@@ -30,6 +29,7 @@
   margin-top: 1.5em;
   margin-bottom: 0.667em;
   font-size: 1.75rem;
+  scroll-margin-top: 1.5em;
 }
 
 %h3 {
@@ -37,6 +37,7 @@
   font-size: 1.4rem;
   margin-top: 1.25em;
   margin-bottom: 0.5em;
+  scroll-margin-top: 1.25em;
 }
 
 %blockquote {

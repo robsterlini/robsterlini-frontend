@@ -15,6 +15,17 @@
 .post-article {
   max-width: 60rem;
 
+  &__anchor {
+    text-decoration: none;
+    color: var(--c-bC-33, currentColor);
+    transition-property: opacity, color;
+    font-weight: inherit;
+    font-family: 'rsa-body', sans-serif;
+    font-weight: 500;
+    font-size: 0.85em;
+    line-height: 1;
+  }
+
   h1 {
     @extend %h1;
   }
@@ -42,7 +53,8 @@
   code {
     color: var(--c-bA);
     display: inline-block;
-    font-size: 1.15em;
+    font-size: 1.1em;
+    font-weight: 600;
   }
 
   a {
@@ -58,12 +70,13 @@
     clear: both;
     padding: 1.8em 2em 2em;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.66;
     white-space: pre-wrap;
     margin: 2rem 0;
+    max-width: 48em;
 
     @include min-width(768) {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
 
     code {

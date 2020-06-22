@@ -125,7 +125,7 @@ It’s been a while now since I ran that race, but I’ve not quite found the ri
 {% figureInset
   "journal/parkrun-changed-my-life/progress.jpg",
   "A photo from 2014, and a photo from now",
-  "It’s been a long way to here, and we’re not done yet"
+  "It’s been a long way to here, and we’re not done&nbsp;yet"
 %}
 
 I went back to Derby to take on the Jenson Button Trust Triathlon again – and I loved it (again)!

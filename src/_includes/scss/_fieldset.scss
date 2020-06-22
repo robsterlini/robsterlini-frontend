@@ -31,7 +31,7 @@
     padding-right: 0.625rem;
     font-size: 0.9375rem;
     color: var(--c-bC);
-    border-bottom: 1px solid var(--c-bC-50);
+    border-bottom: 1px solid var(--c-bC-66);
     transition: border-color 125ms ease-in-out;
     font-variant-caps: all-small-caps;
 
@@ -42,7 +42,7 @@
 
     &:focus {
       border-color: var(--c-bC);
-      outline: var(--c-bC-50) 1px dotted;
+      outline: var(--c-bC-66) 1px dotted;
     }
   }
 }

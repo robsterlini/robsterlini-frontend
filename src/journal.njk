@@ -36,7 +36,7 @@ sitemap_priority: 0.8
         {% if loop.index >= 1 %}
               <li>
                 <a href="{{ entry.url | url }}">
-                  {{ entry.data.title }}, <span>{{ entry.date | formatDate }}</span>.
+                  {{ entry.data.title }}, <span>{{ entry.date | formatDate }}</span>
                 </a>
               </li>
         {% endif %}

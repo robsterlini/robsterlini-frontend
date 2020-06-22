@@ -23,7 +23,7 @@ The problem I've faced in the past is getting ahead of myself and trying to solv
 {% figureInset
   "journal/a-new-start/sketch.png",
   "A screenshot of the work-in-progress design in Sketch",
-  "You can probably see which aspects got kept from this&nbsp;design."
+  "You can probably see which aspects were kept from this&nbsp;design."
 %}
 
 Sometimes it works, but with something where I’m the designer, developer, product owner _et al_ I find that I get too bogged down in the details so best to stick to Sketch to begin with.

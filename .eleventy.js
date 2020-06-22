@@ -1,5 +1,6 @@
 const sass = require('node-sass');
 const markdownIt = require("markdown-it");
+const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
@@ -7,6 +8,27 @@ const input = `src`;
 const output = `dist`;
 
 module.exports = function(eleventyConfig) {
+  // Libraries
+  const markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true
+  }).use(markdownItAnchor, {
+    slugify: (s) => {
+      const string = String(s)
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/\./g, '');
+
+      return encodeURIComponent(string);
+    },
+    permalink: true,
+    permalinkClass: 'post-article__anchor',
+    permalinkHref: slug => `#${slug}`,
+    permalinkSymbol: "\u00B6",
+  });
+  eleventyConfig.setLibrary('md', markdownLibrary);
 
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -56,7 +78,6 @@ module.exports = function(eleventyConfig) {
     .reverse();
 
   eleventyConfig.addNunjucksFilter('generateMetaValue', (meta, defaultValue, page, post) => {
-    console.log(page);
     const parsedValue = typeof(meta) === 'function' ? meta(page) : meta;
 
     return parsedValue || defaultValue;
@@ -71,7 +92,41 @@ module.exports = function(eleventyConfig) {
       return  encodeURIComponent(unencodedText);
     };
 
-    return `https://res.cloudinary.com/dym2d96h6/image/upload/w_1440,h_720,q_100/w_900,h_86,c_fit,y_160,x_155,g_north_west,co_rgb:FFF,l_text:rs-b-600.otf_56_bold_left_:${cloudinaryEncode(header)}/w_1200,h_420,y_280,x_70,c_fit,g_north_west,co_rgb:F75C6A,l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:${cloudinaryEncode(title)}/v1592751314/robsterlini/blog-post-card.png`;
+    const imageProps = [
+      'w_1440',
+      'h_720',
+      'q_100',
+    ];
+
+    const headerProps = [
+      'w_800',
+      'h_86',
+      'c_fit',
+      'y_160',
+      'x_195',
+      'g_north_west',
+      'co_rgb:EEE7E7',
+      `l_text:rs-b-600.otf_56_bold_left_:${cloudinaryEncode(header)}`,
+    ];
+
+    const titleProps = [
+      'w_1200',
+      'h_420',
+      'y_280',
+      'x_110',
+      'c_fit',
+      'g_north_west',
+      'co_rgb:F75C6A',
+      `l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:${cloudinaryEncode(title)}`,
+    ];
+
+    return [
+      'https://res.cloudinary.com/dym2d96h6/image/upload',
+      imageProps.join(','),
+      headerProps.join(','),
+      titleProps.join(','),
+      'v1592751314/robsterlini/meta.png',
+    ].join('/');
   });
 
   eleventyConfig.addNunjucksFilter('getPageDataFromCollections', (collections, url) => {
