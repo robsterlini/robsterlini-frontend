@@ -158,3 +158,32 @@ a,
     opacity: 0.66;
   }
 }
+
+.link--pseudo {
+
+  &,
+  &:hover,
+  &:focus {
+    opacity: 1;
+    color: currentColor;
+    text-decoration: none;
+    transition: none;
+  }
+}
+
+.link__pseudo {
+  text-decoration: underline;
+  text-decoration-color: var(--c-bC-66, currentColor);
+  transition: 125ms ease-in-out;
+  transition-property: color, opacity, text-decoration-color;
+
+  .link--pseudo:hover &,
+  .link--pseudo:focus & {
+    color: var(--c-bA);
+    text-decoration-color: currentColor;
+  }
+
+  .link--pseudo:active & {
+    opacity: 0.66;
+  }
+}

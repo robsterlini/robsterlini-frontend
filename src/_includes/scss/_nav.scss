@@ -247,13 +247,14 @@ $nav-height: 3rem;
 
     &.active {
       background: var(--c-bA);
-      color: var(--c-bC);
+      color: var(--c-bB);
       text-decoration: none;
       transition-property: color, background, opacity;
 
       &:hover,
       &:focus {
         background: var(--c-bB);
+        color: var(--c-bC);
       }
     }
   }

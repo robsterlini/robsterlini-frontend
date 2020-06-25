@@ -7,11 +7,11 @@
     grid-gap: $grid-row-gap $grid-column-gap;
 
     @include min-width(768) {
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 1fr 1fr;
     }
 
     @include min-width(960) {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 3fr 2fr;
     }
   }
 }
@@ -29,34 +29,13 @@
 
 .journal-older {
 
-  li > a > span {
+  &__date {
     font-weight: 300;
     text-decoration: none;
+    white-space: nowrap;
   }
-}
 
-.journal-entry {
-  // list-style: none;
-
-  // a {
-  //   text-decoration: none;
-
-  //   &:hover,
-  //   &:focus {
-
-  //     .h2 {
-  //       text-decoration-color: currentColor;
-  //     }
-  //   }
-  // }
-
-  // .h2 {
-  //   text-decoration: underline;
-  //   text-decoration-color: var(--c-bC-66, currentColor);
-  //   transition: text-decoration-color 125ms ease-in-out;
-  //   margin-top: 0.25em;
-  // }
-
-  // .lead {
-  // }
+  &__external {
+    color: var(--c-bA);
+  }
 }

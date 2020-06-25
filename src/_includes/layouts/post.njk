@@ -31,7 +31,26 @@
 {% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
 
 <main class="main">
+  {% set post_data = {
+    url: url,
+    data: {
+      external_url: external_url,
+      title: title
+    }
+  } %}
+  {% set entry_link = post_data | getJournalLink %}
+  {% if external_url %}
+  <article class="group">
+    <p>
+      <span class="lead">Originally posted</span><br>
+      <span class="list__item">
+        <a {{ entry_link.htmlAttrs | safe }}>{{ entry_link.domain }}</a>
+      </span>
+    </p>
+  </article>
+  {% else %}
   <article class="group post-article">
     {{ content | safe }}
   </article>
+  {% endif %}
 </main>

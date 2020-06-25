@@ -90,6 +90,7 @@
 
   .figure {
     counter-increment: section;
+    clear: both;
 
     &--inset {
       margin-left: auto;
@@ -106,7 +107,6 @@
     }
 
     &--full {
-      clear: both;
       max-width: 100%;
     }
 

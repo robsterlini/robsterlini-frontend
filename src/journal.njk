@@ -17,6 +17,7 @@ nav: journal
   <div class="group">
     {% set entries = collections | getJournalEntries %}
     {% for entry in entries %}
+      {% set entry_link = entry | getJournalLink %}
         {% if loop.index == 1 %}
           <div class="journal-latest">
             <h2 class="p">
@@ -25,7 +26,9 @@ nav: journal
             </h2>
             <p><span class="journal-latest__date">{{ entry.date | formatDate }}</span> {{ entry.data.description }}</p>
             <p class="list__item">
-              <a class="journal-first" href="{{ entry.url | url }}">Read the entry</a>
+              <a class="journal-first link--pseudo" {{ entry_link.htmlAttrs | safe }}>
+                <span class="link__pseudo">Read the entry{% if entry_link.domain %} on {{ entry_link.domain }}</span><span class="journal-older__external">&#8239;&#8599;</span>{% endif %}
+              </a>
             </p>
           </div>
 
@@ -34,10 +37,12 @@ nav: journal
             <ul class="list">
         {% endif %}
 
-        {% if loop.index >= 1 %}
+        {% if loop.index > 1 %}
               <li>
-                <a href="{{ entry.url | url }}">
-                  {{ entry.data.title }}, <span>{{ entry.date | formatDate }}</span>
+                <a class="journal-older__link link--pseudo" {{ entry_link.htmlAttrs | safe }}>
+                  <span class="journal-older__label link__pseudo">{{ entry.data.title }}</span>
+                  {%- if entry_link.domain %}<span class="journal-older__external">&#8239;&#8599;</span>{% endif %}
+                  <span class="journal-older__date">{{ entry.date | formatDate }}</span>
                 </a>
               </li>
         {% endif %}

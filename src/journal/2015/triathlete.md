@@ -9,7 +9,7 @@ tags: journal
 
 ## Why triathlon?
 
-When I signed up for [The London Triathlon](../triathlon/#the-london-triathlon "Read about my reasons for doing The London Triathlon"), I had no experience in the sport. At all.
+When I signed up for [The London Triathlon](/triathlon/#the-london-triathlon "Read about my reasons for doing The London Triathlon"), I had no experience in the sport. At&nbsp;all.
 
 I learned to swim at an early age; I learned to ride a bike at an early age; and a little more recently I’ve taken up running as a way to keep fit (you’ll probably have seen many of the countless Nike+ runs on [my Instagram feed](https://instagram.com/robsterlini "Check out my photos on Instagram")).
 
@@ -159,7 +159,7 @@ Overall, it was just sensational.
 
 ## Thanks
 
-I’ll just take this opportunity to thank __everyone__ who has got behind me: either through [donating](uk.virginmoneygiving.com/robsterlini "Donate towards my fundraising goal") (you can definitely still do that if you want to); on cheering me on, on one of my training runs – strangers in London aren’t all horrible people; or putting up with me in my overly-tight lycra bits. I’m eternally grateful.
+I’ll just take this opportunity to thank __everyone__ who has got behind me: either through [donating](https://uk.virginmoneygiving.com/robsterlini "Donate towards my fundraising goal") (you can definitely still do that if you want to); on cheering me on, on one of my training runs – strangers in London aren’t all horrible people; or putting up with me in my overly-tight lycra bits. I’m eternally grateful.
 
 There’s one person in particular who has carried me though. She makes up my one woman entourage, my ‘keep a level head’ coach, my ‘makes so much noise whooping at events that people give her funny looks, but I don’t care‘ wind beneath my wings. My mum is awesome.
 

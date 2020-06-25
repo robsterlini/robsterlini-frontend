@@ -7,6 +7,28 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const input = `src`;
 const output = `dist`;
 
+const slugify = string => {
+  if (!string) return string;
+
+  const a = `àáäâèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;άαβγδεέζήηθιίϊΐκλμνξοόπρσςτυϋύΰφχψωώ`;
+  const b = `aaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------aavgdeeziitiiiiklmnxooprsstyyyyfhpoo`;
+  const p = new RegExp(a.split(``).join(`|`), `g`);
+
+  return string.toString().trim().toLowerCase()
+    .replace(/ου/g, `ou`)
+    .replace(/ευ/g, `eu`)
+    .replace(/θ/g, `th`)
+    .replace(/ψ/g, `ps`)
+    .replace(/\//g, `-`)
+    .replace(/\s+/g, `-`)          // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special chars
+    .replace(/&/g, `and`)          // Replace & with `and`
+    .replace(/[^\w-]+/g, ``)       // Remove all non-word chars
+    .replace(/--+/g, `-`)          // Replace multiple - with single -
+    .replace(/^-+/, ``)            // Trim - from start of text
+    .replace(/-+$/, ``);           // Trim - from end of text
+};
+
 module.exports = function(eleventyConfig) {
   // Libraries
   const markdownLibrary = markdownIt({
@@ -14,15 +36,16 @@ module.exports = function(eleventyConfig) {
     breaks: true,
     linkify: true
   }).use(markdownItAnchor, {
-    slugify: (s) => {
-      const string = String(s)
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/\./g, '');
+    slugify,
+    // slugify: (s) => {
+    //   const string = String(s)
+    //     .trim()
+    //     .toLowerCase()
+    //     .replace(/\s+/g, '-')
+    //     .replace(/\./g, '');
 
-      return encodeURIComponent(string);
-    },
+    //   return encodeURIComponent(string);
+    // },
     permalink: true,
     permalinkClass: 'post-article__anchor',
     permalinkHref: slug => `#${slug}`,
@@ -71,12 +94,6 @@ module.exports = function(eleventyConfig) {
   });
 
   // Filters
-  const getJournalEntries = ({ all = [] } = {}) => all
-    .filter(entry => {
-      return entry.url.startsWith('/journal/') && entry.url !== '/journal/';
-    })
-    .reverse();
-
   eleventyConfig.addNunjucksFilter('generateMetaValue', (meta, defaultValue, page, post) => {
     const parsedValue = typeof(meta) === 'function' ? meta(page) : meta;
 
@@ -133,6 +150,52 @@ module.exports = function(eleventyConfig) {
     const [test] = collections.all.filter(collection => collection.url === url) || [];
     return test ? test.data : {};
   });
+
+  const getJournalEntries = ({ all = [] } = {}) => all
+    .filter(entry => {
+      return entry.url.startsWith('/journal/') && entry.url !== '/journal/';
+    })
+    .reverse();
+
+  const getJournalLink = (entry) =>  {
+    if (!entry) return {};
+
+    let domain, htmlAttrs;
+
+    let {
+      url,
+      data: { title },
+    } = entry;
+
+    const { external_url } = entry.data;
+
+    title = `Read ‘${title || 'the entry'}’`;
+
+    if (!external_url) {
+      url = eleventyConfig.getFilter('url')(url);
+    }
+
+    else {
+      url = external_url;
+      domain = url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/)[1];
+      title += ` on ${domain}`;
+    }
+
+    htmlAttrs = `href="${url}" title="${title}"`;
+
+    if (domain) {
+      htmlAttrs += ' target="_blank" rel="noopener"';
+    }
+
+    return {
+      domain,
+      url,
+      title,
+      htmlAttrs,
+    };
+  };
+
+  eleventyConfig.addNunjucksFilter('getJournalLink', getJournalLink);
 
   eleventyConfig.addNunjucksFilter('getFirstJournalEntry', collections => {
     const [entry] = getJournalEntries(collections);
