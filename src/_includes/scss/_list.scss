@@ -45,6 +45,10 @@
 
   &__item {
     @extend %list-item;
+
+    + .list__item {
+      margin-top: 0.25em;
+    }
   }
 }
 
