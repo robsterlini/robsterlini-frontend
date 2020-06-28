@@ -5,12 +5,10 @@ image: /images/cv-meta.png
 layout: default
 nav: cv
 sitemap_priority: 0.8
+custom_css: pages/cv.scss
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/cv.scss" %}{% endset %}
-<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   {# Frontend developer from London, UK – <a href="/">robsterlini.co.uk</a> – <a href="mailto:hi@robsterlini.co.uk" title="Email me">hi@robsterlini.co.uk</a>
@@ -93,6 +91,10 @@ sitemap_priority: 0.8
 
       <h2 class="h2">A few&nbsp;extras</h2>
       <dl class="list">
+        <div class="list__item">
+          <dd>Full name</dd>
+          <dt>Robbie Sterlini-Aitchison</dt>
+        </div>
         <div class="list__item">
           <dd><abbr class="sc" title="Date of birth">DOB</abbr></dd>
           <dt>25 November&nbsp;1991</dt>

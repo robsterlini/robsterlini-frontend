@@ -3,12 +3,10 @@ title: Gone
 layout: default
 sitemap_priority: 0
 hero_header: 410
+custom_css: pages/404.scss
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/404.scss" %}{% endset %}
-<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   <p>This page got deleted somewhere along the way, it’s a gonner!</p>

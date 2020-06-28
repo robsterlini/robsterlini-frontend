@@ -4,12 +4,10 @@ layout: default
 permalink: 404.html
 sitemap_priority: 0
 hero_header: 404
+custom_css: pages/404.scss
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/404.scss" %}{% endset %}
-<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   <p>This page doesn’t exist any more, or it may never have existed.</p>

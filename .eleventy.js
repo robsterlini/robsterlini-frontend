@@ -218,7 +218,6 @@ module.exports = function(eleventyConfig) {
 
   // Scss
   eleventyConfig.addNunjucksAsyncFilter('inlineScss', scssConfig.inlineScss);
-  // eleventyConfig.addNunjucksAsyncFilter('separateScss', scssConfig.separateScss);
 
   // Layout Aliases
   eleventyConfig.addLayoutAlias('default', 'layouts/base.njk');
@@ -229,8 +228,6 @@ module.exports = function(eleventyConfig) {
     `${input}/fonts`,
     `${input}/favicon.svg`,
     `${input}/favicon.png`,
-    `${input}/print.css`,
-    `${input}/_redirects`,
   ];
 
   filesToCopy.forEach(file => {

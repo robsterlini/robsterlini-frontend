@@ -4,12 +4,10 @@ description: The sporadic ramblings of Rob Sterlini.
 layout: default
 sitemap_priority: 0.8
 nav: journal
+custom_css: pages/journal.scss
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/journal.scss" %}{% endset %}
-<style>{{ css | inlineScss | safe }}</style>
 
 {{ hero("The journal" | safe) }}
 
