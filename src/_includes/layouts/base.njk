@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
 
+    {% set meta_description = description if description else "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
+
     <!-- Primary Meta Tags -->
     <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini" }}</title>
     <meta name="title" content="{{ title }}">
-    <meta name="description" content="{{ description }}">
+    <meta name="description" content="{{ meta_description }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
     {% set socialImageText = {
@@ -20,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ pageUrl }}">
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
+    <meta property="og:description" content="{{ meta_description }}">
     <meta property="og:image" content="{{ socialImage }}">
     <meta property="og:image:width" content="1440">
     <meta property="og:image:height" content="720">
@@ -29,7 +31,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ pageUrl }}">
     <meta property="twitter:title" content="{{ title }}">
-    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:description" content="{{ meta_description }}">
     <meta property="twitter:image" content="{{ socialImage }}">
 
     <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
@@ -44,8 +46,6 @@
     <link rel="alternate icon" type="image/png" href="/favicon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <link rel="stylesheet" media="print" href="/print.css" />
-
     {% set webfonts = [
       "body-300",
       "body-500",
@@ -55,10 +55,12 @@
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
-    {% set css %}
-      {% include "styles.scss" %}
-    {% endset %}
-    <style>{{ css | scss | safe }}</style>
+    {% set css %}{% include "styles.scss" %}{% endset %}
+    <style>{{ css | inlineScss | safe }}
+    {%- if custom_css %}
+      {%- set css %}{% include custom_css %}{% endset %}{#
+      #}{{ css | inlineScss | safe }}
+    {%- endif %}</style>
 
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
     <script>

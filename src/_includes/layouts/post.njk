@@ -9,14 +9,12 @@
   },
   meta_label2: "Read other entries",
   meta_data2: "robsterlini.co.uk/journal/",
-  nav: "journal"
+  nav: "journal",
+  custom_css: "pages/post.scss"
 }
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/post.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
 
 {% set children = "" %}
 {% set children %}

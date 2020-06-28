@@ -4,12 +4,10 @@ description: The sporadic ramblings of Rob Sterlini.
 layout: default
 sitemap_priority: 0.8
 nav: journal
+custom_css: pages/journal.scss
 ---
 
 {% from "components/hero.html" import hero %}
-
-{% set css %}{% include "pages/journal.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
 
 {{ hero("The journal" | safe) }}
 
@@ -24,7 +22,7 @@ nav: journal
               <span class="lead">Latest entry</span>
               <span class="h2">{{ entry.data.title }}</span>
             </h2>
-            <p><span class="journal-latest__date">{{ entry.date | formatDate }}</span> {{ entry.data.description }}</p>
+            <p><span class="journal-latest__date">{{ entry.date | formatDate }}</span>{% if entry.data.description %} {{ entry.data.description }}{% endif %}</p>
             <p class="list__item">
               <a class="journal-first link--pseudo" {{ entry_link.htmlAttrs | safe }}>
                 <span class="link__pseudo">Read the entry{% if entry_link.domain %} on {{ entry_link.domain }}</span><span class="journal-older__external">&#8239;&#8599;</span>{% endif %}

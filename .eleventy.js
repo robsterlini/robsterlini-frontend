@@ -4,8 +4,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
-const input = `src`;
-const output = `dist`;
+const { input, output } = require('./config/constants.js');
+const scssConfig = require('./config/scss.js');
 
 const slugify = string => {
   if (!string) return string;
@@ -215,25 +215,9 @@ module.exports = function(eleventyConfig) {
     return new Date() - new Date(value) > 1.577e+10;
     return true;
   });
-  eleventyConfig.addNunjucksAsyncFilter('scss', (data, callback) => {
-    const scssOptions = {
-      data,
-      includePaths: [
-        `${input}/_includes`,
-      ],
-      outputStyle: 'compressed',
-    };
 
-    const scssCallback = (error, result) => {
-      callback(null, !error ? result.css : '');
-
-      if (error) {
-        console.error('Error', error.line, error.message);
-      }
-    };
-
-    sass.render(scssOptions, scssCallback);
-  });
+  // Scss
+  eleventyConfig.addNunjucksAsyncFilter('inlineScss', scssConfig.inlineScss);
 
   // Layout Aliases
   eleventyConfig.addLayoutAlias('default', 'layouts/base.njk');
@@ -244,8 +228,6 @@ module.exports = function(eleventyConfig) {
     `${input}/fonts`,
     `${input}/favicon.svg`,
     `${input}/favicon.png`,
-    `${input}/print.css`,
-    `${input}/_redirects`,
   ];
 
   filesToCopy.forEach(file => {

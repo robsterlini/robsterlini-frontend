@@ -203,7 +203,6 @@ $nav-height: 3rem;
   position: relative;
   z-index: 2;
   width: 100%;
-  list-style: none;
   pointer-events: auto;
   font-size: 1rem;
   padding: 0;
@@ -223,6 +222,8 @@ $nav-height: 3rem;
   .group {
     box-sizing: border-box;
     display: flex;
+    list-style: none;
+    padding-left: 0;
     margin: auto;
     padding-right: 4rem;
   }
