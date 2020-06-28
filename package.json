@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Rob Sterlini",
   "scripts": {
-    "develop": "gulp separate-scss && npx @11ty/eleventy --serve",
-    "build": "gulp separate-scss && npx @11ty/eleventy",
+    "scss": "gulp scss",
+    "develop": "npm run scss && npx @11ty/eleventy --serve",
+    "build": "npm run scss && npx @11ty/eleventy",
     "start": "npm run develop"
   },
   "repository": {
