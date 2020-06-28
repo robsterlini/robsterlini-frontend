@@ -15,12 +15,13 @@
     } %}
     {% set socialImage = socialImageText | generateSocialImage %}
     {% set pageUrl = page.url | url | absoluteUrl(global.url) %}
+    {% set meta_description = description if description else "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ pageUrl }}">
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
+    <meta property="og:description" content="{{ meta_description }}">
     <meta property="og:image" content="{{ socialImage }}">
     <meta property="og:image:width" content="1440">
     <meta property="og:image:height" content="720">
@@ -29,7 +30,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ pageUrl }}">
     <meta property="twitter:title" content="{{ title }}">
-    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:description" content="{{ meta_description }}">
     <meta property="twitter:image" content="{{ socialImage }}">
 
     <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
