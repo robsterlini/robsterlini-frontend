@@ -9,7 +9,7 @@ hero_header: 404
 {% from "components/hero.html" import hero %}
 
 {% set css %}{% include "pages/404.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
+<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   <p>This page doesn’t exist any more, or it may never have existed.</p>

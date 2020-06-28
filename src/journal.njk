@@ -9,7 +9,7 @@ nav: journal
 {% from "components/hero.html" import hero %}
 
 {% set css %}{% include "pages/journal.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
+<style>{{ css | inlineScss | safe }}</style>
 
 {{ hero("The journal" | safe) }}
 

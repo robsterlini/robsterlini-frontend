@@ -8,7 +8,7 @@ hero_header: 410
 {% from "components/hero.html" import hero %}
 
 {% set css %}{% include "pages/404.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
+<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   <p>This page got deleted somewhere along the way, it’s a gonner!</p>

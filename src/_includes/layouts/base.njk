@@ -58,9 +58,9 @@
     {% set css %}
       {% include "styles.scss" %}
     {% endset %}
-    <style>{{ css | scss | safe }}</style>
+    <style>{{ css | inlineScss | safe }}</style>
     {% if custom_css %}
-      <link rel="stylesheet" href="/{{ 'src/_includes/pages/post.scss' | scss_separate }}" />
+      <link rel="stylesheet" href="/{{ custom_css | separateScss }}" />
     {% endif %}
 
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>

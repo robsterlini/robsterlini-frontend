@@ -16,9 +16,6 @@
 
 {% from "components/hero.html" import hero %}
 
-<!--{% set css %}{% include "pages/post.scss" %}{% endset %}-->
-<!--<pre>{{ "src/_includes/pages/post.scss" | scss_separate }}</pre>-->
-
 {% set children = "" %}
 {% set children %}
   <p class="post-description"><strong>{{ page.date | formatDate }}</strong>{% if description %} {{ description | safe }}{% endif %}</p>

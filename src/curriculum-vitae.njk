@@ -10,7 +10,7 @@ sitemap_priority: 0.8
 {% from "components/hero.html" import hero %}
 
 {% set css %}{% include "pages/cv.scss" %}{% endset %}
-<style>{{ css | scss | safe }}</style>
+<style>{{ css | inlineScss | safe }}</style>
 
 {% set children %}
   {# Frontend developer from London, UK – <a href="/">robsterlini.co.uk</a> – <a href="mailto:hi@robsterlini.co.uk" title="Email me">hi@robsterlini.co.uk</a>
