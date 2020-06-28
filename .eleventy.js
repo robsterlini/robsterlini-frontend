@@ -3,6 +3,8 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const fs = require('fs');
+const path = require('path');
 
 const input = `src`;
 const output = `dist`;
@@ -233,6 +235,57 @@ module.exports = function(eleventyConfig) {
     };
 
     sass.render(scssOptions, scssCallback);
+  });
+
+  const generateCss = (_scssPath, _cssPath, callback) => {
+    const scssOptions = {
+      file: _scssPath,
+      includePaths: [
+        `${input}/_includes`,
+      ],
+      outputStyle: 'compressed',
+    };
+
+    const scssCallback = (error, result) => {
+      callback(null, !error ? result : '');
+
+      if (error) {
+        console.error('Error', error.line, error.message);
+      }
+    };
+
+    // Encapsulate rendered css from _scssPath into renderedCss variable
+    const renderedCss = sass.renderSync(scssOptions);
+
+    // Then write result css string to _cssPath file
+    fs.writeFile(_cssPath, renderedCss.css.toString(), (writeErr) => {
+      if (writeErr) throw writeErr;
+
+      scssCallback(null, _cssPath.replace('dist/', ''));
+
+      console.log(`CSS file saved: ${_cssPath}`);
+    });
+  };
+
+  eleventyConfig.addNunjucksAsyncFilter('scss_separate', (scssPath, callback) => {
+    const cssPath = `${output}/test/test.css`;
+
+    // If cssPath directory doesn't already exist, add it...
+    if (!fs.existsSync(path.dirname(cssPath))) {
+      console.log(`Creating new CSS directory: ${path.dirname(cssPath)}/`);
+
+      // Create cssPath directory recursively
+      fs.mkdir(path.dirname(cssPath), { recursive: true }, (mkdirErr) => {
+        if (mkdirErr) throw mkdirErr;
+
+        console.log('CSS directory created.');
+
+        generateCss(scssPath, cssPath, callback);
+      });
+    }
+
+    // Generate CSS on startup
+    generateCss(scssPath, cssPath, callback);
   });
 
   // Layout Aliases
