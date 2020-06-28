@@ -7,8 +7,8 @@
       <span>Menu</span>
     </button>
   </div>
-  <ul class="nav-list">
-    <div class="group sc">
+  <div class="nav-list">
+    <ul class="group sc">
       {% for item in global.nav %}
         <li>
           <a href="{{ item.link }}"{% if nav and nav === item.nav %} class="active"{% endif %}>
@@ -16,6 +16,6 @@
           </a>
         </li>
       {% endfor %}
-    </div>
-  </ul>
+    </ul>
+  </div>
 </nav>
