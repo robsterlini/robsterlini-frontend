@@ -1,0 +1,85 @@
+@import 'scss/mixins';
+
+.home-hero-hide {
+
+  @include max-width(480) {
+    display: none;
+  }
+}
+
+.home-content {
+  animation: none;
+
+  @include min-width(1024) {
+    padding-bottom: 4vw;
+    padding-top: 4vw;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-gap: $grid-row-gap $grid-column-gap;
+  }
+
+  @at-root {
+
+    [class^='home-content__section--'] {
+      animation: opacity-transform 400ms 250ms ease-out both;
+
+      > p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__section {
+
+    &--contact {
+
+      > p:last-child {
+        margin-top: 2vw;
+      }
+    }
+
+    &--journal {
+      animation-delay: 875ms;
+    }
+  }
+
+  @include min-max-width(788, 1024) {
+
+    &__wrapper {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    &__section {
+
+      &--life {
+        grid-row: 2;
+      }
+
+      &--contact {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+    }
+  }
+
+  @include min-width(1024) {
+
+    &__wrapper {
+      grid-template-columns: 4fr 4fr 3fr;
+    }
+
+    &__section {
+
+      &--life {
+        animation-delay: 375ms;
+      }
+
+      &--contact {
+        animation-delay: 500ms;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-color-preference="auto" data-contrast-preference="auto">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Primary Meta Tags -->
+    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini" }}</title>
+    <meta name="title" content="{{ title }}">
+    <meta name="description" content="{{ description }}">
+    <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
+
+    {% set socialImageText = {
+      title: hero_h1 if hero_h1 else title,
+      header: hero_header if hero_header else "Rob Sterlini"
+    } %}
+    {% set socialImage = socialImageText | generateSocialImage %}
+    {% set pageUrl = page.url | url | absoluteUrl(global.url) %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ socialImage }}">
+    <meta property="og:image:width" content="1440">
+    <meta property="og:image:height" content="720">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ pageUrl }}">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:image" content="{{ socialImage }}">
+
+    <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
+    <meta name="twitter:data1" value="{{ meta_data1 | generateMetaValue(global.email, page) }}" />
+    <meta name="twitter:label2" value="{{ meta_label2 if meta_label2 else 'Tweet me'}}" />
+    <meta name="twitter:data2" value="{{ meta_data2 | generateMetaValue('@robsterlini', page) }}" />
+
+    <meta name="author" content="Rob Sterlini">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Eleventy, https://github.com/robsterlini/robsterlini-frontend">
+
+    <link rel="alternate icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="stylesheet" media="print" href="/print.css" />
+
+    {% set webfonts = [
+      "body-300",
+      "body-500",
+      "heading-600",
+      "heading-600-sc"
+    ] %}
+    {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
+    {% endfor %}
+
+    {% set css %}
+      {% include "styles.scss" %}
+    {% endset %}
+    <style>{{ css | scss | safe }}</style>
+
+    <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
+    <script>
+      addEventListener('DOMContentLoaded', function() {
+        webVitals.getCLS(console.log);
+        webVitals.getFID(console.log);
+        webVitals.getLCP(console.log);
+      });
+    </script>-->
+  </head>
+  <body class="page">
+    {% include "nav.njk" %}
+    {{ content | safe }}
+    {% include "footer.njk" %}
+
+    <script type="text/javascript">
+      (function () {
+        function setFontsLoaded() {
+          document.documentElement.className += ' fonts-loaded';
+        }
+
+        if (!('fonts' in document)) {
+          setFontsLoaded();
+          return;
+        };
+        document.fonts.load('1em rsa-body').then(setFontsLoaded);
+
+        function toggleMenu() {
+          document.documentElement.classList.toggle('js--menu');
+        };
+        document.getElementById('toggle-menu').addEventListener('click', toggleMenu);
+      })();
+
+      (function () {
+        var colorPreferenceSelect = document.getElementById('color-preference');
+        var contrastPreferenceSelect = document.getElementById('contrast-preference');
+
+        function setPreference(name, value) {
+          localStorage.setItem(name + '-preference', value);
+          document.documentElement.dataset[name + 'Preference'] = value;
+        }
+
+        function getPreference(name) {
+          return localStorage.getItem(name + '-preference') || 'auto';
+        }
+
+        colorPreferenceSelect.addEventListener('change', function(e) {
+          setPreference('color', e.target.value);
+        });
+
+        contrastPreferenceSelect.addEventListener('change', function(e) {
+          setPreference('contrast', e.target.value);
+        });
+
+        if (window.matchMedia) {
+          var lightMode = window.matchMedia('(prefers-color-scheme: light)');
+          var highContrast = window.matchMedia('(prefers-contrast: high)');
+
+          function setAutoPreferenceAutoLabel(preferenceSelect, label) {
+            preferenceSelect[0].innerText = 'Auto (' + label + ')';
+          }
+
+          lightMode.addListener(function(e) {
+            setAutoPreferenceAutoLabel(colorPreferenceSelect, e.matches);
+          });
+
+          highContrast.addListener(function(e) {
+            setAutoPreferenceAutoLabel(contrastPreferenceSelect, e.matches);
+          });
+
+          setAutoPreferenceAutoLabel(colorPreferenceSelect, lightMode.matches ? 'Light' : 'Dark');
+          setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
+        }
+
+        var colorPreference = getPreference('color');
+        var contrastPreference = getPreference('contrast');
+
+        colorPreferenceSelect.value = colorPreference;
+        setPreference('color', colorPreference);
+
+        contrastPreferenceSelect.value = contrastPreference;
+        setPreference('contrast', contrastPreference);
+      })();
+    </script>
+  </body>
+</html>

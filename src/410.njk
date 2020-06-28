@@ -1,0 +1,20 @@
+---
+title: Gone
+layout: default
+sitemap_priority: 0
+hero_header: 410
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set css %}{% include "pages/404.scss" %}{% endset %}
+<style>{{ css | scss | safe }}</style>
+
+{% set children %}
+  <p>This page got deleted somewhere along the way, it’s a gonner!</p>
+  <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
+{% endset %}
+{{ hero('Good bye!' | safe, header='410 – Gone', children=children | safe) }}
+
+<main class="error" aria-hidden="true">
+</main>

@@ -1,0 +1,48 @@
+.fieldset {
+  display: inline-block;
+  margin-right: 1em;
+
+  &__input {
+    display: inline-block;
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: 0.03125rem;
+      width: 0.25rem;
+      height: 0.25rem;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  label {
+    font-weight: 500;
+    color: var(--c-bA);
+    margin-right: 0.5em;
+  }
+
+  select {
+    background: none;
+    padding-right: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--c-bC);
+    border-bottom: 1px solid var(--c-bC-66);
+    transition: border-color 125ms ease-in-out;
+    font-variant-caps: all-small-caps;
+
+    &:hover,
+    &:focus {
+      border-color: var(--c-bC);
+    }
+
+    &:focus {
+      border-color: var(--c-bC);
+      outline: var(--c-bC-66) 1px dotted;
+    }
+  }
+}

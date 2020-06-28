@@ -1,0 +1,46 @@
+---
+title: Rob Sterlini
+title_suffix: Frontend developer & more
+layout: default
+sitemap_priority: 1
+no_logo: true
+hero_h1: Frontend developer, typography enthusiast, amateur triathlete, & LEGO master builder
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set css %}{% include "pages/home.scss" %}{% endset %}
+<style>{{ css | scss | safe }}</style>
+
+{% set h1 %}Frontend dev<span class="home-hero-hide">eloper</span>, typo<span class="home-hero-hide">graphy</span> enthusiast, <span class="home-hero-hide">amateur </span>triathlete, &amp;&nbsp;<span class="sc">LEGO</span> master builder.{% endset %}
+
+{{ hero(h1 | safe, header='Rob Sterlini') }}
+
+<main class="main home-content">
+  <div class="home-content__wrapper group">
+    <div class="home-content__section--work" id="work">
+      <p class="p"><span class="lead">By day I am a Lead Frontend Engineer at <a href="https://fueled.com/team/rob-sterlini" target="_blank" rel="noopener">Fueled</a>.</span> In&nbsp;the nearly six years I have been at Fueled, I have led the development on projects for <strong>Apple</strong>, crafted digital experiences for global personalities like <strong>Tony Robbins</strong>, and developed innovative web presences for fledgling start-ups like <strong>Keetoo</strong>, and&nbsp;<strong>Omstars</strong>.</p>
+      <p>In 2018, I began spearheading the rebuild of <a href="https://fueled.com"><strong>fueled.com</strong></a> underpinned by an extensible, consistent Vue.js component library that aligned with a brand refresh within the&nbsp;organisation.</p>
+    </div>
+    <div class="home-content__section--life" id="life">
+      <p><span class="lead">Away from the screen I like swimming, cycling, and running&hellip;</span> occasionally one after the other. I&apos;ve been participating in triathlon since 2015 and have <a href="https://www.instagram.com/p/BZJncXEAQgv/" target="_blank" rel="noopener">one <abbr title="Ironman 70.3" class="sc">IM&nbsp;70.3</abbr></a> under my belt with my sights firmly set on a full Ironman in&nbsp;2021.</p>
+      <p>I&apos;m pretty into <span class="sc">LEGO</span>, you might have heard me banging the <a href="http://legonotlegos.com" target="_blank" rel="noopener"><span class="sc">LEGO</span>&nbsp;not&nbsp;Legos</a> drum on Twitter, where you&apos;d also find me tweeting about my beloved&nbsp;Spurs.</p>
+      <p>When the season is right I love outdoor activities like skiing, hiking, and recently <a href="https://www.instagram.com/p/B7_0MLWn_ii/" target="_blank" rel="noopener">scuba&nbsp;diving!</a></p>
+    </div>
+    <div class="home-content__section--contact" id="contact">
+      <p><span class="lead">Wanna say hi?</span> Email&nbsp;me at <a href="mailto:hi@robsterlini.co.uk">hi@robsterlini.co.uk</a> or tweet me at&nbsp;<a href="https://twitter.com/robsterlini" target="_blank" rel="noopener">@robsterlini</a>.</p>
+      <p>You can find my photos on <a href="https://instagram.com/robsterlini" target="_blank" rel="noopener">Instagram</a>, code on <a href="https://github.com/robsterlini" target="_blank" rel="noopener">Github</a>, activities on <a href="https://www.strava.com/athletes/6578573" target="_blank" rel="noopener">Strava</a>, experiments on <a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Codepen</a>, my job history on <a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">LinkedIn</a>, and <a href="/curriculum-vitae">my&nbsp;<abbr title="Curriculum vitae" class="sc">CV</abbr></a>.</p>
+
+      {#<p>You can <a href="/">check out my&nbsp;<abbr title="Curriculum vitae" class="sc">CV</abbr></a>. Elsewhere on the internet you can find&nbsp;my:</p>
+      <ul class="list">
+        <li><a href="https://instagram.com/robsterlini" target="_blank" rel="noopener">Photos on Instagram</a></li>
+        <li><a href="https://github.com/robsterlini" target="_blank" rel="noopener">Code on Github</a></li>
+        <li><a href="https://www.strava.com/athletes/6578573" target="_blank" rel="noopener">Activities on Strava</a></li>
+        <li><a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Experiments on Codepen</a></li>
+        <li><a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">History on LinkedIn</a></li>
+      </ul>#}
+      {% set entry = collections | getFirstJournalEntry %}
+      <p><span class="lead">Read the latest journal entry:</span> <a href="{{ entry.data.external_url if entry.data.external_url else entry.url | url }}">{{ entry.data.title }}</a>, posted on {{ entry.date | formatDate }}; or peruse <a href="/journal/">the&nbsp;archive</a>.</p>
+    </div>
+  </div>
+</main>

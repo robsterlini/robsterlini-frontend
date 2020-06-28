@@ -1,0 +1,8 @@
+<svg width="83" height="82" viewBox="0 0 83 82" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path id="bg" fill="#19161C" d="M0 0h83v82H0z"/><path d="M57.04 67.73c2.11 0 3.9-1.48 3.9-3.75 0-.85-.54-1.95-.93-2.57l-9.2-16.38c5.06-2.42 8.73-7.1 8.73-13.65 0-9.75-7.72-16.38-17.08-16.38H29.9c-2.18 0-3.9 1.8-3.9 3.9v44.93c0 2.1 1.72 3.9 3.9 3.9 2.18 0 3.98-1.8 3.98-3.9v-16.7h6.16c1.25 0 2.34-.07 3.51-.15l10.06 18.64a4.12 4.12 0 003.43 2.1zM42 40.97h-8.11V21.94h8.11c5.62 0 9.75 3.75 9.75 9.44 0 5.85-4.13 9.6-9.75 9.6z" id="fg" fill="#FFF" fill-rule="nonzero"/></g>
+<style>
+  #bg { fill: #fcfbfb; } #fg { fill: #19161c; }
+  @media (prefers-color-scheme: dark) {
+    #bg { fill: #110e14; } #fg { fill: #EEE7E7; }
+  }
+</style>
+</svg>

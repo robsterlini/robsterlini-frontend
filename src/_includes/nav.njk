@@ -1,0 +1,21 @@
+<nav class="nav">
+  <div class="group nav-logo-wrapper">
+    {% if not no_logo %}<a class="nav-logo" href="/" title="Visit the homepage">
+      <span>R<span class="nav-logo__hide">ob </span>S<span class="nav-logo__hide">terlini</span></span>
+    </a>{% endif %}
+    <button class="nav-toggle sc" id="toggle-menu">
+      <span>Menu</span>
+    </button>
+  </div>
+  <ul class="nav-list">
+    <div class="group sc">
+      {% for item in global.nav %}
+        <li>
+          <a href="{{ item.link }}"{% if nav and nav === item.nav %} class="active"{% endif %}>
+            {{ item.label | safe }}
+          </a>
+        </li>
+      {% endfor %}
+    </div>
+  </ul>
+</nav>

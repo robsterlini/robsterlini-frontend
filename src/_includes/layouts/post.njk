@@ -1,0 +1,56 @@
+---js
+{
+  layout: "layouts/base.njk",
+  sitemap_priority: 0.5,
+  hero_header: "The journal",
+  meta_label1: "Posted on",
+  meta_data1: function(post) {
+    return new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(post.date);
+  },
+  meta_label2: "Read other entries",
+  meta_data2: "robsterlini.co.uk/journal/",
+  nav: "journal"
+}
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set css %}{% include "pages/post.scss" %}{% endset %}
+<style>{{ css | scss | safe }}</style>
+
+{% set children = "" %}
+{% set children %}
+  <p class="post-description"><strong>{{ page.date | formatDate }}</strong>{% if description %} {{ description | safe }}{% endif %}</p>
+  {% if page.date | isOldDate %}
+    <p class="post-alert alert" role="alert"><strong class="lead">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
+  {% endif %}
+{% endset %}
+{% set header %}<a href="/journal/">The journal</a>{% endset %}
+{{ hero(title, header=header | safe, children=children | safe) }}
+
+{% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
+
+<main class="main">
+  {% set post_data = {
+    url: url,
+    data: {
+      external_url: external_url,
+      title: title
+    }
+  } %}
+  {% set entry_link = post_data | getJournalLink %}
+  {% if external_url %}
+  <article class="group">
+    <p>
+      <span class="lead">Originally posted</span><br>
+      <span class="list__item">
+        <a {{ entry_link.htmlAttrs | safe }}>{{ entry_link.domain }}</a>
+      </span>
+    </p>
+  </article>
+  {% else %}
+  <article class="group post-article">
+    {{ content | safe }}
+  </article>
+  {% endif %}
+</main>
