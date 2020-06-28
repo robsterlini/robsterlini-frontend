@@ -57,6 +57,8 @@
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
+    <link rel="preload" href="styles.css" as="style">
+
     {% set css %}{% include "crucial.scss" %} {% endset %}
     <style>{{ css | inlineScss | safe }}</style>
     <link rel="stylesheet" href="/styles.css" />
