@@ -46,7 +46,7 @@
     <link rel="alternate icon" type="image/png" href="/favicon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <link rel="stylesheet" media="print" href="/print.css" />
+    <!-- <link rel="stylesheet" media="print" href="/print.css" /> -->
 
     {% set webfonts = [
       "body-300",
@@ -57,10 +57,10 @@
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
-    <link rel="preload" href="styles.css" as="style">
+    {#<link rel="preload" href="styles.css" as="style">
 
-    <link rel="stylesheet" href="/styles.css" />
-    {% set css %}{% include "crucial.scss" %}{% endset %}
+    <link rel="stylesheet" href="/styles.css" />#}
+    {% set css %}{% include "styles.scss" %}{% endset %}
     <style>{{ css | inlineScss | safe }}
     {%- if custom_css %}
       {%- set css %}{% include custom_css %}{% endset %}{#

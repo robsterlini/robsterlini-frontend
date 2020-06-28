@@ -75,4 +75,5 @@ const separateScss = (scssPath, callback) => {
 module.exports = {
   inlineScss,
   separateScss,
+  SCSS_OPTIONS,
 };

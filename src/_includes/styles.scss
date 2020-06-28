@@ -1,9 +1,9 @@
 @import 'scss/mixins';
 
-// @import 'scss/reset';
+@import 'scss/reset';
 
-// @import 'scss/webfonts';
-// @import 'scss/base';
+@import 'scss/webfonts';
+@import 'scss/base';
 @import 'scss/animations';
 
 @import 'scss/typography';
@@ -15,3 +15,7 @@
 @import 'scss/nav';
 @import 'scss/hero';
 @import 'scss/footer';
+
+@media print {
+  @import 'scss/print';
+}
