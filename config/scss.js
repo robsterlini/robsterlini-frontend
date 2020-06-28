@@ -44,7 +44,7 @@ const generateCss = ({ scssPath, cssPath, callback }) => {
 
   const renderedCss = sass.renderSync(scssOptions);
 
-  fs.writeFile(`${output}/${cssPath}`, renderedCss.css.toString(), (writeErr) => {
+  fs.writeFile(`${cssPath}`, renderedCss.css.toString(), (writeErr) => {
     if (writeErr) throw writeErr;
 
     scssCallback(null, cssPath);

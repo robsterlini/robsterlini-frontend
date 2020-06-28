@@ -55,12 +55,10 @@
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
-    {% set css %}
-      {% include "styles.scss" %}
-    {% endset %}
+    {% set css %}{% include "styles.scss" %} {% endset %}
     <style>{{ css | inlineScss | safe }}</style>
     {% if custom_css %}
-      <link rel="stylesheet" href="/{{ custom_css | separateScss }}" />
+      <link rel="stylesheet" href="/css/{{ custom_css | replace('.scss', '.css') }}" />
     {% endif %}
 
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
