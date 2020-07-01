@@ -8,7 +8,7 @@ html, body {
 @mixin dark-colors {
   --c-hB: #110E14; // Header BG
 
-  --c-bB: #19161C; // Body BG
+  --c-bB: #{lighten(#19161C, 1%)}; // Body BG
   --c-bC: #EEE7E7; // Body Color
   --c-bC-66: #{rgba(#EEE7E7, 0.66)}; // Body Color (66%)
   --c-bC-33: #{rgba(#EEE7E7, 0.33)}; // Body Color (33%)

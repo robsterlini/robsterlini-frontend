@@ -1,7 +1,7 @@
 ---
 title: Parkrun changed my life
 date: 2016-08-03
-description: The last two years have been a blur of running and self realisation, but simply put. My life has changed.
+description: "The last two years have been a blur of running and self realisation, but simply put: my life has changed."
 layout: post
 tags: journal
 ---

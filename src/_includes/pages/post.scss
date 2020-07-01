@@ -26,18 +26,6 @@
     line-height: 1;
   }
 
-  h1 {
-    @extend %h1;
-  }
-
-  h2 {
-    @extend %h2;
-  }
-
-  h3 {
-    @extend %h3;
-  }
-
   > :first-child {
     margin-top: 0;
   }
@@ -50,41 +38,17 @@
     }
   }
 
-  code {
-    color: var(--c-bA);
-    font-size: 1.1em;
-    font-weight: 600;
+  abbr {
+    text-decoration: underline dotted;
+    text-underline-position: under;
+    text-decoration-color: var(--c-bC-33);
   }
 
   a {
 
-    code {
-      color: inherit;
-      text-decoration-color: inherit;
+    abbr {
+      text-decoration: none; // Prevents a strange double line from being rendered
     }
-  }
-
-  pre {
-    background: var(--c-hB);
-    clear: both;
-    padding: 1.8em 2em 2em;
-    font-size: 1rem;
-    line-height: 1.66;
-    white-space: pre-wrap;
-    margin: 2rem 0;
-    max-width: 48em;
-
-    @include min-width(768) {
-      font-size: 1.125rem;
-    }
-
-    code {
-      font-size: 1em;
-    }
-  }
-
-  blockquote {
-    @extend %blockquote;
   }
 
   .figure {

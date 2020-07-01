@@ -55,14 +55,3 @@
 .list--ordered {
   @extend %ordered-list;
 }
-
-.typeset {
-
-  ul {
-    @extend %list;
-  }
-
-  ol {
-    @extend %ordered-list;
-  }
-}

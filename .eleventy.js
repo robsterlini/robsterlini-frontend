@@ -1,67 +1,19 @@
 const sass = require('node-sass');
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const { input, output } = require('./config/constants.js');
 const scssConfig = require('./config/scss.js');
-
-const slugify = string => {
-  if (!string) return string;
-
-  const a = `àáäâèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;άαβγδεέζήηθιίϊΐκλμνξοόπρσςτυϋύΰφχψωώ`;
-  const b = `aaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------aavgdeeziitiiiiklmnxooprsstyyyyfhpoo`;
-  const p = new RegExp(a.split(``).join(`|`), `g`);
-
-  return string.toString().trim().toLowerCase()
-    .replace(/ου/g, `ou`)
-    .replace(/ευ/g, `eu`)
-    .replace(/θ/g, `th`)
-    .replace(/ψ/g, `ps`)
-    .replace(/\//g, `-`)
-    .replace(/\s+/g, `-`)          // Replace spaces with -
-    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special chars
-    .replace(/&/g, `and`)          // Replace & with `and`
-    .replace(/[^\w-]+/g, ``)       // Remove all non-word chars
-    .replace(/--+/g, `-`)          // Replace multiple - with single -
-    .replace(/^-+/, ``)            // Trim - from start of text
-    .replace(/-+$/, ``);           // Trim - from end of text
-};
+const markdownConfig = require('./config/markdown.js');
 
 module.exports = function(eleventyConfig) {
   // Libraries
-  const markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true
-  }).use(markdownItAnchor, {
-    slugify,
-    // slugify: (s) => {
-    //   const string = String(s)
-    //     .trim()
-    //     .toLowerCase()
-    //     .replace(/\s+/g, '-')
-    //     .replace(/\./g, '');
-
-    //   return encodeURIComponent(string);
-    // },
-    permalink: true,
-    permalinkClass: 'post-article__anchor',
-    permalinkHref: slug => `#${slug}`,
-    permalinkSymbol: "\u00B6",
-  });
-  eleventyConfig.setLibrary('md', markdownLibrary);
+  eleventyConfig.setLibrary('md', markdownConfig);
 
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
 
   // Shortcodes
-  eleventyConfig.addPairedShortcode('markdown', (content) => {
-    const md = new markdownIt({ html: true });
-
-    return md.render(content);
-  });
   eleventyConfig.addPairedShortcode('smallCaps', (content) => `<span class="sc">${content}</span>`);
   const figure = ([ image, alt, caption, link, label ], args = {}) => {
     const { layout } = args;
