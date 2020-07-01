@@ -12,7 +12,8 @@ p,
 }
 
 del {
-  text-decoration-color: var(--c-bC-66);
+  color: var(--c-bC-66);
+  text-decoration-color: var(--c-bC);
   text-decoration-thickness: 2px;
 }
 
@@ -93,21 +94,17 @@ code {
   font-weight: 400;
   font-size: 0.85em;
   font-family: 'Fira Mono', monospace;
-
-  a & {
-    color: inherit;
-    font-weight: 500;
-  }
 }
 
 .code-block {
   background: var(--c-hB);
   clear: both;
-  padding: 1.8em 2em 2em;
-  font-size: 1rem;
+  padding: 1.8em 2em 1.6em;
+  font-size: 0.9375rem;
+  line-height: 1.85;
   white-space: pre-wrap;
   margin: 2rem 0;
-  max-width: 48em;
+  max-width: 52em;
 
   &[data-lang] {
     position: relative;
@@ -119,20 +116,16 @@ code {
       color: var(--c-bC-66);
       font-family: 'rsa-body', sans-serif;
       position: absolute;
-      top: 0;
-      right: 0.5em;
+      top: -0.25em;
+      right: 0.334em;
       font-weight: 500;
       font-size: 0.75rem;
     }
   }
-
-  code {
-    line-height: 1.85;
-  }
 }
 
 .hljs-comment {
-  opacity: 0.66;
+  color: var(--c-bC-66);
 }
 
 .lead {

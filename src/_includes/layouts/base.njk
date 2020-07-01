@@ -62,6 +62,30 @@
       #}{{ css | inlineScss | safe }}
     {%- endif %}</style>
 
+    <noscript>
+      <style>
+        body {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav {
+          position: relative;
+          transform: none;
+        }
+
+        .nav-list {
+          /*animation: opacity 250ms 500ms ease-in both;*/
+          transform: none !important;
+        }
+
+        .nav-toggle,
+        .footer .fieldset {
+          display: none;
+        }
+      </style>
+    </noscript>
+
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
     <script>
       addEventListener('DOMContentLoaded', function() {
@@ -143,6 +167,22 @@
 
         contrastPreferenceSelect.value = contrastPreference;
         setPreference('contrast', contrastPreference);
+
+        var highlightEl = function() {
+          var element = document.getElementById(location.hash.replace('#', ''));
+
+          element.classList.add('js--highlight-anchor');
+
+          setTimeout(() => {
+            element.classList.remove('js--highlight-anchor');
+          }, 3000);
+        }
+
+        if (location.hash) {
+          highlightEl();
+        }
+
+        window.addEventListener('hashchange', highlightEl, false);
       })();
     </script>
   </body>

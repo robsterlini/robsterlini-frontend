@@ -1,7 +1,7 @@
 ---
-title: A fresh lick of paint
+title: A fresh lick of paint
 date: 2020-06-11
-description: Quarantine gave me back a bunch of commuting time; I put mine towards yoga and Eleventy… you are viewing the result!
+description: Quarantine gave me back a bunch of commuting time; I put mine towards yoga and Eleventy… you are viewing the result!
 layout: post
 tags: journal
 ---
@@ -22,6 +22,7 @@ The problem I've faced in the past is getting ahead of myself and trying to solv
 
 {% figureInset
   "journal/a-new-start/sketch.png",
+  "1514x815",
   "A screenshot of the work-in-progress design in Sketch",
   "You can probably see which aspects were kept from this&nbsp;design."
 %}
@@ -40,6 +41,7 @@ With a rough design down, and some potential typefaces chosen this would be the 
 
 {% figureInset
   "journal/a-new-start/v0.png",
+  "1571x1067",
   "A screenshot of the work-in-progress build deployed on Netlify Drop",
   "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
 %}
@@ -56,6 +58,7 @@ There is no way to change from build pipeline to the drag and drop on Netlify fo
 
 {% figureInset
   "journal/a-new-start/netlify-vanilla.png",
+  "419x428",
   "A partial screenshot of my production settings in Netlify",
   "Creating an automated deployment of static sites was a breeze!"
 %}

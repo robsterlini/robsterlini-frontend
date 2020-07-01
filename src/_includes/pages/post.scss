@@ -38,6 +38,10 @@
     }
   }
 
+  .h1, .h2, .h3 {
+    display: table;
+  }
+
   abbr {
     text-decoration: underline dotted;
     text-underline-position: under;

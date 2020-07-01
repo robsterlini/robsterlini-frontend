@@ -15,16 +15,23 @@ module.exports = function(eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addPairedShortcode('smallCaps', (content) => `<span class="sc">${content}</span>`);
-  const figure = ([ image, alt, caption, link, label ], args = {}) => {
+
+  const figure = ([ image, size, alt, caption, link, label ], args = {}) => {
     const { layout } = args;
     let captionMarkup = '';
+
+    const [width, height] = (size || '').split('x');
+
+    console.log(width, height);
 
     if (caption) {
       const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="noopener">${label}</a>` : '';
       captionMarkup = `<figcaption class="figure__caption">${caption}${linkMarkup}</figcaption>`;
     }
 
-    return `<figure class="figure figure--${layout}"><img src="/images/${image}" loading="lazy" alt="${alt}" />${captionMarkup}</figure>`;
+    const imageMarkup = `<img src="/images/${image}" loading="lazy" alt="${alt}" ${width ? `width="${width}"` : ''} ${height ? `height="${height}"`: ''} />`;
+
+    return `<figure class="figure figure--${layout}">${imageMarkup}${captionMarkup}</figure>`;
   };
 
   eleventyConfig.addShortcode('figureInset', (...args) => figure(args, { layout: 'inset' }));
