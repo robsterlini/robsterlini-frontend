@@ -31,11 +31,7 @@
   }
 
   > p:first-child {
-    @extend %lead;
-
-    a {
-      @extend %lead-a;
-    }
+    @include lead;
   }
 
   .h1, .h2, .h3 {
@@ -80,7 +76,7 @@
     &__caption {
 
       &::before {
-        @extend %lead;
+        @include lead(false);
 
         content: 'Fig. ' counter(section) " ";
         margin-right: 0.1em;

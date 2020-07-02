@@ -48,7 +48,7 @@ const markdownLibrary = markdownIt({
     permalink: true,
     permalinkClass: 'post-article__anchor',
     permalinkHref: slug => `#${slug}`,
-    permalinkSymbol: '\u00B6',
+    permalinkSymbol: '\u00B6', // Pilcrow (¶)
   })
   .use(markdownItAbbr)
   .use(markdownItClass, {

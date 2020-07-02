@@ -43,7 +43,7 @@ del {
   max-width: 24em;
 
   cite {
-    @extend %lead;
+    @include lead;
 
     font-size: 1.25rem;
     font-family: 'rsa-body', sans-serif;
@@ -53,10 +53,6 @@ del {
 
     &::before {
       content: '— ';
-    }
-
-    a {
-      @extend %lead-a;
     }
   }
 
@@ -129,9 +125,5 @@ code {
 }
 
 .lead {
-  @extend %lead;
-
-  a {
-    @extend %lead-a;
-  }
+  @include lead;
 }

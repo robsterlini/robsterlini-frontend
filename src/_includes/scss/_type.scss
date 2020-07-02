@@ -39,18 +39,20 @@
   scroll-margin-top: 1.25em;
 }
 
-%lead {
+@mixin lead($link: true) {
   @include sc;
 
   color: var(--c-bA);
   font-weight: 500;
-}
 
-%lead-a {
-  text-decoration-color: currentColor;
+  @if ($link) {
+    a {
+      text-decoration-color: currentColor;
 
-  &:hover,
-  &:focus {
-    color: var(--c-bC);
+      &:hover,
+      &:focus {
+        color: var(--c-bC);
+      }
+    }
   }
 }
