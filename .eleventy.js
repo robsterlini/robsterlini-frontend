@@ -22,8 +22,6 @@ module.exports = function(eleventyConfig) {
 
     const [width, height] = (size || '').split('x');
 
-    console.log(width, height);
-
     if (caption) {
       const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="noopener">${label}</a>` : '';
       captionMarkup = `<figcaption class="figure__caption">${caption}${linkMarkup}</figcaption>`;
