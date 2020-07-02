@@ -42,7 +42,6 @@ $nav-height: 2.5rem;
   animation: nav 800ms 500ms ease-out both;
   display: flex;
   justify-content: flex-end;
-  order: 9;
   position: relative;
   z-index: 10;
 
@@ -148,7 +147,8 @@ $nav-height: 2.5rem;
   transform: translateY(-0.25em);
   width: 2.25em;
   text-align: center;
-  position: relative;
+  position: absolute;
+  right: 0;
 
   &::before,
   &::after {
@@ -216,7 +216,6 @@ $nav-height: 2.5rem;
   font-size: 1rem;
   padding: 0;
   height: $nav-height;
-  margin-bottom: $nav-height * -1;
   display: flex;
   transition: transform 250ms ease-in-out;
   transform: translateY(#{$nav-height * -1});

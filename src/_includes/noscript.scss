@@ -1,0 +1,20 @@
+body {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav {
+  position: relative;
+}
+
+.nav-list {
+  &,
+  a::after {
+    transform: none !important;
+  }
+}
+
+.nav-toggle,
+.footer .fieldset {
+  display: none;
+}

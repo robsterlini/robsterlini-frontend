@@ -55,36 +55,15 @@
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
-    {% set css %}{% include "styles.scss" %}{% endset %}
-    <style>{{ css | inlineScss | safe }}
+    {% set stylesScss %}{% include "styles.scss" %}{% endset %}
+    <style>{{ stylesScss | inlineScss | safe }}
     {%- if custom_css %}
-      {%- set css %}{% include custom_css %}{% endset %}{#
-      #}{{ css | inlineScss | safe }}
+      {%- set customScss %}{% include custom_css %}{% endset %}{#
+      #}{{ customScss | inlineScss | safe }}
     {%- endif %}</style>
 
-    <noscript>
-      <style>
-        body {
-          opacity: 1;
-          visibility: visible;
-        }
-
-        .nav {
-          position: relative;
-          transform: none;
-        }
-
-        .nav-list {
-          /*animation: opacity 250ms 500ms ease-in both;*/
-          transform: none !important;
-        }
-
-        .nav-toggle,
-        .footer .fieldset {
-          display: none;
-        }
-      </style>
-    </noscript>
+    {% set noscriptScss %}{% include "noscript.scss" %}{% endset %}
+    <noscript><style>{{ noscriptScss | inlineScss | safe }}</style></noscript>
 
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
     <script>
