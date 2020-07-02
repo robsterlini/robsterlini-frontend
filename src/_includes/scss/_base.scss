@@ -149,6 +149,10 @@ a,
     text-decoration: none;
   }
 
+  abbr {
+    text-decoration: none; // Prevents a strange double line from being rendered
+  }
+
   &:hover,
   &:focus {
     color: var(--c-bA);

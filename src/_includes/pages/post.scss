@@ -44,13 +44,6 @@
     text-decoration-color: var(--c-bC-33);
   }
 
-  a {
-
-    abbr {
-      text-decoration: none; // Prevents a strange double line from being rendered
-    }
-  }
-
   .figure {
     counter-increment: section;
     clear: both;
