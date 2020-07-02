@@ -7,38 +7,43 @@ html, body {
 
 @mixin dark-colors {
   --c-hB: #110E14; // Header BG
+  --c-hA: #F75C6A; // Header Accent
 
-  --c-bB: #19161C; // Body BG
+  --c-bB: #{lighten(#19161C, 1%)}; // Body BG
   --c-bC: #EEE7E7; // Body Color
   --c-bC-66: #{rgba(#EEE7E7, 0.66)}; // Body Color (66%)
   --c-bC-33: #{rgba(#EEE7E7, 0.33)}; // Body Color (33%)
   --c-bA: #f75c6a; // Body Accent
+  --c-bH: #{rgba(mix(white, yellow, 50%), 0.25)}; // Body Highlight
 
   --figO: 0.9; // Figure Opacity
 
   --c-cB: #000; // Contrast BG
   --c-cC: #FFF; // Contrast Color
   --c-cC-50: #{rgba(#FFF, 0.5)};
-  --c-cA: #FBCDD1; // Contrast Accent
+  --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
 }
 
 @mixin light-colors {
   --c-hB: #FCFBFB;
+  --c-hA: #EA3243;
 
-  --c-bB: #EEE7E7;
+  --c-bB: #{lighten(#EEE7E7, 4%)};
   --c-bC: #19161C;
   --c-bC-66: #{rgba(#19161C, 0.66)};
   --c-bC-33: #{rgba(#19161C, 0.33)};
-  --c-bA: #{darken(#EA3243, 5%)};
+  --c-bA: #{darken(#EA3243, 8%)};
+  --c-bH: rgba(yellow, 0.25); // Body Highlight
 
   --c-cB: #FFF;
   --c-cC: #000;
   --c-cC-50: #{rgba(#000, 0.5)};
-  --c-cA: #6C000A;
+  --c-cA: #{darken(#EA3243, 20%)};
 }
 
 @mixin contrast-colors {
   --c-hB: var(--c-cB);
+  --c-hA: var(--c-cA);
 
   --c-bB: var(--c-cB);
   --c-bC: var(--c-cC);
@@ -139,8 +144,13 @@ a,
   border: 0;
 
   code {
-    text-decoration: inherit;
-    text-decoration-color: currentColor;
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+  }
+
+  abbr {
+    text-decoration: none; // Prevents a strange double line from being rendered
   }
 
   &:hover,
@@ -185,5 +195,15 @@ a,
 
   .link--pseudo:active & {
     opacity: 0.66;
+  }
+}
+
+.js--highlight-anchor {
+  animation: fade-highlight 2s 1s ease-out both;
+
+  @keyframes fade-highlight {
+    from {
+      background-color: var(--c-bH);
+    }
   }
 }

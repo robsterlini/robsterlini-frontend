@@ -1,10 +1,14 @@
 ---
-title: Opentype and ::selection don’t mix
+title: Opentype and ::selection don’t mix
 date: 2014-04-29
-description: Fixing the dubious way that Chrome on <span class='sc'>OSX</span> borks OpenType features when used with a custom ::selection.
+description: Fixing the dubious way that Chrome on <abbr title="Mac OS X" class="sc">OSX</abbr> borks OpenType features when used with a custom ::selection.
 layout: post
 tags: journal
 ---
+
+*[OSX]: Mac OS X
+*[CSS]: Cascading Stylesheets
+*[OT]: OpenType
 
 ## The problem
 
@@ -14,31 +18,37 @@ I’m a type-snob/type-nerd. I want to use the beautiful OpenType features on of
 
 It does do the OpenType bit really well, but if you’re using a custom `::selection` to add an extra level of detail then you’ll start to have problems!
 
-Here’s the <span class="sc">CSS</span> that will recreate the problem
+Here’s the <span class="sc">CSS</span> that will recreate the problem:
 
-    ::selection {
-      background: #ff4444;
-      color: #fff;
-      text-shadow: none;
-    }
-    p {
-      font-family: "ff-tisa-web-pro", "Tisa Pro", "Tisa", "Cambo", serif;
-      font-style: normal;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      -webkit-font-feature-settings: "kern", "liga", "case", "onum"; /* I‘ve left out the other prefixes as this is a Chrome-only issue */
-    }
+```css
+::selection {
+  background: #ff4444;
+  color: #fff;
+  text-shadow: none;
+}
+
+p {
+  font-family: "ff-tisa-web-pro", "Tisa Pro", "Tisa", "Cambo", serif;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  /* I’ve left out the other prefixes as this is a Chrome-only issue */
+  -webkit-font-feature-settings: "kern", "liga", "case", "onum";
+}
+```
 
 Which gives you this:
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-1.jpg",
+  "",
   "The OpenType features looking beautiful",
   "The OpenType features looking beautiful"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-2.jpg",
+  "",
   "::selection looking not-so-beautiful",
   "::selection looking not-so-beautiful"
 %}
@@ -53,12 +63,14 @@ The easiest solution is to not use a custom `::selection` or to not use the Open
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-3.jpg",
+  "",
   "No OT features…",
   "No OT features…"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-4.jpg",
+  "",
   "…but no ::selection problems",
   "…but no ::selection problems"
 %}
@@ -69,26 +81,33 @@ Before switching over to using the `font-feature-settings` that I now use (havin
 
 It is however a solution to the problem.
 
-    p {
-      -webkit-font-feature-settings: normal;
-      text-rendering: optimizeLegibility;
-    }
+```css
+p {
+  -webkit-font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+}
+```
 
 It would also mean sacrificing the tasty features on all the other browsers, but *A List Apart* had a similar issue and solved it with [a bit of JS browser-sniffing](https://github.com/alistapart/AListApart/issues/53 "Find out how A List Apart fixed it"):
 
-    var b = document.documentElement;
-    b.setAttribute('data-useragent',  navigator.userAgent);
-    b.setAttribute('data-platform', navigator.platform);
+```js
+var b = document.documentElement;
+b.setAttribute('data-useragent',  navigator.userAgent);
+b.setAttribute('data-platform', navigator.platform);
+```
 
 …and then only applying the <span class="sc">CSS</span> to those that are using Chrome on <span class="sc">OSX</span>:
 
-    html[data-useragent*='Chrome'][data-platform*='Mac'] p {
-      -webkit-font-feature-settings: normal;
-      text-rendering: optimizeLegibility;
-    }
+```css
+html[data-useragent*='Chrome'][data-platform*='Mac'] p {
+  -webkit-font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+}
+```
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-5.jpg",
+  "",
   "Problem solved?",
   "Problem solved?"
 %}
@@ -97,6 +116,7 @@ But even this has a problem with the `::selection`…
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-6.jpg",
+  "",
   "Nearly, but not quite",
   "Nearly, but not quite"
 %}
@@ -107,11 +127,13 @@ And even then it still doesn’t deliver what I want.
 
 But from there I thought that instead of sacrificing ranging numbers, I’d sacrifice a level of the custom `::selection` instead.
 
-    html[data-useragent*='Chrome'][data-platform*='Mac'] ::selection {
-      background: #d1d4d9;
-      color: inherit;
-      text-shadow: inherit;
-    }
+```css
+html[data-useragent*='Chrome'][data-platform*='Mac'] ::selection {
+  background: #d1d4d9;
+  color: inherit;
+  text-shadow: inherit;
+}
+```
 
 I worked out that it was the `colour` and `text-shadow`, but not the `background` that was breaking it, so remove them from the equation and there we have it: custom `::selection` with the beauty of the OT features.
 
@@ -119,12 +141,14 @@ The only caveat is that you need to use a contrasting colour to the text – in 
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-7.jpg",
+  "",
   "Problem solved?",
   "Problem solved?"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-8.jpg",
+  "",
   "You betcha!",
   "You betcha!"
 %}

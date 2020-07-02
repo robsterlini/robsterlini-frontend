@@ -10,4 +10,7 @@
 ### How has this been tested?
 
 
+### Is the Lighthouse score affected by this PR?
+
+
 :rocket:
