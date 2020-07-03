@@ -5,6 +5,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { input, output } = require('./config/constants.js');
 const scssConfig = require('./config/scss.js');
 const markdownConfig = require('./config/markdown.js');
+const { getJournalLink } = require('./config/journal.js');
+
+const figureShortcode = require('./config/shortcodes/figure.js');
+
+const generateSocialImageFilter = require('./config/filters/generateSocialImage.js');
 
 module.exports = function(eleventyConfig) {
   // Libraries
@@ -13,38 +18,26 @@ module.exports = function(eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
 
+  // Collections
+  eleventyConfig.addCollection('entries', collectionApi => {
+    return collectionApi.getAll()
+      .filter(({ url }) => url.startsWith('/journal/') && url !== '/journal/')
+      .sort((a, b) => b.date - a.date);
+  });
+
   // Shortcodes
-  eleventyConfig.addPairedShortcode('smallCaps', (content) => `<span class="sc">${content}</span>`);
-
-  const figure = ([ image, size, alt, caption, link, label ], args = {}) => {
-    const { layout } = args;
-    let captionMarkup = '';
-
-    const [width, height] = (size || '').split('x');
-
-    if (caption) {
-      const linkMarkup = link ? ` <a class="figure__link" href="${link}" target="_blank" rel="noopener">${label}</a>` : '';
-      captionMarkup = `<figcaption class="figure__caption">${caption}${linkMarkup}</figcaption>`;
-    }
-
-    const imageMarkup = `<img src="/images/${image}" loading="lazy" alt="${alt}" ${width ? `width="${width}"` : ''} ${height ? `height="${height}"`: ''} />`;
-
-    return `<figure class="figure figure--${layout}">${imageMarkup}${captionMarkup}</figure>`;
-  };
-
-  eleventyConfig.addShortcode('figureInset', (...args) => figure(args, { layout: 'inset' }));
-  eleventyConfig.addShortcode('figureFull', (...args) => figure(args, { layout: 'full' }));
+  eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
+  eleventyConfig.addShortcode('figureFull', (...args) => figureShortcode(args, { layout: 'full' }));
 
   // Transforms
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
     if (outputPath.endsWith('.html')) {
-      let minified = htmlmin.minify(content, {
+      return htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
         minifyJS: true
       });
-      return minified;
     }
 
     return content;
@@ -57,108 +50,16 @@ module.exports = function(eleventyConfig) {
     return parsedValue || defaultValue;
   });
 
-  eleventyConfig.addNunjucksFilter('generateSocialImage', ({ header, title }) => {
-    const cloudinaryEncode = (text = '') => {
-      const unencodedText = `${text}`
-        .replace(/&amp;/g, '%26')
-        .replace(/\,/g, '%2C');
-
-      return  encodeURIComponent(unencodedText);
-    };
-
-    const imageProps = [
-      'w_1440',
-      'h_720',
-      'q_100',
-    ];
-
-    const headerProps = [
-      'w_800',
-      'h_86',
-      'c_fit',
-      'y_160',
-      'x_195',
-      'g_north_west',
-      'co_rgb:EEE7E7',
-      `l_text:rs-b-600.otf_56_bold_left_:${cloudinaryEncode(header)}`,
-    ];
-
-    const titleProps = [
-      'w_1200',
-      'h_420',
-      'y_280',
-      'x_110',
-      'c_fit',
-      'g_north_west',
-      'co_rgb:F75C6A',
-      `l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:${cloudinaryEncode(title)}`,
-    ];
-
-    return [
-      'https://res.cloudinary.com/dym2d96h6/image/upload',
-      imageProps.join(','),
-      headerProps.join(','),
-      titleProps.join(','),
-      'v1592751314/robsterlini/meta.png',
-    ].join('/');
-  });
+  eleventyConfig.addNunjucksFilter('generateSocialImage', generateSocialImageFilter);
 
   eleventyConfig.addNunjucksFilter('getPageDataFromCollections', (collections, url) => {
-    const [test] = collections.all.filter(collection => collection.url === url) || [];
-    return test ? test.data : {};
+    const [page] = collections.all.filter(collection => collection.url === url) || [];
+
+    return page ? page.data : {};
   });
 
-  const getJournalEntries = ({ all = [] } = {}) => all
-    .filter(entry => {
-      return entry.url.startsWith('/journal/') && entry.url !== '/journal/';
-    })
-    .reverse();
+  eleventyConfig.addNunjucksFilter('getJournalLink', (entry) => getJournalLink(entry, eleventyConfig));
 
-  const getJournalLink = (entry) =>  {
-    if (!entry) return {};
-
-    let domain, htmlAttrs;
-
-    let {
-      url,
-      data: { title },
-    } = entry;
-
-    const { external_url } = entry.data;
-
-    title = `Read ‘${title || 'the entry'}’`;
-
-    if (!external_url) {
-      url = eleventyConfig.getFilter('url')(url);
-    }
-
-    else {
-      url = external_url;
-      domain = url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/)[1];
-      title += ` on ${domain}`;
-    }
-
-    htmlAttrs = `href="${url}" title="${title}"`;
-
-    if (domain) {
-      htmlAttrs += ' target="_blank" rel="noopener"';
-    }
-
-    return {
-      domain,
-      url,
-      title,
-      htmlAttrs,
-    };
-  };
-
-  eleventyConfig.addNunjucksFilter('getJournalLink', getJournalLink);
-
-  eleventyConfig.addNunjucksFilter('getFirstJournalEntry', collections => {
-    const [entry] = getJournalEntries(collections);
-    return entry;
-  });
-  eleventyConfig.addNunjucksFilter('getJournalEntries', getJournalEntries);
   eleventyConfig.addNunjucksFilter("formatDate", date => {
     const options = {
       year: 'numeric',
@@ -180,6 +81,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('default', 'layouts/base.njk');
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
+  // Pass through files
   const filesToCopy = [
     `${input}/images`,
     `${input}/fonts`,

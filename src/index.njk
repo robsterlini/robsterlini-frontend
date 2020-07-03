@@ -37,7 +37,7 @@ custom_css: pages/home.scss
         <li><a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Experiments on Codepen</a></li>
         <li><a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">History on LinkedIn</a></li>
       </ul>#}
-      {% set entry = collections | getFirstJournalEntry %}
+      {% set entry = collections.entries[0] %}
       <p><span class="lead">Read the latest journal entry:</span> <a href="{{ entry.data.external_url if entry.data.external_url else entry.url | url }}">{{ entry.data.title }}</a>, posted on {{ entry.date | formatDate }}; or peruse <a href="/journal/">the&nbsp;archive</a>.</p>
     </div>
   </div>

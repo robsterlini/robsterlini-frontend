@@ -5,6 +5,7 @@ layout: default
 sitemap_priority: 0.8
 nav: journal
 custom_css: pages/journal.scss
+tag: journal
 ---
 
 {% from "components/hero.html" import hero %}
@@ -13,8 +14,7 @@ custom_css: pages/journal.scss
 
 <main class="main journal">
   <div class="group">
-    {% set entries = collections | getJournalEntries %}
-    {% for entry in entries %}
+    {% for entry in collections.entries %}
       {% set entry_link = entry | getJournalLink %}
         {% if loop.index == 1 %}
           <div class="journal-latest">

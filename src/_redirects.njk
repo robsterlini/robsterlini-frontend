@@ -36,8 +36,7 @@ https://robsterlini-frontend.netlify.com/* https://robsterlini.co.uk/:splat 301!
 /journal{{ oldPath }}   /journal{{ newPath }}   301
 {%- endfor %}
 
-{%- set entries = collections | getJournalEntries %}
-{%- for entry in entries %}
+{%- for entry in collections.entries %}
   {%- if entry.data.external_url %}
 {{ entry.url | url }} {{ entry.data.external_url }} 301
   {%- endif %}
