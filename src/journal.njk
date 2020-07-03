@@ -15,42 +15,28 @@ tag: journal
 <main class="main journal">
   <div class="group">
     {% for entry in collections.entries %}
-      {% set entry_link = entry | getJournalLink %}
-        {% if loop.index == 1 %}
-          <div class="journal-latest">
-            <h2 class="p">
-              <span class="lead">Latest entry</span>
-              <span class="h2">{{ entry.data.title }}</span>
-            </h2>
-            <p><span class="journal-latest__date">{{ entry.date | formatDate }}</span>{% if entry.data.description %} {{ entry.data.description }}{% endif %}</p>
-            <p class="list__item">
-              <a class="journal-first link--pseudo" {{ entry_link.htmlAttrs | safe }}>
-                <span class="link__pseudo">Read the entry{% if entry_link.domain %} on {{ entry_link.domain }}</span><span class="journal-older__external">&#8239;&#8599;</span>{% endif %}
-              </a>
-            </p>
-          </div>
+      {% if loop.index == 1 %}
+        <div>
+          {% journalEntry entry, "h2", "Latest entry" %}
+        </div>
 
-          <div class="journal-older">
-            <h2 class="p"><span class="lead">Older entries</span></h2>
-            <ul class="list">
-        {% endif %}
+        <div class="journal-older">
+          <h2 class="p"><span class="lead">Older entries</span></h2>
+          <ul class="list">
+      {% endif %}
 
-        {% if loop.index > 1 %}
-              <li>
-                <a class="journal-older__link link--pseudo" {{ entry_link.htmlAttrs | safe }}>
-                  <span class="journal-older__label link__pseudo">{{ entry.data.title }}</span>
-                  {%- if entry_link.domain %}<span class="journal-older__external">&#8239;&#8599;</span>{% endif %}
-                  <span class="journal-older__date">{{ entry.date | formatDate }}</span>
-                </a>
-              </li>
-        {% endif %}
+      {% if loop.index > 1 %}
+            <li>
+              {% journalEntryShort entry %}
+            </li>
+      {% endif %}
 
-        {% if loop.last %}
-            </ul>
+      {% if loop.last %}
+          </ul>
 
-            <p>Follow the <a href="/feed.xml"><span class="sc">RSS</span> feed</a> for&nbsp;updates.</p>
-          </div>
-        {% endif %}
+          <p>Follow the <a href="/feed.xml"><span class="sc">RSS</span> feed</a> for&nbsp;updates.</p>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </main>

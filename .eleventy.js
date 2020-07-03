@@ -8,8 +8,13 @@ const markdownConfig = require('./config/markdown.js');
 const { getJournalLink } = require('./config/journal.js');
 
 const figureShortcode = require('./config/shortcodes/figure.js');
+const {
+  journalEntry: journalEntryShortcode,
+  journalEntryShort: journalEntryShortShortcode,
+} = require('./config/shortcodes/journal.js');
 
 const generateSocialImageFilter = require('./config/filters/generateSocialImage.js');
+const formatDateFilter = require('./config/filters/formatDate.js');
 
 module.exports = function(eleventyConfig) {
   // Libraries
@@ -19,15 +24,24 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
   // Collections
-  eleventyConfig.addCollection('entries', collectionApi => {
-    return collectionApi.getAll()
-      .filter(({ url }) => url.startsWith('/journal/') && url !== '/journal/')
-      .sort((a, b) => b.date - a.date);
-  });
+  const getAllEntries = (collectionApi, excludeExternal = false) => {
+    return collectionApi.getAllSorted()
+      .filter(entry => entry.url.startsWith('/journal/') && entry.url !== '/journal/')
+      .map(entry => Object.assign(entry, {
+        link: getJournalLink(entry, eleventyConfig),
+      }))
+      .filter(entry => !excludeExternal || !entry.link.domain)
+      .reverse();
+  };
+
+  eleventyConfig.addCollection('entries', getAllEntries);
+  eleventyConfig.addCollection('internalEntries', collectionApi => getAllEntries(collectionApi, true));
 
   // Shortcodes
   eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
   eleventyConfig.addShortcode('figureFull', (...args) => figureShortcode(args, { layout: 'full' }));
+  eleventyConfig.addShortcode('journalEntry', journalEntryShortcode);
+  eleventyConfig.addShortcode('journalEntryShort', journalEntryShortShortcode);
 
   // Transforms
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
@@ -60,15 +74,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksFilter('getJournalLink', (entry) => getJournalLink(entry, eleventyConfig));
 
-  eleventyConfig.addNunjucksFilter("formatDate", date => {
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
-
-    return new Intl.DateTimeFormat('en-GB', options).format(date);
-  });
+  eleventyConfig.addNunjucksFilter("formatDate", formatDateFilter);
   eleventyConfig.addNunjucksFilter('isOldDate', value => {
     return new Date() - new Date(value) > 1.577e+10;
     return true;

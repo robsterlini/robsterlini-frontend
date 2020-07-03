@@ -16,26 +16,6 @@
   }
 }
 
-.journal-latest {
-
-  .h2 {
-    margin-top: 0.25em;
-  }
-
-  &__date {
-    font-weight: 500;
-  }
-}
-
-.journal-older {
-
-  &__date {
-    font-weight: 300;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  &__external {
-    color: var(--c-bA);
-  }
+.journal-entry-short__date {
+  // white-space: nowrap;
 }

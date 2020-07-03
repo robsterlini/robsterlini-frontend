@@ -31,20 +31,12 @@
 {% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
 
 <main class="main">
-  {% set post_data = {
-    url: url,
-    data: {
-      external_url: external_url,
-      title: title
-    }
-  } %}
-  {% set entry_link = post_data | getJournalLink %}
-  {% if external_url %}
+  {% if entry.link.domain %}
   <article class="group">
     <p>
       <span class="lead">Originally posted</span><br>
       <span class="list__item">
-        <a {{ entry_link.htmlAttrs | safe }}>{{ entry_link.domain }}</a>
+        <a {{ entry.link.htmlAttrs | safe }}>{{ entry.link.domain }}</a>
       </span>
     </p>
   </article>
@@ -52,5 +44,31 @@
   <article class="group post-article">
     {{ content | safe }}
   </article>
+
+  <div class="post-pagination group">
+    {% set previousEntry = collections.internalEntries | reverse | getPreviousCollectionItem(page) %}
+    {% set nextEntry = collections.internalEntries | reverse | getNextCollectionItem(page) %}
+
+    <h2 class="h2">What now?</h2>
+
+    <div class="post-pagination__page">
+      <h3 class="p lead">Share it!</h3>
+      {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
+      <p>If you enjoyed this post, and think others would benefit from reading it then feel free to <a href="http://twitter.com/share?text={{ twitterShareText | urlencode }}&url={{ page.url | url | absoluteUrl(global.url) | urlencode }}" target="_blank" rel="noopener" title="Share this entry on Twitter">share it on Twitter</a> (or elsewhere). I’m always up for a discussion about anything I’ve written too, so <a href="/#contact">get in touch</a> if you want to&nbsp;chat!</p>
+    </div>
+
+    {% for paginatedKey, paginatedEntry in { next: nextEntry, prev: previousEntry } %}
+      <div class="post-pagination__page{% if not paginatedEntry %} post-pagination__page--current{% endif %}">
+        {% if paginatedEntry %}
+          {% set paginatedLead = "Later entry" if paginatedKey == "next" else "Earlier entry" %}
+          {% set entry = paginatedEntry %}
+        {% else %}
+          {% set paginatedLead = "Latest entry" if paginatedKey == "next" else "First entry" %}
+          {% set entry = collections.internalEntries | getCollectionItem(page) %}
+        {% endif %}
+        {% journalEntry entry, "h3", paginatedLead %}
+      </div>
+    {% endfor %}
+  </div>
   {% endif %}
 </main>
