@@ -77,3 +77,38 @@
     }
   }
 }
+
+.post-pagination {
+  display: grid;
+  grid-gap: 0 2rem;
+
+  .h2 {
+    grid-column: 1 / -1;
+    margin-top: 3em;
+  }
+
+  &__page {
+    margin-bottom: 1.5rem; // TOOD: Var single gutter
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    &--current {
+      color: var(--c-bC-33);
+
+      // Hides the link for current articles
+      .list__item {
+        display: none;
+      }
+    }
+  }
+
+  @include min-width(1024) {
+    grid-template-columns: 5fr 3fr 3fr;
+
+    &__page {
+      margin-bottom: 0;
+    }
+  }
+}

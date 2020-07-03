@@ -33,6 +33,19 @@ del {
   @extend %h3;
 }
 
+.regular {
+  font-weight: 300;
+}
+
+.strong,
+strong {
+  font-weight: 500;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 .blockquote {
   font-family: 'rsa-heading', serif;
   font-weight: 400;
@@ -126,4 +139,9 @@ code {
 
 .lead {
   @include lead;
+
+  + .h2,
+  + .h3 {
+    margin-top: 0.25em;
+  }
 }

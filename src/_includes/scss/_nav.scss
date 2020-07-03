@@ -22,7 +22,7 @@ $nav-height: 2.5rem;
     }
   }
 
-  @media(hover: hover) and (pointer: fine) {
+  @media (hover: hover) and (pointer: fine) {
 
     &:hover,
     &:focus-within {
@@ -86,6 +86,12 @@ $nav-height: 2.5rem;
   align-items: center;
   margin: 0.6rem;
   order: -1;
+  position: absolute;
+  right: 0;
+
+  .nav-logo + & {
+    right: 3.5rem;
+  }
 
   &:focus {
     border-color: var(--c-bC);
