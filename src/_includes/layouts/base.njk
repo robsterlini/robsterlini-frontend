@@ -148,13 +148,15 @@
         setPreference('contrast', contrastPreference);
 
         const highlightEl = function() {
-          console.log('HIGHLIGHT!');
           const element = document.getElementById(location.hash.replace('#', ''));
+
+          if (!element) return;
 
           element.classList.add('js--highlight-anchor');
 
           setTimeout(() => {
-            // element.classList.remove('js--highlight-anchor');
+            // TODO: Maybe change this for an animation end event listener
+            element.classList.remove('js--highlight-anchor');
           }, 3000);
         }
 
