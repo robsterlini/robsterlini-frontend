@@ -20,7 +20,7 @@ html, body {
 
   --c-cB: #000; // Contrast BG
   --c-cC: #FFF; // Contrast Color
-  --c-cC-50: #{rgba(#FFF, 0.5)};
+  --c-cC-semi: #{rgba(#FFF, 0.66)};
   --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
 }
 
@@ -37,7 +37,7 @@ html, body {
 
   --c-cB: #FFF;
   --c-cC: #000;
-  --c-cC-50: #{rgba(#000, 0.5)};
+  --c-cC-semi: #{rgba(#000, 0.66)};
   --c-cA: #{darken(#EA3243, 20%)};
 }
 
@@ -48,7 +48,7 @@ html, body {
   --c-bB: var(--c-cB);
   --c-bC: var(--c-cC);
   --c-bC-66: var(--c-cC);
-  --c-bC-33: var(--c-cC-50);
+  --c-bC-33: var(--c-cC-semi);
   --c-bA: var(--c-cA);
 }
 
@@ -68,13 +68,7 @@ html, body {
   @include light-colors;
 }
 
-[data-contrast-preference='auto'] {
-  @media (prefers-contrast: high) {
-    @include contrast-colors;
-  }
-}
-
-[data-contrast-preference='high'] {
+@include prefers-high-contrast {
   @include contrast-colors;
 }
 

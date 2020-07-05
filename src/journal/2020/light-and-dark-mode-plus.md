@@ -271,6 +271,24 @@ Rather than creating `@media` combinations of `prefers-contrast` and `prefers-co
 
 This abstraction comes into its own when there are more than just `background` and `color` variables, and means a few variables can be used to keep consistent styling for every possible combiniation of colour and contrast preference throughout your site.
 
+Remember that if specific adjustments are required based on one of these preferences outside of the `:root` declarations, you’ll need to declare them twice. An example might be that the background for your code blocks is now the same as the background (as it is on this page, try switching to high contrast in the footer), which could be solved by adding a border to distinguish the two.
+
+```css
+[data-contrast-preference="high"] {
+  pre {
+    border-width: 1px;
+  }
+}
+
+@media (prefers-contrast: high) {
+  [data-contrast-preference="auto"] {
+    pre {
+      border-width: 1px;
+    }
+  }
+}
+```
+
 ## But why bother?
 
 I considered opening with justification for all this effort, but I wanted to show how little code was required for allowing users to select their colour and contrast preference.

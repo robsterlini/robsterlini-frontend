@@ -137,6 +137,27 @@ code {
   color: var(--c-bC-66);
 }
 
+@include prefers-high-contrast {
+  .code-block {
+    border: 1px solid var(--c-cC-semi);
+
+    code {
+      color: var(--c-cC);
+    }
+
+    &[data-lang] {
+
+      &::before {
+        color: var(--c-cA);
+      }
+    }
+
+    .hljs-comment {
+      color: var(--c-cC-semi);
+    }
+  }
+}
+
 .lead {
   @include lead;
 
