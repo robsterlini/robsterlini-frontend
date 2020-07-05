@@ -1,7 +1,7 @@
 ---
 name: Documentation request
 about: Request documentation about a specific part of the repo
-title: ":fountain-pen:"
+title: " 🖋"
 labels: Documentation
 assignees: robsterlini
 

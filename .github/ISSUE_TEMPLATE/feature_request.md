@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ":wrench:"
+title: " 🔧"
 labels: Feature enhancement
 assignees: robsterlini
 
