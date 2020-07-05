@@ -1,7 +1,7 @@
 const baseUrl = 'robsterlini.co.uk';
 
 const {
-  BRANCH: envBranch = 'master',
+  HEAD: envBranch = 'master',
 } = process.env || {};
 
 module.exports = () => ({
