@@ -33,7 +33,7 @@ html, body {
   --c-bC-66: #{rgba(#19161C, 0.66)};
   --c-bC-33: #{rgba(#19161C, 0.33)};
   --c-bA: #{darken(#EA3243, 8%)};
-  --c-bH: rgba(yellow, 0.25); // Body Highlight
+  --c-bH: #{rgba(yellow, 0.25)}; // Body Highlight
 
   --c-cB: #FFF;
   --c-cC: #000;
@@ -204,6 +204,7 @@ a,
   @keyframes fade-highlight {
     from {
       background-color: var(--c-bH);
+      box-shadow: var(--c-bH) 0.5rem 0px 0, var(--c-bH) -0.5rem 0 0;
     }
   }
 }
