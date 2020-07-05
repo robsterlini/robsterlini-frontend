@@ -64,13 +64,15 @@
     {% for paginatedKey, paginatedEntry in { next: nextEntry, prev: previousEntry } %}
       <div class="post-pagination__page{% if not paginatedEntry %} post-pagination__page--current{% endif %}">
         {% if paginatedEntry %}
+          {% set showPaginatedLink = true %}
           {% set paginatedLead = "Later entry" if paginatedKey == "next" else "Earlier entry" %}
           {% set entry = paginatedEntry %}
         {% else %}
+          {% set showPaginatedLink = false %}
           {% set paginatedLead = "Latest entry" if paginatedKey == "next" else "First entry" %}
           {% set entry = collections.internalEntries | getCollectionItem(page) %}
         {% endif %}
-        {% journalEntry entry, "h3", paginatedLead %}
+        {% journalEntry entry, "h3", paginatedLead, showPaginatedLink %}
       </div>
     {% endfor %}
   </div>

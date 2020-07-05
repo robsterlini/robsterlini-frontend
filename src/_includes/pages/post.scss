@@ -96,11 +96,6 @@
 
     &--current {
       color: var(--c-bC-33);
-
-      // Hides the link for current articles
-      .list__item {
-        display: none;
-      }
     }
   }
 
