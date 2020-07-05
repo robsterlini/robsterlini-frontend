@@ -49,7 +49,9 @@
 
   @if ($link) {
     a {
-      text-decoration-color: currentColor;
+      &:not(:focus):not(:hover) {
+        text-decoration-color: currentColor;
+      }
 
       &:hover,
       &:focus {
