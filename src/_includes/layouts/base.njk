@@ -98,8 +98,8 @@
       })();
 
       (function () {
-        var colorPreferenceSelect = document.getElementById('color-preference');
-        var contrastPreferenceSelect = document.getElementById('contrast-preference');
+        const colorPreferenceSelect = document.getElementById('color-preference');
+        const contrastPreferenceSelect = document.getElementById('contrast-preference');
 
         function setPreference(name, value) {
           localStorage.setItem(name + '-preference', value);
@@ -119,8 +119,8 @@
         });
 
         if (window.matchMedia) {
-          var lightMode = window.matchMedia('(prefers-color-scheme: light)');
-          var highContrast = window.matchMedia('(prefers-contrast: high)');
+          const lightMode = window.matchMedia('(prefers-color-scheme: light)');
+          const highContrast = window.matchMedia('(prefers-contrast: high)');
 
           function setAutoPreferenceAutoLabel(preferenceSelect, label) {
             preferenceSelect[0].innerText = 'Auto (' + label + ')';
@@ -138,8 +138,8 @@
           setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
         }
 
-        var colorPreference = getPreference('color');
-        var contrastPreference = getPreference('contrast');
+        const colorPreference = getPreference('color');
+        const contrastPreference = getPreference('contrast');
 
         colorPreferenceSelect.value = colorPreference;
         setPreference('color', colorPreference);
@@ -147,13 +147,14 @@
         contrastPreferenceSelect.value = contrastPreference;
         setPreference('contrast', contrastPreference);
 
-        var highlightEl = function() {
-          var element = document.getElementById(location.hash.replace('#', ''));
+        const highlightEl = function() {
+          console.log('HIGHLIGHT!');
+          const element = document.getElementById(location.hash.replace('#', ''));
 
           element.classList.add('js--highlight-anchor');
 
           setTimeout(() => {
-            element.classList.remove('js--highlight-anchor');
+            // element.classList.remove('js--highlight-anchor');
           }, 3000);
         }
 
