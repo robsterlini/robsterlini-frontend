@@ -84,7 +84,7 @@
 
   .h2 {
     grid-column: 1 / -1;
-    margin-top: 3em;
+    margin-top: 4em; // TODO: Var double h2 margin-top
   }
 
   &__page {
@@ -96,11 +96,6 @@
 
     &--current {
       color: var(--c-bC-33);
-
-      // Hides the link for current articles
-      .list__item {
-        display: none;
-      }
     }
   }
 

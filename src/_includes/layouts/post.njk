@@ -51,22 +51,28 @@
 
     <h2 class="h2">What now?</h2>
 
+    {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
+    {% set githubEntryUrl %}{{ global.github.branchUrl }}{{ page.inputPath.slice(1) }}{% endset %}
+
     <div class="post-pagination__page">
-      <h3 class="p lead">Share it!</h3>
-      {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
+      <h3 class="p lead">Thank you!</h3>
+      <p>Firstly, thanks for taking the time to read this&nbsp;entry.</p>
       <p>If you enjoyed this post, and think others would benefit from reading it then feel free to <a href="http://twitter.com/share?text={{ twitterShareText | urlencode }}&url={{ page.url | url | absoluteUrl(global.url) | urlencode }}" target="_blank" rel="noopener" title="Share this entry on Twitter">share it on Twitter</a> (or elsewhere). I’m always up for a discussion about anything I’ve written too, so <a href="/#contact">get in touch</a> if you want to&nbsp;chat!</p>
+      <p>If you’ve spotted something out of place or something needs correcting, feel free to open a <abbr title="Pull request" class="sc">PR</abbr> for <a href="{{ githubEntryUrl }}" target="_blank" rel="noopener">this entry</a>, <a href="https://github.com/robsterlini/robsterlini-frontend/issues/new/choose" target="_blank" rel="noopener">raise an issue</a>, or <a href="/#contact">let me know</a>.</p>
     </div>
 
     {% for paginatedKey, paginatedEntry in { next: nextEntry, prev: previousEntry } %}
       <div class="post-pagination__page{% if not paginatedEntry %} post-pagination__page--current{% endif %}">
         {% if paginatedEntry %}
+          {% set showPaginatedLink = true %}
           {% set paginatedLead = "Later entry" if paginatedKey == "next" else "Earlier entry" %}
           {% set entry = paginatedEntry %}
         {% else %}
+          {% set showPaginatedLink = false %}
           {% set paginatedLead = "Latest entry" if paginatedKey == "next" else "First entry" %}
           {% set entry = collections.internalEntries | getCollectionItem(page) %}
         {% endif %}
-        {% journalEntry entry, "h3", paginatedLead %}
+        {% journalEntry entry, "h3", paginatedLead, showPaginatedLink %}
       </div>
     {% endfor %}
   </div>

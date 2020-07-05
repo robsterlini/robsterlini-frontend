@@ -16,6 +16,18 @@
   }
 }
 
+@mixin prefers-high-contrast {
+  [data-contrast-preference='auto'] {
+    @media (prefers-contrast: high) {
+      @content;
+    }
+  }
+
+  [data-contrast-preference='high'] {
+    @content;
+  }
+}
+
 @mixin sc {
   font-variant-caps: all-small-caps;
 
