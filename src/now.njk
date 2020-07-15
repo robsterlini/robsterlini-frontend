@@ -1,0 +1,57 @@
+---
+title: Now
+description: The sporadic ramblings of Rob Sterlini.
+layout: default
+sitemap_priority: 0.7
+nav: now
+custom_css: pages/now.scss
+hero_h1: What I’m up to
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set children %}
+<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of information about what I’m up to in life and&nbsp;work.</p>
+{% endset %}
+
+{{ hero(hero_h1, header=title, children=children | safe) }}
+
+<main class="main">
+  <div class="group">
+    {% set current = 0 %}
+    {% for year, seasons in now.years %}
+    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }} <a href="#{{ year }}" class="anchor">&#182;</a></h2>
+    <div class="year__seasons">
+      {% for seasonName, seasonMeta in now.meta.seasons %}
+        {% set season = seasons[seasonName] %}
+        {% set seasonAnchor %}{{ year }}-{{ seasonName }}{% endset %}
+        {% if seasonAnchor == now.meta.current %}
+          {% set current = 1 %}
+        {% endif %}
+
+        {% if current < 3 %}
+          <div class="year__season year__season--{{ current }}">
+            <h3 class="h3" id="seasonAnchor">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
+            {% if current > 1 %}
+              Check back soon…
+            {% else %}
+              {% if season.life %}
+                <p><strong class="lead">In life I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.life | safe   }}</p>
+              {% endif %}
+              {% if season.work %}
+                <p><strong class="lead">At work I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.work | safe   }}</p>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if current == 2 %}
+          {% set current = 3 %}
+        {% elif seasonAnchor == now.meta.current %}
+          {% set current = 2 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</main>

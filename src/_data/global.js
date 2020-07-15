@@ -30,5 +30,10 @@ module.exports = () => ({
       label: '<abbr title="Curriculum Vitae">CV</abbr>',
       nav: 'cv',
     },
+    {
+      link: '/now',
+      label: 'Now',
+      nav: 'now',
+    }
   ],
 });

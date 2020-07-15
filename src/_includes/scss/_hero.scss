@@ -11,7 +11,20 @@
     flex: 1;
   }
 
+  a:not(:hover):not(:focus) {
+    text-decoration-color: var(--c-bC-33);
+  }
+
   .group {
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__children {
+    font-size: 1.125rem;
+    animation: opacity 500ms 250ms ease-out both;
 
     > :last-child {
       margin-bottom: 0;
@@ -51,9 +64,6 @@
       color: var(--c-bC);
     }
 
-    a:not(:hover):not(:focus) {
-      text-decoration-color: var(--c-bC-33);
-    }
 
     &::before {
       animation: scale-from-left 500ms 125ms ease-out both;
@@ -76,5 +86,12 @@
     animation: opacity 800ms 100ms ease-out both;
     color: var(--c-hA);
     margin-bottom: 0.25em;
+  }
+
+  &--children {
+
+    .h1 {
+      margin-bottom: 0.125em;
+    }
   }
 }

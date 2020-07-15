@@ -12,5 +12,5 @@ hero_header: 404 – Page not found
   <p>This page doesn’t exist any more, or it may never have existed.</p>
   <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
 {% endset %}
-{{ hero('You look lost!', header='404 – Page not found', children=children | safe) }}
+{{ hero('You look lost!', header=hero_header, children=children | safe) }}
 
