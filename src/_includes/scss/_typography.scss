@@ -4,7 +4,7 @@ p,
 .p {
   margin-top: 0;
   margin-bottom: 0.5em;
-  max-width: 36em;
+  max-width: 42em;
 }
 
 .p {
@@ -33,6 +33,17 @@ del {
   @extend %h3;
 }
 
+.anchor {
+  text-decoration: none;
+  color: var(--c-bC-33, currentColor);
+  transition-property: opacity, color;
+  font-weight: inherit;
+  font-family: 'rsa-body', sans-serif;
+  font-weight: 500;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
 .regular {
   font-weight: 300;
 }
@@ -40,10 +51,6 @@ del {
 .strong,
 strong {
   font-weight: 500;
-}
-
-.nowrap {
-  white-space: nowrap;
 }
 
 .blockquote {
@@ -106,18 +113,16 @@ code {
   color: var(--c-bA);
   font-weight: 400;
   font-size: 0.85em;
-  font-family: 'Fira Mono', monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 .code-block {
   background: var(--c-hB);
   clear: both;
-  padding: 1.8em 2em 1.6em;
   font-size: 0.9375rem;
   line-height: 1.85;
-  white-space: pre-wrap;
   margin: 2rem 0;
-  max-width: 52em;
+  max-width: 64em;
 
   &[data-lang] {
     position: relative;
@@ -133,6 +138,17 @@ code {
       right: 0.334em;
       font-weight: 500;
       font-size: 0.75rem;
+    }
+  }
+
+  code {
+    display: block;
+    padding: 1.8em 1em 0.6em;
+    white-space: pre-wrap;
+    overflow: auto;
+
+    @include min-width(768) {
+      padding: 1.8em 2em 1.6em;
     }
   }
 }

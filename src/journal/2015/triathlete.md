@@ -4,6 +4,9 @@ date: 2015-07-14
 edited: 2015-11-01
 description: 12 July saw me tackle two turbo triathlons in a bid to experience a new sport, and I fell bike over cleat in love with it!
 layout: post
+tags:
+  - life
+  - triathlon
 ---
 
 ## Why triathlon?

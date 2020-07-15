@@ -3,7 +3,7 @@
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  display: block;
+  display: table; // Allows the highlight to work effectively
 
   .sc {
     font-family: 'rsa-heading-sc', 'rsa-heading', serif;
@@ -32,7 +32,7 @@
 }
 
 %h3 {
-  display: block;
+  display: table; // Allows the highlight to work effectively
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.3;
