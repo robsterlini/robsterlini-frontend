@@ -17,6 +17,7 @@ html, body {
   --c-bH: #{rgba(mix(white, yellow, 50%), 0.25)}; // Body Highlight
 
   --figO: 0.9; // Figure Opacity
+  --figB: #{mix(#EEE7E7, #110E14, 15%)};
 
   --c-cB: #000; // Contrast BG
   --c-cC: #FFF; // Contrast Color
@@ -33,7 +34,10 @@ html, body {
   --c-bC-66: #{rgba(#19161C, 0.66)};
   --c-bC-33: #{rgba(#19161C, 0.33)};
   --c-bA: #{darken(#EA3243, 8%)};
-  --c-bH: #{rgba(yellow, 0.25)}; // Body Highlight
+  --c-bA-semi: #{rgba(#EA3243, 0.5)};
+  --c-bH: #{rgba(yellow, 0.25)};
+
+  --figB: #{mix(#19161C, #FCFBFB, 15%)};
 
   --c-cB: #FFF;
   --c-cC: #000;
@@ -74,7 +78,7 @@ html, body {
 
 html {
   background: var(--c-bB);
-  line-height: 1.45; // TODO: Var
+  line-height: 1.55; // TODO: Var
   font-size: 0.9375rem;
   scroll-behavior: smooth;
 
@@ -106,8 +110,8 @@ body {
 }
 
 ::selection {
-  background: var(--c-bC);
-  color: var(--c-bB);
+  background: var(--c-bC-33);
+  color: var(--c-bC);
 }
 
 .main {
@@ -120,6 +124,10 @@ body {
   margin-right: auto;
   max-width: 80rem;
   width: 92%;
+
+  &--thin {
+    width: 60rem;
+  }
 }
 
 a,
@@ -198,7 +206,6 @@ a,
   @keyframes fade-highlight {
     from {
       background-color: var(--c-bH);
-      box-shadow: var(--c-bH) 0.5rem 0px 0, var(--c-bH) -0.5rem 0 0;
     }
   }
 }

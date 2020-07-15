@@ -6,11 +6,12 @@ sitemap_priority: 0.8
 nav: journal
 custom_css: pages/journal.scss
 tag: journal
+hero_h1: Sporadic ramblings
 ---
 
 {% from "components/hero.html" import hero %}
 
-{{ hero("The journal" | safe) }}
+{{ hero(hero_h1, header=title) }}
 
 <main class="main journal">
   <div class="group">
@@ -21,11 +22,11 @@ tag: journal
         </div>
 
         <div class="journal-older">
-          <h2 class="p"><span class="lead">Older entries</span></h2>
+          <h2 class="p"><span class="lead">A few older entries</span></h2>
           <ul class="list">
       {% endif %}
 
-      {% if loop.index > 1 %}
+      {% if loop.index > 1 and loop.index <= 4 %}
             <li>
               {% journalEntryShort entry %}
             </li>
@@ -34,7 +35,11 @@ tag: journal
       {% if loop.last %}
           </ul>
 
-          <p>Follow the <a href="/feed.xml"><span class="sc">RSS</span> feed</a> for&nbsp;updates.</p>
+          <h2 class="p"><span class="lead">Full archive</span></h2>
+          <ul class="list">
+            <li><a href="/journal/archive">See all entries</a></li>
+            <li><a href="/feed.xml">Follow the <span class="sc">RSS</span>&nbsp;feed</a></li>
+          </ul>
         </div>
       {% endif %}
     {% endfor %}
