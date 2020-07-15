@@ -1,0 +1,29 @@
+@import 'scss/mixins';
+
+.archive-year {
+
+  .h2 {
+    margin-top: 1em;
+  }
+
+  &:first-child {
+
+    .h2 {
+      margin-top: 0;
+    }
+  }
+
+  @include min-width(420) {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    grid-gap: $grid-column-gap;
+
+    .h2 {
+      margin-top: 0;
+    }
+
+    & + & {
+      margin-top: $grid-row-gap;
+    }
+  }
+}

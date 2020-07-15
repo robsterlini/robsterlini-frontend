@@ -1,22 +1,21 @@
----js
-{
-  layout: "layouts/base.njk",
-  sitemap_priority: 0.5,
-  hero_header: "The journal",
-  meta_label1: "Posted on",
-  meta_data1: function(post) {
-    return new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(post.date);
-  },
-  meta_label2: "Read other entries",
-  meta_data2: "robsterlini.co.uk/journal/",
-  nav: "journal",
-  custom_css: "pages/post.scss"
-}
+---
+layout: layouts/base.njk
+sitemap_priority: 0.5,
+hero_header: The journal
+meta_label1: Posted on
+meta_label2: Read other entries
+meta_data2: robsterlini.co.uk/journal/
+nav: journal
+custom_css: pages/post.scss
+has_inline_code: true
+has_blockquote: true
+eleventyComputed:
+  meta_data1: "{{ date | formatDate }}"
 ---
 
-{% from "components/hero.html" import hero %}
+{% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}
 
-<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+{% from "components/hero.html" import hero %}
 
 {% set children = "" %}
 {% set children %}
@@ -25,14 +24,22 @@
     <p class="post-alert alert" role="alert"><strong class="lead">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
   {% endif %}
 {% endset %}
-{% set header %}<a href="/journal/">The journal</a>{% endset %}
+{% set header %}
+  {% if entry.data.tags %}
+    {% for tag in entry.data.tags %}
+      <a href="/journal/{{ tag }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  {% else %}
+    <a href="/journal/">The journal</a>
+  {% endif %}
+{% endset %}
 {{ hero(title, header=header | safe, children=children | safe) }}
 
 {% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
 
 <main class="main">
   {% if entry.link.domain %}
-  <article class="group">
+  <article class="group--thin">
     <p>
       <span class="lead">Originally posted</span><br>
       <span class="list__item">
@@ -41,7 +48,7 @@
     </p>
   </article>
   {% else %}
-  <article class="group post-article">
+  <article class="group group--thin post-article">
     {{ content | safe }}
   </article>
 
@@ -49,7 +56,9 @@
     {% set previousEntry = collections.internalEntries | reverse | getPreviousCollectionItem(page) %}
     {% set nextEntry = collections.internalEntries | reverse | getNextCollectionItem(page) %}
 
-    <h2 class="h2">What now?</h2>
+    <svg class="post-pagination__hr" aria-hidden="true" role="presentation" width="44" height="60" viewBox="0 0 44 60" xmlns="http://www.w3.org/2000/svg"><path d="M27.18 59.36c1.53 0 2.43-.72 2.43-2.25 0-11.61 12.24-11.7 12.24-25.11 0-4.59-4.05-9.09-9.63-9.09-3.06 0-5.67 1.35-7.74 3.51a11 11 0 01-.45-3.15c0-2.07.54-5.22 2.34-7.92 6.03 0 16.74-3.87 16.74-8.91 0-2.43-2.61-3.33-4.95-3.33-4.14 0-9.54 1.8-13.68 5.67-4.23 0-9.45-2.52-12.6-6.93C11.16.77 10.26.05 8.73.05A3.2 3.2 0 005.4 3.29c0 1.44.81 2.7 1.44 3.51 2.61 3.6 7.83 7.02 13.23 8.01a20.91 20.91 0 00-1.44 11.52 9.87 9.87 0 00-8.1-4.23C4.59 22.1.81 26.33.81 32.81c0 13.68 16.83 26.55 26.37 26.55z" fill="#F75C6A" fill-rule="nonzero"/></svg>
+
+    <h2 class="h2 post-pagination__title">What now?</h2>
 
     {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
     {% set githubEntryUrl %}{{ global.github.branchUrl }}{{ page.inputPath.slice(1) }}{% endset %}
@@ -70,7 +79,7 @@
         {% else %}
           {% set showPaginatedLink = false %}
           {% set paginatedLead = "Latest entry" if paginatedKey == "next" else "First entry" %}
-          {% set entry = collections.internalEntries | getCollectionItem(page) %}
+          {% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}
         {% endif %}
         {% journalEntry entry, "h3", paginatedLead, showPaginatedLink %}
       </div>

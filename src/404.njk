@@ -3,8 +3,7 @@ title: Page not found
 layout: default
 permalink: 404.html
 sitemap_priority: 0
-hero_header: 404
-custom_css: pages/404.scss
+hero_header: 404 – Page not found
 ---
 
 {% from "components/hero.html" import hero %}
@@ -13,8 +12,5 @@ custom_css: pages/404.scss
   <p>This page doesn’t exist any more, or it may never have existed.</p>
   <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
 {% endset %}
-{{ hero('You lost?' | safe, header='404 – Page not found', children=children | safe) }}
-
-<main class="error" aria-hidden="true">
-</main>
+{{ hero('You look lost!', header='404 – Page not found', children=children | safe) }}
 

@@ -3,6 +3,8 @@ title: Light & dark mode, plus…
 date: 2020-07-05
 description: Colour preference media queries are a great start of respecting a user’s implied preference, but it’s possible to go a few steps further to create the perfect user experience!
 layout: post
+tags: 
+  - dev
 ---
 
 *[OS]: Operating system

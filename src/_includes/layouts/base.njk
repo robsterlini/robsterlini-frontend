@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
 
-    {% set meta_description = description if description else "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
+    {% set meta_description = description or "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
 
     <!-- Primary Meta Tags -->
-    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini" }}</title>
+    <title>{{ title }} – {{ title_suffix or "Rob Sterlini" }}</title>
     <meta name="title" content="{{ title }}">
     <meta name="description" content="{{ meta_description }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
@@ -34,10 +34,10 @@
     <meta property="twitter:description" content="{{ meta_description }}">
     <meta property="twitter:image" content="{{ socialImage }}">
 
-    <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
-    <meta name="twitter:data1" value="{{ meta_data1 | generateMetaValue(global.email, page) }}" />
-    <meta name="twitter:label2" value="{{ meta_label2 if meta_label2 else 'Tweet me'}}" />
-    <meta name="twitter:data2" value="{{ meta_data2 | generateMetaValue('@robsterlini', page) }}" />
+    <meta name="twitter:label1" value="{{ meta_label1 or 'Let’s chat!'}}" />
+    <meta name="twitter:data1" value="{{ meta_data1 or global.email }}" />
+    <meta name="twitter:label2" value="{{ meta_label2 or 'Tweet me'}}" />
+    <meta name="twitter:data2" value="{{ meta_data2 or '@robsterlini' }}" />
 
     <meta name="author" content="Rob Sterlini">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,8 +52,19 @@
       "heading-600",
       "heading-600-sc"
     ] %}
+    {% if has_blockquote %}{% set webfonts = (webfonts.push("heading-400i"), webfonts) %}{% endif %}
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
+
+    {% if has_inline_code %}
+    {% set inline_code_href = "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" %}
+    <!-- Technique from https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="{{ inline_code_href }}" />
+    <link rel="stylesheet" href="{{ inline_code_href }}" media="print" onload="this.media='all'" />
+
+    <noscript><link rel="stylesheet" href="{{ inline_code_href }}" /></noscript>
+    {% endif %}
 
     {% set stylesScss %}{% include "styles.scss" %}{% endset %}
     <style>{{ stylesScss | inlineScss | safe }}
@@ -165,6 +176,34 @@
         }
 
         window.addEventListener('hashchange', highlightEl, false);
+
+        let observer;
+
+        const figures = document.querySelectorAll('.figure');
+
+        if ('IntersectionObserver' in window) {
+          const observerConfig = {
+            threshold: 0,
+            rootMargin: '50% 0% -33.3% 0%',
+          };
+
+          observer = new IntersectionObserver((entries, self) => {
+            const entry = entries[0];
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add('js--figure-visible');
+              self.unobserve(entry.target);
+            }
+          }, observerConfig);
+        }
+
+        figures.forEach(figure => {
+          if (observer) {
+            observer.observe(figure);
+          } else {
+            figure.add('js--figure-visible');
+          }
+        });
       })();
     </script>
   </body>

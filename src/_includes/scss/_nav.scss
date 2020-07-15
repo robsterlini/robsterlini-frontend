@@ -288,12 +288,12 @@ $nav-height: 2.5rem;
     }
 
     &.active {
-      color: var(--c-hA);
+      color: var(--c-bA);
       text-decoration: none;
       transition-property: color, background, opacity;
 
       &::after {
-        background: var(--c-hA);
+        background: var(--c-bA);
         opacity: 1;
       }
 

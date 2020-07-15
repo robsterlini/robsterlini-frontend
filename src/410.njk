@@ -3,7 +3,6 @@ title: Gone
 layout: default
 sitemap_priority: 0
 hero_header: 410
-custom_css: pages/404.scss
 ---
 
 {% from "components/hero.html" import hero %}
@@ -13,6 +12,3 @@ custom_css: pages/404.scss
   <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
 {% endset %}
 {{ hero('Good bye!' | safe, header='410 – Gone', children=children | safe) }}
-
-<main class="error" aria-hidden="true">
-</main>

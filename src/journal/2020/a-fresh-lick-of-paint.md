@@ -3,6 +3,8 @@ title: A fresh lick of paint
 date: 2020-06-11
 description: Quarantine gave me back a bunch of commuting time; I put mine towards yoga and Eleventy… you are viewing the result!
 layout: post
+tags:
+  - dev
 ---
 
 ‘Painting the Forth Bridge’.
@@ -11,7 +13,7 @@ Turns out that, that task isn’t as endless as [we were lead to believe it&nbsp
 
 I’d like to lead a motion to replace it with __‘building a personal site’__.
 
-With commits like [`Hate it` from October 2019](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878), and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
+With commits like [`Hate it` from October 2019](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878), and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
 
 ## Where to start
 
@@ -36,24 +38,24 @@ The previous iteration had a `/work`, a `/life`, a `/contact`, custom `/404` and
 
 ### 3. Forget about tooling
 
-With a rough design down, and some potential typefaces chosen this would be the time to start agonising over creating a build pipeline, or which framework is the flavour of the month, or how to most efficiently serve the webfonts. Don’t get me wrong, they’re important… but not vital to getting a proof of concept up and running.
+With a rough design down, and some potential typefaces chosen this would be the time to start agonising over creating a build pipeline, or which framework is the flavour of the month, or how to most efficiently serve the webfonts. Don’t get me wrong, they’re important… but not vital to getting a proof of concept up and running.
 
 {% figureInset
   "journal/a-new-start/v0.png",
   "1571x1067",
   "A screenshot of the work-in-progress build deployed on Netlify Drop",
-  "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
+  "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
 %}
 
-I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
+I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
 
 ### 4. Get it live!
 
-After a few rounds of testing to iron out any kinks, and a friends and family test to make sure none of the words were misspelt (a couple were caught here) it was time to push it live. A personal site doesn’t have to be precious like a client build.
+After a few rounds of testing to iron out any kinks, and a friends and family test to make sure none of the words were misspelt (a couple were caught here) it was time to push it live. A personal site doesn’t have to be precious like a client build.
 
 Let’s iterate on production!
 
-There is no way to change from build pipeline to the drag and drop on Netlify for existing repositories, but that wasn’t an issue as the plan was always to get CI/CD working in the end. So, instead I faked it!
+There is no way to change from build pipeline to the drag and drop on Netlify for existing repositories, but that wasn’t an issue as the plan was always to get CI/CD working in the end. So, instead I faked it!
 
 {% figureInset
   "journal/a-new-start/netlify-vanilla.png",
