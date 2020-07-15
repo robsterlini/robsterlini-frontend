@@ -1,0 +1,23 @@
+@import 'scss/mixins';
+
+.hero {
+  .group {
+    box-sizing: border-box;
+    position: relative;
+    padding-right: 33.3% * 0.92;
+  }
+
+  .figure {
+    display: block;
+    width: 33.3%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    margin: -2vw 0 0 !important;
+  }
+}
+
+.about {
+  min-height: 100vh;
+}

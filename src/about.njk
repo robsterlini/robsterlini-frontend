@@ -1,0 +1,24 @@
+---
+title: Rob Sterlini
+title_suffix: Frontend developer & more
+layout: default
+sitemap_priority: 0.8
+nav: about
+custom_css: pages/about.scss
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set children %}{% figureInset
+  "about/ski.jpg",
+  "632x790",
+  "Skiing in Andorra"
+%}{% endset %}
+
+{{ hero('Get to know Rob', header='A bit about me', children=children | safe) }}
+
+<main class="about">
+  <div class="group">
+
+  </div>
+</main>

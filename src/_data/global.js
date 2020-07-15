@@ -17,6 +17,11 @@ module.exports = () => ({
   },
   nav: [
     {
+      link: '/about',
+      label: 'About',
+      nav: 'about',
+    },
+    {
       link: '/journal',
       label: 'Journal',
       nav: 'journal',
