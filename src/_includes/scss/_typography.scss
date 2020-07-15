@@ -82,9 +82,10 @@ strong {
 
   &::before {
     content: '“';
+    font-family: 'rsa-body', sans-serif;
     color: var(--c-bA);
     display: block;
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
     width: 0.5em;
     left: 0;
