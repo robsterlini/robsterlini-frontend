@@ -32,10 +32,8 @@
   font-variant-caps: all-small-caps;
 
   @media not all and (min-resolution: .001dpcm) {
-    // @media {
-      text-transform: lowercase;
-      font-variant-caps: small-caps;
-    // }
+    text-transform: lowercase;
+    font-variant-caps: small-caps;
   }
 }
 

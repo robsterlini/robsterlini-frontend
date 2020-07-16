@@ -52,12 +52,8 @@
   &__header {
     margin: 0;
     width: 100%;
-    padding-right: 8rem;
+    padding-right: 4rem;
     box-sizing: border-box;
-
-    @media (hover: hover) and (pointer: fine) {
-      padding-right: 4rem
-    }
 
     > span {
       animation: opacity 400ms 250ms ease-out both;
