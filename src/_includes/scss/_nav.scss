@@ -69,68 +69,42 @@ $nav-height: 2.5rem;
   box-sizing: border-box;
   appearance: none;
   background: var(--c-hB);
-  color: var(--c-bC);
+  display: flex;
+  color: var(--c-bA);
   font-family: inherit;
   font-weight: 500;
   pointer-events: auto;
-  padding: 0 0 0.45em;
-  width: 2rem;
-  font-size: 3rem;
+  line-height: 1;
+  height: 44px;
   border-radius: 0;
-  text-align: center;
-  height: $nav-height - 1.2rem;
-  display: inline-flex;
-  border: 2px solid var(--c-bB);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0.6rem;
-  order: -1;
-  position: absolute;
-  right: 0;
+  border: 2px solid var(--figB);
+  position: fixed;
+  bottom: 4vw;
+  right: 4vw; // 92%
+  width: 44px;
+  z-index: 999;
 
-  .nav-logo + & {
-    right: 3.5rem;
+  @include min-width(600) {
+    bottom: 24px;
+  }
+
+  @include min-width(1566) {
+    left: calc(50% + 40rem - 44px);
+    right: auto;
   }
 
   &:focus {
-    border-color: var(--c-bC);
+    border-color: currentColor;
     outline: none;
   }
 
-  &::before {
-    content: '≡';
+  > svg {
+    display: block;
+    margin: auto;
   }
 
-  @include min-width(384) {
-    font-size: 1rem;
-    padding-bottom: 0.3em;
-    width: 3.5em;
-
-    &::before {
-      content: 'Menu';
-    }
-
-    .js--menu & {
-
-      &::before {
-        content: 'Close';
-      }
-    }
-  }
-
-  &:focus,
-  .js--menu & {
-
-  }
-
-  > span {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
+  path {
+    fill: currentColor;
   }
 
   @media(hover: hover) and (pointer: fine) {
@@ -219,12 +193,12 @@ $nav-height: 2.5rem;
   z-index: 2;
   width: 100%;
   pointer-events: auto;
+  flex-wrap: wrap;
   font-size: 1rem;
   padding: 0;
-  height: $nav-height;
   display: flex;
   transition: transform 250ms ease-in-out;
-  transform: translateY(#{$nav-height * -1});
+  transform: translateY(calc(-100% + 2px));
 
   &::after {
     opacity: 0.25;
@@ -239,10 +213,11 @@ $nav-height: 2.5rem;
   .group {
     box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding-left: 0;
     margin: auto;
-    padding-right: 4rem;
+    padding-right: 7rem;
   }
 
   li {

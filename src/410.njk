@@ -1,8 +1,8 @@
 ---
-title: Gone
+title: Page gone
 layout: default
 sitemap_priority: 0
-hero_header: 410
+hero_header: 410 – Gone
 ---
 
 {% from "components/hero.html" import hero %}
@@ -11,4 +11,4 @@ hero_header: 410
   <p>This page got deleted somewhere along the way, it’s a gonner!</p>
   <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
 {% endset %}
-{{ hero('Good bye!' | safe, header='410 – Gone', children=children | safe) }}
+{{ hero('Good bye!' | safe, header=hero_header, children=children | safe) }}

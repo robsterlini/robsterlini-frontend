@@ -79,8 +79,12 @@ html, body {
 html {
   background: var(--c-bB);
   line-height: 1.55; // TODO: Var
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   scroll-behavior: smooth;
+
+  @include min-width(260) {
+    font-size: 0.9375rem;
+  }
 
   @include min-width(384) {
     font-size: 1rem;

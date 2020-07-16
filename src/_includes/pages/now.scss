@@ -1,0 +1,31 @@
+@import 'scss/mixins';
+
+.year {
+
+  @include min-width(768) {
+
+    &__seasons {
+      display: grid;
+      grid-gap: $grid-row-gap $grid-column-gap;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__title {
+      margin-bottom: 0;
+    }
+  }
+
+  @include min-width(1024) {
+
+    &__seasons {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__season {
+
+    &--2 {
+      color: var(--c-bC-33);
+    }
+  }
+}
