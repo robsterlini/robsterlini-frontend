@@ -1,17 +1,17 @@
 ---
-title: Now
+title: Now and then
 description: The sporadic ramblings of Rob Sterlini.
 layout: default
 sitemap_priority: 0.7
 nav: now
 custom_css: pages/now.scss
-hero_h1: What I’m up to
+hero_h1: What I’m up to
 ---
 
 {% from "components/hero.html" import hero %}
 
 {% set children %}
-<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of information about what I’m up to in life and&nbsp;work.</p>
+<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’m up to in life and&nbsp;work.</p>
 {% endset %}
 
 {{ hero(hero_h1, header=title, children=children | safe) }}
