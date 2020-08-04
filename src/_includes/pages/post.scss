@@ -11,7 +11,8 @@
     margin-top: 0;
   }
 
-  > p:first-child {
+  > p:first-child,
+  > hr + p {
     @include lead;
   }
 
@@ -45,11 +46,14 @@
 
     &__caption {
 
-      &::before {
-        @include lead(false);
+      > span {
 
-        content: 'Fig. ' counter(section) " ";
-        margin-right: 0.1em;
+        &::before {
+          @include lead(false);
+
+          content: 'Fig. ' counter(section) " ";
+          margin-right: 0.1em;
+        }
       }
     }
   }
