@@ -33,7 +33,7 @@ hero_h1: What I’m up to
           <div class="year__season year__season--{{ current }}">
             <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
             {% if current > 1 %}
-              Check back soon…
+              <p>Check back soon…</p>
             {% else %}
               {% if season.life %}
                 <p><strong class="lead">In life I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.life | safe   }}</p>
@@ -44,7 +44,7 @@ hero_h1: What I’m up to
               {% if season.music %}
                 <p>
                   <strong class="lead">I {{ 'was' if current == 0 else 'am' }} listening to</strong>
-                  {% set musicText %}{% if season.music.title %}{{ season.music.title }}, {% endif %}{% if season.music.artist %}<span class="regula">{{ season.music.artist }}</span>{% endif %}{% endset %}
+                  {% set musicText %}{% if season.music.title %}{{ season.music.title }}, {% endif %}{% if season.music.artist %}{{ season.music.artist }}{% endif %}.{% endset %}
                   {% if season.music.link %}
                     <a href="{{ season.music.link }}" rel="noopener" target="_blank">{{ musicText | safe }}</a>
                   {% else %}

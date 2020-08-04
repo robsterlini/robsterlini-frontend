@@ -29,9 +29,9 @@ This is when it all started. Looking in the mirror and having this fella stare b
 
 There are lots of reasons that it got this way, but living a student’s life with a worker’s income just meant lots of fast food; which combined with little to no exercise ended me up here.
 
-I [moved home to London](/journal/good-bye-reading/), [started a new job](/journal/new-stuff/), and enlisted the help of an amazing personal trainer, and set about changing the way I was living.
+I [moved home to London,](/journal/good-bye-reading/) [started a new job,](/journal/new-stuff/) and enlisted the help of an amazing personal trainer, and set about changing the way I was living.
 
-One of the things that I introduced into my life was [parkrun](http://www.parkrun.org.uk/).
+One of the things that I introduced into my life was [parkrun.](http://www.parkrun.org.uk/)
 
 ## Cue parkrun
 
@@ -58,19 +58,19 @@ When I moved to South London over a year ago now, I was in prime location for ru
   "This wonder-woman of a mum and I cruised personal bests at the RPF Half in October 2015"
 %}
 
-Last year, the two (well three) triathlons I did went [really](/journal/triathlete/) [well](/journal/the-london-triathon/), the Tough Mudders went well, and the [Royal Parks Half Marathon](https://www.instagram.com/p/8tJztOP-yZ/?taken-by=robsterlini) went exceptionally well!
+Last year, the two (well three) triathlons I did went [really](/journal/triathlete/) [well,](/journal/the-london-triathon/) the Tough Mudder events went well, and the [Royal Parks Half Marathon](https://www.instagram.com/p/8tJztOP-yZ/?taken-by=robsterlini) went exceptionally well!
 
 The RPF half was a fantastic day. Hitting a half marathon PB of 1:44; cheering my mum over the line as she smashed her own PB, and rounding off the perfect season of progress.
 
 ## Run Dem Crew
 
-Okay so maybe it wasn’t running that changed my life.
+Okay so maybe it wasn’t running that changed my life.
 
-Maybe it was Run Dem Crew that changed my life.
+Maybe it was Run Dem Crew that changed my life.
 
-Running on a Tuesday with likeminded, diverse, and wonderful people was a catalyst to reducing __all__ of my personal bests – culminating in [a 1:34 <abbr title="personal best">PB</abbr> at the North London Half](https://www.instagram.com/p/BDLQv_iv-_m/?taken-by=robsterlini).
+Running on a Tuesday with likeminded, diverse, and wonderful people was a catalyst to reducing __all__ of my personal bests – culminating in [a 1:34 <abbr title="personal best">PB</abbr> at the North London Half.](https://www.instagram.com/p/BDLQv_iv-_m/?taken-by=robsterlini)
 
-I set a New Year’s run-spiriation with a first footing run on 1 January (cheers Sarah _et al_):
+I set a New Year’s run-spiriation with a first footing run on 1&nbsp;January (cheers Sarah _et al_):
 
 > Miles and smiles. Enjoy every run, and be grateful that you’re able to do this!
 
@@ -139,7 +139,7 @@ I went back to Derby to take on the Jenson Button Trust Triathlon again – and 
 
 That was just the warm up for this weekend though. Sunday is the big one.
 
-My second London Triathlon, but I’m moving up to the big boy leagues – it’s time for my first olympic distance. 1500m of salty Thames water; 40km of rolling roads on [Alice](https://www.instagram.com/p/BGhNLCmv-9y/?taken-by=robsterlini); and then the small task of a 10km run to round it all off!
+My second London Triathlon, but I’m moving up to the big boy leagues – it’s time for my first olympic distance. 1500m of salty Thames water; 40km of rolling roads on [Alice;](https://www.instagram.com/p/BGhNLCmv-9y/?taken-by=robsterlini) and then the small task of a 10km run to round it all off!
 
 The progress I’ve made hasn’t just been physical – although shedding 25kg to dip under 75kg and be the lightest I’ve been as a grown man. My mentalities have changed. I’ve relaxed. I’m happier. I challenge myself more because I know that I’m mentally more capable of overcoming hurdles, and I don’t give up like I used to.
 

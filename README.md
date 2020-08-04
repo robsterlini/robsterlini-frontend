@@ -32,6 +32,7 @@ It’s okay for it to be improved iteratively… there will always be more to do
 * Separate items with a spaced en-dash, represent durations or ranges with an unspaced en-dash, join words with a hyphen
 * Use correct micro-typographic glyphs – `&times;` not x _etc_
 * Use non-breaking spaces – either `&nbsp;`, `\xa0`, or ` ` (<kbd>⇧</kbd>–<kbd>⌥</kbd>–<kbd>Space</kbd>) – between the final two words of anything that might split over two lines to avoid typographic orphans
+* Immediate punctuation (full stops, commas, colons _etc_) lives inside links (as discussed on [Twitter](https://twitter.com/robsterlini/status/1290545839748898821))
 
 ## Setup
 

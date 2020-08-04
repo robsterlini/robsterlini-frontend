@@ -20,11 +20,12 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
-  let tagsMarkup = '';
+  let tagsMarkup;
 
   if (tags.length) {
+    tagsMarkup = ' ';
     tags.forEach((tag, index) => {
-      tagsMarkup += ` ${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
+      tagsMarkup += `${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
     });
   }
 
@@ -50,7 +51,7 @@ const journalEntryShort = (entry, inline = false) => {
   } = entry;
 
   return `<a class="link--pseudo link--external" ${link.htmlAttrs}>
-    <span class="link__pseudo">${title}</span><span class="regular">${inline ? ', posted on ' : ''}<span class="nowrap${!inline ? ' block' : ''}">${formatDateFilter(date)}</span></span></a>`;
+    <span class="link__pseudo">${title}${inline ? ',' : ''}</span><span class="regular">${inline ? ' posted on ' : ''}<span class="nowrap${!inline ? ' block' : ''}">${formatDateFilter(date)}</span></span></a>`;
 };
 
 module.exports = {
