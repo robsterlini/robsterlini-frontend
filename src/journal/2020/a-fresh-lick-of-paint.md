@@ -80,7 +80,7 @@ Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a
 
 To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
 
-> Soft launching a new, slim-lined [robsterlini.co.uk](http://robsterlini.co.uk) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
+> Soft launching a new, slim-lined [robsterlini.co.uk](/) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
 
 ## Next steps…
 
