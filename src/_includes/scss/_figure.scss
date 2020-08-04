@@ -102,5 +102,11 @@ $figure-visible-selector: '.js--figure-visible';
     color: var(--c-bC-66);
     font-variant-caps: small-caps;
     text-transform: lowercase;
+
+    &:hover,
+    &:focus {
+      --link-state-color: var(--c-bC);
+      color: var(--c-bC);
+    }
   }
 }

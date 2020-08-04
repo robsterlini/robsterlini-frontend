@@ -48,7 +48,7 @@ eleventyComputed:
     </p>
   </article>
   {% else %}
-  <article class="group group--thin post-article">
+  <article class="group group--thin post-article links--external">
     {{ content | safe }}
   </article>
 
@@ -63,7 +63,7 @@ eleventyComputed:
     {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
     {% set githubEntryUrl %}{{ global.github.branchUrl }}{{ page.inputPath.slice(1) }}{% endset %}
 
-    <div class="post-pagination__page">
+    <div class="post-pagination__page links--external">
       <h3 class="p lead">Thank you!</h3>
       <p>Firstly, thanks for taking the time to read this&nbsp;entry.</p>
       <p>If you enjoyed this post, and think others would benefit from reading it then feel free to <a href="https://twitter.com/share?text={{ twitterShareText | urlencode }}&url={{ page.url | url | absoluteUrl(global.url) | urlencode }}" target="_blank" rel="noopener" title="Share this entry on Twitter">share it on Twitter</a> (or elsewhere). I’m always up for a discussion about anything I’ve written too, so <a href="/#contact">get in touch</a> if you want to&nbsp;chat!</p>

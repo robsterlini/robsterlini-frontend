@@ -50,12 +50,12 @@
   @if ($link) {
 
     a {
-      &:not(:focus):not(:hover) {
-        text-decoration-color: currentColor;
-      }
+      --link-state-color: var(--c-bA);
+      text-decoration-color: currentColor !important;
 
       &:hover,
       &:focus {
+        --link-state-color: var(--c-bC);
         color: var(--c-bC);
       }
     }

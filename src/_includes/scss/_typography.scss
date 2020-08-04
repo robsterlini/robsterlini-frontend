@@ -34,8 +34,10 @@ del {
 }
 
 .anchor {
+  --link-state-color: var(--c-bC-33);
+
   text-decoration: none;
-  color: var(--c-bC-33, currentColor);
+  color: var(--link-state-color, var(--c-bC-33, currentColor));
   transition-property: opacity, color;
   font-weight: inherit;
   font-family: 'rsa-body', sans-serif;

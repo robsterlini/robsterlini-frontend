@@ -23,6 +23,12 @@ html, body {
   --c-cC: #FFF; // Contrast Color
   --c-cC-semi: #{rgba(#FFF, 0.66)};
   --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
+
+  --c-twitter: #00ACEE;
+  --c-github: #79b8ff;
+  --c-fueled: #{lighten(#AE0000, 10%)};
+  --c-netlify: #{lighten(#15847d, 10%)};
+  --c-linkedin: #{lighten(#0077b5, 10%)};
 }
 
 @mixin light-colors {
@@ -43,6 +49,12 @@ html, body {
   --c-cC: #000;
   --c-cC-semi: #{rgba(#000, 0.66)};
   --c-cA: #{darken(#EA3243, 20%)};
+
+  --c-twitter: #00ACEE;
+  --c-github: #0366D6;
+  --c-fueled: #AE0000;
+  --c-netlify: #15847d;
+  --c-linkedin: #0077b5;
 }
 
 @mixin contrast-colors {
@@ -74,6 +86,8 @@ html, body {
 
 @include prefers-high-contrast {
   @include contrast-colors;
+
+  --link-state-color: var(--c-bC);
 }
 
 html {
@@ -134,18 +148,67 @@ body {
   }
 }
 
+[href*="twitter.com"] {
+  --link-color: var(--c-twitter);
+}
+
+[href*="github.com"] {
+  --link-color: var(--c-github);
+}
+
+[href*="fueled.com"] {
+  --link-color: var(--c-fueled);
+}
+
+[href*="tutsplus.com"] {
+  --link-color: #82b541;
+}
+
+[href*="instagram.com"] {
+  --link-color: #f00075;
+}
+
+[href*="netlify.com"],
+[href*="netlify.app"] {
+  --link-color: var(--c-netlify);
+}
+
+[href*="11ty.dev"] {
+  --link-color: #00BCD4;
+}
+
+[href*="strava.com"] {
+  --link-color: #fc4c02;
+}
+
+[href*="codepen.io"] {
+  --link-color: #0ebeff;
+}
+
+[href*="linkedin.com"] {
+  --link-color: var(--c-linkedin);
+}
+
+[href*="spotify.com"] {
+  --link-color: #1db954;
+}
+
+[href*="youtube.com"] {
+  --link-color: #FF0000;
+}
+
 a,
 .link {
   appearance: none;
   background: none;
-  color: inherit;
+  color: var(--link-state-color, inherit);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
   padding: unset;
   border: 0;
 
@@ -164,9 +227,7 @@ a,
 
   &:hover,
   &:focus {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-    border: 0;
+    --link-state-color: var(--c-bA);
   }
 
   &:focus {
@@ -176,6 +237,39 @@ a,
   &:active {
     opacity: 0.66;
   }
+}
+
+@mixin link-external {
+
+  &::after {
+    color: var(--link-state-color, var(--link-color, var(--c-bA)));
+    content: '\00A0↗';
+    font-family: 'rsa-body', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: -0.15em;
+    margin-right: 0.15em;
+    transition: color 125ms ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: var(--c-bB) !important;
+  }
+
+  &:hover,
+  &:focus {
+
+    &::after {
+      color: var(--link-state-color);
+    }
+  }
+}
+
+.link--external {
+  @include link-external;
+}
+
+.links--external [href^="https://"],
+.links--external [href^="http://"] {
+  @include link-external;
 }
 
 .link--pseudo {
@@ -188,22 +282,34 @@ a,
     text-decoration: none;
     transition: none;
   }
+
+  &:hover,
+  &:focus {
+    --link-state-color: var(--c-bA);
+  }
+
+  &.link--external {
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .link__pseudo {
+  color: var(--link-state-color);
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
 
-  .link--pseudo:hover &,
-  .link--pseudo:focus & {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-  }
-
   .link--pseudo:active & {
     opacity: 0.66;
+  }
+
+  .link--external[href^="https://"] &,
+  .link--external[href^="http://"] & {
+    @include link-external;
   }
 }
 
