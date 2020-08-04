@@ -41,6 +41,16 @@ hero_h1: What I’m up to
               {% if season.work %}
                 <p><strong class="lead">At work I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.work | safe   }}</p>
               {% endif %}
+              {% if season.music %}
+                <p>
+                  <strong class="lead">I {{ 'was' if current == 0 else 'am' }} listening to</strong>
+                  {% set musicText %}{% if season.music.title %}{{ season.music.title }}, {% endif %}{% if season.music.artist %}<span class="regula">{{ season.music.artist }}</span>{% endif %}{% endset %}
+                  {% if season.music.link %}
+                    <a href="{{ season.music.link }}" rel="noopener" target="_blank">{{ musicText | safe }}</a>
+                  {% else %}
+                    {{ musicText | safe }}
+                  {% endif %}
+              {% endif %}
             {% endif %}
           </div>
         {% endif %}
