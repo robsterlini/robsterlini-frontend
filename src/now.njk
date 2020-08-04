@@ -11,12 +11,12 @@ hero_h1: What I’m up to
 {% from "components/hero.html" import hero %}
 
 {% set children %}
-<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’m up to in life and&nbsp;work.</p>
+<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a class="link--external" href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’m up to in life and&nbsp;work.</p>
 {% endset %}
 
 {{ hero(hero_h1, header=title, children=children | safe) }}
 
-<main class="main">
+<main class="main links--external">
   <div class="group">
     {% set current = 0 %}
     {% for year, seasons in now.years %}
@@ -31,15 +31,25 @@ hero_h1: What I’m up to
 
         {% if current < 3 %}
           <div class="year__season year__season--{{ current }}">
-            <h3 class="h3" id="seasonAnchor">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
+            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
             {% if current > 1 %}
-              Check back soon…
+              <p>Check back soon…</p>
             {% else %}
               {% if season.life %}
                 <p><strong class="lead">In life I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.life | safe   }}</p>
               {% endif %}
               {% if season.work %}
                 <p><strong class="lead">At work I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.work | safe   }}</p>
+              {% endif %}
+              {% if season.music %}
+                <p>
+                  <strong class="lead">I {{ 'was' if current == 0 else 'am' }} listening to</strong>
+                  {% set musicText %}{% if season.music.title %}{{ season.music.title }}, {% endif %}{% if season.music.artist %}{{ season.music.artist }}{% endif %}.{% endset %}
+                  {% if season.music.link %}
+                    <a href="{{ season.music.link }}" rel="noopener" target="_blank">{{ musicText | safe }}</a>
+                  {% else %}
+                    {{ musicText | safe }}
+                  {% endif %}
               {% endif %}
             {% endif %}
           </div>

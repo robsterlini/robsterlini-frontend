@@ -30,5 +30,7 @@
     "markdown-it-anchor": "^5.3.0",
     "node-sass": "^4.14.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it-link-attributes": "^3.0.0"
+  }
 }
