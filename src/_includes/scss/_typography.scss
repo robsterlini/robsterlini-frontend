@@ -55,6 +55,17 @@ strong {
   font-weight: 500;
 }
 
+hr {
+  border: 0;
+  display: block;
+  background: var(--figB);
+  height: 2px;
+  border-radius: 1px;
+  width: 80%;
+  margin: 3rem auto;
+  max-width: 16rem;
+}
+
 .blockquote {
   font-family: 'rsa-heading', serif;
   font-weight: 400;

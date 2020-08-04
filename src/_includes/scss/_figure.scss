@@ -96,6 +96,11 @@ $figure-visible-selector: '.js--figure-visible';
       bottom: 100%;
       left: 0;
     }
+
+    > span {
+      display: block;
+      max-width: (42em * 18 / 17) - (0.667em * 2);
+    }
   }
 
   &__link {

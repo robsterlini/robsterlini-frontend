@@ -10,6 +10,7 @@
     position: relative;
 
     .main + .footer & {
+
       &::before {
         background: var(--figB);
         content: '';

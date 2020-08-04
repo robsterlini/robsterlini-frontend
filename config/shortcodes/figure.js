@@ -15,7 +15,7 @@ const figure = ([ image, size, alt, caption, link, label ], args = {}) => {
     captionMarkup = `
       <figcaption class="figure__caption">
         <svg preserveAspectRatio="none" width="1000" height="25" viewBox="0 0 1000 25" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v25h1000z" fill-rule="evenodd"/></svg>
-        ${caption}${linkMarkup}
+        <span>${caption}${linkMarkup}</span>
       </figcaption>
     `;
   }

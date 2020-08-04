@@ -47,6 +47,11 @@
   color: var(--c-bA);
   font-weight: 500;
 
+  abbr {
+    border: 0;
+    text-decoration: none;
+  }
+
   @if ($link) {
 
     a {

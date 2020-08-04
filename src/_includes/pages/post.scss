@@ -11,8 +11,15 @@
     margin-top: 0;
   }
 
-  > p:first-child {
+  > p:first-child,
+  > hr + p {
     @include lead;
+
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 
   abbr {
@@ -45,11 +52,14 @@
 
     &__caption {
 
-      &::before {
-        @include lead(false);
+      > span {
 
-        content: 'Fig. ' counter(section) " ";
-        margin-right: 0.1em;
+        &::before {
+          @include lead(false);
+
+          content: 'Fig. ' counter(section) " ";
+          margin-right: 0.1em;
+        }
       }
     }
   }
