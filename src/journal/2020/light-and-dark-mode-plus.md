@@ -299,7 +299,7 @@ Accessibility is important, and respecting users’ defaults whilst offering ove
 
 ## Further considerations
 
-Now that we’re respecting user’s preferences over contrast and colour scheme, why not explore [`prefers-reduced-motion`,](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) [`prefers-reduced-transparency`,](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency) or any of the other user preference media queries proposed in [Media Queries Level 5.](https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences)
+Now that we’re respecting user’s preferences over contrast and colour scheme, why not explore [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion), [`prefers-reduced-transparency`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency), or any of the other user preference media queries proposed in [Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences).
 
 There are two things to bare in mind:
 
@@ -308,4 +308,4 @@ There are two things to bare in mind:
 
 ## Final thoughts
 
-For a full HTML example of the techniques described above, check out [this Gist]({{ global.github.branchUrl }}/gists/light-and-dark-mode-plus.html) (you can download, save it and then open the file locally in your browser with no extra steps needed). Keep in mind that there are lots of ways to neaten up the code; it is deliberately unabstracted to make it as easily understood as possible – you can see it abstracted a little and with some extra features (notably changing the `auto` label to include the user’s preference more obviously) within [the repository for this site.]({{ global.github.branchUrl }}/src/_includes/layouts/base.njk) There’s also a more fully fleshed out implementation of CSS Custom Properties for colour schemes in there too.
+For a full HTML example of the techniques described above, check out [this Gist]({{ global.github.branchUrl }}/gists/light-and-dark-mode-plus.html) (you can download, save it and then open the file locally in your browser with no extra steps needed). Keep in mind that there are lots of ways to neaten up the code; it is deliberately unabstracted to make it as easily understood as possible – you can see it abstracted a little and with some extra features (notably changing the `auto` label to include the user’s preference more obviously) within [the repository for this site]({{ global.github.branchUrl }}/src/_includes/layouts/base.njk). There’s also a more fully fleshed out implementation of CSS Custom Properties for colour schemes in there too.
