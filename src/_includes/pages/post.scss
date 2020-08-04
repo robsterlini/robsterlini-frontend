@@ -14,6 +14,12 @@
   > p:first-child,
   > hr + p {
     @include lead;
+
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 
   abbr {

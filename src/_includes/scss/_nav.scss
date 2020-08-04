@@ -101,10 +101,17 @@ $nav-height: 2.5rem;
   > svg {
     display: block;
     margin: auto;
+    overflow: visible;
   }
 
   path {
     fill: currentColor;
+    transform-origin: center center;
+    transition: transform 250ms ease-in-out;
+
+    .js--menu & {
+      transform: rotate(90deg);
+    }
   }
 
   @media(hover: hover) and (pointer: fine) {
