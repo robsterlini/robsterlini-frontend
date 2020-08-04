@@ -1,5 +1,5 @@
 ---
-title: Opentype and ::selection don’t mix
+title: Opentype & ::selection don’t mix
 date: 2014-04-29
 description: Fixing the dubious way that Chrome on <abbr title="Mac OS X" class="sc">OSX</abbr> borks OpenType features when used with a custom ::selection.
 layout: post
@@ -90,7 +90,7 @@ p {
 }
 ```
 
-It would also mean sacrificing the tasty features on all the other browsers, but *A List Apart* had a similar issue and solved it with [a bit of JS browser-sniffing](https://github.com/alistapart/AListApart/issues/53 "Find out how A List Apart fixed it"):
+It would also mean sacrificing the tasty features on all the other browsers, but *A List Apart* had a similar issue and solved it with [a bit of JS browser-sniffing:](https://github.com/alistapart/AListApart/issues/53 "Find out how A List Apart fixed it")
 
 ```js
 var b = document.documentElement;
@@ -161,4 +161,4 @@ Feel free to use any of the techniques shown until Chrome fix it, happy OpenType
 
 ## Let Google know
 
-A while back I added this as a Chromium issue, but it seems to have lost traction so if you can [star the bug](https://code.google.com/p/chromium/issues/detail?id=362956 "See the Chromium Issue raised on this subject"), so we can get this fixed that’d be grand!
+A while back I added this as a Chromium issue, but it seems to have lost traction so if you can [star the bug,](https://code.google.com/p/chromium/issues/detail?id=362956 "See the Chromium Issue raised on this subject") so we can get this fixed that’d be grand!

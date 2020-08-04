@@ -23,6 +23,18 @@ html, body {
   --c-cC: #FFF; // Contrast Color
   --c-cC-semi: #{rgba(#FFF, 0.66)};
   --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
+
+  --c-twitter: #00ACEE;
+  --c-github: #79b8ff;
+  --c-fueled: #{lighten(#AE0000, 10%)};
+  --c-netlify: #{lighten(#15847d, 10%)};
+  --c-linkedin: #{lighten(#0077b5, 10%)};
+  --c-codepen: #fefefe;
+  --c-strava: #{mix(#fc4c02, yellow, 90%)};
+  --c-envato: #82b541;
+  --c-instagram: #f00075;
+  --c-spotify: #1db954;
+  --c-youtube: #FF0000;
 }
 
 @mixin light-colors {
@@ -43,6 +55,13 @@ html, body {
   --c-cC: #000;
   --c-cC-semi: #{rgba(#000, 0.66)};
   --c-cA: #{darken(#EA3243, 20%)};
+
+  --c-github: #0366D6;
+  --c-strava: #fc4c02;
+  --c-fueled: #AE0000;
+  --c-netlify: #15847d;
+  --c-linkedin: #0077b5;
+  --c-codepen: #1e1f26;
 }
 
 @mixin contrast-colors {
@@ -74,11 +93,13 @@ html, body {
 
 @include prefers-high-contrast {
   @include contrast-colors;
+
+  --link-state-color: var(--c-bC);
 }
 
 html {
   background: var(--c-bB);
-  line-height: 1.55; // TODO: Var
+  line-height: $line-height-body;
   font-size: 0.8125rem;
   scroll-behavior: smooth;
 
@@ -130,22 +151,71 @@ body {
   width: 92%;
 
   &--thin {
-    width: 60rem;
+    max-width: 60rem;
   }
+}
+
+[href*="twitter.com"] {
+  --link-color: var(--c-twitter);
+}
+
+[href*="github.com"] {
+  --link-color: var(--c-github);
+}
+
+[href*="fueled.com"] {
+  --link-color: var(--c-fueled);
+}
+
+[href*="tutsplus.com"] {
+  --link-color: var(--c-envato);
+}
+
+[href*="instagram.com"] {
+  --link-color: var(--c-instagram);
+}
+
+[href*="netlify.com"],
+[href*="netlify.app"] {
+  --link-color: var(--c-netlify);
+}
+
+[href*="11ty.dev"] {
+  --link-color: #00BCD4;
+}
+
+[href*="strava.com"] {
+  --link-color: var(--c-strava);
+}
+
+[href*="codepen.io"] {
+  --link-color: var(--c-codepen);
+}
+
+[href*="linkedin.com"] {
+  --link-color: var(--c-linkedin);
+}
+
+[href*="spotify.com"] {
+  --link-color: var(--c-spotify);
+}
+
+[href*="youtube.com"] {
+  --link-color: var(--c-youtube);
 }
 
 a,
 .link {
   appearance: none;
   background: none;
-  color: inherit;
+  color: var(--link-state-color, inherit);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
   padding: unset;
   border: 0;
 
@@ -156,14 +226,15 @@ a,
   }
 
   abbr {
-    text-decoration: none; // Prevents a strange double line from being rendered
+    // Prevents a strange double line from being rendered
+    text-decoration: none !important;
+    border: 0 !important;
+    text-underline-position: unset !important;
   }
 
   &:hover,
   &:focus {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-    border: 0;
+    --link-state-color: var(--c-bA);
   }
 
   &:focus {
@@ -173,6 +244,42 @@ a,
   &:active {
     opacity: 0.66;
   }
+}
+
+@mixin link-external {
+
+  &::after {
+    color: var(--link-state-color, var(--link-color, var(--c-bA)));
+    content: '\00A0↗';
+    font-family: 'rsa-body', sans-serif;
+    font-weight: 500;
+    position: relative;
+    top: -0.2em;
+    font-style: normal;
+    letter-spacing: -0.15em;
+    margin-right: 0.15em;
+    font-size: 0.825em;
+    transition: color 125ms ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: var(--c-bB) !important;
+  }
+
+  &:hover,
+  &:focus {
+
+    &::after {
+      color: var(--link-state-color);
+    }
+  }
+}
+
+.link--external {
+  @include link-external;
+}
+
+.links--external [href^="https://"],
+.links--external [href^="http://"] {
+  @include link-external;
 }
 
 .link--pseudo {
@@ -185,22 +292,34 @@ a,
     text-decoration: none;
     transition: none;
   }
+
+  &:hover,
+  &:focus {
+    --link-state-color: var(--c-bA);
+  }
+
+  &.link--external {
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .link__pseudo {
+  color: var(--link-state-color);
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
 
-  .link--pseudo:hover &,
-  .link--pseudo:focus & {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-  }
-
   .link--pseudo:active & {
     opacity: 0.66;
+  }
+
+  .link--external[href^="https://"] &,
+  .link--external[href^="http://"] & {
+    @include link-external;
   }
 }
 

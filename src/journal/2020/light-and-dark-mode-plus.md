@@ -269,7 +269,7 @@ body {
 }
 ```
 
-Rather than creating `@media` combinations of `prefers-contrast` and `prefers-color-scheme`, and creating `[data-color-preference=""][data-contrast-preference="[]` declarations for every possible permutation, the `light` and `dark` colour schemes now have `-high-contrast` variants of their values which are used in the `high-contrast-colors` mixin to redefine their values (whilst maintaining the colour preference).
+Rather than creating `@media` combinations of `prefers-contrast` and `prefers-color-scheme`, and creating `[data-color-preference=""][data-contrast-preference=""]` declarations for every possible permutation, the `light` and `dark` colour schemes now have `-high-contrast` variants of their values which are used in the `high-contrast-colors` mixin to redefine their values (whilst maintaining the colour preference).
 
 This abstraction comes into its own when there are more than just `background` and `color` variables, and means a few variables can be used to keep consistent styling for every possible combiniation of colour and contrast preference throughout your site.
 
@@ -299,13 +299,13 @@ Accessibility is important, and respecting users’ defaults whilst offering ove
 
 ## Further considerations
 
-Now that we’re respecting user’s preferences over contrast and colour scheme, why not explore [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion), [`prefers-reduced-transparency`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency), or any of the other user preference media queries proposed in [Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences).
+Now that we’re respecting user’s preferences over contrast and colour scheme, why not explore [`prefers-reduced-motion`,](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) [`prefers-reduced-transparency`,](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency) or any of the other user preference media queries proposed in [Media Queries Level 5.](https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences)
 
 There are two things to bare in mind:
 
-1. Implementing every combination of every media query will likely lead to more code that is less maintainable
-2. A lot of the Media Queries Level 5 features are still experimental – use them at your own risk!
+1. Implementing every combination of every media query will likely lead to more code that is less maintainable
+2. A lot of the Media Queries Level 5 features are still experimental – use them at your own risk!
 
 ## Final thoughts
 
-For a full HTML example of the techniques described above, check out [this Gist]({{ global.github.branchUrl }}/gists/light-and-dark-mode-plus.html) (you can download, save it and then open the file locally in your browser with no extra steps needed). Keep in mind that there are lots of ways to neaten up the code; it is deliberately unabstracted to make it as easily understood as possible – you can see it abstracted a little and with some extra features (notably changing the `auto` label to include the user’s preference more obviously) within [the repository for this site]({{ global.github.branchUrl }}/src/_includes/layouts/base.njk). There’s also a more fully fleshed out implementation of CSS Custom Properties for colour schemes in there too.
+For a full HTML example of the techniques described above, check out [this Gist]({{ global.github.branchUrl }}/gists/light-and-dark-mode-plus.html) (you can download, save it and then open the file locally in your browser with no extra steps needed). Keep in mind that there are lots of ways to neaten up the code; it is deliberately unabstracted to make it as easily understood as possible – you can see it abstracted a little and with some extra features (notably changing the `auto` label to include the user’s preference more obviously) within [the repository for this site.]({{ global.github.branchUrl }}/src/_includes/layouts/base.njk) There’s also a more fully fleshed out implementation of CSS Custom Properties for colour schemes in there too.

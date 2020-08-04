@@ -20,11 +20,12 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
-  let tagsMarkup = '';
+  let tagsMarkup;
 
   if (tags.length) {
+    tagsMarkup = ' ';
     tags.forEach((tag, index) => {
-      tagsMarkup += ` ${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
+      tagsMarkup += `${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
     });
   }
 
@@ -32,7 +33,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
 
   const linkMarkup = `<p class="list__item">
     <a class="journal-first link--pseudo" ${link.htmlAttrs}>
-      <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>${link.domain ? `<span class="accent">&#8239;&#8599;</span>` : ``}
+      <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>
     </a>
   </p>`
 
@@ -49,8 +50,8 @@ const journalEntryShort = (entry, inline = false) => {
     link,
   } = entry;
 
-  return `<a class="link--pseudo" ${link.htmlAttrs}>
-    <span class="link__pseudo">${title}</span>${link.domain ? '<span class="accent">&#8239;&#8599;</span>' : ''}<span class="regular">${inline ? ', posted on ' : ''}<span class="nowrap${!inline ? ' block' : ''}">${formatDateFilter(date)}</span></span></a>`;
+  return `<a class="link--pseudo link--external" ${link.htmlAttrs}>
+    <span class="link__pseudo">${title}${inline ? ',' : ''}</span><span class="regular">${inline ? ' posted on ' : ''}<span class="nowrap${!inline ? ' block' : ''}">${formatDateFilter(date)}</span></span></a>`;
 };
 
 module.exports = {

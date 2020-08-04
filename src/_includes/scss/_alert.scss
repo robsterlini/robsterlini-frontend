@@ -1,6 +1,7 @@
 .alert {
   border-radius: 2px;
   display: table;
+  line-height: $line-height-body-small;
   font-size: 1rem;
   font-weight: 500;
   padding: 0em 0 0.1em 0.5em;
@@ -15,5 +16,9 @@
     left: 0;
     width: 2px;
     border-radius: 1px;
+  }
+
+  .lead {
+    display: block;
   }
 }

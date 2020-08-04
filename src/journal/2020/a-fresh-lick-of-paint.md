@@ -9,11 +9,11 @@ tags:
 
 ‘Painting the Forth Bridge’.
 
-Turns out that, that task isn’t as endless as [we were lead to believe it&nbsp;was](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)…
+Turns out that, that task isn’t as endless as [we were lead to believe it&nbsp;was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)
 
 I’d like to lead a motion to replace it with __‘building a personal site’__.
 
-With commits like [`Hate it` from October 2019](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878), and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
+With commits like [`Hate it` from October 2019,](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878) and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
 
 ## Where to start
 
@@ -47,7 +47,7 @@ With a rough design down, and some potential typefaces chosen this would be the 
   "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
 %}
 
-I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
+I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify&nbsp;Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
 
 ### 4. Get it live!
 
@@ -80,7 +80,7 @@ Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a
 
 To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
 
-> Soft launching a new, slim-lined [robsterlini.co.uk](http://robsterlini.co.uk) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
+> Soft launching a new, slim-lined [robsterlini.co.uk](/) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
 
 ## Next steps…
 

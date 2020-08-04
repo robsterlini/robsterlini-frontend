@@ -11,8 +11,16 @@
     flex: 1;
   }
 
-  a:not(:hover):not(:focus) {
+  a:not(:hover):not(:focus),
+  .link:not(:hover):not(:focus) {
     text-decoration-color: var(--c-bC-33);
+  }
+
+  .link--external {
+
+    &::after {
+      text-decoration-color: var(--c-hB) !important;
+    }
   }
 
   .group {

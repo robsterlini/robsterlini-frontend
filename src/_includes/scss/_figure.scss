@@ -75,8 +75,9 @@ $figure-visible-selector: '.js--figure-visible';
   &__caption {
     background: var(--c-hB);
     color: var(--c-bC-66);
-    padding: 0.125em 0.667em 0.5em;
+    padding: 0.625em 0.667em 0.667em;
     font-size: 0.825rem;
+    line-height: $line-height-body-small;
     display: table-caption;
     caption-side: bottom;
     position: relative;
@@ -101,5 +102,11 @@ $figure-visible-selector: '.js--figure-visible';
     color: var(--c-bC-66);
     font-variant-caps: small-caps;
     text-transform: lowercase;
+
+    &:hover,
+    &:focus {
+      --link-state-color: var(--c-bC);
+      color: var(--c-bC);
+    }
   }
 }
