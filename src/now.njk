@@ -31,7 +31,7 @@ hero_h1: What I’m up to
 
         {% if current < 3 %}
           <div class="year__season year__season--{{ current }}">
-            <h3 class="h3" id="seasonAnchor">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
+            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
             {% if current > 1 %}
               Check back soon…
             {% else %}
