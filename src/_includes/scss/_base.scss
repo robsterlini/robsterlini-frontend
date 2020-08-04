@@ -5,6 +5,20 @@ html, body {
   min-height: 100%;
 }
 
+body {
+  --c-strava: #FC4C02;
+  --c-twitter: #00ACEE;
+  --c-fueled: #AE0000;
+  --c-netlify: #15847D;
+  --c-linkedin: #0077B5;
+  --c-codepen: #1E1F26;
+  --c-github: #0366D6;
+  --c-envato: #82b541;
+  --c-instagram: #F00075;
+  --c-spotify: #1DB954;
+  --c-youtube: #FF0000;
+}
+
 @mixin dark-colors {
   --c-hB: #110E14; // Header BG
   --c-hA: #F75C6A; // Header Accent
@@ -24,17 +38,12 @@ html, body {
   --c-cC-semi: #{rgba(#FFF, 0.66)};
   --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
 
-  --c-twitter: #00ACEE;
-  --c-github: #79b8ff;
   --c-fueled: #{lighten(#AE0000, 10%)};
+  --c-github: #79B8FF;
   --c-netlify: #{lighten(#15847d, 10%)};
   --c-linkedin: #{lighten(#0077b5, 10%)};
-  --c-codepen: #fefefe;
   --c-strava: #{mix(#fc4c02, yellow, 90%)};
-  --c-envato: #82b541;
-  --c-instagram: #f00075;
-  --c-spotify: #1db954;
-  --c-youtube: #FF0000;
+  --c-codepen: #FEFEFE;
 }
 
 @mixin light-colors {
@@ -55,13 +64,6 @@ html, body {
   --c-cC: #000;
   --c-cC-semi: #{rgba(#000, 0.66)};
   --c-cA: #{darken(#EA3243, 20%)};
-
-  --c-github: #0366D6;
-  --c-strava: #fc4c02;
-  --c-fueled: #AE0000;
-  --c-netlify: #15847d;
-  --c-linkedin: #0077b5;
-  --c-codepen: #1e1f26;
 }
 
 @mixin contrast-colors {
@@ -250,14 +252,15 @@ a,
 
   &::after {
     color: var(--link-state-color, var(--link-color, var(--c-bA)));
-    content: '\00A0↗';
+    content: '↗';
     font-family: 'rsa-body', sans-serif;
     font-weight: 500;
     position: relative;
     top: -0.2em;
     font-style: normal;
     letter-spacing: -0.15em;
-    margin-right: 0.15em;
+    margin-left: 0.05em;
+    margin-right: 0.2em;
     font-size: 0.825em;
     transition: color 125ms ease-in-out;
     text-decoration: underline;

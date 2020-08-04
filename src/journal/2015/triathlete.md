@@ -11,7 +11,7 @@ tags:
 
 ## Why triathlon?
 
-When I signed up for [The London Triathlon,](/triathlon/#the-london-triathlon "Read about my reasons for doing The London Triathlon") I had no experience in the sport. At&nbsp;all.
+When I signed up for [The London Triathlon](/triathlon/#the-london-triathlon "Read about my reasons for doing The London Triathlon"), I had no experience in the sport. At&nbsp;all.
 
 I learned to swim at an early age; I learned to ride a bike at an early age; and a little more recently I’ve taken up running as a way to keep fit (you’ll probably have seen many of the countless Nike+ runs on [my Instagram feed](https://instagram.com/robsterlini "Check out my photos on Instagram")).
 
@@ -32,13 +32,13 @@ Triathlon was perfect.
 
 ### How do you prepare for a triathlon?
 
-So I started training the three disciplines: pushing out my runs to regularly hit [half](https://instagram.com/p/xbnc-DP-9e/?taken-by=robsterlini "Check out my run on 4 January") [marathon](https://instagram.com/p/3gJcbmP-9C/?taken-by=robsterlini "Check out my run on 4 June") [distances;](https://instagram.com/p/4RJdMDv-_8/?taken-by=robsterlini "Check out my run on 23 June") jumping onto my bike more and more, including cyclo-commuting on a daily basis – culminating in a [105.9km ride;](https://instagram.com/p/4e_9dyP-_A/?taken-by=robsterlini "Check out my longest ride to date") and I even got some open water practice in with the [Swim Dem Crew](https://instagram.com/p/3lTk5Gv-4L/?taken-by=robsterlini "Check out the photos from my first trip to the Reservoir") at the West Reservoir.
+So I started training the three disciplines: pushing out my runs to regularly hit [half](https://instagram.com/p/xbnc-DP-9e/?taken-by=robsterlini "Check out my run on 4 January") [marathon](https://instagram.com/p/3gJcbmP-9C/?taken-by=robsterlini "Check out my run on 4 June") [distances](https://instagram.com/p/4RJdMDv-_8/?taken-by=robsterlini "Check out my run on 23 June"); jumping onto my bike more and more, including cyclo-commuting on a daily basis – culminating in a [105.9km ride](https://instagram.com/p/4e_9dyP-_A/?taken-by=robsterlini "Check out my longest ride to date"); and I even got some open water practice in with the [Swim Dem Crew](https://instagram.com/p/3lTk5Gv-4L/?taken-by=robsterlini "Check out the photos from my first trip to the Reservoir") at the West Reservoir.
 
 The plan was never to use a specific training regime; but instead to just push each of the disciplines and improve as much as I could before the weekend of the first triathlon, and then just go and enjoy it as slowly or as quickly as it unfolded.
 
 ## The day itself
 
-Having trained as much as the time would allow, it was time to do a [final gear check,](https://instagram.com/p/4-K7NFv-78/?taken-by=robsterlini "Check out my final gear check on Instagram") pack it all up and head out to Derby.
+Having trained as much as the time would allow, it was time to do a [final gear check](https://instagram.com/p/4-K7NFv-78/?taken-by=robsterlini "Check out my final gear check on Instagram"), pack it all up and head out to Derby.
 
 I’d signed up for the [Jenson Button Trust Triathlon](http://www.jensonbuttontri.com/ "Check out the official Jenson Button Trust Triathlon website") as a warmup for London, but kne,w very little about it. It was an event sponsored by [HUUB](http://huubdesign.com "Check out the HUUB website") – the makers of my wetsuit, so that seemed a good enough reason to give it a shot.
 
@@ -146,7 +146,7 @@ The tears of pain from the first time round came back again, but as those ‘can
 
 So how was it overall?
 
-> Excuse my language, but f**k me that was fun! What an experience! [#triathlonvirginity](https://twitter.com/hashtag/triathlonvirginity?src=hash) [@JBTrustTri.](https://twitter.com/JBTrustTri) <cite>[@robsterlini](https://twitter.com/robsterlini/status/620171205178433536)</cite>
+> Excuse my language, but f**k me that was fun! What an experience! [#triathlonvirginity](https://twitter.com/hashtag/triathlonvirginity?src=hash) [@JBTrustTri](https://twitter.com/JBTrustTri). <cite>[@robsterlini](https://twitter.com/robsterlini/status/620171205178433536)</cite>
 
 __Unbelievable!__
 
@@ -169,7 +169,7 @@ Overall, it was just sensational.
 
 I’ll just take this opportunity to thank __everyone__ who has got behind me: either through [donating](https://uk.virginmoneygiving.com/robsterlini "Donate towards my fundraising goal") (you can definitely still do that if you want to); on cheering me on, on one of my training runs – strangers in London aren’t all horrible people; or putting up with me in my overly-tight lycra bits. I’m eternally grateful.
 
-There’s one person in particular who has carried me though. She makes up my one woman entourage, my ‘keep a level head’ coach, my ‘makes so much noise whooping at events that people give her funny looks, but I don’t care‘ wind beneath my wings. My mum is awesome.
+There’s one person in particular who has carried me though. She makes up my one woman entourage, my ‘keep a level head’ coach, my ‘makes so much noise whooping at events that people give her funny looks, but I don’t care’ wind beneath my wings. __My mum is awesome.__
 
 Thanks everyone.
 

@@ -9,11 +9,11 @@ tags:
 
 ‘Painting the Forth Bridge’.
 
-Turns out that, that task isn’t as endless as [we were lead to believe it&nbsp;was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)
+Turns out that, that task isn’t as endless as [we were lead to believe it was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)
 
 I’d like to lead a motion to replace it with __‘building a personal site’__.
 
-With commits like [`Hate it` from October 2019,](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878) and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
+With commits like [`Hate it` from October 2019](https://github.com/robsterlini/robsterlini-frontend/commit/2d0db80d96a1f5e5978c6a09a6e3e7e6b8a97878), and a [PR named `2018`](https://github.com/robsterlini/robsterlini-frontend/pull/1) getting merged at around the same time, it’s no surprise that these tasks take so long; but extra time at home gave me the opportunity to really strip it down and start afresh.
 
 ## Where to start
 
