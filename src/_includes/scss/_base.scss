@@ -130,7 +130,7 @@ body {
   width: 92%;
 
   &--thin {
-    width: 60rem;
+    max-width: 60rem;
   }
 }
 
@@ -156,7 +156,10 @@ a,
   }
 
   abbr {
-    text-decoration: none; // Prevents a strange double line from being rendered
+    // Prevents a strange double line from being rendered
+    text-decoration: none !important;
+    border: 0 !important;
+    text-underline-position: unset !important;
   }
 
   &:hover,

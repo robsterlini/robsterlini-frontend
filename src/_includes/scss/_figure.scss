@@ -75,8 +75,9 @@ $figure-visible-selector: '.js--figure-visible';
   &__caption {
     background: var(--c-hB);
     color: var(--c-bC-66);
-    padding: 0.125em 0.667em 0.5em;
+    padding: 0.625em 0.667em 0.667em;
     font-size: 0.825rem;
+    line-height: 1.45;
     display: table-caption;
     caption-side: bottom;
     position: relative;

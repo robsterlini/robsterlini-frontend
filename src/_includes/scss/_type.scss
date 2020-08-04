@@ -48,6 +48,7 @@
   font-weight: 500;
 
   @if ($link) {
+
     a {
       &:not(:focus):not(:hover) {
         text-decoration-color: currentColor;
