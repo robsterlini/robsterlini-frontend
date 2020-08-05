@@ -19,7 +19,9 @@ We’ll start our story at Run Dem Crew housekeeping.
 
 Charlie Dark was always adamant that social media obfuscated the truth:
 
-> The ’gram is just a highlight reel.
+> Don’t do it for ’gram.
+>
+> It’s just a highlight reel.
 
 It’s a collection of freeze frames, moments in time that the poster as felt happy with sharing with the world (or at the very least those they have allowed to follow them).
 
