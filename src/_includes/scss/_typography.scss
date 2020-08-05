@@ -110,7 +110,10 @@ hr {
 
   > p {
     position: relative;
-    margin-bottom: 0.5em;
+
+    &:nth-of-type(n) {
+      margin-bottom: 0.25em;
+    }
 
     &:last-child {
       margin-bottom: 0;
