@@ -67,14 +67,15 @@
     {% endif %}
 
     {% set stylesScss %}{% include "styles.scss" %}{% endset %}
-    <style>{{ stylesScss | inlineScss | safe }}
+
+    <noscript><style>{{ noscriptScss | inlineScss | safe }}</style></noscript>
+    <style data-style="main">{{ stylesScss | inlineScss | safe }}
     {%- if custom_css %}
       {%- set customScss %}{% include custom_css %}{% endset %}{#
       #}{{ customScss | inlineScss | safe }}
     {%- endif %}</style>
 
     {% set noscriptScss %}{% include "noscript.scss" %}{% endset %}
-    <noscript><style>{{ noscriptScss | inlineScss | safe }}</style></noscript>
 
     <!--<script defer src="https://unpkg.com/web-vitals@0.2.2/dist/web-vitals.es5.umd.min.js"></script>
     <script>

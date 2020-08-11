@@ -1,6 +1,7 @@
 const sass = require('node-sass');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { PurgeCSS } = require('purgecss');
 
 const { input, output } = require('./config/constants.js');
 const scssConfig = require('./config/scss.js');
@@ -99,6 +100,40 @@ module.exports = function(eleventyConfig) {
     }
 
     return content;
+  });
+  eleventyConfig.addTransform('purge-css', async function(content, outputPath) {
+    if (/*process.env.ELEVENTY_ENV !== 'production' || */!outputPath.endsWith('.html')) {
+      return content;
+    }
+
+    const cssMatches = content.match(/<style data-style="main">((?:.|\n)*)<\/style>/m);
+
+    if (!cssMatches.length) {
+      return content;
+    }
+
+    const raw = cssMatches[1].replace(/\//g, '\\/');
+
+    const purgeCSSResults = await new PurgeCSS().purge({
+      content: [{
+        raw: content,
+      }],
+      css: [{
+        raw,
+      }],
+      keyframes: true,
+      whitelist: [
+        '[href^="https://"]',
+        '[href*="twitter.com"]',
+      ],
+    });
+
+    const [newCssResult] = purgeCSSResults;
+    const newCss = newCssResult.css.replace(/\\\//g, '/');
+
+    console.log(outputPath, `${(100 - (newCss.length / raw.length * 100)).toFixed(2)}% saved`);
+
+    return content.replace(cssMatches[0], `<style>${newCss}</style>`);
   });
 
   // Filters
