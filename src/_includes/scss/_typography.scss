@@ -12,7 +12,7 @@ p,
 }
 
 del {
-  color: var(--c-bC-66);
+  color: var(--c-bC-semi);
   text-decoration-color: var(--c-bC);
   text-decoration-thickness: 2px;
 }
@@ -34,10 +34,10 @@ del {
 }
 
 .anchor {
-  --link-state-color: var(--c-bC-33);
+  --link-state-color: var(--c-bC-semi);
 
   text-decoration: none;
-  color: var(--link-state-color, var(--c-bC-33, currentColor));
+  color: var(--link-state-color, var(--c-bC-semi, currentColor));
   transition-property: opacity, color;
   font-weight: inherit;
   font-family: 'rsa-body', sans-serif;
@@ -58,7 +58,7 @@ strong {
 hr {
   border: 0;
   display: block;
-  background: var(--figB);
+  background: var(--c-bS);
   height: 2px;
   border-radius: 1px;
   width: 80%;
@@ -76,7 +76,7 @@ hr {
   max-width: 24em;
 
   a:not(:hover):not(:focus) {
-    text-decoration-color: var(--c-bC-33);
+    text-decoration-color: var(--c-bC-semi);
   }
 
   cite {
@@ -148,7 +148,7 @@ code {
       @extend .sc;
 
       content: attr(data-lang);
-      color: var(--c-bC-66);
+      color: var(--c-bC-semi);
       font-family: 'rsa-body', sans-serif;
       position: absolute;
       top: -0.25em;
@@ -171,7 +171,7 @@ code {
 }
 
 .hljs-comment {
-  color: var(--c-bC-66);
+  color: var(--c-bC-semi);
 }
 
 @include prefers-high-contrast {

@@ -38,7 +38,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__overlay {
     background: currentColor;
-    color: var(--figB);
+    color: var(--c-bS);
     position: absolute;
     top: 0;
     left: 0;
@@ -74,7 +74,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__caption {
     background: var(--c-hB);
-    color: var(--c-bC-66);
+    color: var(--c-bC-semi);
     padding: 0.625em 0.667em 0.667em;
     font-size: 0.825rem;
     line-height: $line-height-body-small;
@@ -104,7 +104,7 @@ $figure-visible-selector: '.js--figure-visible';
   }
 
   &__link {
-    color: var(--c-bC-66);
+    color: var(--c-bC-semi);
     font-variant-caps: small-caps;
     text-transform: lowercase;
 

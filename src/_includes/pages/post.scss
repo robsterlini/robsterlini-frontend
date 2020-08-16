@@ -25,7 +25,7 @@
   abbr {
     text-decoration: underline dotted;
     text-underline-position: under;
-    text-decoration-color: var(--c-bC-33);
+    text-decoration-color: var(--c-bC-semi);
   }
 
   .figure {
@@ -70,7 +70,7 @@
   grid-gap: 0 $grid-column-gap;
 
   &__hr {
-    color: var(--figB);
+    color: var(--c-bS);
     grid-column: 1 / -1;
     margin: 4rem auto 5rem;
     height: 1.875rem; // 30px
@@ -98,7 +98,7 @@
     }
 
     &--current {
-      color: var(--c-bC-66);
+      color: var(--c-bC-semi);
 
       a {
         text-decoration-color: currentColor;

@@ -1,4 +1,24 @@
-html, body {
+$c-contrast-light: #FFF;
+$c-contrast-dark: #000;
+
+$c-dark-accent: #F75C6A;
+$c-dark-header-bg: #110E14;
+$c-dark-body-bg: #1C181F;
+$c-dark-body-color: #EEE7E7;
+
+$c-light-header-accent: #EA3243;
+$c-light-header-bg: #FCFBFB;
+$c-light-body-accent: darken($c-light-header-accent, 8%);
+$c-light-body-bg: #F6F3F3;
+$c-light-body-color: #19161C;
+
+$c-fueled: #AE0000;
+$c-netlify: #15847D;
+$c-strava: #FC4C02;
+$c-linkedin: #0077B5;
+
+html,
+body {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -6,59 +26,55 @@ html, body {
 }
 
 html {
-  --c-strava: #FC4C02;
-  --c-twitter: #00ACEE;
-  --c-fueled: #AE0000;
-  --c-netlify: #15847D;
-  --c-linkedin: #0077B5;
   --c-codepen: #1E1F26;
-  --c-github: #0366D6;
   --c-envato: #82b541;
+  --c-fueled: #{$c-fueled};
+  --c-github: #0366D6;
   --c-instagram: #F00075;
+  --c-linkedin: #{$c-linkedin};
+  --c-netlify: #{$c-netlify};
   --c-spotify: #1DB954;
+  --c-strava: #{$c-strava};
+  --c-twitter: #00ACEE;
   --c-youtube: #FF0000;
 }
 
 @mixin dark-colors {
-  --c-hB: #110E14; // Header BG
-  --c-hA: #F75C6A; // Header Accent
+  --c-hB: #{$c-dark-header-bg}; // Header BG
+  --c-hA: #{$c-dark-accent}; // Header Accent
 
-  --c-bB: #{lighten(#19161C, 1%)}; // Body BG
-  --c-bC: #EEE7E7; // Body Color
-  --c-bC-66: #{rgba(#EEE7E7, 0.66)}; // Body Color (66%)
-  --c-bC-33: #{rgba(#EEE7E7, 0.33)}; // Body Color (33%)
-  --c-bA: #f75c6a; // Body Accent
+  --c-bB: #{$c-dark-body-bg}; // Body BG
+  --c-bC: #{$c-dark-body-color}; // Body Color
+  --c-bC-semi: #{rgba($c-dark-body-color, 0.55)}; // Body Color (semi-transparent)
+  --c-bA: #{$c-dark-accent}; // Body Accent
+  --c-bS: #{mix($c-dark-body-color, $c-dark-header-bg, 15%)}; // Body Secondary
   --c-bH: #{rgba(mix(white, yellow, 50%), 0.25)}; // Body Highlight
 
   --figO: 0.9; // Figure Opacity
-  --figB: #{mix(#EEE7E7, #110E14, 15%)};
 
-  --c-cB: #000; // Contrast BG
-  --c-cC: #FFF; // Contrast Color
-  --c-cC-semi: #{rgba(#FFF, 0.66)};
-  --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
+  --c-cB: #{$c-contrast-dark}; // Contrast BG
+  --c-cC: #{$c-contrast-light}; // Contrast Color
+  --c-cC-semi: #{rgba($c-contrast-light, 0.66)}; // Contrast Semi
+  --c-cA: #{lighten($c-dark-accent, 10%)}; // Contrast Accent
 
-  --c-fueled: #{lighten(#AE0000, 10%)};
+  --c-fueled: #{lighten($c-fueled, 10%)};
   --c-github: #79B8FF;
-  --c-netlify: #{lighten(#15847d, 10%)};
-  --c-linkedin: #{lighten(#0077b5, 10%)};
-  --c-strava: #{mix(#fc4c02, yellow, 90%)};
+  --c-netlify: #{lighten($c-netlify, 10%)};
+  --c-linkedin: #{lighten($c-linkedin, 10%)};
+  --c-strava: #{mix($c-strava, yellow, 90%)};
   --c-codepen: #FEFEFE;
 }
 
 @mixin light-colors {
-  --c-hB: #FCFBFB;
-  --c-hA: #EA3243;
+  --c-hB: #{$c-light-header-bg};
+  --c-hA: #{$c-light-header-accent};
 
-  --c-bB: #{lighten(#EEE7E7, 4%)};
-  --c-bC: #19161C;
-  --c-bC-66: #{rgba(#19161C, 0.66)};
-  --c-bC-33: #{rgba(#19161C, 0.33)};
-  --c-bA: #{darken(#EA3243, 8%)};
-  --c-bA-semi: #{rgba(#EA3243, 0.5)};
+  --c-bB: #{$c-light-body-bg};
+  --c-bC: $c-light-body-color;
+  --c-bC-semi: #{rgba($c-light-body-color, 0.66)};
+  --c-bA: #{$c-light-body-accent};
+  --c-bS: #{mix($c-light-body-color, $c-light-header-bg, 15%)};
   --c-bH: #{rgba(yellow, 0.25)};
-
-  --figB: #{mix(#19161C, #FCFBFB, 15%)};
 
   --c-cB: #FFF;
   --c-cC: #000;
@@ -72,8 +88,7 @@ html {
 
   --c-bB: var(--c-cB);
   --c-bC: var(--c-cC);
-  --c-bC-66: var(--c-cC);
-  --c-bC-33: var(--c-cC-semi);
+  --c-bC-semi: var(--c-cC-semi);
   --c-bA: var(--c-cA);
 }
 
@@ -137,7 +152,7 @@ body {
 }
 
 ::selection {
-  background: var(--c-bC-33);
+  background: var(--c-bS);
   color: var(--c-bC);
 }
 
@@ -217,7 +232,7 @@ a,
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
+  text-decoration-color: var(--link-state-color, var(--c-bC-semi, currentColor));
   padding: unset;
   border: 0;
 
@@ -240,7 +255,7 @@ a,
   }
 
   &:focus {
-    outline: var(--c-bC-66) 1px dotted;
+    outline: var(--c-bC-semi) 1px dotted;
   }
 
   &:active {
@@ -312,7 +327,7 @@ a,
 .link__pseudo {
   color: var(--link-state-color);
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bC-66, currentColor));
+  text-decoration-color: var(--link-state-color, var(--c-bC-semi, currentColor));
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
 
