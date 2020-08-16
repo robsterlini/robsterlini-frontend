@@ -1,17 +1,19 @@
 ---
-title: The journal
-description: The sporadic ramblings of Rob Sterlini.
+metaTitle: The journal
+metaDescription: Rob Sterlini’s journal entries on development, life, and everything in between.
+heroTitle: Sporadic ramblings
 layout: default
-sitemap_priority: 0.8
+sitemapPriority: 0.8
 nav: journal
-custom_css: pages/journal.scss
+customCss: pages/journal.scss
 tag: journal
-hero_h1: Sporadic ramblings
+eleventyComputed:
+  heroHeader: "{{ metaTitle }}"
 ---
 
 {% from "components/hero.html" import hero %}
 
-{{ hero(hero_h1, header=title) }}
+{{ hero(heroTitle, header=metaTitle) }}
 
 <main class="main journal">
   <div class="group">

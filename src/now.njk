@@ -1,11 +1,11 @@
 ---
-title: Now and then
-description: The sporadic ramblings of Rob Sterlini.
+metaTitle: What I’m up to
+metaDescription: A seasonal insight into what Rob is and has been up to in life and work.
+heroHeader: Now and then
 layout: default
-sitemap_priority: 0.7
+sitemapPriority: 0.7
 nav: now
-custom_css: pages/now.scss
-hero_h1: What I’m up to
+customCss: pages/now.scss
 ---
 
 {% from "components/hero.html" import hero %}
@@ -14,7 +14,7 @@ hero_h1: What I’m up to
 <p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a class="link--external" href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’m up to in life and&nbsp;work.</p>
 {% endset %}
 
-{{ hero(hero_h1, header=title, children=children | safe) }}
+{{ hero(metaTitle, header=heroHeader, children=children | safe) }}
 
 <main class="main links--external">
   <div class="group">
@@ -63,5 +63,9 @@ hero_h1: What I’m up to
       {% endfor %}
     </div>
     {% endfor %}
+
+    <hr />
+
+    <p>Please keep in mind that this is likely to look like a highlight reel as I wrote about <a href="/journal/2020/instagram-is-a-highlight-reel/">in my journal</a>. Life won’t always be kind or easy, it’s important that we don’t take these at face value and assume that all is always as swell as it seems on the&nbsp;surface.</p>
   </div>
 </main>

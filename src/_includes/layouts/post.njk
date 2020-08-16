@@ -1,16 +1,18 @@
 ---
 layout: layouts/base.njk
-sitemap_priority: 0.5,
-hero_header: The journal
-meta_label1: Posted on
-meta_label2: Read other entries
-meta_data2: robsterlini.co.uk/journal/
+sitemapPriority: 0.5,
+heroHeader: The journal
+metaLabel1: Posted on
+metaLabel2: Read other entries
+metaData2: robsterlini.co.uk/journal/
 nav: journal
-custom_css: pages/post.scss
-has_inline_code: true
-has_blockquote: true
+customCss: pages/post.scss
+hasInlineCode: true
+hasBlockquote: true
 eleventyComputed:
-  meta_data1: "{{ date | formatDate }}"
+  metaDescription: "{{ description }}"
+  metaTitle: "{{ title }}"
+  metaData1: "{{ date | formatDate }}"
 ---
 
 {% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}

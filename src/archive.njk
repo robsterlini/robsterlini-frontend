@@ -1,18 +1,18 @@
 ---
-title: Archive – Journal
-description: The full archive of all journal entries.
+metaTitle: Journal archive
+metaDescription: The full archive of all journal entries through the years.
 layout: default
-sitemap_priority: 0.4
+sitemapPriority: 0.4
 nav: journal
-custom_css: pages/archive.scss
+customCss: pages/archive.scss
 permalink: journal/archive/index.html
-hero_h1: Entries through the years
+heroTitle: Entries through the years
 ---
 
 {% from "components/hero.html" import hero %}
 
 {% set header %}<a href="/journal">The journal</a>{% endset %}
-{{ hero(hero_h1, header=header | safe) }}
+{{ hero(heroTitle, header=header | safe) }}
 
 <main class="main">
   <div class="group group--thin">

@@ -38,7 +38,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__overlay {
     background: currentColor;
-    color: var(--figB);
+    color: var(--c-bD);
     position: absolute;
     top: 0;
     left: 0;
@@ -74,7 +74,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__caption {
     background: var(--c-hB);
-    color: var(--c-bC-66);
+    color: var(--c-bS);
     padding: 0.625em 0.667em 0.667em;
     font-size: 0.825rem;
     line-height: $line-height-body-small;
@@ -95,6 +95,7 @@ $figure-visible-selector: '.js--figure-visible';
       position: absolute;
       bottom: 100%;
       left: 0;
+      margin-bottom: -0.5px; // Fixes aliasing issues in Safari
     }
 
     > span {
@@ -104,7 +105,7 @@ $figure-visible-selector: '.js--figure-visible';
   }
 
   &__link {
-    color: var(--c-bC-66);
+    color: var(--c-bS);
     font-variant-caps: small-caps;
     text-transform: lowercase;
 
@@ -112,6 +113,24 @@ $figure-visible-selector: '.js--figure-visible';
     &:focus {
       --link-state-color: var(--c-bC);
       color: var(--c-bC);
+    }
+  }
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+    .figure {
+
+      &__image {
+
+        > img {
+          width: 100%;
+        }
+      }
+
+      &__caption {
+        display: block;
+      }
     }
   }
 }

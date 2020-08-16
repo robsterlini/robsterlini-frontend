@@ -16,14 +16,8 @@
     }
 
     path {
-      fill: var(--c-bC-33);
-    }
-
-    &:focus-within {
-
-      path {
-        fill: var(--c-bC-66);
-      }
+      fill: currentColor;
+      transition: fill 125ms ease-in-out;
     }
   }
 
@@ -40,16 +34,16 @@
     padding-right: 1rem;
     font-size: 0.9375rem;
     color: var(--c-bC);
-    border-bottom: 2px solid var(--figB);
+    border-bottom: 2px solid var(--c-bD);
     transition: border-color 125ms ease-in-out;
 
     &:hover,
     &:focus {
-      border-color: var(--c-bC-66);
+      border-color: var(--c-bC);
     }
 
     &:focus {
-      outline: var(--c-bC-66) 1px dotted;
+      outline: var(--c-bS) 1px dotted;
     }
   }
 }

@@ -77,7 +77,7 @@ $nav-height: 2.5rem;
   line-height: 1;
   height: 44px;
   border-radius: 0;
-  border: 2px solid var(--figB);
+  border: 2px solid var(--c-bD);
   position: fixed;
   bottom: 4vw;
   right: 4vw; // 92%
@@ -177,7 +177,7 @@ $nav-height: 2.5rem;
   &:focus {
 
     &::after {
-      outline: var(--c-bC-66) 1px dotted;
+      outline: var(--c-bS) 1px dotted;
     }
   }
 
