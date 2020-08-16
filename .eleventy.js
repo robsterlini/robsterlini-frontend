@@ -26,7 +26,7 @@ module.exports = function(eleventyConfig) {
   // Collections
   const getAllEntries = (collectionApi, excludeExternal = false) => {
     return collectionApi.getAllSorted()
-      .filter(entry => entry.url.startsWith('/journal/') && entry.url !== '/journal/')
+      .filter(entry => entry.inputPath.startsWith('./src/journal/'))
       .map(entry => Object.assign(entry, {
         link: getJournalLink(entry, eleventyConfig),
       }))
@@ -36,6 +36,50 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection('entries', getAllEntries);
   eleventyConfig.addCollection('internalEntries', collectionApi => getAllEntries(collectionApi, true));
+  eleventyConfig.addCollection('journalTags', collectionApi => {
+    const entriesByTag = getAllEntries(collectionApi)
+      .reduce((tags, entry) => {
+        if (!entry.data.tags) return tags;
+
+        entry.data.tags.forEach(tag => {
+          if (!tags[tag]) tags[tag] = [];
+
+          tags[tag].push(entry);
+        });
+
+        return tags;
+      }, {});
+
+    const tags = Object.keys(entriesByTag)
+      .map(tag => ({
+        tag,
+        entries: entriesByTag[tag],
+        otherTags: Object.keys(entriesByTag).filter(t => t !== tag),
+      }))
+      .filter(tag => tag.entries.length);
+
+    return tags;
+  });
+  eleventyConfig.addCollection('journalArchive', collectionApi => {
+    const entriesByYear = getAllEntries(collectionApi)
+      .reduce((years, entry) => {
+        const year = new Date(entry.data.date).getFullYear();
+
+        if (!years[year]) years[year] = [];
+
+        years[year].push(entry);
+        return years;
+      }, {});
+
+    const years = Object.keys(entriesByYear)
+      .sort((a, b) => b - a)
+      .map(year => ({
+        year: +year,
+        entries: entriesByYear[year],
+      }))
+
+    return years;
+  });
 
   // Shortcodes
   eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
@@ -58,12 +102,6 @@ module.exports = function(eleventyConfig) {
   });
 
   // Filters
-  eleventyConfig.addNunjucksFilter('generateMetaValue', (meta, defaultValue, page, post) => {
-    const parsedValue = typeof(meta) === 'function' ? meta(page) : meta;
-
-    return parsedValue || defaultValue;
-  });
-
   eleventyConfig.addNunjucksFilter('generateSocialImage', generateSocialImageFilter);
 
   eleventyConfig.addNunjucksFilter('getPageDataFromCollections', (collections, url) => {
@@ -74,7 +112,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksFilter('getJournalLink', (entry) => getJournalLink(entry, eleventyConfig));
 
-  eleventyConfig.addNunjucksFilter("formatDate", formatDateFilter);
+  eleventyConfig.addNunjucksFilter('formatDate', formatDateFilter);
   eleventyConfig.addNunjucksFilter('isOldDate', value => {
     return new Date() - new Date(value) > 1.577e+10;
     return true;

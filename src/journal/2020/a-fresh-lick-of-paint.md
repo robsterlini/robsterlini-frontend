@@ -3,11 +3,13 @@ title: A fresh lick of paint
 date: 2020-06-11
 description: Quarantine gave me back a bunch of commuting time; I put mine towards yoga and Eleventy… you are viewing the result!
 layout: post
+tags:
+  - dev
 ---
 
 ‘Painting the Forth Bridge’.
 
-Turns out that, that task isn’t as endless as [we were lead to believe it&nbsp;was](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)…
+Turns out that, that task isn’t as endless as [we were lead to believe it was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)
 
 I’d like to lead a motion to replace it with __‘building a personal site’__.
 
@@ -45,7 +47,7 @@ With a rough design down, and some potential typefaces chosen this would be the 
   "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
 %}
 
-I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
+I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify&nbsp;Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
 
 ### 4. Get it live!
 
@@ -72,17 +74,17 @@ Here’s how it works:
 1. …
 1. Profit!
 
-Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a few hours from nothing? I was pretty happy with that.
+Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a few hours from nothing? I was pretty happy with that.
 
 ### 5. Tweet about it
 
-To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
+To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
 
-> Soft launching a new, slim-lined [robsterlini.co.uk](http://robsterlini.co.uk) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
+> Soft launching a new, slim-lined [robsterlini.co.uk](/) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
 
 ## Next steps…
 
-In the days that followed I built a few extra features (you can see them pretty plainly as you are reading one right now):
+In the days that followed I built a few extra features (you can see them pretty plainly as you are reading one right now):
 
 1. Port it to Eleventy and switch the CSS up for Sass
 1. <del>Reinstate the journal (maybe with _some_ of the old posts)</del>
@@ -91,6 +93,6 @@ In the days that followed I built a few extra features (you can see them pretty 
 1. Add a sitemap
 1. <del>Write a journal entry about starting afresh</del>
 
-All being well, there will be a follow-up entry to this to detail finishing off the list above, and most likely a few other ideas I had a long the way.
+All being well, there will be a follow-up entry to this to detail finishing off the list above, and most likely a few other ideas I had a long the way.
 
-I’d absolutely love it if you took a moment to let me know what you think about the new site [in a tweet](https://twitter.com/robsterlini) or any of the other social channels listed on [the homepage](/) – good or bad, I can take it!
+I’d absolutely love it if you took a moment to let me know what you think about the new site [in a tweet](https://twitter.com/robsterlini) or any of the other social channels listed on [the homepage](/) – good or bad, I can take it!

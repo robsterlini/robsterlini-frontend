@@ -9,16 +9,19 @@
     padding: calc(2vw + 1rem) 0;
     position: relative;
 
-    &::before {
-      background: var(--c-hB);
-      content: '';
-      position: absolute;
-      width: 100%;
-      top: 0;
-      height: 2px;
-      border-radius: 1px;
-      animation: scale-from-left 400ms 800ms ease-out both;
-      transform-origin: center left;
+    .main + .footer & {
+
+      &::before {
+        background: var(--c-bD);
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 2px;
+        border-radius: 1px;
+        animation: scale-from-left 400ms 800ms ease-out both;
+        transform-origin: center left;
+      }
     }
   }
 

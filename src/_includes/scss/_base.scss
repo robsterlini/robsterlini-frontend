@@ -1,54 +1,98 @@
-html, body {
+$c-contrast-light: #FFF;
+$c-contrast-dark: #000;
+
+$c-dark-header-accent: #F75C6A;
+$c-dark-header-bg: #110E14;
+$c-dark-body-accent: darken($c-dark-header-accent, 0%);
+$c-dark-body-bg: #1C181F;
+$c-dark-body-color: #EEE7E7;
+$c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
+$c-dark-body-highlight: rgba(cyan, 0.25);
+
+$c-light-header-accent: #EA3243;
+$c-light-header-bg: #FCFBFB;
+$c-light-body-accent: darken($c-light-header-accent, 8%);
+$c-light-body-bg: #F6F3F3;
+$c-light-body-color: #19161C;
+$c-light-body-decorative: mix($c-light-body-color, $c-light-header-bg, 18%);
+$c-light-body-highlight: rgba(yellow, 0.25);
+
+$c-fueled: #AE0000;
+$c-netlify: #15847D;
+$c-strava: #FC4C02;
+$c-linkedin: #0077B5;
+
+html,
+body {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 100%;
 }
 
-@mixin dark-colors {
-  --c-hB: #110E14; // Header BG
-  --c-hA: #F75C6A; // Header Accent
+html {
+  --c-codepen: #1E1F26;
+  --c-envato: #82b541;
+  --c-fueled: #{$c-fueled};
+  --c-github: #0366D6;
+  --c-instagram: #F00075;
+  --c-linkedin: #{$c-linkedin};
+  --c-netlify: #{$c-netlify};
+  --c-spotify: #1DB954;
+  --c-strava: #{$c-strava};
+  --c-twitter: #00ACEE;
+  --c-youtube: #FF0000;
+}
 
-  --c-bB: #{lighten(#19161C, 1%)}; // Body BG
-  --c-bC: #EEE7E7; // Body Color
-  --c-bC-66: #{rgba(#EEE7E7, 0.66)}; // Body Color (66%)
-  --c-bC-33: #{rgba(#EEE7E7, 0.33)}; // Body Color (33%)
-  --c-bA: #f75c6a; // Body Accent
-  --c-bH: #{rgba(mix(white, yellow, 50%), 0.25)}; // Body Highlight
+@mixin dark-colors {
+  --c-hB: #{$c-dark-header-bg};
+  --c-hA: #{$c-dark-header-accent};
+
+  --c-bB: #{$c-dark-body-bg};
+  --c-bC: #{$c-dark-body-color};
+  --c-bS: #{rgba($c-dark-body-color, 0.55)}; // Semi-transparent body colour
+  --c-bA: #{$c-dark-body-accent};
+  --c-bD: #{$c-dark-body-decorative};
+  --c-bH: #{$c-dark-body-highlight};
 
   --figO: 0.9; // Figure Opacity
 
-  --c-cB: #000; // Contrast BG
-  --c-cC: #FFF; // Contrast Color
-  --c-cC-semi: #{rgba(#FFF, 0.66)};
-  --c-cA: #{lighten(#f75c6a, 10%)}; // Contrast Accent
+  --c-cB: #{$c-contrast-dark}; // Contrast background
+  --c-cC: #{$c-contrast-light}; // Contrast colour
+  --c-cS: #{rgba($c-contrast-light, 0.66)}; // Contrast semi-transparent colour
+  --c-cA: #{lighten($c-dark-header-accent, 10%)}; // Contrast accent
+
+  --c-fueled: #{lighten($c-fueled, 10%)};
+  --c-github: #79B8FF;
+  --c-netlify: #{lighten($c-netlify, 10%)};
+  --c-linkedin: #{lighten($c-linkedin, 10%)};
+  --c-strava: #{mix($c-strava, yellow, 90%)}; // Mix Strava with yellow to avoid it going too beige
+  --c-codepen: #FEFEFE;
 }
 
 @mixin light-colors {
-  --c-hB: #FCFBFB;
-  --c-hA: #EA3243;
+  --c-hB: #{$c-light-header-bg};
+  --c-hA: #{$c-light-header-accent};
 
-  --c-bB: #{lighten(#EEE7E7, 4%)};
-  --c-bC: #19161C;
-  --c-bC-66: #{rgba(#19161C, 0.66)};
-  --c-bC-33: #{rgba(#19161C, 0.33)};
-  --c-bA: #{darken(#EA3243, 8%)};
-  --c-bH: #{rgba(yellow, 0.25)}; // Body Highlight
+  --c-bB: #{$c-light-body-bg};
+  --c-bC: #{$c-light-body-color};
+  --c-bS: #{rgba($c-light-body-color, 0.6)};
+  --c-bA: #{$c-light-body-accent};
+  --c-bD: #{$c-light-body-decorative};
+  --c-bH: #{$c-light-body-highlight};
 
-  --c-cB: #FFF;
-  --c-cC: #000;
-  --c-cC-semi: #{rgba(#000, 0.66)};
-  --c-cA: #{darken(#EA3243, 20%)};
+  --c-cB: #{$c-contrast-light};
+  --c-cC: #{$c-contrast-dark};
+  --c-cS: #{rgba($c-contrast-dark, 0.66)};
+  --c-cA: #{darken($c-light-header-accent, 20%)};
 }
 
 @mixin contrast-colors {
   --c-hB: var(--c-cB);
   --c-hA: var(--c-cA);
-
   --c-bB: var(--c-cB);
   --c-bC: var(--c-cC);
-  --c-bC-66: var(--c-cC);
-  --c-bC-33: var(--c-cC-semi);
+  --c-bS: var(--c-cS);
   --c-bA: var(--c-cA);
 }
 
@@ -70,13 +114,19 @@ html, body {
 
 @include prefers-high-contrast {
   @include contrast-colors;
+
+  --link-state-color: var(--c-bC);
 }
 
 html {
   background: var(--c-bB);
-  line-height: 1.45; // TODO: Var
-  font-size: 0.9375rem;
+  line-height: $line-height-body;
+  font-size: 0.8125rem;
   scroll-behavior: smooth;
+
+  @include min-width(260) {
+    font-size: 0.9375rem;
+  }
 
   @include min-width(384) {
     font-size: 1rem;
@@ -106,8 +156,7 @@ body {
 }
 
 ::selection {
-  background: var(--c-bC);
-  color: var(--c-bB);
+  background: var(--c-bH);
 }
 
 .main {
@@ -120,20 +169,73 @@ body {
   margin-right: auto;
   max-width: 80rem;
   width: 92%;
+
+  &--thin {
+    max-width: 60rem;
+  }
+}
+
+[href*="twitter.com"] {
+  --link-color: var(--c-twitter);
+}
+
+[href*="github.com"] {
+  --link-color: var(--c-github);
+}
+
+[href*="fueled.com"] {
+  --link-color: var(--c-fueled);
+}
+
+[href*="tutsplus.com"] {
+  --link-color: var(--c-envato);
+}
+
+[href*="instagram.com"] {
+  --link-color: var(--c-instagram);
+}
+
+[href*="netlify.com"],
+[href*="netlify.app"] {
+  --link-color: var(--c-netlify);
+}
+
+[href*="11ty.dev"] {
+  --link-color: #00BCD4;
+}
+
+[href*="strava.com"] {
+  --link-color: var(--c-strava);
+}
+
+[href*="codepen.io"] {
+  --link-color: var(--c-codepen);
+}
+
+[href*="linkedin.com"] {
+  --link-color: var(--c-linkedin);
+}
+
+[href*="spotify.com"] {
+  --link-color: var(--c-spotify);
+}
+
+[href*="youtube.com"] {
+  --link-color: var(--c-youtube);
 }
 
 a,
 .link {
   appearance: none;
   background: none;
-  color: inherit;
+  color: var(--link-state-color, inherit);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   padding: unset;
   border: 0;
 
@@ -144,23 +246,61 @@ a,
   }
 
   abbr {
-    text-decoration: none; // Prevents a strange double line from being rendered
+    // Prevents a strange double line from being rendered
+    text-decoration: none !important;
+    border: 0 !important;
+    text-underline-position: unset !important;
   }
 
   &:hover,
   &:focus {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-    border: 0;
+    --link-state-color: var(--c-bA);
   }
 
   &:focus {
-    outline: var(--c-bC-66) 1px dotted;
+    outline: var(--c-bS) 1px dotted;
   }
 
   &:active {
     opacity: 0.66;
   }
+}
+
+@mixin link-external {
+
+  &::after {
+    color: var(--link-state-color, var(--link-color, var(--c-bA)));
+    content: '↗';
+    font-family: 'rsa-body', sans-serif;
+    font-weight: 500;
+    position: relative;
+    top: -0.2em;
+    font-style: normal;
+    letter-spacing: -0.15em;
+    margin-left: 0.05em;
+    margin-right: 0.2em;
+    font-size: 0.825em;
+    transition: color 125ms ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: var(--c-bB) !important;
+  }
+
+  &:hover,
+  &:focus {
+
+    &::after {
+      color: var(--link-state-color);
+    }
+  }
+}
+
+.link--external {
+  @include link-external;
+}
+
+.links--external [href^="https://"],
+.links--external [href^="http://"] {
+  @include link-external;
 }
 
 .link--pseudo {
@@ -173,22 +313,34 @@ a,
     text-decoration: none;
     transition: none;
   }
+
+  &:hover,
+  &:focus {
+    --link-state-color: var(--c-bA);
+  }
+
+  &.link--external {
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .link__pseudo {
+  color: var(--link-state-color);
   text-decoration: underline;
-  text-decoration-color: var(--c-bC-66, currentColor);
+  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
 
-  .link--pseudo:hover &,
-  .link--pseudo:focus & {
-    color: var(--c-bA);
-    text-decoration-color: currentColor;
-  }
-
   .link--pseudo:active & {
     opacity: 0.66;
+  }
+
+  .link--external[href^="https://"] &,
+  .link--external[href^="http://"] & {
+    @include link-external;
   }
 }
 
@@ -198,7 +350,6 @@ a,
   @keyframes fade-highlight {
     from {
       background-color: var(--c-bH);
-      box-shadow: var(--c-bH) 0.5rem 0px 0, var(--c-bH) -0.5rem 0 0;
     }
   }
 }

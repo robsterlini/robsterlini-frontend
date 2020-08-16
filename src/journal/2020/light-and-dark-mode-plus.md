@@ -3,6 +3,8 @@ title: Light & dark mode, plus…
 date: 2020-07-05
 description: Colour preference media queries are a great start of respecting a user’s implied preference, but it’s possible to go a few steps further to create the perfect user experience!
 layout: post
+tags: 
+  - dev
 ---
 
 *[OS]: Operating system
@@ -267,7 +269,7 @@ body {
 }
 ```
 
-Rather than creating `@media` combinations of `prefers-contrast` and `prefers-color-scheme`, and creating `[data-color-preference=""][data-contrast-preference="[]` declarations for every possible permutation, the `light` and `dark` colour schemes now have `-high-contrast` variants of their values which are used in the `high-contrast-colors` mixin to redefine their values (whilst maintaining the colour preference).
+Rather than creating `@media` combinations of `prefers-contrast` and `prefers-color-scheme`, and creating `[data-color-preference=""][data-contrast-preference=""]` declarations for every possible permutation, the `light` and `dark` colour schemes now have `-high-contrast` variants of their values which are used in the `high-contrast-colors` mixin to redefine their values (whilst maintaining the colour preference).
 
 This abstraction comes into its own when there are more than just `background` and `color` variables, and means a few variables can be used to keep consistent styling for every possible combiniation of colour and contrast preference throughout your site.
 
@@ -301,8 +303,8 @@ Now that we’re respecting user’s preferences over contrast and colour scheme
 
 There are two things to bare in mind:
 
-1. Implementing every combination of every media query will likely lead to more code that is less maintainable
-2. A lot of the Media Queries Level 5 features are still experimental – use them at your own risk!
+1. Implementing every combination of every media query will likely lead to more code that is less maintainable
+2. A lot of the Media Queries Level 5 features are still experimental – use them at your own risk!
 
 ## Final thoughts
 

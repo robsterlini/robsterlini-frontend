@@ -32,12 +32,13 @@
   font-variant-caps: all-small-caps;
 
   @media not all and (min-resolution: .001dpcm) {
-    // @media {
-      text-transform: lowercase;
-      font-variant-caps: small-caps;
-    // }
+    text-transform: lowercase;
+    font-variant-caps: small-caps;
   }
 }
 
 $grid-row-gap: 1rem;
 $grid-column-gap: 6%;
+
+$line-height-body: 1.55;
+$line-height-body-small: 1.4;

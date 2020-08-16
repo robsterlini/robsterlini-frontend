@@ -1,3 +1,6 @@
+$figure-angle-height: 0.5rem;
+$figure-visible-selector: '.js--figure-visible';
+
 .figure {
   background: var(--c-hB);
   display: table;
@@ -5,29 +8,129 @@
   border-radius: 2px;
   overflow: hidden;
 
-  > img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    width: auto;
+  &__image {
+    position: relative;
     opacity: var(--figO, 1);
+    overflow: hidden;
+
+    > img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+      transition: transform 500ms ease-out;
+      position: relative;
+      transform: translateY(10%);
+
+      #{$figure-visible-selector} & {
+        transform: none;
+      }
+
+      @media (prefers-reduced-motion) {
+        transform: none;
+      }
+    }
+  }
+
+  path {
+    fill: currentColor;
+  }
+
+  &__overlay {
+    background: currentColor;
+    color: var(--c-bD);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: transform 500ms ease-out;
+
+    #{$figure-visible-selector} & {
+      transform: translateY(calc(-100% - #{$figure-angle-height}));
+    }
+
+    @media (prefers-reduced-motion) {
+      transition-property: opacity;
+      transition: opacity 500ms ease-out;
+      transform: none;
+
+      #{$figure-visible-selector} & {
+        opacity: 0;
+        transform: none;
+      }
+    }
+
+    > svg {
+      display: block;
+      width: calc(100% + 1px);
+      position: absolute;
+      height: $figure-angle-height;
+      top: 100%;
+      left: 0;
+    }
   }
 
   &__caption {
     background: var(--c-hB);
-    padding: 0.25em 0.667em 0.5em;
+    color: var(--c-bS);
+    padding: 0.625em 0.667em 0.667em;
     font-size: 0.825rem;
+    line-height: $line-height-body-small;
     display: table-caption;
     caption-side: bottom;
+    position: relative;
 
     @include min-width(768) {
       font-size: 0.9375rem;
     }
+
+    > svg {
+      color: var(--c-hB);
+      display: block;
+      height: $figure-angle-height;
+      width: 100%;
+      z-index: 2;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      margin-bottom: -0.5px; // Fixes aliasing issues in Safari
+    }
+
+    > span {
+      display: block;
+      max-width: (42em * 18 / 17) - (0.667em * 2);
+    }
   }
 
   &__link {
-    color: var(--c-bC-66);
+    color: var(--c-bS);
     font-variant-caps: small-caps;
     text-transform: lowercase;
+
+    &:hover,
+    &:focus {
+      --link-state-color: var(--c-bC);
+      color: var(--c-bC);
+    }
+  }
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+    .figure {
+
+      &__image {
+
+        > img {
+          width: 100%;
+        }
+      }
+
+      &__caption {
+        display: block;
+      }
+    }
   }
 }

@@ -1,20 +1,17 @@
 ---
-title: Page not found
+metaTitle: Page not found
+metaDescription: 404 – This page doesn’t exist any more, or it may never have existed.
 layout: default
 permalink: 404.html
-sitemap_priority: 0
-hero_header: 404
-custom_css: pages/404.scss
+sitemapPriority: 0
+heroHeader: 404
 ---
 
 {% from "components/hero.html" import hero %}
 
 {% set children %}
-  <p>This page doesn’t exist any more, or it may never have existed.</p>
+  <p>This page doesn’t exist any more, or it may never have&nbsp;existed.</p>
   <ul class="list"><li><a href="/">Back to the homepage</a></li></ul>
 {% endset %}
-{{ hero('You lost?' | safe, header='404 – Page not found', children=children | safe) }}
-
-<main class="error" aria-hidden="true">
-</main>
+{{ hero('You look lost!', header='404 – Page not found', children=children | safe, centre=true) }}
 

@@ -3,42 +3,50 @@
   <head>
     <meta charset="utf-8">
 
-    {% set meta_description = description if description else "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
+    {% if not metaTitle %}
+      {% set metaTitle %}Rob Sterlini{% endset %}
+    {% endif %}
 
-    <!-- Primary Meta Tags -->
-    <title>{{ title }} – {{ title_suffix if title_suffix else "Rob Sterlini" }}</title>
-    <meta name="title" content="{{ title }}">
-    <meta name="description" content="{{ meta_description }}">
+    {% if not metaDescription %}
+      {% set metaDescription = "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
+    {% endif %}
+
+
+    <!-- Primary meta tags -->
+    <title>{{ metaTitle }} – {{ metaTitleSuffix or "Rob Sterlini" }}</title>
+    <meta name="title" content="{{ metaTitle }}">
+    <meta name="description" content="{{ metaDescription }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
-    {% set socialImageText = {
-      title: hero_h1 if hero_h1 else title,
-      header: hero_header if hero_header else "Rob Sterlini"
+    {% set metaImageText = {
+      title: heroTitle if heroTitle else metaTitle,
+      header: heroHeader if heroHeader else "Rob Sterlini"
     } %}
-    {% set socialImage = socialImageText | generateSocialImage %}
+    {% set metaImage = metaImageText | generateSocialImage %}
     {% set pageUrl = page.url | url | absoluteUrl(global.url) %}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ pageUrl }}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ meta_description }}">
-    <meta property="og:image" content="{{ socialImage }}">
+    <meta property="og:title" content="{{ metaTitle }}">
+    <meta property="og:description" content="{{ metaDescription }}">
+    <meta property="og:image" content="{{ metaImage }}">
     <meta property="og:image:width" content="1440">
     <meta property="og:image:height" content="720">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ pageUrl }}">
-    <meta property="twitter:title" content="{{ title }}">
-    <meta property="twitter:description" content="{{ meta_description }}">
-    <meta property="twitter:image" content="{{ socialImage }}">
+    <meta property="twitter:title" content="{{ metaTitle }}">
+    <meta property="twitter:description" content="{{ metaDescription }}">
+    <meta property="twitter:image" content="{{ metaImage }}">
 
-    <meta name="twitter:label1" value="{{ meta_label1 if meta_label1 else 'Let’s chat!'}}" />
-    <meta name="twitter:data1" value="{{ meta_data1 | generateMetaValue(global.email, page) }}" />
-    <meta name="twitter:label2" value="{{ meta_label2 if meta_label2 else 'Tweet me'}}" />
-    <meta name="twitter:data2" value="{{ meta_data2 | generateMetaValue('@robsterlini', page) }}" />
+    <meta name="twitter:label1" value="{{ metaLabel1 or 'Let’s chat!'}}" />
+    <meta name="twitter:data1" value="{{ metaData1 or global.email }}" />
+    <meta name="twitter:label2" value="{{ metaLabel2 or 'Tweet me'}}" />
+    <meta name="twitter:data2" value="{{ metaData2 or '@robsterlini' }}" />
 
+    <!-- Author and generator -->
     <meta name="author" content="Rob Sterlini">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Eleventy, https://github.com/robsterlini/robsterlini-frontend">
@@ -52,13 +60,24 @@
       "heading-600",
       "heading-600-sc"
     ] %}
+    {% if hasBlockquote %}{% set webfonts = (webfonts.push("heading-400i"), webfonts) %}{% endif %}
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
+    {% if hasInlineCode %}
+    {% set inlineCodeFontCssUrl = "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" %}
+    <!-- Technique from https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="{{ inlineCodeFontCssUrl }}" />
+    <link rel="stylesheet" href="{{ inlineCodeFontCssUrl }}" media="print" onload="this.media='all'" />
+
+    <noscript><link rel="stylesheet" href="{{ inlineCodeFontCssUrl }}" /></noscript>
+    {% endif %}
+
     {% set stylesScss %}{% include "styles.scss" %}{% endset %}
     <style>{{ stylesScss | inlineScss | safe }}
-    {%- if custom_css %}
-      {%- set customScss %}{% include custom_css %}{% endset %}{#
+    {%- if customCss %}
+      {%- set customScss %}{% include customCss %}{% endset %}{#
       #}{{ customScss | inlineScss | safe }}
     {%- endif %}</style>
 
@@ -165,6 +184,34 @@
         }
 
         window.addEventListener('hashchange', highlightEl, false);
+
+        let observer;
+
+        const figures = document.querySelectorAll('.figure');
+
+        if ('IntersectionObserver' in window) {
+          const observerConfig = {
+            threshold: 0,
+            rootMargin: '50% 0% -33.3% 0%',
+          };
+
+          observer = new IntersectionObserver((entries, self) => {
+            const entry = entries[0];
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add('js--figure-visible');
+              self.unobserve(entry.target);
+            }
+          }, observerConfig);
+        }
+
+        figures.forEach(figure => {
+          if (observer) {
+            observer.observe(figure);
+          } else {
+            figure.add('js--figure-visible');
+          }
+        });
       })();
     </script>
   </body>

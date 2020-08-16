@@ -1,0 +1,42 @@
+---
+layout: default
+sitemapPriority: 0.4
+nav: journal
+customCss: pages/journal.scss
+heroHeader: The journal
+pagination:
+  data: collections.journalTags
+  size: 1
+  alias: tag
+permalink: journal/{{ tag.tag }}/
+eleventyComputed:
+  metaTitle: "#{{ tag.tag }} journal entries"
+  metaDescription: "All journal entries tagged {{ tag.tag }}."
+  heroTitle: "Entries tagged #{{ tag.tag }}"
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set heroTitle %}#{{ tag.tag }}{% endset %}
+
+{{ hero(heroTitle, header='Tagged') }}
+
+<main class="main">
+  <div class="group">
+    <ul class="list">
+      {% for entry in tag.entries %}
+        <li>{% journalEntryShort entry %}</li>
+      {% endfor %}
+    </ul>
+
+    <h2 class="p lead">Other tags</h2>
+    <ul class="p list--inline">
+      {% for otherTag in tag.otherTags %}
+        <li>
+          {% if not loop.first %}, {% endif %}
+          <a href="/journal/{{ otherTag }}">#{{ otherTag }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>

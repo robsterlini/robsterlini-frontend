@@ -1,11 +1,8 @@
 <nav class="nav">
   <div class="group nav-logo-wrapper">
-    {% if not no_logo %}<a class="nav-logo" href="/" title="Visit the homepage">
+    {% if not layoutNoLogo %}<a class="nav-logo" href="/" title="Visit the homepage">
       <span>R<span class="nav-logo__hide">ob </span>S<span class="nav-logo__hide">terlini</span></span>
     </a>{% endif %}
-    <button class="nav-toggle sc" id="toggle-menu">
-      <span>Menu</span>
-    </button>
   </div>
   <div class="nav-list">
     <ul class="group sc">
@@ -19,3 +16,6 @@
     </ul>
   </div>
 </nav>
+<button class="nav-toggle sc" id="toggle-menu" aria-label="Toggle Menu">
+  <svg width="20" height="16" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg"><g fill="#000" fill-rule="evenodd"><path d="M0 0h20v2H0zM0 7h20v2H0zM0 14h20v2H0z"/></g></svg>
+</button>

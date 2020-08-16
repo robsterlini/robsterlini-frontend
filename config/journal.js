@@ -8,16 +8,16 @@ const getJournalLink = (entry, eleventyConfig) =>  {
     data: { title },
   } = entry;
 
-  const { external_url } = entry.data;
+  const { externalUrl } = entry.data;
 
   title = `Read ‘${title || 'the entry'}’`;
 
-  if (!external_url) {
+  if (!externalUrl) {
     url = eleventyConfig.getFilter('url')(url);
   }
 
   else {
-    url = external_url;
+    url = externalUrl;
     domain = url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/)[1];
     title += ` on ${domain}`;
   }

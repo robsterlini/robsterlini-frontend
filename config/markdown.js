@@ -2,6 +2,8 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItClass = require('@toycode/markdown-it-class');
 const markdownItAbbr = require('markdown-it-abbr');
+const mila = require('markdown-it-link-attributes')
+
 const hljs = require('highlight.js');
 
 const slugify = string => {
@@ -46,9 +48,16 @@ const markdownLibrary = markdownIt({
   .use(markdownItAnchor, {
     slugify,
     permalink: true,
-    permalinkClass: 'post-article__anchor',
+    permalinkClass: 'anchor',
     permalinkHref: slug => `#${slug}`,
     permalinkSymbol: '\u00B6', // Pilcrow (¶)
+  })
+  .use(mila, {
+    pattern: /^https:/,
+    attrs: {
+      target: '_blank',
+      rel: 'noopener'
+    }
   })
   .use(markdownItAbbr)
   .use(markdownItClass, {

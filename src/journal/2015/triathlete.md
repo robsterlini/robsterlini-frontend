@@ -4,6 +4,9 @@ date: 2015-07-14
 edited: 2015-11-01
 description: 12 July saw me tackle two turbo triathlons in a bid to experience a new sport, and I fell bike over cleat in love with it!
 layout: post
+tags:
+  - life
+  - triathlon
 ---
 
 ## Why triathlon?
@@ -29,7 +32,7 @@ Triathlon was perfect.
 
 ### How do you prepare for a triathlon?
 
-So I started training the three disciplines: pushing out my runs to regularly hit [half](https://instagram.com/p/xbnc-DP-9e/?taken-by=robsterlini "Check out my run on 4 January") [marathon](https://instagram.com/p/3gJcbmP-9C/?taken-by=robsterlini "Check out my run on 4 June") [distances](https://instagram.com/p/4RJdMDv-_8/?taken-by=robsterlini "Check out my run on 23 June"); jumping onto my bike more and more, including cyclo-commuting on a daily basis – culminating in a [105.9km ride](https://instagram.com/p/4e_9dyP-_A/?taken-by=robsterlini "Check out my longest ride to date"); and I even got some open water practice in with the [Swim Dem Crew](https://instagram.com/p/3lTk5Gv-4L/?taken-by=robsterlini "Check out the photos from my first trip to the Reservoir") at the West Reservoir.
+So I started training the three disciplines: pushing out my runs to regularly hit [half](https://instagram.com/p/xbnc-DP-9e/?taken-by=robsterlini "Check out my run on 4 January") [marathon](https://instagram.com/p/3gJcbmP-9C/?taken-by=robsterlini "Check out my run on 4 June") [distances](https://instagram.com/p/4RJdMDv-_8/?taken-by=robsterlini "Check out my run on 23 June"); jumping onto my bike more and more, including cyclo-commuting on a daily basis – culminating in a [105.9km ride](https://instagram.com/p/4e_9dyP-_A/?taken-by=robsterlini "Check out my longest ride to date"); and I even got some open water practice in with the [Swim Dem Crew](https://instagram.com/p/3lTk5Gv-4L/?taken-by=robsterlini "Check out the photos from my first trip to the Reservoir") at the West Reservoir.
 
 The plan was never to use a specific training regime; but instead to just push each of the disciplines and improve as much as I could before the weekend of the first triathlon, and then just go and enjoy it as slowly or as quickly as it unfolded.
 
@@ -58,7 +61,7 @@ My first triathlon.
 
 I’ve never racked a bike before, so I made sure I was there early. I was there a full two and a half hours before my wave time to get everything sorted – and naturally was within the first four or five people there.
 
-As more people flooded in, I sat and watched how others set up their (very expensive-looking wheels), and adjusted mine accordingly. I did, however, forget that if I wore my running shoes to the event… that when they had to stay in transition ahead of the race, I would be left without anything on my feet. One to remember for next time, I think!
+As more people flooded in, I sat and watched how others set up their (very expensive-looking) wheels, and adjusted mine accordingly. I did, however, forget that if I wore my running shoes to the event… that when they had to stay in transition ahead of the race, I would be left without anything on my feet. One to remember for next time, I think!
 
 ### The swim
 
@@ -166,7 +169,7 @@ Overall, it was just sensational.
 
 I’ll just take this opportunity to thank __everyone__ who has got behind me: either through [donating](https://uk.virginmoneygiving.com/robsterlini "Donate towards my fundraising goal") (you can definitely still do that if you want to); on cheering me on, on one of my training runs – strangers in London aren’t all horrible people; or putting up with me in my overly-tight lycra bits. I’m eternally grateful.
 
-There’s one person in particular who has carried me though. She makes up my one woman entourage, my ‘keep a level head’ coach, my ‘makes so much noise whooping at events that people give her funny looks, but I don’t care‘ wind beneath my wings. My mum is awesome.
+There’s one person in particular who has carried me though. She makes up my one woman entourage, my ‘keep a level head’ coach, my ‘makes so much noise whooping at events that people give her funny looks, but I don’t care’ wind beneath my wings. __My mum is awesome.__
 
 Thanks everyone.
 

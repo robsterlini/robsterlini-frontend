@@ -37,8 +37,8 @@ https://robsterlini-frontend.netlify.com/* https://robsterlini.co.uk/:splat 301!
 {%- endfor %}
 
 {%- for entry in collections.entries %}
-  {%- if entry.data.external_url %}
-{{ entry.url | url }} {{ entry.data.external_url }} 301
+  {%- if entry.data.externalUrl %}
+{{ entry.url | url }} {{ entry.data.externalUrl }} 301
   {%- endif %}
 {%- endfor %}
 

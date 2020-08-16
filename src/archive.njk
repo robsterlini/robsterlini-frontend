@@ -1,0 +1,31 @@
+---
+metaTitle: Journal archive
+metaDescription: The full archive of all journal entries through the years.
+layout: default
+sitemapPriority: 0.4
+nav: journal
+customCss: pages/archive.scss
+permalink: journal/archive/index.html
+heroTitle: Entries through the years
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set header %}<a href="/journal">The journal</a>{% endset %}
+{{ hero(heroTitle, header=header | safe) }}
+
+<main class="main">
+  <div class="group group--thin">
+    {% for year in collections.journalArchive %}
+      <div class="archive-year">
+        <h2 class="h2" id="{{ year.year }}">{{ year.year }} <a href="#{{ year.year }}" class="anchor">&#182;</a></h2>
+
+        <ul class="list">
+          {% for entry in year.entries %}
+            <li>{% journalEntryShort entry %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</main>

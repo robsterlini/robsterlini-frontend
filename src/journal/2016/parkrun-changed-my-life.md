@@ -3,6 +3,9 @@ title: Parkrun changed my life
 date: 2016-08-03
 description: "The last two years have been a blur of running and self realisation, but simply put: my life has changed."
 layout: post
+tags:
+  - life
+  - triathlon
 ---
 
 This post has been a long time coming.
@@ -55,19 +58,19 @@ When I moved to South London over a year ago now, I was in prime location for ru
   "This wonder-woman of a mum and I cruised personal bests at the RPF Half in October 2015"
 %}
 
-Last year, the two (well three) triathlons I did went [really](/journal/triathlete/) [well](/journal/the-london-triathon/), the Tough Mudders went well, and the [Royal Parks Half Marathon](https://www.instagram.com/p/8tJztOP-yZ/?taken-by=robsterlini) went exceptionally well!
+Last year, the two (well three) triathlons I did went [really](/journal/triathlete/) [well](/journal/the-london-triathon/), the Tough Mudder events went well, and the [Royal Parks Half Marathon](https://www.instagram.com/p/8tJztOP-yZ/?taken-by=robsterlini) went exceptionally well!
 
 The RPF half was a fantastic day. Hitting a half marathon PB of 1:44; cheering my mum over the line as she smashed her own PB, and rounding off the perfect season of progress.
 
 ## Run Dem Crew
 
-Okay so maybe it wasn’t running that changed my life.
+Okay so maybe it wasn’t running that changed my life.
 
-Maybe it was Run Dem Crew that changed my life.
+Maybe it was Run Dem Crew that changed my life.
 
 Running on a Tuesday with likeminded, diverse, and wonderful people was a catalyst to reducing __all__ of my personal bests – culminating in [a 1:34 <abbr title="personal best">PB</abbr> at the North London Half](https://www.instagram.com/p/BDLQv_iv-_m/?taken-by=robsterlini).
 
-I set a New Year’s run-spiriation with a first footing run on 1 January (cheers Sarah _et al_):
+I set a New Year’s run-spiriation with a first footing run on 1&nbsp;January (cheers Sarah _et al_):
 
 > Miles and smiles. Enjoy every run, and be grateful that you’re able to do this!
 

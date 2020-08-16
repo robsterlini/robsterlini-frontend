@@ -7,6 +7,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
     data: {
       title,
       description,
+      tags = [],
     } = {},
     date,
     link,
@@ -19,18 +20,27 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
-  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? ` ${description}` : ``}</p>`;
+  let tagsMarkup;
+
+  if (tags.length) {
+    tagsMarkup = ' ';
+    tags.forEach((tag, index) => {
+      tagsMarkup += `${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
+    });
+  }
+
+  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? ` ${description}` : ``}${tagsMarkup}</p>`;
 
   const linkMarkup = `<p class="list__item">
     <a class="journal-first link--pseudo" ${link.htmlAttrs}>
-      <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>${link.domain ? `<span class="accent">&#8239;&#8599;</span>` : ``}
+      <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>
     </a>
   </p>`
 
   return `${titleMarkup}${descriptionMarkup}${showLink ? linkMarkup : ''}`;
 };
 
-const journalEntryShort = (entry) => {
+const journalEntryShort = (entry, inline = false) => {
   if (!entry) return '';
   const {
     data: {
@@ -40,10 +50,8 @@ const journalEntryShort = (entry) => {
     link,
   } = entry;
 
-  return `<a class="link--pseudo" ${link.htmlAttrs}>
-    <span class="link__pseudo">${title}</span>${link.domain ? '<span class="accent">&#8239;&#8599;</span>' : ''}
-    <span class="regular nowrap">${formatDateFilter(date)}</span>
-  </a>`;
+  return `<a class="link--pseudo link--external" ${link.htmlAttrs}>
+    <span class="link__pseudo">${title}</span><span class="regular">${inline ? ', posted on ' : ''}<span class="nowrap${!inline ? ' block' : ''}">${formatDateFilter(date)}</span></span></a>`;
 };
 
 module.exports = {

@@ -1,11 +1,10 @@
 ---
-title: Curriculum Vitae
-description: Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things.
-image: /images/cv-meta.png
+metaTitle: Curriculum Vitae
+metaDescription: Explore my employment history and get to know what I bring to the table.
 layout: default
 nav: cv
-sitemap_priority: 0.8
-custom_css: pages/cv.scss
+sitemapPriority: 0.8
+customCss: pages/cv.scss
 ---
 
 {% from "components/hero.html" import hero %}
@@ -21,47 +20,51 @@ custom_css: pages/cv.scss
 {% endset %}
 {{ hero('Rob Sterlini' | safe, header='Curriculum Vitae', children=children | safe) }}
 
-<main class="main cv">
+<main class="main cv links--external">
   <div class="group">
     <div class="cv-section--elevator">
       <h2 class="h2">Get to know&nbsp;Rob</h2>
 
       <h3 class="h3">The elevator pitch</h3>
-      <p><span class="lead">Hi I’m Rob,</span> I’m a frontend developer from London with an agency background, known for creating <strong>digital experiences</strong> and <strong>web apps</strong> for enterprise clients, start-ups, and everything in&nbsp;between.</p>
-      <p>With a first-class degree in design and typography, I am particularly well suited to <abbr class="sc" title="user interface">UI</abbr> development with a focus on consistency and a strong&nbsp;<abbr class="sc" title="user experience">UX</abbr>.</p>
+      <p><span class="lead">Nice to meet you, I’m&nbsp;Rob!</span> I’m a frontend developer from London with an agency background, known for creating <strong>digital experiences</strong> and <strong>web apps</strong> for enterprise clients, start-ups, and everyone in&nbsp;between.</p>
+      <p>With a first-class degree in design and typography, I am particularly well suited to <abbr class="sc" title="user interface">UI</abbr> development where I can focus on consistency and a strong&nbsp;<abbr class="sc" title="user experience">UX</abbr>. Understanding design allows me to collaborate confidently with designers to create a best product&nbsp;possible.</p>
+      <p>I have management and mentoring experience, and take pride in always looking to support others around me while also learning, and improving my own&nbsp;knowledge.</p>
 
       <h3 class="h3">Skillset</h3>
-      <p><span class="lead">A developer’s toolbelt requires constant updating,</span> so I aim to stay abreast of changes in the industry and keep learning to be able to provide the most solutions most suited to the problem at hand. Below are a few that I use currently, but it’s should be viewed&nbsp;fluidly:</p>
+      <p><span class="lead">A developer’s toolbelt requires constant updating,</span> so I aim to stay abreast of changes in the industry and keep learning to be able to provide the most solutions most suited to the problem at&nbsp;hand.</p>
+      <p>Below are a few that I use currently, but it should be viewed fluidly with the understanding that <strong>with the a strong grasp of the fundamentals, new frameworks or techniques are picked up&nbsp;quickly.</strong></p>
       <ul class="list">
         <li><strong>Core web languages:</strong> <span class="sc">HTML</span>, <span class="sc">CSS</span>, JavaScript</li>
         <li><strong><abbr title="JavaScript">JS</abbr> frameworks:</strong> Vue.js, React</li>
-        <li><strong>Build tools:</strong> Webpack, Sass, Post<span class="sc">CSS</span>, Babel</li>
+        <li><strong>Build tools:</strong> Webpack, Sass, Post<span class="sc">CSS</span>, Babel, Gulp</li>
         <li><strong><abbr title="Static site generation" class="sc">SSG</abbr>:</strong> Eleventy, Gatsby</li>
-        <li><strong><abbr title="Continuous integration/continuous delivery" class="sc">CI/CD<abbr> &amp; collaboration:</strong> Git, Netlify, Travis <span class="sc">CI</span>, <span class="sc">NPM</span></li>
-        <li><strong>Software:</strong> Sketch, <span class="sc">JIRA</span>, Linear</li>
+        <li><strong><abbr title="Continuous integration/continuous delivery" class="sc">CI/CD</abbr> &amp; collaboration:</strong> Git, Netlify, Travis <span class="sc">CI</span>, <span class="sc">NPM</span></li>
+        <li><strong>Software:</strong> Sketch, Adobe <abbr span class="sc" title="Creative Cloud">CC</abbr>, <span class="sc">JIRA</span>, Linear</li>
       </ul>
     </div>
 
     <div class="cv-section--employment">
-      <h2 class="h2">Life experiences</h2>
+      <h2 class="h2">Employment &amp; life experiences</h2>
 
       <h3 class="h3">Fueled</h3>
 
-      <p><span class="lead">In the six years at Fueled my role has evolved a lot.</span> After joining as a web designer, I transitioned into a <abbr class="sc" title="user interface">UI</abbr>-focused developer, took on management responsibilities, and was instrumental in forming a web department. Most recently I have moved to a maker role centered around delivering the best solutions for our clients’&nbsp;problems.</p>
-      <p>I’ve worked on high-profile projects like <strong>Apple</strong> where we built a gamified knowledge center to better inform employees when selling new devices; and bringing successful life-coaching to the web for <strong>Tony Robbins’ Robbins Research Institute</strong>. Other clients include <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, and&nbsp;<a href="https://omstars.com"><strong>Omstars</strong></a>.</p>
-      <p>Since joining – and with particular focus in the last few years – I have led the development on all things <a href="https://fueled.com">fueled.com</a>. In 2018 we tore everything down and set about building a component library in line with the new brand direction. Part of the challenge was convincing stakeholders of behind-the-scenes changes for a more stable code base including publishing it as a private <span class="sc">NPM</span> package for better consumption across multiple&nbsp;repositories.</p>
+      <p><span class="lead">In the six years at Fueled my role has evolved a lot.</span> After joining as a web designer, I transitioned into a <abbr class="sc" title="user interface">UI</abbr>-focused developer, took on management responsibilities, and was instrumental in forming a web department. Most recently I have moved into a maker role, centered around delivering the best solutions for our clients’&nbsp;problems.</p>
+      <p>I’ve worked on high-profile projects like <strong>Apple</strong> where we built a gamified knowledge center to better inform employees when selling new devices; and bringing successful life-coaching to the web for <strong>Tony Robbins’ Robbins Research Institute</strong>. Other clients include <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, and&nbsp;<a href="https://omstars.com" target="_blank" rel="noopener">Omstars</a>.</p>
+      <p>Since joining – and with particular focus in the last few years – I have led the development on all things <a href="https://fueled.com" target="_blank" rel="noopener">fueled.com</a>. In 2018 we tore everything down and set about building a component library in line with the new brand direction. Part of the challenge was convincing stakeholders of behind-the-scenes changes for a more stable code base including publishing it as a private <span class="sc">NPM</span> package for better consumption across multiple&nbsp;repositories.</p>
 
       <ul class="list">
-        <li><time class="lead" datetime="2019-01">2019–present</time>&ensp;Lead Frontend Engineer</li>
+        <li><time class="lead" datetime="2019-01">2020–present</time>&ensp;Lead Frontend Engineer II</li>
+        <li><time class="lead" datetime="2019-01">2019–20</time>&ensp;Lead Frontend Engineer I</li>
         <li><time class="lead" datetime="2017-01">2017–19</time>&ensp;Senior Frontend Developer</li>
         <li><time class="lead" datetime="2015-06">2015–17</time>&ensp;Frontend Developer</li>
         <li><time class="lead" datetime="2014-07">2014–15</time>&ensp;Web Designer</li>
       </ul>
 
-      <h3 class="h3">University of Reading</h3>
+      <h3 class="h3">University of&nbsp;Reading</h3>
 
-      <p><span class="lead">Throughout my degree I worked closely with the in-house design team,</span> and upon graduating was offered a full-time role as the new digital designer tasked with overhauling the core information pages on&nbsp;<a href="https://reading.ac.uk">reading.ac.uk</a>.</p>
+      <p><span class="lead">Throughout my degree I worked closely with the in-house design team,</span> and upon graduating was offered a full-time role as the new digital designer tasked with overhauling the core information pages on&nbsp;<a href="https://reading.ac.uk" target="_blank" rel="noopener">reading.ac.uk</a>.</p>
       <p>With a bit of project scope creep, I ended up being the sole designer and developer associated with a complete redesign and redevelopment of the main university pages concerned with attracting prospective students and improving current student&nbsp;experience.</p>
+      <p>The templates built in 2013 have stood the test of time are still used on parts of the such as the <a href="https://reading.ac.uk/library" target="_blank" rel="noopener">library&nbsp;pages</a>.</p>
 
       <ul class="list">
         <li><time class="lead" datetime="2013-06P365D">2013–14</time>&ensp;Digital Designer</li>
@@ -69,25 +72,26 @@ custom_css: pages/cv.scss
 
       <h3 class="h3">Freelance design and development</h3>
 
-      <p><span class="lead">While at university and since,</span> I have taken on select freelance projects to finance my bike obsession! I’ve built agency web presences for <strong>Kickpush</strong>, rebranded sports personalities like <strong>Hotspur Related</strong>, and for a while ran a successful channel on YouTube centered around designing brand identities for famous content creators like&nbsp;KSI. There are also fun side projects – like my dad’s pizza recipe birthday microsite and a <span class="sc">LEGO</span> naming pointer – in the list&nbsp;below:</p>
+      <p><span class="lead">While at university and since,</span> I have taken on select freelance projects to finance my bike obsession! I’ve built agency web presences for <strong>Kickpush</strong>, rebranded sports personalities like <strong>Hotspur Related</strong>, and – for a while – ran a successful channel on YouTube centered around designing brand identities for famous content creators like&nbsp;KSI. There are also fun side projects – like my dad’s pizza recipe birthday microsite and a <span class="sc">LEGO</span> naming pointer – in the list&nbsp;below:</p>
 
       <ul class="list">
-        <li><time class="lead" datetime="2019-01">2019</time>&ensp;<a href="https://ourdadmakes.pizza">Our dad makes pizza</a></li>
-        <li><time class="lead" datetime="2016P730D">2016–18</time>&ensp;<a href="https://kickpush.co">Kickpush</a></li>
-        <li><time class="lead" datetime="2016">2016</time>&ensp;<a href="https://www.unifie.com/">Unifie</a></li>
-        <li><time class="lead" datetime="2014">2014</time>&ensp;<a href="http://www.lodge192.com/">Lion &amp; Lamb Lodge</a>, Hotspur Related, <a href="http://legonotlegos.com"><span class="sc">LEGO</span> not Legos</a></li>
-        <li><time class="lead" datetime="2013-09">2013</time>&ensp;<a href="/journal/2013/responsive-web-design-techniques">Responsive web design techniques</a> course for Envato Tuts+</li>
+        <li><time class="lead" datetime="2020">2020</time>&ensp;<a href="http://legonotlegos.com" target="_blank" rel="noopener"><span class="sc">LEGO</span> not Legos</a>, Mamma’s Ricette <span class="lead">(Coming soon)</span></li>
+        <li><time class="lead" datetime="2019-01">2019</time>&ensp;<a href="https://ourdadmakes.pizza" target="_blank" rel="noopener">Our dad makes pizza</a></li>
+        <li><time class="lead" datetime="2018">2018</time>&ensp;<a href="https://kickpush.co" target="_blank" rel="noopener">Kickpush</a></li>
+        <li><time class="lead" datetime="2016">2016</time>&ensp;<a href="https://www.unifie.com/" target="_blank" rel="noopener">Unifie</a></li>
+        <li><time class="lead" datetime="2014">2014</time>&ensp;<a href="http://www.lodge192.com/" target="_blank" rel="noopener">Lion &amp; Lamb Lodge</a>, Hotspur Related</li>
+        <li><time class="lead" datetime="2013-09">2013</time>&ensp;<a href="https://webdesign.tutsplus.com/courses/responsive-web-design-techniques">Responsive web design techniques</a> course for Envato Tuts+</li>
       </ul>
     </div>
 
     <div class="cv-section--education">
       <h3 class="h3">Outside work</h3>
 
-      <p><span class="lead">A balanced life is important,</span> and while I enjoy testing new develpment techniques in my evenings on occasion, you’re more likely to find me outside on my bike or running – I’ve been participating in triathlon since 2015. You can find out more about what I get up to <a href="/">on the&nbsp;homepage</a>.</p>
+      <p><span class="lead">A balanced life is important,</span> and while I enjoy testing new develpment techniques in my evenings on occasion, you’re more likely to find me outside on my bike or running – I’ve been participating in triathlon since 2015. You can find out more about what I get up to <a href="/#life">on the&nbsp;homepage</a>.</p>
 
       <h3 class="h3">Higher education</h3>
 
-      <p><span class="lead">In 2013 I graduated with a first-class honours</span> in <strong>Typography &amp; Graphic Communication <abbr class="sc" title="Batchelor of Arts">(BA)</abbr></strong> from University of&nbsp;Reading.</p>
+      <p><span class="lead">In 2013 I graduated with a first-class honours</span> in <strong>Typography &amp; Graphic Communication&nbsp;<abbr class="sc" title="Batchelor of Arts">(BA)</abbr></strong> from University of Reading,&nbsp;UK.</p>
 
       <h2 class="h2">A few&nbsp;extras</h2>
       <dl class="list">
@@ -113,7 +117,7 @@ custom_css: pages/cv.scss
         </div>
       </dl>
 
-      <p class="cv-references">References and more information about projects are available on&nbsp;request.</p>
+      <p class="cv-references">With agency work, projects are often taken in-house after our engagement ends – I can provide demos of my involvement in specific projects that may have changed since then. References are available on&nbsp;request.</p>
     </div>
   </div>
 </main>

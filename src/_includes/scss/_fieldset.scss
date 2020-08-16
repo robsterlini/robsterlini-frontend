@@ -8,15 +8,16 @@
 
     svg {
       position: absolute;
-      right: 0;
+      right: 0.25rem;
       top: 50%;
-      margin-top: 0.03125rem;
+      margin-top: -0.05rem;
       width: 0.25rem;
       height: 0.25rem;
     }
 
     path {
       fill: currentColor;
+      transition: fill 125ms ease-in-out;
     }
   }
 
@@ -30,10 +31,10 @@
     @include sc;
 
     background: none;
-    padding-right: 0.625rem;
+    padding-right: 1rem;
     font-size: 0.9375rem;
     color: var(--c-bC);
-    border-bottom: 1px solid var(--c-bC-66);
+    border-bottom: 2px solid var(--c-bD);
     transition: border-color 125ms ease-in-out;
 
     &:hover,
@@ -42,8 +43,7 @@
     }
 
     &:focus {
-      border-color: var(--c-bC);
-      outline: var(--c-bC-66) 1px dotted;
+      outline: var(--c-bS) 1px dotted;
     }
   }
 }
