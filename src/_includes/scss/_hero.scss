@@ -98,4 +98,9 @@
       margin-bottom: 0.125em;
     }
   }
+
+  &--centre {
+    align-items: center;
+    flex: 1;
+  }
 }

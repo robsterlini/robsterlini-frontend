@@ -5,11 +5,11 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for page in collections.all %}
-{% if page.data.sitemap_priority !== 0 %}
+{% if page.data.sitemapPriority !== 0 %}
   <url>
     <loc>{{ page.url | absoluteUrl(global.url) }}</loc>
     <lastmod>{{ page.date | rssDate }}</lastmod>
-    <priority>{{ page.data.sitemap_priority if page.data.sitemap_priority else 0.6 }}</priority>
+    <priority>{{ page.data.sitemapPriority if page.data.sitemapPriority else 0.6 }}</priority>
   </url>
 {% endif %}
 {%- endfor %}

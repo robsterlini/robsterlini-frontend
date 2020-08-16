@@ -112,7 +112,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksFilter('getJournalLink', (entry) => getJournalLink(entry, eleventyConfig));
 
-  eleventyConfig.addNunjucksFilter("formatDate", formatDateFilter);
+  eleventyConfig.addNunjucksFilter('formatDate', formatDateFilter);
   eleventyConfig.addNunjucksFilter('isOldDate', value => {
     return new Date() - new Date(value) > 1.577e+10;
     return true;

@@ -1,11 +1,11 @@
 ---
-title: Rob Sterlini
-title_suffix: Frontend developer & more
+metaTitle: Rob Sterlini
+metaTitleSuffix: Frontend developer & more
+heroTitle: Frontend developer, typography enthusiast, amateur triathlete, & LEGO master builder
 layout: default
-sitemap_priority: 1
-no_logo: true
-hero_h1: Frontend developer, typography enthusiast, amateur triathlete, & LEGO master builder
-custom_css: pages/home.scss
+layoutNoLogo: true
+sitemapPriority: 1
+customCss: pages/home.scss
 ---
 
 {% from "components/hero.html" import hero %}
@@ -31,7 +31,7 @@ custom_css: pages/home.scss
       <p><span class="lead" id="contact">Wanna say hi?</span> Email&nbsp;me at <a href="mailto:hi@robsterlini.co.uk" class="link--external" title="Opens default email client">hi@robsterlini.co.uk</a> or send me a tweet me at&nbsp;<a href="https://twitter.com/robsterlini" target="_blank" rel="noopener">@robsterlini</a>.</p>
       <p>You can find my photos on <a href="https://instagram.com/robsterlini" target="_blank" rel="noopener">Instagram</a>, code on <a href="https://github.com/robsterlini" target="_blank" rel="noopener">Github</a>, training activities on <a href="https://www.strava.com/athletes/6578573" target="_blank" rel="noopener">Strava</a>, experiments on <a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Codepen</a>, my employment history on&nbsp;<a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">LinkedIn</a>.</p>
 
-      <p><span class="lead">Read the latest journal entry:</span> {% journalEntryShort collections.entries[0], true %}; or peruse <a href="/journal/">the older&nbsp;entries</a>.</p>
+      <p><span class="lead">Read the latest journal entry:</span> {% journalEntryShort collections.entries[0], true %}; or peruse <a href="/journal/">other recent&nbsp;entries</a>.</p>
     </div>
   </div>
 </main>

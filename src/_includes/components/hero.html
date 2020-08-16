@@ -1,5 +1,5 @@
-{% macro hero(heading, header='', children='') %}
-<div class="hero{% if children %} hero--children{% endif %}">
+{% macro hero(heading, header='', children='', centre=false) %}
+<div class="hero{% if children %} hero--children{% endif %}{% if centre %} hero--centre{% endif %}">
   <div class="group">
     <header class="hero__header h3">
       {% if header %}<span>{{ header }}</span>{% endif %}
