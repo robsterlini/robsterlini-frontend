@@ -7,7 +7,7 @@ $c-dark-body-accent: darken($c-dark-header-accent, 0%);
 $c-dark-body-bg: #1C181F;
 $c-dark-body-color: #EEE7E7;
 $c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
-$c-dark-body-highlight: rgba(mix(white, yellow, 50%), 0.25);
+$c-dark-body-highlight: rgba(cyan, 0.25);
 
 $c-light-header-accent: #EA3243;
 $c-light-header-bg: #FCFBFB;
@@ -156,8 +156,7 @@ body {
 }
 
 ::selection {
-  background: var(--c-bD);
-  color: var(--c-bC);
+  background: var(--c-bH);
 }
 
 .main {

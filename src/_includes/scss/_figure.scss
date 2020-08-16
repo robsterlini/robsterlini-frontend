@@ -95,6 +95,7 @@ $figure-visible-selector: '.js--figure-visible';
       position: absolute;
       bottom: 100%;
       left: 0;
+      margin-bottom: -0.5px; // Fixes aliasing issues in Safari
     }
 
     > span {
@@ -112,6 +113,24 @@ $figure-visible-selector: '.js--figure-visible';
     &:focus {
       --link-state-color: var(--c-bC);
       color: var(--c-bC);
+    }
+  }
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+    .figure {
+
+      &__image {
+
+        > img {
+          width: 100%;
+        }
+      }
+
+      &__caption {
+        display: block;
+      }
     }
   }
 }

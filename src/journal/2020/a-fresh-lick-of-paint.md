@@ -74,17 +74,17 @@ Here’s how it works:
 1. …
 1. Profit!
 
-Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a few hours from nothing? I was pretty happy with that.
+Well… not profit, but a build from nothing live on [robsterlini.co.uk](/) in a few hours from nothing? I was pretty happy with that.
 
 ### 5. Tweet about it
 
-To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
+To really test whether I was okay shipping something unfinished, I had to release it into the wild and there’s no accountability quite like Twitter:
 
 > Soft launching a new, slim-lined [robsterlini.co.uk](/) this evening! Still a bit to work on, and some more to build out, but it’s a start that I’m happy with. Holler if you notice anything out of the ordinary! <cite>[@robsterlini](https://twitter.com/robsterlini/status/1270833777997160448)</cite>
 
 ## Next steps…
 
-In the days that followed I built a few extra features (you can see them pretty plainly as you are reading one right now):
+In the days that followed I built a few extra features (you can see them pretty plainly as you are reading one right now):
 
 1. Port it to Eleventy and switch the CSS up for Sass
 1. <del>Reinstate the journal (maybe with _some_ of the old posts)</del>
@@ -93,6 +93,6 @@ In the days that followed I built a few extra features (you can see them pretty 
 1. Add a sitemap
 1. <del>Write a journal entry about starting afresh</del>
 
-All being well, there will be a follow-up entry to this to detail finishing off the list above, and most likely a few other ideas I had a long the way.
+All being well, there will be a follow-up entry to this to detail finishing off the list above, and most likely a few other ideas I had a long the way.
 
-I’d absolutely love it if you took a moment to let me know what you think about the new site [in a tweet](https://twitter.com/robsterlini) or any of the other social channels listed on [the homepage](/) – good or bad, I can take it!
+I’d absolutely love it if you took a moment to let me know what you think about the new site [in a tweet](https://twitter.com/robsterlini) or any of the other social channels listed on [the homepage](/) – good or bad, I can take it!
