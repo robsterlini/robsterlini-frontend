@@ -14,31 +14,66 @@ module.exports = () => ({
   social: {
     twitter: 'robsterlini',
     instagram: 'robsterlini',
+    strava: 'https://www.strava.com/athletes/6578573',
   },
   nav: [
     {
-      link: '/about',
-      label: 'About',
-      nav: 'about',
+      title: 'Rob Sterlini',
+      link: '/',
+      links: [
+        {
+          link: '/about',
+          label: 'About',
+          nav: 'about',
+        },
+        {
+          link: '/now',
+          label: 'Now',
+          nav: 'now',
+        },
+        {
+          link: '/#contact',
+          label: 'Contact',
+        }
+      ],
     },
     {
-      link: '/journal',
-      label: 'Journal',
-      nav: 'journal',
+      title: 'Work',
+      links: [
+        {
+          label: 'Projects',
+        },
+        {
+          link: '/curriculum-vitae',
+          label: '<abbr title="Curriculum Vitae">CV</abbr>',
+          nav: 'cv',
+        },
+      ],
     },
     {
-      link: '/#contact',
-      label: 'Contact',
+      title: 'Journal',
+      links: [
+        {
+          link: '/journal',
+          label: 'Latest',
+          nav: 'journal',
+        },
+        {
+          link: '/journal/archive',
+          label: 'Archive',
+          nav: 'archive',
+        },
+      ],
     },
-    {
-      link: '/curriculum-vitae',
-      label: '<abbr title="Curriculum Vitae">CV</abbr>',
-      nav: 'cv',
-    },
-    {
-      link: '/now',
-      label: 'Now',
-      nav: 'now',
-    }
+
+    // {
+    //   link: '/journal',
+    //   label: 'Journal',
+    //   // nav: 'journal',
+    // },
+    // {
+    //   link: '/#contact',
+    //   label: 'Contact',
+    // },
   ],
 });

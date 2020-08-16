@@ -1,5 +1,12 @@
 @import 'scss/mixins';
 
+.hero {
+
+  .h1 {
+    max-width: 17em;
+  }
+}
+
 .home-hero-hide {
 
   @include max-width(480) {

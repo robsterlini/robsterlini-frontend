@@ -15,7 +15,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
 
   const titleMarkup = lead ?
     `<${titleTag}>
-      <span class="p lead">${lead}</span>
+      <span class="p lead block">${lead}</span>
       <span class="${titleTag}">${title}</span>
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;

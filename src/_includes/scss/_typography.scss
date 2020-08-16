@@ -203,3 +203,24 @@ code {
     margin-top: 0.25em;
   }
 }
+
+.soon {
+  color: var(--c-bS);
+
+  &::after {
+    @include sc;
+
+    content: 'Coming soon…';
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 0.5;
+    padding-left: 0.25em;
+    width: 3.5em;
+    line-height: 0.75;
+    font-size: 0.75em;
+
+    position: relative;
+    top: 0.25em;
+  }
+}

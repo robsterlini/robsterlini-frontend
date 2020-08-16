@@ -1,7 +1,7 @@
 ---
 title: Instagram is nothing but a highlight reel
 date: 2020-08-03
-description: I got sucked into the need for social gratification during very challenging times. Forgetting that it’s a falisified highlight reel only perpetuated the problem.
+description: I got sucked into the need for social gratification during a very challenging period. Forgetting that it’s a falisified highlight reel only perpetuated the problem.
 layout: post
 tags:
   - life
@@ -26,9 +26,9 @@ Charlie Dark was always adamant that social media obfuscated the truth:
 It’s a collection of freeze frames, moments in time that the poster as felt happy with sharing with the world (or at the very least those they have allowed to follow them).
 
 {% figureFull
-  "journal/instagram-is-a-highlight-reel/bristol-and-christmas.jpg",
-  "1586x991",
-  "A sunset snap of me looking out over the Clifton Suspension Bridge in Bristol",
+  ["journal/instagram-is-a-highlight-reel/bristol.jpg", "journal/instagram-is-a-highlight-reel/christmas.jpg"],
+  ["793x991", "793x991"],
+  ["A sunset snap of me looking out over the Clifton Suspension Bridge in Bristol", "A photo of me outside the local nurseries with a wrapped Christmas tree"],
   "This is me in Bristol (left), most people know it as my happy place; and then again at Christmas (right), a time of year that I absolutely love."
 %}
 

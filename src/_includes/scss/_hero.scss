@@ -90,6 +90,11 @@
     animation: opacity 800ms 100ms ease-out both;
     color: var(--c-hA);
     margin-bottom: 0.25em;
+
+    a {
+      color: currentColor;
+      text-decoration: none;
+    }
   }
 
   &--children {
