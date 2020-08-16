@@ -34,7 +34,7 @@
     padding-right: 1rem;
     font-size: 0.9375rem;
     color: var(--c-bC);
-    border-bottom: 2px solid var(--c-bS);
+    border-bottom: 2px solid var(--c-bD);
     transition: border-color 125ms ease-in-out;
 
     &:hover,
@@ -43,7 +43,7 @@
     }
 
     &:focus {
-      outline: var(--c-bC-semi) 1px dotted;
+      outline: var(--c-bS) 1px dotted;
     }
   }
 }

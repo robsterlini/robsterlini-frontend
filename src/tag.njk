@@ -3,19 +3,23 @@ layout: default
 sitemapPriority: 0.4
 nav: journal
 customCss: pages/journal.scss
+heroHeader: The journal
 pagination:
   data: collections.journalTags
   size: 1
   alias: tag
 permalink: journal/{{ tag.tag }}/
 eleventyComputed:
-  title: "#{{ tag.tag }}"
-  description: "All entries tagged {{ tag.tag }}"
+  metaTitle: "#{{ tag.tag }} journal entries"
+  metaDescription: "All journal entries tagged {{ tag.tag }}."
+  heroTitle: "Entries tagged #{{ tag.tag }}"
 ---
 
 {% from "components/hero.html" import hero %}
 
-{{ hero(title, header='Tagged') }}
+{% set heroTitle %}#{{ tag.tag }}{% endset %}
+
+{{ hero(heroTitle, header='Tagged') }}
 
 <main class="main">
   <div class="group">

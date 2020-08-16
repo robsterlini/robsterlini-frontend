@@ -1,16 +1,21 @@
 $c-contrast-light: #FFF;
 $c-contrast-dark: #000;
 
-$c-dark-accent: #F75C6A;
+$c-dark-header-accent: #F75C6A;
 $c-dark-header-bg: #110E14;
+$c-dark-body-accent: darken($c-dark-header-accent, 0%);
 $c-dark-body-bg: #1C181F;
 $c-dark-body-color: #EEE7E7;
+$c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
+$c-dark-body-highlight: rgba(mix(white, yellow, 50%), 0.25);
 
 $c-light-header-accent: #EA3243;
 $c-light-header-bg: #FCFBFB;
 $c-light-body-accent: darken($c-light-header-accent, 8%);
 $c-light-body-bg: #F6F3F3;
 $c-light-body-color: #19161C;
+$c-light-body-decorative: mix($c-light-body-color, $c-light-header-bg, 18%);
+$c-light-body-highlight: rgba(yellow, 0.25);
 
 $c-fueled: #AE0000;
 $c-netlify: #15847D;
@@ -40,28 +45,28 @@ html {
 }
 
 @mixin dark-colors {
-  --c-hB: #{$c-dark-header-bg}; // Header BG
-  --c-hA: #{$c-dark-accent}; // Header Accent
+  --c-hB: #{$c-dark-header-bg};
+  --c-hA: #{$c-dark-header-accent};
 
-  --c-bB: #{$c-dark-body-bg}; // Body BG
-  --c-bC: #{$c-dark-body-color}; // Body Color
-  --c-bC-semi: #{rgba($c-dark-body-color, 0.55)}; // Body Color (semi-transparent)
-  --c-bA: #{$c-dark-accent}; // Body Accent
-  --c-bS: #{mix($c-dark-body-color, $c-dark-header-bg, 15%)}; // Body Secondary
-  --c-bH: #{rgba(mix(white, yellow, 50%), 0.25)}; // Body Highlight
+  --c-bB: #{$c-dark-body-bg};
+  --c-bC: #{$c-dark-body-color};
+  --c-bS: #{rgba($c-dark-body-color, 0.55)}; // Semi-transparent body colour
+  --c-bA: #{$c-dark-body-accent};
+  --c-bD: #{$c-dark-body-decorative};
+  --c-bH: #{$c-dark-body-highlight};
 
   --figO: 0.9; // Figure Opacity
 
-  --c-cB: #{$c-contrast-dark}; // Contrast BG
-  --c-cC: #{$c-contrast-light}; // Contrast Color
-  --c-cC-semi: #{rgba($c-contrast-light, 0.66)}; // Contrast Semi
-  --c-cA: #{lighten($c-dark-accent, 10%)}; // Contrast Accent
+  --c-cB: #{$c-contrast-dark}; // Contrast background
+  --c-cC: #{$c-contrast-light}; // Contrast colour
+  --c-cS: #{rgba($c-contrast-light, 0.66)}; // Contrast semi-transparent colour
+  --c-cA: #{lighten($c-dark-header-accent, 10%)}; // Contrast accent
 
   --c-fueled: #{lighten($c-fueled, 10%)};
   --c-github: #79B8FF;
   --c-netlify: #{lighten($c-netlify, 10%)};
   --c-linkedin: #{lighten($c-linkedin, 10%)};
-  --c-strava: #{mix($c-strava, yellow, 90%)};
+  --c-strava: #{mix($c-strava, yellow, 90%)}; // Mix Strava with yellow to avoid it going too beige
   --c-codepen: #FEFEFE;
 }
 
@@ -70,25 +75,24 @@ html {
   --c-hA: #{$c-light-header-accent};
 
   --c-bB: #{$c-light-body-bg};
-  --c-bC: $c-light-body-color;
-  --c-bC-semi: #{rgba($c-light-body-color, 0.66)};
+  --c-bC: #{$c-light-body-color};
+  --c-bS: #{rgba($c-light-body-color, 0.6)};
   --c-bA: #{$c-light-body-accent};
-  --c-bS: #{mix($c-light-body-color, $c-light-header-bg, 15%)};
-  --c-bH: #{rgba(yellow, 0.25)};
+  --c-bD: #{$c-light-body-decorative};
+  --c-bH: #{$c-light-body-highlight};
 
-  --c-cB: #FFF;
-  --c-cC: #000;
-  --c-cC-semi: #{rgba(#000, 0.66)};
-  --c-cA: #{darken(#EA3243, 20%)};
+  --c-cB: #{$c-contrast-light};
+  --c-cC: #{$c-contrast-dark};
+  --c-cS: #{rgba($c-contrast-dark, 0.66)};
+  --c-cA: #{darken($c-light-header-accent, 20%)};
 }
 
 @mixin contrast-colors {
   --c-hB: var(--c-cB);
   --c-hA: var(--c-cA);
-
   --c-bB: var(--c-cB);
   --c-bC: var(--c-cC);
-  --c-bC-semi: var(--c-cC-semi);
+  --c-bS: var(--c-cS);
   --c-bA: var(--c-cA);
 }
 
@@ -152,7 +156,7 @@ body {
 }
 
 ::selection {
-  background: var(--c-bS);
+  background: var(--c-bD);
   color: var(--c-bC);
 }
 
@@ -232,7 +236,7 @@ a,
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bC-semi, currentColor));
+  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   padding: unset;
   border: 0;
 
@@ -255,7 +259,7 @@ a,
   }
 
   &:focus {
-    outline: var(--c-bC-semi) 1px dotted;
+    outline: var(--c-bS) 1px dotted;
   }
 
   &:active {
@@ -327,7 +331,7 @@ a,
 .link__pseudo {
   color: var(--link-state-color);
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bC-semi, currentColor));
+  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   transition: 125ms ease-in-out;
   transition-property: color, opacity, text-decoration-color;
 
