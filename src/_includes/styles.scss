@@ -20,6 +20,7 @@
 .nowrap { white-space: nowrap; }
 .block { display: block; }
 .mt0 { margin-top: 0; }
+.ttu { text-transform: uppercase; }
 
 @media print {
   @import 'scss/print';

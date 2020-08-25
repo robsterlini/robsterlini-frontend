@@ -23,7 +23,7 @@ Triathlon was perfect.
 
 {% figureInset
   "journal/triathlete/reservoir.jpg",
-  "",
+  "640x640",
   "A snap of me on on a sunny day at the reservoir",
   "Swimming in a reservoir is made easier by the Huub Archimedes wetsuit!",
   "https://instagram.com/p/3lTk5Gv-4L/",
@@ -52,7 +52,7 @@ My first triathlon.
 
 {% figureInset
   "journal/triathlete/bike-racked.jpg",
-  "",
+  "500x667",
   "A photo of my bike, hanging on the rack",
   "Chrissy just hanging out before the big event."
 %}
@@ -85,7 +85,7 @@ We’d not anticipated the amount of rain that had come down already, and it was
 
 {% figureInset
   "journal/triathlete/scraped-side.jpg",
-  "",
+  "480x480",
   "A photo of my scraped side after the fall",
   "No race is complete without war wounds, right?",
   "https://instagram.com/p/5CD89iv-03/",
@@ -106,7 +106,7 @@ I’d be lying if I said there weren’t any tears.
 
 {% figureInset
   "journal/triathlete/the-run.jpg",
-  "",
+  "480x480",
   "A photo of me exiting T2 and into the run",
   "Leg day, all day!",
   "https://instagram.com/p/5CkZiTv-1s/",
@@ -137,7 +137,7 @@ The tears of pain from the first time round came back again, but as those ‘can
 
 {% figureFull
   "journal/triathlete/finish-line.jpg",
-  "",
+  "1086x724",
   "A photo of me at the finish line",
   "Pushing myself over the line in the morning’s final leg"
 %}
@@ -160,7 +160,7 @@ Overall, it was just sensational.
 
 {% figureInset
   "journal/triathlete/super-mum.jpg",
-  "",
+  "441x507",
   "A quick selfie with my mum before the triathlons got under way",
   "Couldn’t have done it without her, and the unwavering support from the rest of the famiglia Sterlini!"
 %}
@@ -177,7 +177,7 @@ Onto the next one!
 
 {% figureFull
   "journal/triathlete/champion.jpg",
-  "",
+  "940x682",
   "A photo of me with my bike above my head, and my medal in my hand!",
   "An obligatory bike-above-head, medal photo before heading home with all the DOMs",
   "https://instagram.com/p/5Cofm6v--t/",

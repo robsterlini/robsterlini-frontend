@@ -6,8 +6,12 @@
 
   &__wrapper {
     animation: opacity 400ms 700ms ease-out both;
-    padding: calc(2vw + 1rem) 0;
+    padding: calc(2vw + 1rem) 0 calc(1vw + 0.5rem);
     position: relative;
+
+    > :first-child {
+      margin-bottom: 1em;
+    }
 
     .main + .footer & {
 
@@ -25,9 +29,25 @@
     }
   }
 
+  &__links {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 1em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
   p {
-    max-width: 51em;
-    margin-bottom: 1em;
+    margin-bottom: calc(2vw + 1rem);
   }
 
   @include min-width(1024) {
@@ -37,7 +57,7 @@
       grid-template-columns: repeat(24, 1fr);
       grid-template-rows: auto 1fr;
 
-      p {
+      > :first-child {
         grid-area: 1 / 1 / span 2 / span 19;
         margin-bottom: 0;
       }

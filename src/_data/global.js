@@ -1,5 +1,40 @@
 const baseUrl = 'robsterlini.co.uk';
 
+const LINKS = {
+  about: {
+    link: '/about',
+    label: 'About',
+    nav: 'about',
+  },
+  contact: {
+    link: '/#contact',
+    label: 'Contact',
+  },
+  cv: {
+    link: '/curriculum-vitae',
+    label: '<abbr title="Curriculum Vitae">CV</abbr>',
+    nav: 'cv',
+  },
+  journal: {
+    link: '/journal',
+    label: 'Latest',
+    nav: 'journal',
+  },
+  journalArchive: {
+    link: '/journal/archive',
+    label: 'Archive',
+    nav: 'archive',
+  },
+  now: {
+    link: '/now',
+    label: 'Now',
+    nav: 'now',
+  },
+  projects: {
+    label: 'Projects',
+  },
+};
+
 const {
   HEAD: envBranch = 'master',
 } = process.env || {};
@@ -21,59 +56,34 @@ module.exports = () => ({
       title: 'Rob Sterlini',
       link: '/',
       links: [
-        {
-          link: '/about',
-          label: 'About',
-          nav: 'about',
-        },
-        {
-          link: '/now',
-          label: 'Now',
-          nav: 'now',
-        },
-        {
-          link: '/#contact',
-          label: 'Contact',
-        }
+        LINKS.about,
+        LINKS.now,
+        LINKS.contact,
       ],
     },
     {
       title: 'Work',
       links: [
-        {
-          label: 'Projects',
-        },
-        {
-          link: '/curriculum-vitae',
-          label: '<abbr title="Curriculum Vitae">CV</abbr>',
-          nav: 'cv',
-        },
+        LINKS.projects,
+        LINKS.cv,
       ],
     },
     {
       title: 'Journal',
       links: [
-        {
-          link: '/journal',
-          label: 'Latest',
-          nav: 'journal',
-        },
-        {
-          link: '/journal/archive',
-          label: 'Archive',
-          nav: 'archive',
-        },
+        LINKS.journal,
+        LINKS.journalArchive,
       ],
     },
-
-    // {
-    //   link: '/journal',
-    //   label: 'Journal',
-    //   // nav: 'journal',
-    // },
-    // {
-    //   link: '/#contact',
-    //   label: 'Contact',
-    // },
+  ],
+  footer: [
+    LINKS.contact,
+    LINKS.about,
+    LINKS.now,
+    {
+      ...LINKS.journal,
+      label: 'Journal'
+    },
+    LINKS.cv,
   ],
 });
