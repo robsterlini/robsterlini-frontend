@@ -48,3 +48,7 @@ To build the project:
 ```
 $ npm run build
 ```
+
+## License
+
+[robsterlini.co.uk](https://github.com/robsterlini/robsterlini-frontend) by [Rob Sterlini](https://robsterlini.co.uk) is licensed under [CC BY-NC-ND 4.0<br/><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" width="16px" height="16px" /><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" width="16px" height="16px" /><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" width="16px" height="16px" /><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" width="16px" height="16px" />](https://creativecommons.org/licenses/by-nc-nd/4.0)

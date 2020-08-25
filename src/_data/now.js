@@ -22,8 +22,8 @@ module.exports = () => ({
         life: '<a href="https://www.instagram.com/p/B7rUI5SnNY7/" target="_blank">celebrating Christmas</a> for the first time in a flat that I own, and <a href="https://www.instagram.com/p/B84WwZpnMXI/" target="_blank">skiing with my family</a> in&nbsp;Andorra.',
         work: 'leveraging Gatsby and Contentful at Fueled to build a new site for&nbsp;<a href="http://svclnk.com/" target="_blank">ServiceLink</a>.',
         music: {
-          artist: 'The Rose\xa0Club',
-          link: 'https://open.spotify.com/artist/2e0LY1LL3HNFdDhvojMe2r?si=vMwHh9uvQu2Jrm7ImcZZ9g',
+          artist: 'Rose\xa0Club',
+          link: 'https://open.spotify.com/artist/36d3BDfeOufIRSpy4jLYNA?si=ib8DjtvHRZiQxDouHBOF-g',
         },
       },
       spring: {
