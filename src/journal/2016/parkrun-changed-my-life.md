@@ -18,7 +18,7 @@ There are a few topless photos on the way, so apologies in advance if you’re i
 
 {% figureInset
   "journal/parkrun-changed-my-life/april-2014.jpg",
-  "",
+  "768x768",
   "A snap of me in April 2014",
   "A very sad looking starting photo in early April 2014"
 %}
@@ -53,7 +53,7 @@ When I moved to South London over a year ago now, I was in prime location for ru
 
 {% figureInset
   "journal/parkrun-changed-my-life/rpf.jpg",
-  "",
+  "480x480",
   "A photo of my mum and me before the start of the RPF Half Marathon",
   "This wonder-woman of a mum and I cruised personal bests at the RPF Half in October 2015"
 %}
@@ -90,7 +90,7 @@ It was so special.
 
 {% figureFull
   "journal/parkrun-changed-my-life/startline.jpg",
-  "",
+  "1024x768",
   "A selfie of my mum and me getting set to take on the Brighton Marathon",
   "Running late for the start, but always time for a start-line selfie with this superstar!",
   "https://www.instagram.com/p/BEV_jVrv-10/",
@@ -101,7 +101,7 @@ Now obviously I couldn’t let her cross the finish line without any cheering (s
 
 {% figureInset
   "journal/parkrun-changed-my-life/medal.jpg",
-  "",
+  "540x540",
   "A photo from the Tuesday after my marathon, where Charlie presented me with my medal",
   "Every crew needs a captain, and running under Charlie’s banner has changed my life",
   "https://www.instagram.com/p/BEZdnBPP-z2/",
@@ -130,7 +130,7 @@ It’s been a while now since I ran that race, but I’ve not quite found the ri
 
 {% figureInset
   "journal/parkrun-changed-my-life/progress.jpg",
-  "",
+  "1024x1024",
   "A photo from 2014, and a photo from now",
   "It’s been a long way to here, and we’re not done&nbsp;yet"
 %}
@@ -157,7 +157,7 @@ Oh, and the idea of an Ironman is very much something that I want to have a go a
 
 {% figureFull
   "journal/parkrun-changed-my-life/jbtt.jpg",
-  "",
+  "1024x762",
   "Three photos of my swim, bike, and run at Jenson Button Trust Triathlon",
   "What a day that was!",
   "https://www.instagram.com/p/BEZdnBPP-z2/",

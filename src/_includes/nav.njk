@@ -5,12 +5,27 @@
     </a>{% endif %}
   </div>
   <div class="nav-list">
-    <ul class="group sc">
+    <ul class="group">
       {% for item in global.nav %}
         <li>
-          <a href="{{ item.link }}"{% if nav and nav === item.nav %} class="active"{% endif %}>
-            {{ item.label | safe }}
-          </a>
+          {% if item.link %}
+            <a href="{{ item.link }}" class="lead">{{ item.title }}</a>
+          {% else %}
+            <span class="lead">{{ item.title }}</span>
+          {% endif %}
+          <ul>
+            {% for link in item.links %}
+              <li>
+                {% if link.link %}
+                  <a href="{{ link.link }}"{% if nav and nav === link.nav %} class="active"{% endif %}>
+                    {{ link.label | safe }}
+                  </a>
+                {% else %}
+                  <span class="soon">{{ link.label | safe }}</span>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
         </li>
       {% endfor %}
     </ul>

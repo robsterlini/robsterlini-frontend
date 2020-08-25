@@ -1,0 +1,68 @@
+@import 'scss/mixins';
+
+.hero {
+
+  .group {
+    box-sizing: border-box;
+    position: relative;
+
+    @include min-width(480) {
+      padding-right: (33.3% + $grid-column-gap) * 0.92;
+    }
+  }
+
+  .h1 {
+    margin-bottom: 0;
+
+    @include min-max-width(480, 768) {
+      max-width: 8em;
+    }
+  }
+
+  &__children {
+    display: block;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    margin: 0;
+    position: relative;
+
+    @include min-width(480) {
+      position: absolute;
+      margin-top: -2vw;
+      width: 33.3%;
+    }
+
+    .figure {
+      margin-top: 4vw; // Equal to hero bottom padding
+      margin-bottom: -4vw * 3; // Triple hero bottom padding
+      max-width: 16rem;
+      width: 100%;
+
+      @include min-width(480) {
+        max-width: none;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.about {
+  min-height: 50vh;
+
+  &__section {
+
+    &--dev {
+      padding-top: 4vw * 2; // Double hero bottom padding
+
+      @include min-width(480) {
+        padding-top: 0;
+      }
+
+      @include min-width(720) {
+        padding-right: 33.3% + $grid-column-gap;
+      }
+    }
+  }
+}

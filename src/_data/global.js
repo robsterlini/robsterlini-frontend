@@ -1,5 +1,40 @@
 const baseUrl = 'robsterlini.co.uk';
 
+const LINKS = {
+  about: {
+    link: '/about',
+    label: 'About',
+    nav: 'about',
+  },
+  contact: {
+    link: '/#contact',
+    label: 'Contact',
+  },
+  cv: {
+    link: '/curriculum-vitae',
+    label: '<abbr title="Curriculum Vitae">CV</abbr>',
+    nav: 'cv',
+  },
+  journal: {
+    link: '/journal',
+    label: 'Latest',
+    nav: 'journal',
+  },
+  journalArchive: {
+    link: '/journal/archive',
+    label: 'Archive',
+    nav: 'archive',
+  },
+  now: {
+    link: '/now',
+    label: 'Now',
+    nav: 'now',
+  },
+  projects: {
+    label: 'Projects',
+  },
+};
+
 const {
   HEAD: envBranch = 'master',
 } = process.env || {};
@@ -14,26 +49,41 @@ module.exports = () => ({
   social: {
     twitter: 'robsterlini',
     instagram: 'robsterlini',
+    strava: 'https://www.strava.com/athletes/6578573',
   },
   nav: [
     {
-      link: '/journal',
-      label: 'Journal',
-      nav: 'journal',
+      title: 'Rob Sterlini',
+      link: '/',
+      links: [
+        LINKS.about,
+        LINKS.now,
+        LINKS.contact,
+      ],
     },
     {
-      link: '/#contact',
-      label: 'Contact',
+      title: 'Work',
+      links: [
+        LINKS.projects,
+        LINKS.cv,
+      ],
     },
     {
-      link: '/curriculum-vitae',
-      label: '<abbr title="Curriculum Vitae">CV</abbr>',
-      nav: 'cv',
+      title: 'Journal',
+      links: [
+        LINKS.journal,
+        LINKS.journalArchive,
+      ],
     },
+  ],
+  footer: [
+    LINKS.contact,
+    LINKS.about,
+    LINKS.now,
     {
-      link: '/now',
-      label: 'Now',
-      nav: 'now',
-    }
+      ...LINKS.journal,
+      label: 'Journal'
+    },
+    LINKS.cv,
   ],
 });

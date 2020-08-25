@@ -43,14 +43,14 @@ Which gives you this:
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-1.jpg",
-  "",
+  "1000x115",
   "The OpenType features looking beautiful",
   "The OpenType features looking beautiful"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-2.jpg",
-  "",
+  "1000x115",
   "::selection looking not-so-beautiful",
   "::selection looking not-so-beautiful"
 %}
@@ -65,14 +65,14 @@ The easiest solution is to not use a custom `::selection` or to not use the Open
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-3.jpg",
-  "",
+  "1000x115",
   "No OT features…",
   "No OT features…"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-4.jpg",
-  "",
+  "1000x115",
   "…but no ::selection problems",
   "…but no ::selection problems"
 %}
@@ -109,7 +109,7 @@ html[data-useragent*='Chrome'][data-platform*='Mac'] p {
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-5.jpg",
-  "",
+  "1000x115",
   "Problem solved?",
   "Problem solved?"
 %}
@@ -118,7 +118,7 @@ But even this has a problem with the `::selection`…
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-6.jpg",
-  "",
+  "1000x115",
   "Nearly, but not quite",
   "Nearly, but not quite"
 %}
@@ -143,14 +143,14 @@ The only caveat is that you need to use a contrasting colour to the text – in 
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-7.jpg",
-  "",
+  "1000x115",
   "Problem solved?",
   "Problem solved?"
 %}
 
 {% figureFull
   "journal/opentype-and-selection-dont-mix/ot-8.jpg",
-  "",
+  "1000x115",
   "You betcha!",
   "You betcha!"
 %}

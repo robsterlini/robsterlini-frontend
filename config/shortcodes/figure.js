@@ -1,8 +1,12 @@
-const figure = ([ image, size, alt, caption, link, label ], args = {}) => {
+const figure = ([ image, dimensions, alt, caption, link, label ], args = {}) => {
   const { layout } = args;
   let captionMarkup = '';
 
-  const [width, height] = (size || '').split('x');
+  if (typeof image === 'string') {
+    image = [image];
+    alt = [alt];
+    dimensions = [dimensions];
+  }
 
   const overlayMarkup = `
     <div class="figure__overlay">
@@ -20,9 +24,19 @@ const figure = ([ image, size, alt, caption, link, label ], args = {}) => {
     `;
   }
 
-  const imageMarkup = `<div class="figure__image">${overlayMarkup}<img src="/images/${image}" loading="lazy" alt="${alt}" ${width ? `width="${width}"` : ''} ${height ? `height="${height}"`: ''} /></div>`;
+  let imageMarkup = `<div class="figure__image">${overlayMarkup}`;
+  let imageWidth = 0;
 
-  return `<figure class="figure figure--${layout}">${imageMarkup}${captionMarkup}</figure>`;
+  image.forEach((src, index) => {
+    const [width, height] = (dimensions[index] || '').split('x');
+
+    imageMarkup += `<img src="/images/${src}" loading="lazy" alt="${alt[index] || ''}" ${width ? `width="${width}"` : ''} ${height ? `height="${height}"`: ''} />`;
+    imageWidth += +width;
+  });
+
+  imageMarkup += '</div>';
+
+  return `<figure class="figure figure--${layout}" style="--figure-count: ${image.length}; max-width: ${imageWidth}px">${imageMarkup}${captionMarkup}</figure>`;
 };
 
 module.exports = figure;

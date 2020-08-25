@@ -8,7 +8,7 @@
     {% endif %}
 
     {% if not metaDescription %}
-      {% set metaDescription = "Rob Sterlini is a frontend developer, typography enthusiast, amateur triathlete, and LEGO master builder among other things" %}
+      {% set metaDescription = "Rob Sterlini is a frontend developer, amateur triathlete, typography enthusiast, and LEGO master builder among other things" %}
     {% endif %}
 
 
@@ -207,7 +207,9 @@
 
         figures.forEach(figure => {
           if (observer) {
-            observer.observe(figure);
+            setTimeout(() => {
+              observer.observe(figure);
+            }, 1000); // Buys just enough time for the other animations to finish
           } else {
             figure.add('js--figure-visible');
           }
