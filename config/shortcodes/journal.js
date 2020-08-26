@@ -29,7 +29,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
     });
   }
 
-  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? ` ${description}` : ``}${tagsMarkup}</p>`;
+  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? `&ensp;${description}` : ``}${tagsMarkup}</p>`;
 
   const linkMarkup = `<p class="list__item">
     <a class="journal-first link--pseudo" ${link.htmlAttrs}>

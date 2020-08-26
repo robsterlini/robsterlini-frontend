@@ -8,6 +8,7 @@ const markdownConfig = require('./config/markdown.js');
 const { getJournalLink } = require('./config/journal.js');
 
 const figureShortcode = require('./config/shortcodes/figure.js');
+const anchorShortcode = require('./config/shortcodes/anchor.js');
 const {
   journalEntry: journalEntryShortcode,
   journalEntryShort: journalEntryShortShortcode,
@@ -84,6 +85,7 @@ module.exports = function(eleventyConfig) {
   // Shortcodes
   eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
   eleventyConfig.addShortcode('figureFull', (...args) => figureShortcode(args, { layout: 'full' }));
+  eleventyConfig.addShortcode('anchor', anchorShortcode);
   eleventyConfig.addShortcode('journalEntry', journalEntryShortcode);
   eleventyConfig.addShortcode('journalEntryShort', journalEntryShortShortcode);
 
