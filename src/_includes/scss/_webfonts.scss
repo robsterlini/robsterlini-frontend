@@ -25,7 +25,7 @@
 @font-face {
   font-family: 'rsa-body';
   src: url('/fonts/body-300.woff2') format('woff2');
-  font-weight: 300;
+  font-weight: $font-weight-body-regular;
   font-display: swap;
   font-style: normal;
 }
@@ -41,7 +41,7 @@
 @font-face {
   font-family: 'rsa-body';
   src: url('/fonts/body-500.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: $font-weight-body-bold;
   font-display: swap;
   font-style: normal;
 }
