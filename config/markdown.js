@@ -50,7 +50,7 @@ const markdownLibrary = markdownIt({
     permalink: true,
     permalinkClass: 'anchor',
     permalinkHref: slug => `#${slug}`,
-    permalinkSymbol: '\u00B6', // Pilcrow (¶)
+    permalinkSymbol: '',
   })
   .use(mila, {
     pattern: /^https:/,

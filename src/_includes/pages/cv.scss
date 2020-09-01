@@ -59,10 +59,9 @@
 
 .cv-references {
   color: var(--c-bS);
-  font-weight: 500;
+  font-weight: $font-weight-body-bold;
   margin-top: 2em;
   margin-bottom: 0;
-  font-size: 0.9375rem;
 }
 
 dd {

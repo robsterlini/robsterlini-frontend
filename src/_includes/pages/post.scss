@@ -72,11 +72,6 @@
   }
 
   &__page {
-    margin-bottom: $grid-column-gap / 2;
-
-    > :last-child {
-      margin-bottom: 0;
-    }
 
     &--current {
       color: var(--c-bS);
@@ -92,6 +87,10 @@
 
     &__page {
       margin-bottom: 0;
+
+      .h3 {
+        margin-top: 0;
+      }
     }
   }
 }

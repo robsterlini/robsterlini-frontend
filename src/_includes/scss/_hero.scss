@@ -68,20 +68,16 @@
       color: var(--c-bC);
     }
 
-
     &::before {
       animation: scale-from-left 500ms 125ms ease-out both;
-      content: '\2013\2013\2013\2013';
+      content: '—';
       color: var(--c-hA);
-      letter-spacing: -0.2em;
       margin-right: 0.5em;
-      width: 1.75em;
       display: inline-block;
       transform-origin: center left;
 
       @include max-width(768) {
-        content: '\2013\2013';
-        width: 0.875em;
+        content: '–';
       }
     }
   }
@@ -100,7 +96,7 @@
   &--children {
 
     .h1 {
-      margin-bottom: 0.125em;
+      margin-bottom: 0.25em;
     }
   }
 

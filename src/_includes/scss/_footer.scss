@@ -1,7 +1,6 @@
 .footer {
   background: var(--c-bB);
   color: var(--c-bC);
-  font-size: 0.875rem;
   margin-top: auto;
 
   &__wrapper {
@@ -37,7 +36,7 @@
 
     li {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: baseline;
       margin-right: 1em;
     }
 
@@ -48,6 +47,7 @@
 
   p {
     margin-bottom: calc(2vw + 1rem);
+    max-width: 46em;
   }
 
   @include min-width(1024) {
@@ -65,8 +65,9 @@
       .fieldset {
         margin-right: 0;
         grid-column: 20 / span 5;
+        grid-row: 1;
 
-        &:nth-of-type(2) {
+        & + .fieldset {
           grid-row: 2;
         }
       }

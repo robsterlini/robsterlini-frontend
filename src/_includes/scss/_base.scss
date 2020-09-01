@@ -121,19 +121,19 @@ html {
 html {
   background: var(--c-bB);
   line-height: $line-height-body;
-  font-size: 0.8125rem;
+  font-size: 14 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  @include min-width(260) {
-    font-size: 0.9375rem;
-  }
-
   @include min-width(384) {
-    font-size: 1rem;
+    font-size: 15 / 16 * 1rem;
   }
 
   @include min-width(768) {
-    font-size: 1.125rem;
+    font-size: 16 / 16 * 1rem;
+  }
+
+  @include min-width(1024) {
+    font-size: 17 / 16 * 1rem;
   }
 }
 
@@ -142,7 +142,7 @@ body {
   -webkit-font-smoothing: antialiased;
 
   color: var(--c-bC);
-  font-family: 'rsa-body', sans-serif;
+  font-family: $font-family-body;
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
   opacity: 0;
@@ -269,20 +269,11 @@ a,
 @mixin link-external {
 
   &::after {
-    color: var(--link-state-color, var(--link-color, var(--c-bA)));
-    content: '↗';
-    font-family: 'rsa-body', sans-serif;
-    font-weight: 500;
-    position: relative;
-    top: -0.2em;
-    font-style: normal;
-    letter-spacing: -0.15em;
-    margin-left: 0.05em;
-    margin-right: 0.2em;
-    font-size: 0.825em;
-    transition: color 125ms ease-in-out;
-    text-decoration: underline;
-    text-decoration-color: var(--c-bB) !important;
+    content: '';
+    padding-left: 11px;
+    transition: background-color 125ms ease-in-out;
+    background-color: var(--link-state-color, var(--link-color, var(--c-bA)));
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 0 10 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23979797' stroke-width='1.25' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7l6-6-6 6zM4 1h5v5.5'/%3E%3C/g%3E%3C/svg%3E") -0.5px center / 10px 16px no-repeat;
   }
 
   &:hover,
@@ -341,6 +332,23 @@ a,
   .link--external[href^="https://"] &,
   .link--external[href^="http://"] & {
     @include link-external;
+  }
+}
+
+.btn {
+  padding-left: 1.5em;
+
+  &::before {
+    box-sizing: border-box;
+    content: '—';
+    color: var(--c-bA);
+    font-family: inherit;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: -2.5em;
+    width: 2em;
+    text-align: right;
+    margin-right: 0.5em;
   }
 }
 

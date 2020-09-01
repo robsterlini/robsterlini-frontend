@@ -30,6 +30,8 @@
 
 @mixin sc {
   font-variant-caps: all-small-caps;
+  font-size: 1.05em;
+  line-height: 1;
 
   @media not all and (min-resolution: .001dpcm) {
     text-transform: lowercase;
@@ -40,8 +42,12 @@
 $grid-row-gap: 1rem;
 $grid-column-gap: 6%;
 
-$line-height-body: 1.55;
-$line-height-body-small: 1.4;
+$paragraph-small: 0.875rem;
 
-$font-weight-body-regular: 300;
+$font-family-body: 'rs-body', sans-serif;
+
+$font-weight-body-regular: 400;
 $font-weight-body-bold: 500;
+
+$line-height-body: 1.6;
+$line-height-body-small: 1.5;

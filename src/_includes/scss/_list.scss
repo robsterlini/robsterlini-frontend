@@ -2,13 +2,16 @@
   padding-left: 1em;
 
   &::before {
-    content: '\2023';
+    box-sizing: border-box;
+    content: '–';
     color: var(--c-bA);
     font-family: inherit;
     font-weight: 500;
     display: inline-block;
-    margin-left: -1em;
-    width: 1em;
+    margin-left: -2em;
+    width: 1.5em;
+    text-align: right;
+    margin-right: 0.5em;
   }
 }
 
@@ -18,12 +21,8 @@
   margin: 0 0 1em;
   max-width: 42em; // TODO: Var (same as .p)
 
-  li {
-    @extend %list-item;
-
-    & + li {
-      margin-top: 0.25em;
-    }
+  li + li {
+    margin-top: 0.25em;
   }
 }
 
@@ -33,10 +32,14 @@
   counter-reset: list;
 
   li {
+    @extend %list-item;
     counter-increment: list;
 
     &::before {
       content: counter(list) '. ';
+      font-size: $paragraph-small;
+      position: relative;
+      right: -0.15em; // Optically adjusts for the full stop after the number
     }
   }
 }
@@ -44,6 +47,7 @@
 .list {
   @extend %list;
 
+  > li,
   &__item {
     @extend %list-item;
 
@@ -51,6 +55,10 @@
       margin-top: 0.25em;
     }
   }
+}
+
+.list--block {
+  @extend %list;
 }
 
 .list--inline {

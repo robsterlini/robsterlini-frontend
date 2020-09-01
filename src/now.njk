@@ -20,7 +20,7 @@ customCss: pages/now.scss
   <div class="group">
     {% set current = 0 %}
     {% for year, seasons in now.years %}
-    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }} <a href="#{{ year }}" class="anchor">&#182;</a></h2>
+    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }} <a href="#{{ year }}" class="anchor"><span class="sr-only">Jump to anchor</span></a></h2>
     <div class="year__seasons">
       {% for seasonName, seasonMeta in now.meta.seasons %}
         {% set season = seasons[seasonName] %}
@@ -30,8 +30,8 @@ customCss: pages/now.scss
         {% endif %}
 
         {% if current < 3 %}
-          <div class="year__season year__season--{{ current }}">
-            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
+          <div class="year__season year__season--{{ current }} small">
+            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor"><span class="sr-only">Jump to anchor</span></a></h3>
             {% if current > 1 %}
               <p>Check back soon…</p>
             {% else %}
@@ -66,6 +66,6 @@ customCss: pages/now.scss
 
     <hr />
 
-    <p>Please keep in mind that this is likely to look like a highlight reel as I wrote about <a href="/journal/2020/instagram-is-a-highlight-reel/">in my journal</a>. Life won’t always be kind or easy, it’s important that we don’t take these at face value and assume that all is always as swell as it seems on the&nbsp;surface.</p>
+    <p class="alert mb0"><span class="lead">This is a highlight reel!</span> Please keep in mind that this is likely to look like a series of life’s high points. As I wrote about <a href="/journal/2020/instagram-is-a-highlight-reel/">in my journal</a>, life won’t always be kind or easy; it’s important that we don’t take these at face value and assume that all is always as swell as it seems on the&nbsp;surface.</p>
   </div>
 </main>

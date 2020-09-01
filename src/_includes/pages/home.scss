@@ -5,6 +5,14 @@
   .h1 {
     max-width: 17em;
   }
+
+  &__header {
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 }
 
 .home-hero-hide {

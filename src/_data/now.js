@@ -36,7 +36,7 @@ module.exports = () => ({
         },
       },
       summer: {
-        life: '<a href="https://www.instagram.com/p/CCRJTgoHzml/" target="_blank">discovering trail running</a>, but sadly not on the start line for Ironman&nbsp;UK amid global race cancellations due to <span class="sc">Covid</span>-19.',
+        life: '<a href="https://www.instagram.com/p/CCRJTgoHzml/" target="_blank">discovering trail running</a>, but sadly not on the start line for Ironman&nbsp;UK amid global race cancellations due to&nbsp;<span class="sc">Covid</span>&#8209;19.',
         work: 'building web experiences at Fueled for Tony\xa0Robbins’ Robbins Research\xa0Institute.',
         music: {
           artist: 'Daði\xa0Freyr',

@@ -21,7 +21,7 @@ eleventyComputed:
 
 {% set children = "" %}
 {% set children %}
-  <p class="post-description"><strong>{{ page.date | formatDate }}</strong>{% if description %} {{ description | safe }}{% endif %}</p>
+  <p class="post-description"><strong>{{ page.date | formatDate }}</strong>{% if description %}&ensp;{{ description | safe }}{% endif %}</p>
   {% if page.date | isOldDate %}
     <p class="post-alert alert" role="alert"><strong class="lead">Be warned!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
   {% endif %}
@@ -44,7 +44,7 @@ eleventyComputed:
   <article class="group--thin">
     <p>
       <span class="lead">Originally posted</span><br>
-      <span class="list__item">
+      <span class="btn">
         <a {{ entry.link.htmlAttrs | safe }}>{{ entry.link.domain }}</a>
       </span>
     </p>
@@ -66,7 +66,7 @@ eleventyComputed:
     {% set githubEntryUrl %}{{ global.github.branchUrl }}{{ page.inputPath.slice(1) }}{% endset %}
 
     <div class="post-pagination__page links--external">
-      <h3 class="p lead">Thank you!</h3>
+      <h3 class="lead">Thank you!</h3>
       <p>Firstly, thanks for taking the time to read this&nbsp;entry.</p>
       <p>If you enjoyed it, and think others would benefit from the read then feel free to <a href="https://twitter.com/share?text={{ twitterShareText | urlencode }}&url={{ page.url | url | absoluteUrl(global.url) | urlencode }}" target="_blank" rel="noopener" title="Share this entry on Twitter">share it on Twitter</a> (or elsewhere). I’m always up for a discussion about anything I’ve written too, so <a href="/#contact">get in touch</a> if you want to&nbsp;chat!</p>
       <p>If you’ve spotted something out of place or something needs correcting, feel free to open a <abbr title="Pull request" class="sc">PR</abbr> for <a href="{{ githubEntryUrl }}" target="_blank" rel="noopener">this entry</a>, <a href="https://github.com/robsterlini/robsterlini-frontend/issues/new/choose" target="_blank" rel="noopener">raise an issue</a>, or <a href="/#contact">let me&nbsp;know</a>.</p>
