@@ -1,9 +1,9 @@
-# [[plugins]]
-# package = "netlify-plugin-subfont"
+[[plugins]]
+package = "netlify-plugin-subfont"
 
-#   [plugins.inputs]
-#   inlineCss = true
-#   entryPoints = [
-#     "index.html",
-#   ]
-#   recursive = false
+  [plugins.inputs]
+  # inlineCss = true
+  entryPoints = [
+    "dist/index.html",
+  ]
+  recursive = false
