@@ -32,6 +32,14 @@
 
 @font-face {
   font-family: 'rsa-body';
+  src: url('/fonts/body-300i.woff2') format('woff2');
+  font-weight: $font-weight-body-regular;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'rsa-body';
   src: url('/fonts/body-500.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
