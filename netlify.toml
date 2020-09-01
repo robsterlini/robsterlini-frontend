@@ -3,3 +3,7 @@ package = "netlify-plugin-subfont"
 
   [plugins.inputs]
   inlineCss = true
+  entryPoints = [
+    "index.html",
+  ]
+  recursive = false
