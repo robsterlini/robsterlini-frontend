@@ -22,7 +22,7 @@ eleventyComputed:
 {{ hero(heroTitle, header='Tagged') }}
 
 <main class="main">
-  <div class="group">
+  <div class="group group--thin">
     <ul class="list--block">
       {% for entry in tag.entries %}
         <li>{% journalEntryShort entry %}</li>

@@ -54,17 +54,19 @@
 
     &__wrapper {
       display: grid;
-      grid-template-columns: repeat(24, 1fr);
+      grid-gap: 0 $grid-column-gap;
       grid-template-rows: auto 1fr;
+      grid-template-columns: 4fr 4fr 3fr;
 
       > :first-child {
-        grid-area: 1 / 1 / span 2 / span 19;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
         margin-bottom: 0;
       }
 
       .fieldset {
         margin-right: 0;
-        grid-column: 20 / span 5;
+        grid-column: 3;
         grid-row: 1;
 
         & + .fieldset {
