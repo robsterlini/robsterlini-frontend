@@ -33,6 +33,10 @@ const LINKS = {
   projects: {
     label: 'Projects',
   },
+  siteHistory: {
+    label: 'Site history',
+    link: '/site-history',
+  },
 };
 
 const {
@@ -85,5 +89,6 @@ module.exports = () => ({
       label: 'Journal'
     },
     LINKS.cv,
+    LINKS.siteHistory,
   ],
 });

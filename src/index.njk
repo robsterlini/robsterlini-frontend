@@ -10,7 +10,7 @@ customCss: pages/home.scss
 
 {% from "components/hero.html" import hero %}
 
-{% set h1 %}<a href="#work">Frontend dev<span class="home-hero-hide">eloper</span></a>, <a href="/about#triathlon"><span class="home-hero-hide">amateur </span>triathlete</a>, <a href="/about#typography">typo<span class="home-hero-hide">graphy</span> enthusiast</a>, &amp;&nbsp;<span class="sc">LEGO</span> master builder.{% endset %}
+{% set h1 %}<a href="#work">Frontend dev<span class="home-hero-hide">eloper</span></a>, <a href="/about#triathlon"><span class="home-hero-hide">amateur </span>triathlete</a>, <a href="/about#typography">typo<span class="home-hero-hide">graphy</span> enthusiast</a>, &amp;&nbsp;<a href="/about#master-builder"><span class="sc">LEGO</span> master builder</a>.{% endset %}
 
 {{ hero(h1 | safe, header='Rob Sterlini') }}
 

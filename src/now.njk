@@ -19,8 +19,9 @@ customCss: pages/now.scss
 <main class="main links--external">
   <div class="group">
     {% set current = 0 %}
-    {% for year, seasons in now.years %}
-    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }} <a href="#{{ year }}" class="anchor">&#182;</a></h2>
+    {% for year in now.order %}
+    {% set seasons = now.years[year] %}
+    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{% if seasons.title %}<span class="p block lead">{{ year }}</span> {{ seasons.title }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
     <div class="year__seasons">
       {% for seasonName, seasonMeta in now.meta.seasons %}
         {% set season = seasons[seasonName] %}
@@ -31,7 +32,7 @@ customCss: pages/now.scss
 
         {% if current < 3 %}
           <div class="year__season year__season--{{ current }}">
-            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor">&#182;</a></h3>
+            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }}{% anchor seasonAnchor %}</h3>
             {% if current > 1 %}
               <p>Check back soon…</p>
             {% else %}
