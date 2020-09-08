@@ -64,19 +64,6 @@
   margin-bottom: 0;
 }
 
-dd {
-  font-weight: 500;
-
-  &::after {
-    content: ': ';
-  }
-}
-
-dd,
-dt {
-  display: inline;
-}
-
 @media print {
 
   .footer {

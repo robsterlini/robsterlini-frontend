@@ -336,23 +336,6 @@ a,
   }
 }
 
-.btn {
-  padding-left: 1.5em;
-
-  &::before {
-    box-sizing: border-box;
-    content: '—';
-    color: var(--c-bA);
-    font-family: inherit;
-    font-weight: 500;
-    display: inline-block;
-    margin-left: -2.5em;
-    width: 2em;
-    text-align: right;
-    margin-right: 0.5em;
-  }
-}
-
 .js--highlight-anchor {
   animation: fade-highlight 2s 1s ease-out both;
 

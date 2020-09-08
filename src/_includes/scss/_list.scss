@@ -1,3 +1,19 @@
+%list-item-sibling {
+  margin-top: 0.125em;
+}
+
+.list,
+[class^="list--"] {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+  max-width: 42em; // TODO: Var (same as .p)
+
+  > li + li {
+    @extend %list-item-sibling;
+  }
+}
+
 %list-item {
   padding-left: 1em;
 
@@ -15,61 +31,81 @@
   }
 }
 
-%list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1em;
-  max-width: 42em; // TODO: Var (same as .p)
+%btn {
+  @extend %list-item;
 
-  li + li {
-    margin-top: 0.25em;
-  }
-}
+  padding-left: 1.5em;
 
-%ordered-list {
-  @extend %list;
-
-  counter-reset: list;
-
-  li {
-    @extend %list-item;
-    counter-increment: list;
-
-    &::before {
-      content: counter(list) '. ';
-      font-size: $paragraph-small;
-      position: relative;
-      right: -0.15em; // Optically adjusts for the full stop after the number
-    }
+  &::before {
+    content: '—';
+    margin-left: -2.5em;
+    width: 2em;
   }
 }
 
 .list {
-  @extend %list;
 
-  > li,
   &__item {
     @extend %list-item;
 
     + .list__item {
-      margin-top: 0.25em;
+      @extend %list-item-sibling;
+    }
+  }
+
+  &--ul {
+
+    > li {
+      @extend %list-item;
+    }
+  }
+
+  &--ol {
+    counter-reset: list;
+
+    > li {
+      @extend %list-item;
+    }
+
+    > li,
+    > .list__item {
+      counter-increment: list;
+
+      &::before {
+        content: counter(list) '. ';
+        font-size: $paragraph-small;
+        position: relative;
+        right: -0.15em; // Optically adjusts for the full stop after the number
+      }
+    }
+  }
+
+  &--inline {
+    list-style: none;
+    padding: 0;
+
+    > li,
+    > .list__item {
+      display: inline;
+    }
+  }
+
+  &--block {
+
+    > li + li ,
+    > .list__item + .list__item {
+      margin-top: 0.5em;
+    }
+  }
+
+  &--btns {
+
+    > li {
+      @extend %btn;
     }
   }
 }
 
-.list--block {
-  @extend %list;
-}
-
-.list--inline {
-  list-style: none;
-  padding: 0;
-
-  li {
-    display: inline;
-  }
-}
-
-.list--ordered {
-  @extend %ordered-list;
+.btn {
+  @extend %btn;
 }

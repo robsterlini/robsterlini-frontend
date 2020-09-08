@@ -1,7 +1,6 @@
 %heading-large {
   font-family: 'rsa-heading', serif;
   font-weight: 600;
-  line-height: 1.2;
   letter-spacing: -0.01em;
   display: table; // Allows the highlight to work effectively
 
@@ -17,6 +16,7 @@
   @extend %heading-large;
 
   max-width: 16em;
+  line-height: 1.2;
   margin: calc(0.25em + 1vw) 0 calc(0.25em + 2vw);
   font-size: 5.5vw;
   font-size: clamp(2rem, calc(2rem + 2.5vw), 4rem);
@@ -31,6 +31,7 @@
   @extend %heading-large;
 
   margin-top: 2em;
+  line-height: 1.3;
   margin-bottom: 0.667em;
   font-size: 2rem;
   scroll-margin-top: 1.5em;
@@ -45,7 +46,7 @@
   font-weight: 500;
   font-size: 1.35rem;
   line-height: 1.4; // TODO: Var
-  margin-top: 1.25em;
+  margin-top: 1.5em;
   margin-bottom: 0.5em;
   scroll-margin-top: 1.25em;
 

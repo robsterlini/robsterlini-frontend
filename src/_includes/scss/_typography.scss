@@ -31,6 +31,20 @@ del {
   text-decoration-thickness: 2px;
 }
 
+dd {
+  font-weight: $font-weight-body-bold;
+
+  &::after {
+    // content: '\2002';
+    content: ' ';
+  }
+}
+
+dd,
+dt {
+  display: inline;
+}
+
 .sc {
   @include sc;
 }
@@ -153,7 +167,7 @@ abbr {
 code {
   color: var(--c-bA);
   font-weight: 400;
-  font-size: 0.95em;
+  font-size: 0.9em;
   font-family: 'Fira Code', monospace;
 }
 

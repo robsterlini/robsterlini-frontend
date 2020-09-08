@@ -29,10 +29,17 @@ eleventyComputed:
           %}
         {% endif %}
         <h2 id="{{ year }}" class="h2">{% if yearData.title %}<span class="p block lead">{{ year }}</span> {{ yearData.title | safe }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
-        {% if yearData.description or yearData.stack or yearData.type %}<p>
-          {% if yearData.stack or yearData.type %}<strong class="s">{% if yearData.stack %}<span class="sc">Stack:</span> {{ yearData.stack }}{% endif %}{% if yearData.stack and yearData.type %}; {% endif %}{% if yearData.type %}<span class="sc">Type:</span> {{ yearData.type }}{% endif %}.</strong>{% endif %}{% if yearData.description %}&ensp;{{ yearData.description | safe }}{% endif %}
-        </p>{% endif %}
-        <ul class="list">
+        {% if yearData.description or yearData.stack or yearData.type %}
+          {% if yearData.stack or yearData.type %}
+            <dl class="p">
+            {% if yearData.stack %}<dd>Stack</dd><dt>{{ yearData.stack }}</dt>{% endif %}
+            {% if yearData.stack and yearData.type %};&ensp;{% endif %}
+            {% if yearData.type %}<dd>Type</dd><dt>{{ yearData.type }}</dt>{% endif %}
+          </dl>
+          {% endif %}
+          {% if yearData.description %}<p>{{ yearData.description | safe }}</p>{% endif %}
+        {% endif %}
+        <ul class="list--btns">
           {% if yearData.link %}<li><a href="{{ yearData.link }}" target="_blank" rel="noopener">{{ yearData.label }}</a></li>{% endif %}
         </ul>
       </div>
