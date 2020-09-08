@@ -18,7 +18,7 @@ heroTitle: Entries through the years
   <div class="group group--thin">
     {% for year in collections.journalArchive %}
       <div class="archive-year">
-        <h2 class="h2" id="{{ year.year }}">{{ year.year }} <a href="#{{ year.year }}" class="anchor"><span class="sr-only">Jump to anchor</span></a></h2>
+        <h2 class="h2" id="{{ year.year }}">{{ year.year }}{% anchor year.year %}</h2>
 
         <ul class="list--block">
           {% for entry in year.entries %}
