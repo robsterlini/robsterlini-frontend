@@ -20,7 +20,7 @@ customCss: pages/now.scss
   <div class="group">
     {% set current = 0 %}
     {% for year, seasons in now.years %}
-    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }} <a href="#{{ year }}" class="anchor"><span class="sr-only">Jump to anchor</span></a></h2>
+    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{{ year }}<a href="#{{ year }}" class="anchor"><span class="sr-only"> Jump to anchor</span></a></h2>
     <div class="year__seasons">
       {% for seasonName, seasonMeta in now.meta.seasons %}
         {% set season = seasons[seasonName] %}
@@ -31,7 +31,7 @@ customCss: pages/now.scss
 
         {% if current < 3 %}
           <div class="year__season year__season--{{ current }} small">
-            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }} <a href="#{{ seasonAnchor }}" class="anchor"><span class="sr-only">Jump to anchor</span></a></h3>
+            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }}<a href="#{{ seasonAnchor }}" class="anchor"><span class="sr-only"> Jump to anchor</span></a></h3>
             {% if current > 1 %}
               <p>Check back soon…</p>
             {% else %}
