@@ -121,12 +121,12 @@ html {
 html {
   background: var(--c-bB);
   line-height: $line-height-body;
-  font-size: 14 / 16 * 1rem;
+  font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  @include min-width(384) {
-    font-size: 15 / 16 * 1rem;
-  }
+  // @include min-width(384) {
+  //   font-size: 15 / 16 * 1rem;
+  // }
 
   @include min-width(768) {
     font-size: 16 / 16 * 1rem;
