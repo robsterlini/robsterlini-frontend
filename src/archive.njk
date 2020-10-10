@@ -3,7 +3,7 @@ metaTitle: A site’s history
 layout: default
 sitemap_priority: 0.8
 nav: about
-customCss: pages/site-history.scss
+customCss: pages/archive.scss
 heroTitle: "The iterative life of a personal website"
 eleventyComputed:
   heroHeader: "{{ metaTitle }}"
@@ -15,11 +15,11 @@ eleventyComputed:
 
 {{ hero(heroTitle, header=heroHeader, children=children | safe) }}
 
-<main class="main site-history">
+<main class="main">
   <div class="group group--thin links--external">
-    {% for year in siteHistory.order %}
-      <div class="site-history__item">
-        {% set yearData = siteHistory.years[year] %}
+    {% for year in archive.order %}
+      <div class="year">
+        {% set yearData = archive.years[year] %}
         {% if yearData.image %}
           {% set imageAlt %}A screenshot from the {{ year }} build{% endset %}
           {% figureInset

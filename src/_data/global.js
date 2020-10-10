@@ -33,9 +33,9 @@ const LINKS = {
   projects: {
     label: 'Projects',
   },
-  siteHistory: {
-    label: 'Site history',
-    link: '/site-history',
+  archive: {
+    label: 'Archive',
+    link: '/archive',
   },
 };
 
@@ -90,6 +90,6 @@ module.exports = () => ({
       label: 'Journal'
     },
     LINKS.cv,
-    LINKS.siteHistory,
+    LINKS.archive,
   ],
 });

@@ -6,7 +6,7 @@ const years = {
     label: 'Read the write-up',
     stack: 'Eleventy',
     type: 'P22 Mackinac, Clone Rounded',
-    image: 'site-history/2020.png',
+    image: 'archive/2020.png',
   },
   '2019': {
     title: 'Dev, triathlete, master builder&nbsp;<abbr title="version 2" class="sc">V2</abbr>',
@@ -15,7 +15,7 @@ const years = {
     label: '2019.robsterlini.co.uk',
     stack: 'Vue',
     type: 'Grad, Clone Rounded',
-    image: 'site-history/2019.jpg',
+    image: 'archive/2019.jpg',
   },
   '2018': {
     title: 'Dev, triathlete, master builder&nbsp;<abbr title="version 1" class="sc">V1</abbr>',
@@ -24,7 +24,7 @@ const years = {
     label: '2018.robsterlini.co.uk',
     stack: 'Vue',
     type: 'Freight Text & Sans, Clone Rounded',
-    image: 'site-history/2018.jpg',
+    image: 'archive/2018.jpg',
   },
   '2017': {
     title: 'Implementing a baseline grid',
@@ -33,7 +33,7 @@ const years = {
     label: '2017.robsterlini.co.uk',
     type: 'Skolar',
     stack: 'Middleman (Ruby)',
-    image: 'site-history/2017.jpg',
+    image: 'archive/2017.jpg',
   },
   '2015': {
     title: 'A year of the triathlons',
@@ -42,7 +42,7 @@ const years = {
     type: 'Skolar',
     link: 'https://2015.robsterlini.co.uk',
     label: '2015.robsterlini.co.uk',
-    image: 'site-history/2015.png',
+    image: 'archive/2015.png',
   },
   '2014': {
     title: 'The detail mattered',
@@ -51,7 +51,7 @@ const years = {
     type: 'Skolar',
     link: 'https://2014.robsterlini.co.uk',
     label: '2014.robsterlini.co.uk',
-    image: 'site-history/2014.png',
+    image: 'archive/2014.png',
   },
 };
 
