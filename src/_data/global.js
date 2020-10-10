@@ -20,7 +20,7 @@ const LINKS = {
     label: 'Latest',
     nav: 'journal',
   },
-  journalArchive: {
+  journalPast: {
     link: '/journal/past',
     label: 'Past entries',
     nav: 'journalPast',
@@ -55,6 +55,7 @@ module.exports = () => ({
     instagram: 'robsterlini',
     strava: 'https://www.strava.com/athletes/6578573',
   },
+  links: LINKS,
   nav: [
     {
       title: 'Rob Sterlini',
@@ -76,7 +77,7 @@ module.exports = () => ({
       title: 'Journal',
       links: [
         LINKS.journal,
-        LINKS.journalArchive,
+        LINKS.journalPast,
       ],
     },
   ],

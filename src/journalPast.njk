@@ -1,10 +1,10 @@
 ---
 metaTitle: Entries from the past
-metaDescription: The full archive of all journal entries through the years.
+metaDescription: The full history of past entries from through the many iterations of this journal.
 layout: default
 sitemapPriority: 0.4
 nav: journalPast
-customCss: pages/archive.scss
+customCss: pages/journalPast.scss
 permalink: journal/past/index.html
 heroHeader: The journal
 eleventyComputed:
@@ -18,8 +18,8 @@ eleventyComputed:
 
 <main class="main">
   <div class="group group--thin">
-    {% for year in collections.journalArchive %}
-      <div class="archive-year">
+    {% for year in collections.journalPast %}
+      <div class="year">
         <h2 class="h2" id="{{ year.year }}">{{ year.year }}{% anchor year.year %}</h2>
 
         <ul class="list--block">

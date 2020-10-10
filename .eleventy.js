@@ -61,7 +61,7 @@ module.exports = function(eleventyConfig) {
 
     return tags;
   });
-  eleventyConfig.addCollection('journalArchive', collectionApi => {
+  eleventyConfig.addCollection('journalPast', collectionApi => {
     const entriesByYear = getAllEntries(collectionApi)
       .reduce((years, entry) => {
         const year = new Date(entry.data.date).getFullYear();
