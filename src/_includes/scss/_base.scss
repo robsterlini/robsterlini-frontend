@@ -124,16 +124,16 @@ html {
   font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  // @include min-width(384) {
-  //   font-size: 15 / 16 * 1rem;
-  // }
-
-  @include min-width(768) {
+  @include min-width(384) {
     font-size: 16 / 16 * 1rem;
   }
 
-  @include min-width(1024) {
+  @include min-width(768) {
     font-size: 17 / 16 * 1rem;
+  }
+
+  @include min-width(1024) {
+    font-size: 18 / 16 * 1rem;
   }
 }
 
