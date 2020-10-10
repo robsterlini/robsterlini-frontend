@@ -269,12 +269,20 @@ a,
 @mixin link-external {
 
   &::after {
-    content: '';
-    padding-left: 10px;
-    transition: background-color 125ms ease-in-out;
-    background-color: var(--link-state-color, var(--link-color, var(--c-bA)));
-    -webkit-mask: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0.5 -3 10 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23979797' stroke-width='1.25' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7l6-6-6 6zM4 1h5v5.5'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 10px 26px no-repeat;
-// url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 -3 20 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23979797' stroke-width='1.25' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7l6-6-6 6zM4 1h5v5.5'/%3E%3C/g%3E%3C/svg%3E") -0.5px 0px/20px 26px no-repeat
+    color: var(--link-state-color, var(--link-color, var(--c-bA)));
+    content: '↗';
+    font-family: $font-family-body;
+    font-weight: $font-weight-body-bold;
+    position: relative;
+    top: -0.2em;
+    font-style: normal;
+    letter-spacing: -0.15em;
+    margin-left: 0.05em;
+    margin-right: 0.2em;
+    font-size: 0.825em;
+    transition: color 125ms ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: var(--c-bB) !important;
   }
 
   &:hover,

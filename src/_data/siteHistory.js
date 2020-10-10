@@ -5,7 +5,7 @@ const years = {
     link: '/journal/2020/a-fresh-lick-of-paint/',
     label: 'Read the write-up',
     stack: 'Eleventy',
-    type: 'P22 Mackinac, Berlingske Sans Round',
+    type: 'P22 Mackinac, Clone Rounded',
     image: 'site-history/2020.png',
   },
   '2019': {
