@@ -19,50 +19,39 @@ customCss: pages/now.scss
 <main class="main links--external">
   <div class="group">
     {% set current = 0 %}
-    {% for year in now.order %}
-    {% set seasons = now.years[year] %}
-    <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year }}">{% if seasons.title %}<span class="p block lead">{{ year }}</span> {{ seasons.title }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
-    <div class="year__seasons">
-      {% for seasonName, seasonMeta in now.meta.seasons %}
-        {% set season = seasons[seasonName] %}
-        {% set seasonAnchor %}{{ year }}-{{ seasonName }}{% endset %}
-        {% if seasonAnchor == now.meta.current %}
-          {% set current = 1 %}
-        {% endif %}
 
-        {% if current < 3 %}
-          <div class="year__season year__season--{{ current }} small">
-            <h3 class="h3" id="{{ seasonAnchor }}">{{ seasonMeta.title }}{% anchor seasonAnchor %}</h3>
-            {% if current > 1 %}
-              <p>Check back soon…</p>
-            {% else %}
+    {% for year in now.years %}
+      <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year.year }}">{% if year.title %}<span class="p block lead">{{ year.year }}</span> {{ year.title }}{% else %}{{ year.year }}{% endif %}{% anchor year.year %}</h2>
+
+      <div class="year__seasons">
+        {% for season in year.seasons %}
+          <div class="year__season small">
+            {% if not season.empty %}
+              <h3 class="h3" id="{{ season.slug }}">{{ season.title }}{% anchor season.slug %}</h3>
               {% if season.life %}
-                <p><strong class="lead">In life I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.life | safe   }}</p>
+                <p><strong class="lead">In life I {{ 'am' if season.current else 'was' }}</strong> {{ season.life | safe }}</p>
               {% endif %}
+
               {% if season.work %}
-                <p><strong class="lead">At work I {{ 'was' if current == 0 else 'am' }}</strong> {{ season.work | safe   }}</p>
+                <p><strong class="lead">At work I {{ 'am' if season.current else 'was' }}</strong> {{ season.work | safe }}</p>
               {% endif %}
+
               {% if season.music %}
                 <p>
-                  <strong class="lead">I {{ 'was' if current == 0 else 'am' }} listening to</strong>
+                  <strong class="lead">I {{ 'am' if season.current else 'was' }} listening to</strong>
                   {% set musicText %}{% if season.music.title %}{{ season.music.title }}, {% endif %}{% if season.music.artist %}{{ season.music.artist }}{% endif %}{% endset %}
                   {% if season.music.link %}
                     <a href="{{ season.music.link }}" rel="noopener" target="_blank">{{ musicText | safe }}</a>.
                   {% else %}
                     {{ musicText | safe }}.
                   {% endif %}
+                </p>
               {% endif %}
             {% endif %}
-          </div>
-        {% endif %}
 
-        {% if current == 2 %}
-          {% set current = 3 %}
-        {% elif seasonAnchor == now.meta.current %}
-          {% set current = 2 %}
-        {% endif %}
-      {% endfor %}
-    </div>
+          </div>
+        {% endfor %}
+      </div>
     {% endfor %}
 
     <hr />
