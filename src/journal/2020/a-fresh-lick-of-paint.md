@@ -7,6 +7,8 @@ tags:
   - dev
 ---
 
+*[CI/CD]: Continuous integration/continuous delivery
+
 ‘Painting the Forth Bridge’.
 
 Turns out that, that task isn’t as endless as [we were lead to believe it was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)
@@ -55,7 +57,7 @@ After a few rounds of testing to iron out any kinks, and a friends and family te
 
 Let’s iterate on production!
 
-There is no way to change from build pipeline to the drag and drop on Netlify for existing repositories, but that wasn’t an issue as the plan was always to get <abbr title="Continuous integration/continuous delivery" class="sc">CI/CD</abbr> working in the end. So, instead I faked it!
+There is no way to change from build pipeline to the drag and drop on Netlify for existing repositories, but that wasn’t an issue as the plan was always to get CI/CD working in the end. So, instead I faked it!
 
 {% figureInset
   "journal/a-new-start/netlify-vanilla.png",

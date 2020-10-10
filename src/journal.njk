@@ -1,7 +1,7 @@
 ---
 metaTitle: The journal
-metaDescription: Rob Sterlini’s journal entries on development, life, and everything in between.
-heroTitle: Sporadic ramblings
+metaDescription: Rob Sterlini’s journal entries on everything and anything.
+heroTitle: Everything and anything
 layout: default
 sitemapPriority: 0.8
 nav: journal
@@ -20,7 +20,7 @@ eleventyComputed:
     {% for entry in collections.entries %}
       {% if loop.index == 1 %}
         <div class="journal-latest">
-          {% journalEntry entry, "h2", "Latest entry" %}
+          {% journalEntry entry, "h2", "Most recent entry" %}
         </div>
 
         <div class="journal-older">
@@ -37,7 +37,7 @@ eleventyComputed:
       {% if loop.last %}
           </ul>
 
-          <h2 class="p"><span class="lead">Full archive</span></h2>
+          <h2 class="p"><span class="lead">Past entries</span></h2>
           <ul class="list--btns">
             <li><a href="/journal/archive">See all entries</a></li>
             <li><a href="/feed.xml">Follow the <span class="sc">RSS</span>&nbsp;feed</a></li>

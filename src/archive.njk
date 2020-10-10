@@ -1,17 +1,19 @@
 ---
-metaTitle: Journal archive
+metaTitle: Entries from the past
 metaDescription: The full archive of all journal entries through the years.
 layout: default
 sitemapPriority: 0.4
-nav: archive
+nav: journalPast
 customCss: pages/archive.scss
-permalink: journal/archive/index.html
-heroTitle: Entries through the years
+permalink: journal/past/index.html
+heroHeader: The journal
+eleventyComputed:
+  heroTitle: "{{ metaTitle }}"
 ---
 
 {% from "components/hero.html" import hero %}
 
-{% set header %}<a href="/journal">The journal</a>{% endset %}
+{% set header %}<a href="/journal">{{ heroHeader }}</a>{% endset %}
 {{ hero(heroTitle, header=header | safe) }}
 
 <main class="main">

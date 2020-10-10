@@ -21,9 +21,9 @@ const LINKS = {
     nav: 'journal',
   },
   journalArchive: {
-    link: '/journal/archive',
-    label: 'Archive',
-    nav: 'archive',
+    link: '/journal/past',
+    label: 'Past entries',
+    nav: 'journalPast',
   },
   now: {
     link: '/now',
