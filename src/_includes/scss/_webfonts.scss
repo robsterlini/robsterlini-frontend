@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'rs-body';
-  src: url('/fonts/body-400.woff2') format('woff2');
+  src: url('/fonts/body-300.woff2') format('woff2');
   font-weight: $font-weight-body-regular;
   font-display: swap;
   font-style: normal;
@@ -32,25 +32,8 @@
 
 @font-face {
   font-family: 'rs-body';
-  src: url('/fonts/body-400i.woff2') format('woff2');
-  font-weight: $font-weight-body-regular;
-  font-display: swap;
-  font-style: italic;
-}
-
-
-@font-face {
-  font-family: 'rs-body';
-  src: url('/fonts/body-600.woff2') format('woff2');
+  src: url('/fonts/body-500.woff2') format('woff2');
   font-weight: $font-weight-body-bold;
   font-display: swap;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'rs-body';
-  src: url('/fonts/body-600i.woff2') format('woff2');
-  font-weight: $font-weight-body-bold;
-  font-display: swap;
-  font-style: italic;
 }
