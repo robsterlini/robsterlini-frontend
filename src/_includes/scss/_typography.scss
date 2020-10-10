@@ -175,7 +175,7 @@ code {
     position: relative;
 
     &::before {
-      @extend .sc;
+      @include sc;
 
       content: attr(data-lang);
       color: var(--c-bS);
