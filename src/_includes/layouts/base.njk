@@ -57,7 +57,8 @@
     {% set webfonts = [
       "body-400",
       "body-600",
-      "heading-600"
+      "heading-600",
+      "heading-600-sc"
     ] %}
     {% if hasBlockquote %}{% set webfonts = (webfonts.push("heading-400i"), webfonts) %}{% endif %}
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
