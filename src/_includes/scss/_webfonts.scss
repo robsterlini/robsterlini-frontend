@@ -2,7 +2,7 @@
   font-family: 'rsa-heading';
   src: url('/fonts/heading-600.woff2') format('woff2');
   font-weight: 600;
-  font-display: optional;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -10,7 +10,7 @@
   font-family: 'rsa-heading';
   src: url('/fonts/heading-400i.woff2') format('woff2');
   font-weight: 400;
-  font-display: optional;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -18,7 +18,7 @@
   font-family: 'rsa-heading-sc';
   src: url('/fonts/heading-600-sc.woff2') format('woff2');
   font-weight: 600;
-  font-display: optional;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -26,7 +26,7 @@
   font-family: 'rs-body';
   src: url('/fonts/body-400.woff2') format('woff2');
   font-weight: $font-weight-body-regular;
-  font-display: optional;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -34,6 +34,6 @@
   font-family: 'rs-body';
   src: url('/fonts/body-600.woff2') format('woff2');
   font-weight: $font-weight-body-bold;
-  font-display: optional;
+  font-display: swap;
   font-style: normal;
 }
