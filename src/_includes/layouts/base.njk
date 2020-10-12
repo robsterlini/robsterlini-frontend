@@ -108,15 +108,62 @@
           setFontsLoaded();
           return;
         };
-        document.fonts.load('1em rs-body').then(setFontsLoaded);
+
+        var body400 = new FontFace(
+          'rs-body',
+          'url(/fonts/body-400.woff2) format(\'woff2\')',
+          { weight: 300 }
+        );
+
+        var body600 = new FontFace(
+          'rs-body',
+          'url(/fonts/body-600.woff2) format(\'woff2\')',
+          { weight: 500 }
+        );
+
+        var heading600 = new FontFace(
+          'rsa-heading',
+          'url(/fonts/heading-600.woff2) format(\'woff2\')',
+          { weight: 600 }
+        );
+
+        var heading600sc = new FontFace(
+          'rsa-heading-sc',
+          'url(/fonts/heading-600-sc.woff2) format(\'woff2\')',
+          { weight: 600 }
+        );
+
+        {% if hasBlockquote %}
+          var heading400i = new FontFace(
+            'rsa-heading',
+            'url(/fonts/heading-400i.woff2) format(\'woff2\')',
+            { style: 'italic' }
+          );
+        {% endif %}
+
+        Promise.all([
+          body400.load(),
+          body600.load(),
+          heading600.load(),
+          {% if hasBlockquote %}heading400i.load(),{% endif %}
+          heading600sc.load()
+        ]).then(function(loadedFonts) {
+
+          // Render them at the same time
+          loadedFonts.forEach(function(font) {
+            document.fonts.add(font);
+          });
+
+          setFontsLoaded();
+        });
 
         function toggleMenu() {
           document.documentElement.classList.toggle('js--menu');
         };
         document.getElementById('toggle-menu').addEventListener('click', toggleMenu);
-      })();
+      // })();
 
-      (function () {
+      // (function () {
         const colorPreferenceSelect = document.getElementById('color-preference');
         const contrastPreferenceSelect = document.getElementById('contrast-preference');
 
