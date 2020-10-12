@@ -22,14 +22,16 @@ eleventyComputed:
 {{ hero(heroTitle, header='Tagged') }}
 
 <main class="main">
-  <div class="group">
-    <ul class="list">
+  <div class="group group--thin">
+    <ul class="list--block">
       {% for entry in tag.entries %}
         <li>{% journalEntryShort entry %}</li>
       {% endfor %}
     </ul>
 
-    <h2 class="p lead">Other tags</h2>
+    <hr/>
+
+    <h2 class="lead">Other tags</h2>
     <ul class="p list--inline">
       {% for otherTag in tag.otherTags %}
         <li>

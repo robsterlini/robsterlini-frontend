@@ -20,10 +20,10 @@ const LINKS = {
     label: 'Latest',
     nav: 'journal',
   },
-  journalArchive: {
-    link: '/journal/archive',
-    label: 'Archive',
-    nav: 'archive',
+  journalPast: {
+    link: '/journal/past',
+    label: 'Past entries',
+    nav: 'journalPast',
   },
   now: {
     link: '/now',
@@ -33,9 +33,9 @@ const LINKS = {
   projects: {
     label: 'Projects',
   },
-  siteHistory: {
-    label: 'Site history',
-    link: '/site-history',
+  archive: {
+    label: 'Archive',
+    link: '/archive',
   },
 };
 
@@ -55,6 +55,7 @@ module.exports = () => ({
     instagram: 'robsterlini',
     strava: 'https://www.strava.com/athletes/6578573',
   },
+  links: LINKS,
   nav: [
     {
       title: 'Rob Sterlini',
@@ -76,7 +77,7 @@ module.exports = () => ({
       title: 'Journal',
       links: [
         LINKS.journal,
-        LINKS.journalArchive,
+        LINKS.journalPast,
       ],
     },
   ],
@@ -89,6 +90,6 @@ module.exports = () => ({
       label: 'Journal'
     },
     LINKS.cv,
-    LINKS.siteHistory,
+    LINKS.archive,
   ],
 });

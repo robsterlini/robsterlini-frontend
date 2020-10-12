@@ -1,29 +1,46 @@
 ---
-metaTitle: Journal archive
-metaDescription: The full archive of all journal entries through the years.
+metaTitle: A site’s history
 layout: default
-sitemapPriority: 0.4
-nav: archive
+sitemap_priority: 0.8
+nav: about
 customCss: pages/archive.scss
-permalink: journal/archive/index.html
-heroTitle: Entries through the years
+heroTitle: "The iterative life of a personal website"
+eleventyComputed:
+  heroHeader: "{{ metaTitle }}"
 ---
 
 {% from "components/hero.html" import hero %}
 
-{% set header %}<a href="/journal">The journal</a>{% endset %}
-{{ hero(heroTitle, header=header | safe) }}
+{% set children %}<p><a href="/">robsterlini.co.uk</a> has gone through a few (a lot) of revisions over time, and with some poking and prodding I’ve been able to rescue a few notable years. They’re to be consumed as seen, no fixes (other than ensuring the builds ran) were made, so be kind while you’re judging me!</p>{% endset %}
+
+{{ hero(heroTitle, header=heroHeader, children=children | safe) }}
 
 <main class="main">
-  <div class="group group--thin">
-    {% for year in collections.journalArchive %}
-      <div class="archive-year">
-        <h2 class="h2" id="{{ year.year }}">{{ year.year }}{% anchor year.year %}</h2>
-
-        <ul class="list">
-          {% for entry in year.entries %}
-            <li>{% journalEntryShort entry %}</li>
-          {% endfor %}
+  <div class="group group--thin links--external">
+    {% for year in archive.order %}
+      <div class="year">
+        {% set yearData = archive.years[year] %}
+        {% if yearData.image %}
+          {% set imageAlt %}A screenshot from the {{ year }} build{% endset %}
+          {% figureInset
+            yearData.image,
+            "1280x720",
+            imageAlt
+          %}
+        {% endif %}
+        <h2 id="{{ year }}" class="h2">{% if yearData.title %}<span class="p block lead">{{ year }}</span> {{ yearData.title | safe }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
+        {% if yearData.description or yearData.stack or yearData.type %}
+          {% if yearData.stack or yearData.type %}
+            <dl class="p">
+            {% if yearData.stack %}<dd>Stack</dd><dt>{{ yearData.stack }}</dt>{% endif %}
+            {% if yearData.stack and yearData.type %};&ensp;{% endif %}
+            {% if yearData.type %}<dd>Type</dd><dt>{{ yearData.type }}</dt>{% endif %}
+          </dl>
+          {% endif %}
+          {% if yearData.description %}<p>{{ yearData.description | safe }}</p>{% endif %}
+        {% endif %}
+        <ul class="list--btns">
+          {% if yearData.link %}<li><a href="{{ yearData.link }}" target="_blank" rel="noopener">{{ yearData.label }}</a></li>{% endif %}
         </ul>
       </div>
     {% endfor %}

@@ -39,11 +39,13 @@ $nav-height: 2.5rem;
 }
 
 .nav-logo-wrapper {
-  animation: nav 800ms 500ms ease-out both;
+  animation: nav 400ms $hero-transition-duration ease-in-out both var(--font-loaded-animations);
   display: flex;
   justify-content: flex-end;
   position: relative;
   z-index: 10;
+  height: 6.25rem;
+  margin-bottom: -6.25rem;
 
   @keyframes nav {
     0% {
@@ -52,6 +54,9 @@ $nav-height: 2.5rem;
     }
     50% {
       opacity: 1;
+    }
+    80% {
+      transform: translateY(1%);
     }
     100% {
       opacity: 1;
@@ -128,7 +133,7 @@ $nav-height: 2.5rem;
   text-decoration: none;
   transition: 250ms ease-in-out;
   transition-property: opacity, transform;
-  font-family: 'rsa-heading', serif;
+  font-family: $font-family-heading;
   line-height: 1.2;
   font-size: 1.25rem;
   transform: translateY(-0.25em);
@@ -241,7 +246,7 @@ $nav-height: 2.5rem;
     list-style: none;
 
     ul {
-      font-size: 0.875rem;
+      font-size: $paragraph-small;
 
       li {
         margin-top: 0.25rem;

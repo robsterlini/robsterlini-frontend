@@ -115,15 +115,11 @@ $figure-visible-selector: '.js--figure-visible';
     background: var(--c-hB);
     color: var(--c-bS);
     padding: 0.625em 0.667em 0.667em;
-    font-size: 0.825rem;
+    font-size: $paragraph-small;
     line-height: $line-height-body-small;
     display: table-caption;
     caption-side: bottom;
     position: relative;
-
-    @include min-width(768) {
-      font-size: 0.9375rem;
-    }
 
     > svg {
       color: var(--c-hB);
@@ -139,7 +135,7 @@ $figure-visible-selector: '.js--figure-visible';
 
     > span {
       display: block;
-      max-width: (42em * 18 / 17) - (0.667em * 2);
+      max-width: calc(42rem - #{0.667em}); // TODO: Var
     }
   }
 

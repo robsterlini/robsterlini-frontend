@@ -2,7 +2,6 @@
 
 @import 'scss/reset';
 
-@import 'scss/webfonts';
 @import 'scss/base';
 @import 'scss/animations';
 
@@ -20,7 +19,20 @@
 .nowrap { white-space: nowrap; }
 .block { display: block; }
 .mt0 { margin-top: 0; }
+.mb0 { margin-bottom: 0; }
 .ttu { text-transform: uppercase; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
 
 @media print {
   @import 'scss/print';

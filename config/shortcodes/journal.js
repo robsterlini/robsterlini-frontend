@@ -14,9 +14,9 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
   } = entry;
 
   const titleMarkup = lead ?
-    `<${titleTag}>
-      <span class="p lead block">${lead}</span>
-      <span class="${titleTag}">${title}</span>
+    `<${titleTag} class="${titleTag}">
+      <span class="lead block">${lead}</span>
+      ${title}
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
@@ -31,7 +31,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true) => {
 
   const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? `&ensp;${description}` : ``}${tagsMarkup}</p>`;
 
-  const linkMarkup = `<p class="list__item">
+  const linkMarkup = `<p class="btn">
     <a class="journal-first link--pseudo" ${link.htmlAttrs}>
       <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>
     </a>

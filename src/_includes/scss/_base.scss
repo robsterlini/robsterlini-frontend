@@ -121,36 +121,37 @@ html {
 html {
   background: var(--c-bB);
   line-height: $line-height-body;
-  font-size: 0.8125rem;
+  font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  @include min-width(260) {
-    font-size: 0.9375rem;
-  }
-
   @include min-width(384) {
-    font-size: 1rem;
+    font-size: 16 / 16 * 1rem;
   }
 
   @include min-width(768) {
-    font-size: 1.125rem;
+    font-size: 17 / 16 * 1rem;
+  }
+
+  @include min-width(1024) {
+    font-size: 18 / 16 * 1rem;
   }
 }
 
 body {
+  --font-loaded-animations: paused;
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
   color: var(--c-bC);
-  font-family: 'rsa-body', sans-serif;
+  font-family: $font-family-body;
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
-  opacity: 0;
-  transition: opacity 300ms ease-out;
   visibility: hidden;
 
   .fonts-loaded & {
-    opacity: 1;
+    --font-loaded-animations: running;
+
     visibility: visible;
   }
 }
@@ -160,7 +161,7 @@ body {
 }
 
 .main {
-  animation: opacity-transform 400ms 250ms ease-out both;
+  animation: opacity-transform $main-transition-duration ease-out both var(--font-loaded-animations);
   padding: 8vw 0;
 }
 
@@ -271,8 +272,8 @@ a,
   &::after {
     color: var(--link-state-color, var(--link-color, var(--c-bA)));
     content: '↗';
-    font-family: 'rsa-body', sans-serif;
-    font-weight: 500;
+    font-family: $font-family-body;
+    font-weight: $font-weight-body-bold;
     position: relative;
     top: -0.2em;
     font-style: normal;
@@ -345,7 +346,7 @@ a,
 }
 
 .js--highlight-anchor {
-  animation: fade-highlight 2s 1s ease-out both;
+  animation: fade-highlight 2s 1s ease-out both var(--font-loaded-animations);
 
   @keyframes fade-highlight {
     from {

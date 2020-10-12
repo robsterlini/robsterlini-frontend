@@ -4,7 +4,9 @@ module.exports = () => ({
     '/life': '/#life',
     '/contact': '/#contact',
     '/cv': '/curriculum-vitae',
-    '/resume': '/curriculum-vitae'
+    '/resume': '/curriculum-vitae',
+    '/site-history': '/archive',
+    '/journal/archive': '/journal/past',
   },
   '410': [
     '/triathlon',

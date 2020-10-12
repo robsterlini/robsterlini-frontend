@@ -3,15 +3,15 @@
   display: table;
   line-height: $line-height-body-small;
   font-size: 1rem;
-  font-weight: 500;
-  padding: 0em 0 0.1em 0.5em;
+  font-weight: $font-weight-body-bold;
+  padding: 0em 0 0.1em 1em;
   position: relative;
 
   &::before {
     background: var(--c-bA);
     content: '';
     position: absolute;
-    top: 0.3em;
+    top: 0;
     bottom: 0;
     left: 0;
     width: 2px;

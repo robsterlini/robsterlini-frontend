@@ -1,6 +1,7 @@
 .fieldset {
   display: inline-block;
   margin-right: 1em;
+  font-size: $paragraph-small;
 
   &__input {
     display: inline-block;
@@ -32,10 +33,12 @@
 
     background: none;
     padding-right: 1rem;
-    font-size: 0.9375rem;
     color: var(--c-bC);
     border-bottom: 2px solid var(--c-bD);
+    padding-bottom: 0.25rem;
     transition: border-color 125ms ease-in-out;
+    font-size: 1rem; // TODO: Var
+    font-weight: $font-weight-body-bold;
 
     &:hover,
     &:focus {

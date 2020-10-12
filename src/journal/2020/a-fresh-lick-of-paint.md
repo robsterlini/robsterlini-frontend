@@ -7,6 +7,8 @@ tags:
   - dev
 ---
 
+*[CI/CD]: Continuous integration/continuous delivery
+
 ‘Painting the Forth Bridge’.
 
 Turns out that, that task isn’t as endless as [we were lead to believe it was…](https://www.bbc.co.uk/news/uk-scotland-edinburgh-east-fife-14789036)

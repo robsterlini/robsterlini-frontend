@@ -40,5 +40,18 @@
 $grid-row-gap: 1rem;
 $grid-column-gap: 6%;
 
-$line-height-body: 1.55;
-$line-height-body-small: 1.4;
+$paragraph-small: 14 / 16 * 1rem;
+$paragraph-large: 18 / 16 * 1rem;
+
+$font-family-body: 'rs-body', sans-serif;
+$font-family-heading: 'rs-heading', serif;
+$font-family-heading-sc: 'rs-heading-sc', #{$font-family-heading};
+
+$font-weight-body-regular: 400;
+$font-weight-body-bold: 500;
+
+$line-height-body: 1.6;
+$line-height-body-small: 1.5;
+
+$main-transition-duration: 400ms;
+$hero-transition-duration: 800ms;

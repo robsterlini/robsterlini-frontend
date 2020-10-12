@@ -1,29 +1,37 @@
 @import 'scss/mixins';
 
-.archive-year {
+.hero {
+
+  .h1 {
+    max-width: 14em;
+  }
+}
+
+.item {
+  clear: both;
 
   .h2 {
-    margin-top: 1em;
+
+    @include max-width(480) {
+      margin-top: 0;
+    }
   }
 
   &:first-child {
 
     .h2 {
-      margin-top: 0;
+
+      @include min-width(480) {
+        margin-top: 0;
+      }
     }
   }
 
-  @include min-width(420) {
-    display: grid;
-    grid-template-columns: 6.5rem 1fr;
-    grid-gap: $grid-column-gap;
+  .figure {
+    margin-top: 4rem;
 
-    .h2 {
-      margin-top: 0;
-    }
-
-    & + & {
-      margin-top: $grid-row-gap;
+    @include min-width(480) {
+      margin-top: 2rem;
     }
   }
 }

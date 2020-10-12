@@ -1,67 +1,111 @@
-%list-item {
-  padding-left: 1em;
-
-  &::before {
-    content: '\2023';
-    color: var(--c-bA);
-    font-family: inherit;
-    font-weight: 500;
-    display: inline-block;
-    margin-left: -1em;
-    width: 1em;
-  }
+%list-item-sibling {
+  margin-top: 0.125em;
 }
 
-%list {
+.list,
+[class^="list--"] {
   list-style: none;
   padding: 0;
   margin: 0 0 1em;
   max-width: 42em; // TODO: Var (same as .p)
 
-  li {
-    @extend %list-item;
-
-    & + li {
-      margin-top: 0.25em;
-    }
+  > li + li {
+    @extend %list-item-sibling;
   }
 }
 
-%ordered-list {
-  @extend %list;
+%list-item {
+  padding-left: 1em;
 
-  counter-reset: list;
+  &::before {
+    box-sizing: border-box;
+    content: '–';
+    color: var(--c-bA);
+    font-family: inherit;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: -2em;
+    width: 1.5em;
+    text-align: right;
+    margin-right: 0.5em;
+  }
+}
 
-  li {
-    counter-increment: list;
+%btn {
+  @extend %list-item;
 
-    &::before {
-      content: counter(list) '. ';
-    }
+  padding-left: 1.5em;
+
+  &::before {
+    content: '—';
+    margin-left: -2.5em;
+    width: 2em;
   }
 }
 
 .list {
-  @extend %list;
 
   &__item {
     @extend %list-item;
 
     + .list__item {
-      margin-top: 0.25em;
+      @extend %list-item-sibling;
+    }
+  }
+
+  &--ul {
+
+    > li {
+      @extend %list-item;
+    }
+  }
+
+  &--ol {
+    counter-reset: list;
+
+    > li {
+      @extend %list-item;
+    }
+
+    > li,
+    > .list__item {
+      counter-increment: list;
+
+      &::before {
+        content: counter(list) '. ';
+        font-size: $paragraph-small;
+        position: relative;
+        right: -0.15em; // Optically adjusts for the full stop after the number
+      }
+    }
+  }
+
+  &--inline {
+    list-style: none;
+    padding: 0;
+
+    > li,
+    > .list__item {
+      display: inline;
+    }
+  }
+
+  &--block {
+
+    > li + li ,
+    > .list__item + .list__item {
+      margin-top: 0.5em;
+    }
+  }
+
+  &--btns {
+
+    > li {
+      @extend %btn;
     }
   }
 }
 
-.list--inline {
-  list-style: none;
-  padding: 0;
-
-  li {
-    display: inline;
-  }
-}
-
-.list--ordered {
-  @extend %ordered-list;
+.btn {
+  @extend %btn;
 }

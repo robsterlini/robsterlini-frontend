@@ -1,0 +1,33 @@
+---
+metaTitle: Entries from the past
+metaDescription: The full history of past entries from through the many iterations of this journal.
+layout: default
+sitemapPriority: 0.4
+nav: journalPast
+customCss: pages/journalPast.scss
+permalink: journal/past/index.html
+heroHeader: The journal
+eleventyComputed:
+  heroTitle: "{{ metaTitle }}"
+---
+
+{% from "components/hero.html" import hero %}
+
+{% set header %}<a href="/journal">{{ heroHeader }}</a>{% endset %}
+{{ hero(heroTitle, header=header | safe) }}
+
+<main class="main">
+  <div class="group group--thin">
+    {% for year in collections.journalPast %}
+      <div class="year">
+        <h2 class="h2" id="{{ year.year }}">{{ year.year }}{% anchor year.year %}</h2>
+
+        <ul class="list--block">
+          {% for entry in year.entries %}
+            <li>{% journalEntryShort entry %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</main>
