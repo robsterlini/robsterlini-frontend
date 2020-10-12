@@ -96,7 +96,7 @@ hr {
 }
 
 .blockquote {
-  font-family: 'rsa-heading', serif;
+  font-family: $font-family-heading;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(1.5rem, calc(1.25rem + 1vw), 3rem);

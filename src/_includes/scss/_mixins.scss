@@ -44,6 +44,8 @@ $paragraph-small: 14 / 16 * 1rem;
 $paragraph-large: 18 / 16 * 1rem;
 
 $font-family-body: 'rs-body', sans-serif;
+$font-family-heading: 'rs-heading', serif;
+$font-family-heading-sc: 'rs-heading-sc', #{$font-family-heading};
 
 $font-weight-body-regular: 400;
 $font-weight-body-bold: 500;

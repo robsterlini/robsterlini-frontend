@@ -1,11 +1,11 @@
 %heading-large {
-  font-family: 'rsa-heading', serif;
+  font-family: $font-family-heading;
   font-weight: 600;
   letter-spacing: -0.01em;
   display: table; // Allows the highlight to work effectively
 
   .sc {
-    font-family: 'rsa-heading-sc', 'rsa-heading', serif;
+    font-family: $font-family-heading-sc;
     font-variant-caps: initial;
     text-transform: lowercase;
   }

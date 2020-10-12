@@ -128,7 +128,7 @@ $nav-height: 2.5rem;
   text-decoration: none;
   transition: 250ms ease-in-out;
   transition-property: opacity, transform;
-  font-family: 'rsa-heading', serif;
+  font-family: $font-family-heading;
   line-height: 1.2;
   font-size: 1.25rem;
   transform: translateY(-0.25em);
