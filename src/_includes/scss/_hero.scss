@@ -31,7 +31,7 @@
   }
 
   &__children {
-    animation: opacity 500ms 250ms ease-out both;
+    animation: opacity $main-transition-duration ease-out both var(--font-loaded-animations);
 
     .post-alert {
       margin-top: 2em;
@@ -43,7 +43,7 @@
   }
 
   &__angle {
-    animation: scale-from-top 800ms 0ms ease-out both;
+    animation: scale-from-top $hero-transition-duration 0ms ease-out both var(--font-loaded-animations);
     display: block;
     height: 2vw;
     width: 100%;
@@ -67,12 +67,12 @@
     box-sizing: border-box;
 
     > span {
-      animation: opacity 400ms 250ms ease-out both;
+      animation: opacity $main-transition-duration $hero-transition-duration - $main-transition-duration ease-out both var(--font-loaded-animations);
       color: var(--c-bC);
     }
 
     &::before {
-      animation: scale-from-left 500ms 125ms ease-out both;
+      animation: scale-from-left $hero-transition-duration 0ms ease-out both var(--font-loaded-animations);
       content: '—';
       color: var(--c-hA);
       margin-right: 0.5em;
@@ -86,7 +86,7 @@
   }
 
   .h1 {
-    animation: opacity 800ms 100ms ease-out both;
+    animation: opacity $hero-transition-duration ease-in both var(--font-loaded-animations);
     color: var(--c-hA);
     margin-bottom: 0.25em;
 

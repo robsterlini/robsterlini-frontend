@@ -3,7 +3,8 @@
 @import 'scss/webfonts';
 
 body {
-  opacity: 1;
+  --font-loaded-animations: running;
+
   visibility: visible;
 }
 
@@ -21,4 +22,21 @@ body {
 .nav-toggle,
 .footer .fieldset {
   display: none;
+}
+
+.figure {
+
+  &__overlay {
+    display: none;
+  }
+
+  &__image {
+
+    > img {
+
+      &:nth-of-type(n) {
+        transform: none;
+      }
+    }
+  }
 }

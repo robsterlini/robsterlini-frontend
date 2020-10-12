@@ -2,7 +2,7 @@
 @import 'scss/type';
 
 .post-alert {
-  animation: opacity 500ms 500ms ease-out both;
+  animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
 }
 
 .post-article {

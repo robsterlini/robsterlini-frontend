@@ -38,7 +38,7 @@
   @at-root {
 
     [class^='home-content__section--'] {
-      animation: opacity-transform 400ms 250ms ease-out both;
+      animation: opacity-transform $main-transition-duration 0ms ease-out both var(--font-loaded-animations);
 
       > p:last-child {
         margin-bottom: 0;
@@ -88,11 +88,11 @@
     &__section {
 
       &--life {
-        animation-delay: 375ms;
+        animation-delay: $main-transition-duration / 4;
       }
 
       &--contact {
-        animation-delay: 500ms;
+        animation-delay: $main-transition-duration / 4 * 2;
       }
     }
   }

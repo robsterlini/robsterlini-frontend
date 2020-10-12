@@ -39,11 +39,13 @@ $nav-height: 2.5rem;
 }
 
 .nav-logo-wrapper {
-  animation: nav 800ms 500ms ease-out both;
+  animation: nav 400ms $hero-transition-duration ease-in-out both var(--font-loaded-animations);
   display: flex;
   justify-content: flex-end;
   position: relative;
   z-index: 10;
+  height: 6.25rem;
+  margin-bottom: -6.25rem;
 
   @keyframes nav {
     0% {
@@ -52,6 +54,9 @@ $nav-height: 2.5rem;
     }
     50% {
       opacity: 1;
+    }
+    80% {
+      transform: translateY(1%);
     }
     100% {
       opacity: 1;

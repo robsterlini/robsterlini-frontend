@@ -4,7 +4,7 @@
   margin-top: auto;
 
   &__wrapper {
-    animation: opacity 400ms 700ms ease-out both;
+    animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
     padding: calc(2vw + 1rem) 0 calc(1vw + 0.5rem);
     position: relative;
 
@@ -22,7 +22,7 @@
         top: 0;
         height: 2px;
         border-radius: 1px;
-        animation: scale-from-left 400ms 800ms ease-out both;
+        animation: scale-from-left $main-transition-duration * 2 $main-transition-duration ease-out both var(--font-loaded-animations);
         transform-origin: center left;
       }
     }
