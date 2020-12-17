@@ -3,25 +3,37 @@ metaTitle: Rob Sterlini
 metaTitleSuffix: Frontend developer & more
 heroTitle: Frontend developer, amateur triathlete, typography enthusiast, & LEGO master builder
 layout: default
-layoutNoLogo: true
 sitemapPriority: 1
 customCss: pages/home.scss
 ---
 
 {% from "components/hero.html" import hero %}
 
-{% set hero_title %}<a href="#work">Frontend dev<span class="home-hero-hide">eloper</span></a>, <a href="/about#triathlon"><span class="home-hero-hide">amateur </span>triathlete</a>, <a href="/about#typography">typo<span class="home-hero-hide">graphy</span> enthusiast</a>, &amp;&nbsp;<span class="sc">LEGO</span> master builder.{% endset %}
-{% set hero_header %}<a href="/">Rob Sterlini</a>{% endset %}
+{% set heroHeader %}<a href="/">Rob Sterlini</a>{% endset %}
 
-{{ hero(hero_title | safe, header=hero_header | safe) }}
+{% set heroTitle %}
+<a href="#work">Frontend dev<span class="home-hero-hide">eloper</span></a>,
+<a href="/about#triathlon"><span class="home-hero-hide">amateur </span>triathlete</a>,
+<a href="/about#typography">typo<span class="home-hero-hide">graphy</span> enthusiast</a>,
+<span class="home-hero-hide">proud </span>pug&nbsp;dad
+&amp;&nbsp;<a href="/about#master-builder"><span class="sc">LEGO</span> master&nbsp;builder</a>.
+{% endset %}
 
-<main class="main home-content links--external">
+{% set heroChildren %}
+  <p><span class="lead">By day I am a Lead Frontend Engineer at&nbsp;<a href="https://fueled.com/team/rob-sterlini" target="_blank" rel="noopener">Fueled</a></span>. In six years there I’ve led the development on projects for the likes of <strong>Apple</strong>, and <strong>Tony Robbins</strong> as well as spear-heading the technical implementation of a company-wide component library for Fueled.</p>
+  <p><span class="lead">Away from the screen</span> I run a bit, cycle a lot, and swim just enough to call myself a triathlete. You’ll find me at my happiest mid-<span class="sc">LEGO</span> build, in the mountains on skis, or at White Hart Lane cheering on my beloved Spurs.</p>
+  <ul class="list--btns">
+    <li><a href="{{ global.links.about.link }}">Get to know me better</a></li>
+    <li><a href="{{ global.links.work.link }}">Check out my work</a></li>
+    <li><a href="{{ global.links.journal.link }}">Read from my journal</a></li>
+    <li><a href="{{ global.links.contact.link }}">Get in touch</a></li>
+  </ul>
+{% endset %}
+
+{{ hero(heroTitle | safe, header=heroHeader | safe, children=heroChildren | safe, center=true) }}
+
+<!--<main class="main home-content links--external">
   <div class="home-content__wrapper group">
-    <div class="home-content__section--work">
-      <p class="p"><span class="lead" id="work">By day I am a Lead Frontend Engineer at&nbsp;<a href="https://fueled.com/team/rob-sterlini" target="_blank" rel="noopener">Fueled</a>.</span> In&nbsp;the six years I have been at Fueled, I have led the development on projects for <strong>Apple</strong>, crafted digital experiences for global personalities like <strong>Tony Robbins</strong>, and developed innovative web presences for fledgling start-ups like <strong>Keetoo</strong>, and&nbsp;<strong>Omstars</strong>.</p>
-      <p>In 2018, I began spearheading the rebuild of <a href="https://fueled.com"><strong>fueled.com</strong></a> underpinned by an extensible, consistent Vue.js component library that aligned with a brand refresh within the&nbsp;organisation.</p>
-      <p>You can find out more about my time at Fueled and before in <a href="/curriculum-vitae">my&nbsp;<abbr title="Curriculum vitae" class="sc">CV</abbr></a>.</p>
-    </div>
     <div class="home-content__section--life">
       <p><span class="lead" id="life">Away from the screen I like swimming, cycling, and running&hellip;</span> occasionally one after the other. I’ve been participating in triathlon since 2015 and have <a href="https://www.instagram.com/p/BZJncXEAQgv/" target="_blank" rel="noopener">one <abbr title="Ironman" class="sc">IM</abbr>&nbsp;70.3</a> under my belt with my sights firmly set on a full distance Ironman in&nbsp;2021.</p>
       <p>I’m pretty into <span class="sc">LEGO</span> – you might have heard me banging the <a href="http://legonotlegos.com" target="_blank" rel="noopener"><span class="sc">LEGO</span>&nbsp;not&nbsp;Legos</a> drum on Twitter, where you’d also find me tweeting about my beloved&nbsp;Spurs.</p>
@@ -29,10 +41,8 @@ customCss: pages/home.scss
       <p>If you’re really curious, you can can delve <a href="/about">a little deeper</a>, or find out what I’m up to&nbsp;<a href="/now">now</a>.</p>
     </div>
     <div class="home-content__section--contact">
-      <p><span class="lead" id="contact">Wanna say hi?</span> Email&nbsp;me at <a href="mailto:hi@robsterlini.co.uk" class="link--external" title="Opens default email client">hi@robsterlini.co.uk</a> or send me a tweet me at&nbsp;<a href="https://twitter.com/robsterlini" target="_blank" rel="noopener">@robsterlini</a>.</p>
-      <p>You can find my photos on <a href="https://instagram.com/robsterlini" target="_blank" rel="noopener">Instagram</a>, code on <a href="https://github.com/robsterlini" target="_blank" rel="noopener">Github</a>, training activities on <a href="{{ global.social.strava }}" target="_blank" rel="noopener">Strava</a>, experiments on <a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Codepen</a>, my employment history on&nbsp;<a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">LinkedIn</a>.</p>
 
       <p><span class="lead">I’ve been writing in my&nbsp;journal.</span> {% journalEntryShort collections.entries[0], true %}; or peruse <a href="/journal/">other recent&nbsp;entries</a>.</p>
     </div>
   </div>
-</main>
+</main>-->

@@ -1,24 +1,21 @@
 ---
-metaTitle: Curriculum Vitae
+metaTitle: Work
 metaDescription: Explore my employment history and get to know what I bring to the table.
 layout: default
-nav: cv
+nav: work
 sitemapPriority: 0.8
-customCss: pages/cv.scss
+customCss: pages/work.scss
 ---
 
 {% from "components/hero.html" import hero %}
 
-{% set children %}
-  {# Frontend developer from London, UK – <a href="/">robsterlini.co.uk</a> – <a href="mailto:hi@robsterlini.co.uk" title="Email me">hi@robsterlini.co.uk</a>
-  <button class="cv-save" onclick="window.print()">Save as a <span class="sc">PDF</span></button>#}
+{% set heroChildren %}
   <ul class="list--ul">
-    <li><a href="/">robsterlini.co.uk</a></li>
-    <li><a href="mailto:hi@robsterlini.co.uk" title="Email me">hi@robsterlini.co.uk</a></li>
     <li class="cv-save"><button class="link" onclick="window.print()">Save as a <span class="sc">PDF</span> or print</button></li>
   </ul>
 {% endset %}
-{{ hero('Rob Sterlini' | safe, header='Curriculum Vitae', children=children | safe) }}
+
+{{ hero('A collection of work for the world wide web.' | safe, header='A curriculum vitae of sorts') }}
 
 <main class="main cv links--external">
   <div class="group">
@@ -118,6 +115,14 @@ customCss: pages/cv.scss
       </dl>
 
       <p class="cv-references small">With agency work, projects are often taken in-house after our engagement ends – I can provide demos of my involvement in specific projects that may have changed since then. References are available on&nbsp;request.</p>
+
+      <h3 class="h3">Get in touch</h3>
+
+      <ul class="list--ul">
+        <li><a href="/">robsterlini.co.uk</a></li>
+        <li><a href="mailto:hi@robsterlini.co.uk" title="Email me">hi@robsterlini.co.uk</a></li>
+        <li class="cv-save"><button class="link" onclick="window.print()">Save as a <span class="sc">PDF</span> or print</button></li>
+      </ul>
     </div>
   </div>
 </main>

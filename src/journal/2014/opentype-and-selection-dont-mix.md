@@ -5,7 +5,7 @@ description: Fixing the dubious way that Chrome on <abbr title="Mac OS X" class=
 layout: post
 tags:
   - dev
-  - type
+  - typography
 ---
 
 *[OSX]: Mac OS X

@@ -135,6 +135,10 @@ html {
   @include min-width(1024) {
     font-size: 18 / 16 * 1rem;
   }
+
+  @include min-width(1280) {
+    font-size: 19 / 16 * 1rem;
+  }
 }
 
 body {
@@ -168,7 +172,7 @@ body {
 .group {
   margin-left: auto;
   margin-right: auto;
-  max-width: 80rem;
+  max-width: 84rem;
   width: 92%;
 
   &--thin {

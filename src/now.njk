@@ -11,10 +11,10 @@ customCss: pages/now.scss
 {% from "components/hero.html" import hero %}
 
 {% set children %}
-<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a class="link--external" href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’m up to in life and&nbsp;work.</p>
+<p>With the <a href="/journal/2020/a-fresh-lick-of-paint/">new site</a> I thought it would be a good time to implement a <a class="link--external" href="https://nownownow.com/about/" target="_blank">nownownow.com</a> page with a bit of insight into what I’ve been up to.</p>
 {% endset %}
 
-{{ hero(metaTitle, header=heroHeader, children=children | safe) }}
+{{ hero('A timeline of life, work, and everything.', header=heroHeader, children=children | safe) }}
 
 <main class="main links--external">
   <div class="group">

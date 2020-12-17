@@ -1,37 +1,34 @@
 const baseUrl = 'robsterlini.co.uk';
 
 const LINKS = {
+  home: {
+    link: '/',
+    label: 'Home',
+  },
   about: {
     link: '/about',
     label: 'About',
     nav: 'about',
   },
   contact: {
-    link: '/#contact',
+    link: '/contact',
     label: 'Contact',
+    nav: 'contact',
   },
-  cv: {
-    link: '/curriculum-vitae',
-    label: '<abbr title="Curriculum Vitae">CV</abbr>',
-    nav: 'cv',
+  work: {
+    link: '/work',
+    label: 'Work',
+    nav: 'work',
   },
   journal: {
     link: '/journal',
-    label: 'Latest',
+    label: 'Journal',
     nav: 'journal',
-  },
-  journalPast: {
-    link: '/journal/past',
-    label: 'Past entries',
-    nav: 'journalPast',
   },
   now: {
     link: '/now',
     label: 'Now',
     nav: 'now',
-  },
-  projects: {
-    label: 'Projects',
   },
   archive: {
     label: 'Archive',
@@ -57,39 +54,17 @@ module.exports = () => ({
   },
   links: LINKS,
   nav: [
-    {
-      title: 'Rob Sterlini',
-      link: '/',
-      links: [
-        LINKS.about,
-        LINKS.now,
-        LINKS.contact,
-      ],
-    },
-    {
-      title: 'Work',
-      links: [
-        LINKS.projects,
-        LINKS.cv,
-      ],
-    },
-    {
-      title: 'Journal',
-      links: [
-        LINKS.journal,
-        LINKS.journalPast,
-      ],
-    },
+    LINKS.about,
+    LINKS.work,
+    LINKS.journal,
+    LINKS.contact,
   ],
   footer: [
-    LINKS.contact,
     LINKS.about,
+    LINKS.work,
+    LINKS.journal,
+    LINKS.contact,
     LINKS.now,
-    {
-      ...LINKS.journal,
-      label: 'Journal'
-    },
-    LINKS.cv,
     LINKS.archive,
   ],
 });
