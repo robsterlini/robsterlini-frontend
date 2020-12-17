@@ -2,11 +2,12 @@ module.exports = () => ({
   '301': {
     '/work': '/#work',
     '/life': '/#life',
-    '/contact': '/#contact',
-    '/cv': '/curriculum-vitae',
-    '/resume': '/curriculum-vitae',
+    '/cv': '/work',
+    '/resume': '/work',
+    '/curriculum-vitae': '/work',
     '/site-history': '/archive',
-    '/journal/archive': '/journal/past',
+    '/journal/archive': '/journal',
+    '/journal/past': '/journal',
   },
   '410': [
     '/triathlon',
@@ -18,6 +19,7 @@ module.exports = () => ({
       '/opentype-and-selection-dont-mix/': '/2014/opentype-and-selection-dont-mix/',
       '/three-months-at-fueled': '/2013/three-months-at-fueled',
       '/2020/a-new-start': '/2020/a-fresh-lick-of-paint',
+      '/type': '/typography',
     },
     '410': [
       '/good-bye-reading',

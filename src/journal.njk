@@ -1,7 +1,7 @@
 ---
-metaTitle: The journal
-metaDescription: Rob Sterlini’s journal entries on anything and everything.
-heroTitle: Entries about anything and everything
+metaTitle: Journal
+metaDescription: Rob Sterlini’s journal entries about anything and everything.
+heroTitle: Entries about anything and everything.
 layout: default
 sitemapPriority: 0.8
 nav: journal
@@ -13,14 +13,14 @@ eleventyComputed:
 
 {% from "components/hero.html" import hero %}
 
-{{ hero(heroTitle, header=metaTitle) }}
+{{ hero(heroTitle, header='Sporadic ramblings') }}
 
 <main class="main journal">
   <div class="group">
     {% for entry in collections.entries %}
       {% if loop.index == 1 %}
         <div class="journal-latest">
-          {% journalEntry entry, "h2", "Most recent entry" %}
+          {% journalEntry entry, "h2", "Most recent entry", true, true %}
         </div>
 
         <div class="journal-older">
@@ -28,19 +28,13 @@ eleventyComputed:
           <ul class="list--block">
       {% endif %}
 
-      {% if loop.index > 1 and loop.index <= 4 %}
+      {% if loop.index > 1 %}
             <li>
               {% journalEntryShort entry %}
             </li>
       {% endif %}
 
       {% if loop.last %}
-          </ul>
-
-          <h2 class="p"><span class="lead">Past entries</span></h2>
-          <ul class="list--btns">
-            <li><a href="{{ global.links.journalPast.link }}">See all entries</a></li>
-            <li><a href="/feed.xml">Follow the <span class="sc">RSS</span>&nbsp;feed</a></li>
           </ul>
         </div>
       {% endif %}

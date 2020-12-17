@@ -13,8 +13,7 @@ tags:
 
 ## Respect the operating system
 
-[`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) has been about for a little while
-now, and you’ve likely seen it in use across a number of websites. It is the easiest way to respect the colour preference as set by a user within their OS.
+[`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) has been about for a little while now, and you’ve likely seen it in use across a number of websites. It is the easiest way to respect the colour preference as set by a user within their OS.
 
 ```css
 body {

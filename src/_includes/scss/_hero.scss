@@ -7,7 +7,8 @@
   position: relative;
   z-index: 3;
 
-  @include min-width(768) {
+  @include min-width(460) {
+    padding-top: calc(4vw + 4rem);
     flex: 1;
   }
 
@@ -61,27 +62,15 @@
   }
 
   &__header {
+    color: var(--c-bC);
     margin: 0;
     width: 100%;
     padding-right: 4rem;
-    box-sizing: border-box;
+    animation: opacity $main-transition-duration $hero-transition-duration - $main-transition-duration ease-out both var(--font-loaded-animations);
 
-    > span {
-      animation: opacity $main-transition-duration $hero-transition-duration - $main-transition-duration ease-out both var(--font-loaded-animations);
-      color: var(--c-bC);
-    }
-
-    &::before {
-      animation: scale-from-left $hero-transition-duration 0ms ease-out both var(--font-loaded-animations);
-      content: '—';
-      color: var(--c-hA);
-      margin-right: 0.5em;
-      display: inline-block;
-      transform-origin: center left;
-
-      @include max-width(768) {
-        content: '–';
-      }
+    a {
+      color: currentColor;
+      text-decoration: none;
     }
   }
 
@@ -89,6 +78,7 @@
     animation: opacity $hero-transition-duration ease-in both var(--font-loaded-animations);
     color: var(--c-hA);
     margin-bottom: 0.25em;
+    margin-top: 0.25em;
 
     a {
       color: currentColor;
@@ -99,11 +89,11 @@
   &--children {
 
     .h1 {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.5em;
     }
   }
 
-  &--centre {
+  &--center {
     align-items: center;
     flex: 1;
   }
