@@ -62,11 +62,23 @@
   }
 
   &__header {
+    @keyframes hero-header {
+      0% {
+        opacity: 0;
+        transform: translateY(-0.125em);
+      }
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
     color: var(--c-bC);
+    display: block;
     margin: 0;
     width: 100%;
     padding-right: 4rem;
-    animation: opacity $main-transition-duration $hero-transition-duration - $main-transition-duration ease-out both var(--font-loaded-animations);
+    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
 
     a {
       color: currentColor;
@@ -75,7 +87,7 @@
   }
 
   .h1 {
-    animation: opacity $hero-transition-duration ease-in both var(--font-loaded-animations);
+    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
     color: var(--c-hA);
     margin-bottom: 0.25em;
     margin-top: 0.25em;
