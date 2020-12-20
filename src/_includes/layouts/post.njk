@@ -51,6 +51,16 @@ eleventyComputed:
   </article>
   {% else %}
   <article class="group group--thin post-article links--external">
+    {% if contentWarning %}
+      <p class="large post-article__prelim"><span class="lead">Content Warning:</span> {{ contentWarning | safe }}</p>
+      <hr />
+    {% endif %}
+
+    {% if tlDr %}
+      <p class="large post-article__prelim"><span class="lead">Too long, didn’t read:</span> {{ tlDr | safe }}</p>
+      <hr />
+    {% endif %}
+
     {{ content | safe }}
   </article>
 
