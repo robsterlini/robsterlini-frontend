@@ -2,7 +2,7 @@
 title: The right tool for the wrong person
 date: 2020-12-20
 description: Revisiting some old projects has left me wondering whether we choose the right tools for the wrong people, and how to avoid overcomplicating the beautiful simplicity of HTML and CSS.
-tlDr: Not all projects need complicated tooling; updating a few old projects has made it clear that in some circumstances they make it more challenging for maintainers could be greatly simplified.
+tlDr: Not all projects need complicated tooling; updating a few old projects has made it clear that in some circumstances they make it more challenging for maintainers, and could/need to be greatly simplified.
 layout: post
 ---
 
@@ -19,9 +19,9 @@ layout: post
 
 So much of development these days is about selecting the right tool for the job at hand.
 
-As developers we put a great deal of energy into deciding which stack to go with – frameworks, bundlers, preprocessors, CI/CD tools, and more. Frankly it's exhausting, but often we settle on a setup that we like and stick with it for a bit until perhaps something more streamlined (or more likely just a bit glitzier) comes along to distract us from actually building the website.
+As developers we put a great deal of energy into deciding which stack to go with – frameworks, bundlers, preprocessors, CI/CD tools, and more. Frankly it's exhausting, but often we settle on a setup that we like and stick with it for a bit until perhaps something more streamlined (or more likely just a bit glitzier) comes along to distract us from actually building the damn site.
 
-While at home over Christmas (as a single person household I bubbled with my folks long before new tiers were added in London, no need to notify the blonde buffoon), my dad asked me whether I could lend a hand updating a few of the band websites I’ve made for him over the years.
+Whilst I was at home over Christmas (as a single person household I bubbled with my folks long before new tiers were added in London; no need to notify the blonde buffoon), my dad asked me whether I could lend a hand updating a few of the band websites I’ve made for him over the years.
 
 There were three requests:
 
@@ -122,14 +122,20 @@ All of this was put sharply into focus when my dad asked if we could add another
 
 ETL is static HTML with no build steps, no dependencies, no externalities, nothing. My dad is a smart man, but he isn’t a developer; even so I still felt confident with giving him the keys to his own website and showing him the methods for keeping it updated as he saw fit.
 
-He asked if the same was possible of the PTA site, and I had to say no. The MM build means that it isn’t possible. It will be faster for me to make changes when he needs them, than it would be helping troubleshoot some niche Ruby error in his terminal over FaceTime in six months time. He wrote down the instructions I gave him, saved them as a PDF with screenshots and arrows to the buttons to click in the FTP client, and has since made several updates without asking me how to do any of them. For me that’s a success!
+He asked if the same was possible of the PTA site, and I had to say no. The MM build means that it isn’t possible. It will be faster for me to make changes when he needs them, than it would be helping troubleshoot some niche Ruby error in his terminal over FaceTime in six months time.
 
-By day, at Fueled, we build enterprise-grade web apps with thousands of lines of code, complex routes, and content that comes from a variety of sources; but here these are straightforward, static sites that don’t need to be weighed down by the complexity of compilers.
+Still satisfied that he could at least make changes to ETL, he wrote down the instructions I gave him. I found out later that he’d created a PDF with screenshots and arrows to the buttons to click in the FTP client – turning the steps I gave him into a reusable format that he himself would undertand; and he has since made several updates without asking me how to do any of them. For me that’s a success!
 
-With all this in mind, I intend to do three things:
+By day, at Fueled, we build enterprise-grade web apps with thousands of lines of code, complex routes, and content that comes from a variety of build- and runtime sources; but here these are straightforward, static sites that don’t need to be weighed down by the complexity of compilation steps.
+
+---
+
+With all this in mind, I intend to do three things:
 
 Firstly, create a user-friendly build of PTA with unminified CSS and HTML to allow my dad to take ownership of updates on his site – a template-based build for this is overkill and prevents him from getting timely content updates.
 
-Secondly, for his music side project, I want to set up a bare-bones HTML file with a rough structure and then work with him to build it so that he can have total ownership and control of the whole site. Netlify drop means that he doesn’t have to faff around with an FTP at all for this, and doesn’t risk losing all of his work with some accidental overwrite.
+Secondly, for his music side project, I want to set up a bare-bones HTML file with a rough, reusable structure and then work with him to build it so that he can have total ownership and control of the whole site. Netlify drop means that he doesn’t have to faff around with an FTP at all for this, and doesn’t risk losing all of his work with some accidental overwrite.
 
-And lastly, to be a bit more considerate to the maintainer (and my ability to dedicate time to them) of any small sites like this I built to ensure that I'm not grossly overcomplicating the generation of HTML and CSS that are fundamentally very straightforward to maintain (not to be confused with easy, there is great skill in writing HTML and CSS, and 100% constitute programming, don’t @ me).
+And lastly, to be a bit more considerate to the maintainer (and more aware of the time I am able to dedicate to assisting in the maintenance) of any small sites like this I built to ensure that I'm not grossly overcomplicating the generation of HTML and CSS that are fundamentally very straightforward to maintain (not to be confused with easy.
+
+**There is great skill in writing HTML and CSS, and 100% constitute programming, don’t @ me).**
