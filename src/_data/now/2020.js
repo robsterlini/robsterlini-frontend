@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'That year that March was ten months long…',
+  title: 'That year that March was ten months long…',
   winter: {
     life: '<a href="https://www.instagram.com/p/B7rUI5SnNY7/" target="_blank">celebrating Christmas</a> for the first time in a flat that I own, and <a href="https://www.instagram.com/p/B84WwZpnMXI/" target="_blank">skiing with my family</a> in&nbsp;Andorra.',
     work: 'leveraging Gatsby and Contentful at Fueled to build a new site for&nbsp;<a href="http://svclnk.com/" target="_blank">ServiceLink</a>.',

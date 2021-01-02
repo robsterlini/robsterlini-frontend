@@ -7,7 +7,6 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
     data: {
       title,
       description,
-      tags = [],
     } = {},
     date,
     link,
@@ -20,16 +19,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
-  let tagsMarkup;
-
-  if (tags.length) {
-    tagsMarkup = ' ';
-    tags.forEach((tag, index) => {
-      tagsMarkup += `${index > 0 ? ', ' : ''}<a href="/journal/${tag}/">#${tag}</a>`;
-    });
-  }
-
-  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? `&ensp;${description}` : ``}${tagsMarkup}</p>`;
+  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? `&ensp;${description}` : ``}</p>`;
 
   const linkMarkup = `<ul class="list--btns">
     <li>

@@ -11,16 +11,22 @@
       {% set metaDescription = "Rob Sterlini is a frontend developer, amateur triathlete, typography enthusiast, and LEGO master builder among other things" %}
     {% endif %}
 
-
     <!-- Primary meta tags -->
     <title>{{ metaTitle | safe }} – {{ metaTitleSuffix or "Rob Sterlini" }}</title>
     <meta name="title" content="{{ metaTitle }}">
     <meta name="description" content="{{ metaDescription }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
+    {% if not metaImageTitle %}
+      {% set metaImageTitle %}{{ heroTitle if heroTitle else "Rob Sterlini" }}{% endset %}
+    {% endif %}
+    {% if not metaImageHeader %}
+      {% set metaImageHeader %}{{ metaTitle }}{% endset %}
+    {% endif %}
+
     {% set metaImageText = {
-      title: heroTitle if heroTitle else metaTitle,
-      header: heroHeader if heroHeader else "Rob Sterlini"
+      title: metaImageTitle,
+      header: metaImageHeader
     } %}
     {% set metaImage = metaImageText | generateSocialImage %}
     {% set pageUrl = page.url | url | absoluteUrl(global.url) %}

@@ -3,8 +3,6 @@ title: A fresh lick of paint
 date: 2020-06-11
 description: Quarantine gave me back a bunch of commuting time; I put mine towards yoga and Eleventy… you are viewing the result!
 layout: post
-tags:
-  - dev
 ---
 
 *[CI/CD]: Continuous integration/continuous delivery

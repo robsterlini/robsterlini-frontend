@@ -194,6 +194,14 @@ $nav-height: 2.5rem;
   font-size: 1rem;
   display: flex;
 
+  @at-root {
+    @include prefers-high-contrast {
+      .nav-list {
+        border-color: var(--c-bD);
+      }
+    }
+  }
+
   @include max-width(480) {
     transform: translateY(calc(-100% + 2px));
     transition: transform 350ms ease-in-out;

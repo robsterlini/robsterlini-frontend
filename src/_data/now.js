@@ -1,5 +1,5 @@
-const currentYear = '2020';
-const currentSeason = 'autumn';
+const currentYear = '2021';
+const currentSeason = 'winter';
 
 const SEASONS_MAP = [
   'Winter',
@@ -9,6 +9,7 @@ const SEASONS_MAP = [
 ];
 
 const YEARS_MAP = {
+  '2021': require('./now/2021.js'),
   '2020': require('./now/2020.js'),
 };
 

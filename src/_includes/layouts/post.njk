@@ -1,7 +1,6 @@
 ---
 layout: layouts/base.njk
 sitemapPriority: 0.5
-heroHeader: The journal
 metaLabel1: Posted on
 metaLabel2: Read other entries
 metaData2: robsterlini.co.uk/journal/
@@ -13,6 +12,8 @@ eleventyComputed:
   metaDescription: "{{ description }}"
   metaTitle: "{{ title }}"
   metaData1: "{{ date | formatDate }}"
+  metaImageHeader: "{{ date | formatDate }}"
+  metaImageTitle: "{{ title }}"
 ---
 
 {% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}
@@ -21,23 +22,12 @@ eleventyComputed:
 
 {% set children = "" %}
 {% set children %}
-  <p class="post-description"><strong>{{ page.date | formatDate }}</strong>{% if description %}&ensp;{{ description | safe }}{% endif %}</p>
+  {% if description %}<p>{{ description | safe }}</p>{% endif %}
   {% if page.date | isOldDate %}
     <p class="post-alert alert" role="alert"><strong class="lead">Holy dinosaurs!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
   {% endif %}
 {% endset %}
-{% set header %}
-  {% if entry.data.tags %}
-    {% for tag in entry.data.tags %}
-      <a href="/journal/{{ tag }}">#{{ tag }}{% if not loop.last %},{% endif %}</a>
-    {% endfor %}
-  {% else %}
-    <a href="/journal/">The journal</a>
-  {% endif %}
-{% endset %}
-{{ hero(title, header=header | safe, children=children | safe) }}
-
-{% set isOldPost %}{{ page.date | isOldDate }}{% endset %}
+{{ hero(title, header=page.date | formatDate, children=children | safe) }}
 
 <main class="main">
   {% if entry.link.domain %}
@@ -51,6 +41,16 @@ eleventyComputed:
   </article>
   {% else %}
   <article class="group group--thin post-article links--external">
+    {% if contentWarning %}
+      <p class="large post-article__prelim"><span class="lead">Content Warning:</span> {{ contentWarning | safe }}</p>
+      <hr />
+    {% endif %}
+
+    {% if tlDr %}
+      <p class="large post-article__prelim"><span class="lead">Too long, didn’t read:</span> {{ tlDr | safe }}</p>
+      <hr />
+    {% endif %}
+
     {{ content | safe }}
   </article>
 
@@ -76,7 +76,7 @@ eleventyComputed:
       <div class="post-pagination__page{% if not paginatedEntry %} post-pagination__page--current{% endif %}">
         {% if paginatedEntry %}
           {% set showPaginatedLink = true %}
-          {% set paginatedLead = "Later entry" if paginatedKey == "next" else "Earlier entry" %}
+          {% set paginatedLead = "Newer entry" if paginatedKey == "next" else "Older entry" %}
           {% set entry = paginatedEntry %}
         {% else %}
           {% set showPaginatedLink = false %}

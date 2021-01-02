@@ -3,9 +3,6 @@ title: Opentype & ::selection don’t mix
 date: 2014-04-29
 description: Fixing the dubious way that Chrome on <abbr title="Mac OS X" class="sc">OSX</abbr> borks OpenType features when used with a custom ::selection.
 layout: post
-tags:
-  - dev
-  - typography
 ---
 
 *[OSX]: Mac OS X

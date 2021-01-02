@@ -181,8 +181,8 @@ code {
       color: var(--c-bS);
       font-family: $font-family-body;
       position: absolute;
-      top: 0.2em;
-      right: 0.334em;
+      top: 0;
+      right: 0.5em;
       font-weight: 500;
       font-size: 0.75rem;
     }
@@ -206,7 +206,7 @@ code {
 
 @include prefers-high-contrast {
   .code-block {
-    border: 1px solid var(--c-cS);
+    border: 1px solid var(--c-bD);
 
     code {
       color: var(--c-cC);

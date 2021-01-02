@@ -11,7 +11,7 @@
     margin-top: 0;
   }
 
-  > p:first-child,
+  > p:first-child:not(.post-article__prelim),
   > hr + p {
     @include lead;
 
@@ -76,6 +76,10 @@
 
     &--current {
       color: var(--c-bS);
+
+      .lead {
+        color: currentColor;
+      }
 
       a {
         text-decoration-color: currentColor;

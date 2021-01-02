@@ -1,6 +1,8 @@
 ---
 metaTitle: Work
 metaDescription: Explore my employment history and get to know what I bring to the table.
+heroTitle: A collection of internet contributions.
+heroHeader: A curriculum vitae of sorts
 layout: default
 nav: work
 sitemapPriority: 0.8
@@ -15,7 +17,7 @@ customCss: pages/work.scss
   </ul>
 {% endset %}
 
-{{ hero('A collection of work for the world wide web.' | safe, header='A curriculum vitae of sorts') }}
+{{ hero(heroTitle, header=heroHeader) }}
 
 <main class="main cv links--external">
   <div class="group">
@@ -30,14 +32,26 @@ customCss: pages/work.scss
       <h3 class="h3">Skillset</h3>
       <p><span class="lead">A developer’s toolbelt requires continued maintenance,</span> so I aim to stay abreast of changes in the industry and keep learning to be able to provide the most solutions most suited to the problem at&nbsp;hand.</p>
       <p>Below are a few that I use currently, but it should be viewed fluidly with the understanding that <strong>with the a strong grasp of the fundamentals, new frameworks or techniques are picked up&nbsp;quickly.</strong></p>
-      <ul class="list--ul">
-        <li><strong>Core web languages:</strong> <span class="sc">HTML</span>, <span class="sc">CSS</span>, JavaScript</li>
-        <li><strong><abbr title="JavaScript">JS</abbr> frameworks:</strong> Vue.js, React</li>
-        <li><strong>Build tools:</strong> Webpack, Sass, Post<span class="sc">CSS</span>, Babel,&nbsp;Gulp</li>
-        <li><strong><abbr title="Static site generation" class="sc">SSG</abbr>:</strong> Eleventy,&nbsp;Gatsby</li>
-        <li><strong><abbr title="Continuous integration/continuous delivery" class="sc">CI/CD</abbr> &amp; collaboration:</strong> Git, Netlify, Travis <span class="sc">CI</span>,&nbsp;<span class="sc">NPM</span></li>
-        <li><strong>Software:</strong> Sketch, Adobe <abbr span class="sc" title="Creative Cloud">CC</abbr>, <span class="sc">JIRA</span>,&nbsp;Linear</li>
-      </ul>
+      <dl class="list--ul">
+        <div class="list__item">
+          <dd>Core web languages</dd> <dt><span class="sc">HTML</span>, <span class="sc">CSS</span>, JavaScript</dt>
+        </div>
+        <div class="list__item">
+          <dd><abbr title="JavaScript">JS</abbr> frameworks</dd> <dt>Vue, React</dt>
+        </div>
+        <div class="list__item">
+          <dd>Build tools</dd> <dt>Webpack, Sass, Post<span class="sc">CSS</span>, Babel,&nbsp;Gulp</dt>
+        </div>
+        <div class="list__item">
+          <dd><abbr title="Static site generation" class="sc">SSG</abbr></dd> <dt>Eleventy,&nbsp;Gatsby</dt>
+        </div>
+        <div class="list__item">
+          <dd><abbr title="Continuous integration/continuous delivery" class="sc">CI/CD</abbr> &amp; collaboration</dd> <dt>Git, Netlify, Travis <span class="sc">CI</span>,&nbsp;<span class="sc">NPM</span></dt>
+        </div>
+        <div class="list__item">
+          <dd>Software</dd> <dt>Sketch, Adobe <abbr span class="sc" title="Creative Cloud">CC</abbr>, <span class="sc">JIRA</span>,&nbsp;Linear</dt>
+        </div>
+      </dl>
     </div>
 
     <div class="cv-section--employment">
@@ -46,7 +60,7 @@ customCss: pages/work.scss
       <h3 class="h3">Fueled</h3>
 
       <p><span class="lead">In the six years at Fueled my role has evolved a lot.</span> After joining as a web designer, I transitioned into a <abbr class="sc" title="user interface">UI</abbr>-focused developer, took on management responsibilities, and was instrumental in forming a web department. Most recently I have moved into a maker role, centered around delivering the best solutions for our clients’&nbsp;problems.</p>
-      <p>I’ve worked on high-profile projects like <strong>Apple</strong> where we built a gamified knowledge center to better inform employees when selling new devices; and bringing successful life-coaching to the web for <strong>Tony Robbins’ <span class="sr-only">Robbins </span>Research Institute</strong>. Other clients include <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, and&nbsp;<a href="https://omstars.com" target="_blank" rel="noopener">Omstars</a>.</p>
+      <p>I’ve worked on high-profile projects like <strong>Apple</strong> where we built a gamified knowledge center to better inform employees when selling new devices; and bringing successful life-coaching to the web for <strong>Tony Robbins’ <span class="sr-only">Robbins </span>Research Institute</strong>. Other clients include <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, <a href="https://svclnk.com" target="_blank" rel="noopener">ServiceLink</a>, and&nbsp;<a href="https://omstars.com" target="_blank" rel="noopener">Omstars</a>.</p>
       <p>Since joining – and with particular focus in the last few years – I have led the development on all things <a href="https://fueled.com" target="_blank" rel="noopener">fueled.com</a>. In 2018 we tore everything down and set about building a component library in line with the new brand direction. Part of the challenge was convincing stakeholders of behind-the-scenes changes for a more stable code base including publishing it as a private <span class="sc">NPM</span> package for better consumption across multiple&nbsp;repositories.</p>
 
       <ul class="list--ul">
@@ -76,6 +90,7 @@ customCss: pages/work.scss
         <li><time class="lead" datetime="2019-01">2019</time>&ensp;<a href="https://ourdadmakes.pizza" target="_blank" rel="noopener">Our dad makes pizza</a></li>
         <li><time class="lead" datetime="2018">2018</time>&ensp;<a href="https://kickpush.co" target="_blank" rel="noopener">Kickpush</a></li>
         <li><time class="lead" datetime="2016">2016</time>&ensp;<a href="https://www.unifie.com/" target="_blank" rel="noopener">Unifie</a></li>
+        <li><time class="lead" datetime="2015">2015</time>&ensp;<a href="https://www.permissiontoappeal.co.uk/" target="_blank" rel="noopener">Permission to Appeal</a></li>
         <li><time class="lead" datetime="2014">2014</time>&ensp;<a href="http://www.lodge192.com/" target="_blank" rel="noopener">Lion &amp; Lamb Lodge</a>, Hotspur Related</li>
         <li><time class="lead" datetime="2013-09">2013</time>&ensp;<a href="https://webdesign.tutsplus.com/courses/responsive-web-design-techniques">Responsive web design techniques</a> course for Envato Tuts+</li>
       </ul>

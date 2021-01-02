@@ -2,18 +2,11 @@
 title: Instagram is nothing but a highlight reel
 date: 2020-08-03
 description: I got sucked into the need for social gratification during a very challenging period. Forgetting that it’s a falisified highlight reel only perpetuated the problem.
+contentWarning: This post has references to depression and mental health. It’s important that we speak about these things and this entry doesn’t delve too deeply into them, but not everyone is in the right place to do read about that right now. If this is you, bookmark it (if people still do that) and come back to it on another day, no drama.
 layout: post
-tags:
-  - life
 ---
 
 *[SAD]: Seasonal Affective Disorder
-
-Fair warning, this post has references to depression and mental health.
-
-It’s important that we speak about these things and this entry doesn’t delve too deeply into them, but not everyone is in the right place to do read about that right now. If this is you, bookmark it (if people still do that) and come back to it on another day, no drama.
-
----
 
 We’ll start our story at Run Dem Crew housekeeping.
 

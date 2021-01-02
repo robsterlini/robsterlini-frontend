@@ -1,4 +1,6 @@
 .hero {
+  --hero-link-underline: var(--c-bD);
+
   background: var(--c-hB);
   display: flex;
   align-items: flex-end;
@@ -7,14 +9,13 @@
   position: relative;
   z-index: 3;
 
-  @include min-width(460) {
+  @include min-width(480) {
     padding-top: calc(4vw + 4rem);
     flex: 1;
   }
 
-  a:not(:hover):not(:focus),
-  .link:not(:hover):not(:focus) {
-    text-decoration-color: var(--c-bD);
+  a:not(:hover):not(:focus) {
+    text-decoration-color: var(--hero-link-underline);
   }
 
   .link--external {
@@ -51,9 +52,10 @@
     position: absolute;
     bottom: -2vw;
     transform-origin: center top;
+    color: var(--c-hB);
 
     path {
-      fill: var(--c-hB);
+      fill: currentColor;
     }
 
     @media (prefers-reduced-motion) {
@@ -62,11 +64,24 @@
   }
 
   &__header {
-    color: var(--c-bC);
+    @keyframes hero-header {
+      0% {
+        opacity: 0;
+        transform: translateY(-0.125em);
+      }
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    box-sizing: border-box;
+    color: var(--c-bS);
+    display: block;
     margin: 0;
     width: 100%;
     padding-right: 4rem;
-    animation: opacity $main-transition-duration $hero-transition-duration - $main-transition-duration ease-out both var(--font-loaded-animations);
+    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
 
     a {
       color: currentColor;
@@ -75,7 +90,7 @@
   }
 
   .h1 {
-    animation: opacity $hero-transition-duration ease-in both var(--font-loaded-animations);
+    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
     color: var(--c-hA);
     margin-bottom: 0.25em;
     margin-top: 0.25em;
@@ -96,5 +111,18 @@
   &--center {
     align-items: center;
     flex: 1;
+  }
+}
+
+@include prefers-high-contrast {
+
+  .hero {
+    --hero-link-underline: currentColor;
+
+    &__angle {
+      height: 2px;
+      background: var(--c-bD);
+      color: transparent;
+    }
   }
 }
