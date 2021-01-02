@@ -1,12 +1,11 @@
 ---
-metaTitle: A site’s history
+metaTitle: Archive
+heroHeader: A site’s history
+heroTitle: "The iterative life of a personal website."
 layout: default
 sitemap_priority: 0.8
 nav: about
 customCss: pages/archive.scss
-heroTitle: "The iterative life of a personal website."
-eleventyComputed:
-  heroHeader: "{{ metaTitle }}"
 ---
 
 {% from "components/hero.html" import hero %}
@@ -32,10 +31,10 @@ eleventyComputed:
         {% if yearData.description or yearData.stack or yearData.type %}
           {% if yearData.stack or yearData.type %}
             <dl class="p">
-            {% if yearData.stack %}<dd>Stack</dd><dt>{{ yearData.stack }}</dt>{% endif %}
-            {% if yearData.stack and yearData.type %};&ensp;{% endif %}
-            {% if yearData.type %}<dd>Type</dd><dt>{{ yearData.type }}</dt>{% endif %}
-          </dl>
+              {% if yearData.stack %}<dd>Built with</dd><dt>{{ yearData.stack }}</dt>{% endif %}
+              {% if yearData.stack and yearData.type %};&ensp;{% endif %}
+              {% if yearData.type %}<dd>Type</dd><dt>{{ yearData.type }}</dt>{% endif %}
+            </dl>
           {% endif %}
           {% if yearData.description %}<p>{{ yearData.description | safe }}</p>{% endif %}
         {% endif %}

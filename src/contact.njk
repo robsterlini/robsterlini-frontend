@@ -1,6 +1,7 @@
 ---
-metaTitle: Fancy a chat?
-metaDescription: Say hi…
+metaTitle: Contact
+metaDescription: I’ll always try to make time to say hi!
+heroTitle: I’ll always try to make time to say hi!
 layout: default
 nav: contact
 sitemapPriority: 0.9
@@ -9,8 +10,8 @@ sitemapPriority: 0.9
 {% from "components/hero.html" import hero %}
 
 {% set heroChildren %}
-  <p class="links--external">Email&nbsp;me at <a href="mailto:hi@robsterlini.co.uk" class="link--external" title="Opens default email client">hi@robsterlini.co.uk</a> or send me a tweet me at&nbsp;<a href="https://twitter.com/robsterlini" target="_blank" rel="noopener">@robsterlini</a>.</p>
+  <p class="links--external">If you want to chat at length about a project for which you think I’d be a good fit or just to chat about the intricacies of pluralising <span class="sc">LEGO</span>, email&nbsp;me at <a href="mailto:hi@robsterlini.co.uk" class="link--external" title="Opens default email client">hi@robsterlini.co.uk</a> or send me a tweet me at&nbsp;<a href="https://twitter.com/robsterlini" target="_blank" rel="noopener">@robsterlini</a>.</p>
   <p class="links--external">You can find my photos on <a href="https://instagram.com/robsterlini" target="_blank" rel="noopener">Instagram</a>, code on <a href="https://github.com/robsterlini" target="_blank" rel="noopener">Github</a>, training activities on <a href="{{ global.social.strava }}" target="_blank" rel="noopener">Strava</a>, experiments on <a href="https://codepen.io/robsterlini/" target="_blank" rel="noopener">Codepen</a>, and my employment history on&nbsp;<a href="https://www.linkedin.com/in/robsterlini/" target="_blank" rel="noopener">LinkedIn</a>.</p>
 {% endset %}
 
-{{ hero('I’ll always try to make time to say hi!', header='Fancy a chat?', children=heroChildren | safe, center=true) }}
+{{ hero(heroTitle, header='Fancy a chat?', children=heroChildren | safe, center=true) }}

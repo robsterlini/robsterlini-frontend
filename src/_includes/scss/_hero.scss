@@ -1,4 +1,6 @@
 .hero {
+  --hero-link-underline: var(--c-bD);
+
   background: var(--c-hB);
   display: flex;
   align-items: flex-end;
@@ -7,14 +9,13 @@
   position: relative;
   z-index: 3;
 
-  @include min-width(460) {
+  @include min-width(480) {
     padding-top: calc(4vw + 4rem);
     flex: 1;
   }
 
-  a:not(:hover):not(:focus),
-  .link:not(:hover):not(:focus) {
-    text-decoration-color: var(--c-bD);
+  a:not(:hover):not(:focus) {
+    text-decoration-color: var(--hero-link-underline);
   }
 
   .link--external {
@@ -51,9 +52,10 @@
     position: absolute;
     bottom: -2vw;
     transform-origin: center top;
+    color: var(--c-hB);
 
     path {
-      fill: var(--c-hB);
+      fill: currentColor;
     }
 
     @media (prefers-reduced-motion) {
@@ -73,7 +75,8 @@
       }
     }
 
-    color: var(--c-bC);
+    box-sizing: border-box;
+    color: var(--c-bS);
     display: block;
     margin: 0;
     width: 100%;
@@ -108,5 +111,18 @@
   &--center {
     align-items: center;
     flex: 1;
+  }
+}
+
+@include prefers-high-contrast {
+
+  .hero {
+    --hero-link-underline: currentColor;
+
+    &__angle {
+      height: 2px;
+      background: var(--c-bD);
+      color: transparent;
+    }
   }
 }

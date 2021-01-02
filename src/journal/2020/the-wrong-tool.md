@@ -4,8 +4,6 @@ date: 2020-12-20
 description: Revisiting some old projects has left me wondering whether we choose the right tools for the wrong people, and how to avoid overcomplicating the beautiful simplicity of HTML and CSS.
 tlDr: Not all projects need complicated tooling; updating a few old projects has made it clear that in some circumstances they make it more challenging for maintainers could be greatly simplified.
 layout: post
-tags:
-  - dev
 ---
 
 *[CI/CD]: Continuous integration/continuous delivery

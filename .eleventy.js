@@ -37,30 +37,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection('entries', getAllEntries);
   eleventyConfig.addCollection('internalEntries', collectionApi => getAllEntries(collectionApi, true));
-  eleventyConfig.addCollection('journalTags', collectionApi => {
-    const entriesByTag = getAllEntries(collectionApi)
-      .reduce((tags, entry) => {
-        if (!entry.data.tags) return tags;
-
-        entry.data.tags.forEach(tag => {
-          if (!tags[tag]) tags[tag] = [];
-
-          tags[tag].push(entry);
-        });
-
-        return tags;
-      }, {});
-
-    const tags = Object.keys(entriesByTag)
-      .map(tag => ({
-        tag,
-        entries: entriesByTag[tag],
-        otherTags: Object.keys(entriesByTag).filter(t => t !== tag),
-      }))
-      .filter(tag => tag.entries.length);
-
-    return tags;
-  });
   eleventyConfig.addCollection('journalPast', collectionApi => {
     const entriesByYear = getAllEntries(collectionApi)
       .reduce((years, entry) => {

@@ -2,10 +2,15 @@
   background: var(--c-bB);
   color: var(--c-bC);
   margin-top: auto;
+  padding-top: 2vw; // Height of the angle
+
+  .main + & {
+    padding-top: 0;
+  }
 
   &__wrapper {
     animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
-    padding: calc(2vw + 1rem) 0 calc(1vw + 0.5rem);
+    padding: calc(2vw + 1rem) 0;
     position: relative;
 
     > :first-child {
@@ -22,8 +27,6 @@
         top: 0;
         height: 2px;
         border-radius: 1px;
-        animation: scale-from-left $main-transition-duration * 2 $main-transition-duration ease-out both var(--font-loaded-animations);
-        transform-origin: center left;
       }
     }
   }
@@ -48,6 +51,32 @@
   p {
     margin-bottom: calc(2vw + 1rem);
     max-width: 46em;
+  }
+
+  @include max-width(480) {
+
+    &__wrapper {
+
+      .fieldset {
+        display: block;
+        padding-right: 4rem;
+        margin-right: 0;
+      }
+    }
+
+    &__links {
+
+      .lead {
+        display: block;
+      }
+    }
+  }
+
+  @include min-width(480) {
+
+    &__wrapper {
+      padding-bottom: calc(2vw + 1rem);
+    }
   }
 
   @include min-width(1024) {
