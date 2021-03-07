@@ -4,8 +4,12 @@
   line-height: $line-height-body-small;
   font-size: 1rem;
   font-weight: $font-weight-body-bold;
-  padding: 0em 0 0.1em 1em;
+  padding: 0 0 0.1em 1em;
   position: relative;
+
+  @include min-width(768) {
+    margin-left: -1em;
+  }
 
   &::before {
     background: var(--c-bA);
@@ -20,5 +24,6 @@
 
   .lead {
     display: block;
+    margin-top: -0.1em
   }
 }

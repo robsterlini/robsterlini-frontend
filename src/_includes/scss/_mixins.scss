@@ -30,10 +30,13 @@
 
 @mixin sc {
   font-variant-caps: all-small-caps;
+  font-size: 1.05em;
+  line-height: 1;
 
   @media not all and (min-resolution: .001dpcm) {
     text-transform: lowercase;
     font-variant-caps: small-caps;
+    font-feature-settings: "smcp" 1;
   }
 }
 

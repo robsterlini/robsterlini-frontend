@@ -65,13 +65,11 @@ dt {
 
   text-decoration: none;
   color: var(--link-state-color, var(--c-bS, currentColor));
-  transition-property: opacity, color;
   font-weight: inherit;
   font-family: $font-family-body;
   font-weight: 500;
   font-size: 0.85em;
   line-height: 1;
-  transition: color 125ms ease-in-out;
   position: relative;
 }
 

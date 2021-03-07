@@ -217,25 +217,6 @@
         contrastPreferenceSelect.value = contrastPreference;
         setPreference('contrast', contrastPreference);
 
-        const highlightEl = function() {
-          const element = document.getElementById(location.hash.replace('#', ''));
-
-          if (!element) return;
-
-          element.classList.add('js--highlight-anchor');
-
-          setTimeout(() => {
-            // TODO: Maybe change this for an animation end event listener
-            element.classList.remove('js--highlight-anchor');
-          }, 3000);
-        }
-
-        if (location.hash) {
-          highlightEl();
-        }
-
-        window.addEventListener('hashchange', highlightEl, false);
-
         let observer;
 
         const figures = document.querySelectorAll('.figure');

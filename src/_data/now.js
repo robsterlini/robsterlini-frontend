@@ -1,5 +1,5 @@
 const currentYear = '2021';
-const currentSeason = 'winter';
+const currentSeason = 'spring';
 
 const SEASONS_MAP = [
   'Winter',

@@ -1,13 +1,9 @@
 $figure-angle-height: 0.5rem;
 $figure-visible-selector: '.js--figure-visible';
 
-.figure {
-  background: var(--c-hB);
-  display: table;
+.figure-wrapper {
+  position: relative;
   margin: 2rem 0;
-  border-radius: 2px;
-  overflow: hidden;
-  clear: both;
 
   &--inset {
     margin-left: auto;
@@ -30,6 +26,37 @@ $figure-visible-selector: '.js--figure-visible';
   &--full {
     width: 100%;
   }
+
+  &--overlap {
+    width: 100%;
+
+    @supports(width: clamp(1rem, 2rem, 3rem)) {
+      width: clamp(0rem, 92vw, 84rem);
+      left: 50%;
+      margin-left: clamp(-42rem, -46vw, 0rem);
+    }
+
+    .figure {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      &__image {
+
+        > img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.figure {
+  background: var(--c-hB);
+  display: table;
+  border-radius: 2px;
+  overflow: hidden;
+  clear: both;
 
   &__image {
     position: relative;
@@ -77,7 +104,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__overlay {
     background: currentColor;
-    color: var(--c-bD);
+    color: var(--c-hB);
     position: absolute;
     top: 0;
     left: 0;

@@ -7,7 +7,7 @@ $c-dark-body-accent: darken($c-dark-header-accent, 0%);
 $c-dark-body-bg: #1C181F;
 $c-dark-body-color: #EEE7E7;
 $c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
-$c-dark-body-highlight: rgba(cyan, 0.25);
+$c-dark-body-highlight: #105c63;
 
 $c-light-header-accent: #EA3243;
 $c-light-header-bg: #FCFBFB;
@@ -15,7 +15,7 @@ $c-light-body-accent: darken($c-light-header-accent, 8%);
 $c-light-body-bg: #F6F3F3;
 $c-light-body-color: #19161C;
 $c-light-body-decorative: mix($c-light-body-color, $c-light-header-bg, 18%);
-$c-light-body-highlight: rgba(yellow, 0.25);
+$c-light-body-highlight: #ffe385;
 
 $c-fueled: #AE0000;
 $c-netlify: #15847D;
@@ -165,7 +165,7 @@ body {
 }
 
 .main {
-  animation: opacity-transform $main-transition-duration ease-out both var(--font-loaded-animations);
+  animation: opacity $main-transition-duration ease-out both var(--font-loaded-animations);
   padding: 8vw 0;
 }
 
@@ -233,16 +233,20 @@ a,
 .link {
   appearance: none;
   background: none;
+  box-shadow: transparent 0 2px 0 2px;
   color: var(--link-state-color, inherit);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
-  transition-property: color, opacity, text-decoration-color;
+  transition-property: background-color, box-shadow, color, opacity, text-decoration-color;
   text-decoration: underline;
   text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   padding: unset;
+  position: relative;
   border: 0;
+  scroll-margin-top: calc(1.5rem + 1.5em);
+  scroll-margin-bottom: 4rem;
 
   code {
     color: inherit;
@@ -266,6 +270,19 @@ a,
     outline: var(--c-bS) 1px dotted;
   }
 
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    --link-state-color: var(--c-hB);
+
+    background: var(--c-bA);
+    box-shadow: var(--c-bA) 0 2px 0 2px;
+    outline: none;
+    text-decoration-color: var(--c-bA);
+  }
+
   &:active {
     opacity: 0.66;
   }
@@ -285,7 +302,8 @@ a,
     margin-left: 0.05em;
     margin-right: 0.2em;
     font-size: 0.825em;
-    transition: color 125ms ease-in-out;
+    transition: 125ms ease-in-out;
+    transition-property: color, text-decoration-color;
     text-decoration: underline;
     text-decoration-color: var(--c-bB) !important;
   }
@@ -295,6 +313,13 @@ a,
 
     &::after {
       color: var(--link-state-color);
+    }
+  }
+
+  &:focus-visible {
+
+    &::after {
+      text-decoration-color: var(--c-bA) !important;
     }
   }
 }
@@ -313,6 +338,8 @@ a,
   &,
   &:hover,
   &:focus {
+    background: none;
+    box-shadow: none;
     opacity: 1;
     color: currentColor;
     text-decoration: none;
@@ -324,6 +351,10 @@ a,
     --link-state-color: var(--c-bA);
   }
 
+  &:focus-visible {
+    --link-state-color: var(--c-hB);
+  }
+
   &.link--external {
 
     &::after {
@@ -333,14 +364,32 @@ a,
 }
 
 .link__pseudo {
+  box-shadow: transparent 0 2px 0 2px;
   color: var(--link-state-color);
   text-decoration: underline;
   text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   transition: 125ms ease-in-out;
-  transition-property: color, opacity, text-decoration-color;
+  transition-property: background-color, box-shadow, color, opacity, text-decoration-color;
 
   .link--pseudo:active & {
     opacity: 0.66;
+  }
+
+  .link--pseudo:focus & {
+    outline: var(--c-bS) 1px dotted;
+  }
+
+  .link--pseudo:focus:not(:focus-visible) & {
+    outline: none;
+  }
+
+  .link--pseudo:focus-visible & {
+    --link-state-color: var(--c-hB);
+
+    background: var(--c-bA);
+    box-shadow: var(--c-bA) 0 2px 0 2px;
+    outline: none;
+    text-decoration-color: var(--c-bA);
   }
 
   .link--external[href^="https://"] &,
@@ -349,12 +398,21 @@ a,
   }
 }
 
-.js--highlight-anchor {
+:target {
   animation: fade-highlight 2s 1s ease-out both var(--font-loaded-animations);
 
   @keyframes fade-highlight {
-    from {
+    0% {
       background-color: var(--c-bH);
+      box-shadow:
+        var(--c-bH) 0.25rem 0 0 0,
+        var(--c-bH) -0.25rem 0 0 0;
+    }
+    100% {
+      background-color: transparent;
+      box-shadow:
+        transparent 0.25rem 0 0 0,
+        transparent -0.25rem 0 0 0;
     }
   }
 }

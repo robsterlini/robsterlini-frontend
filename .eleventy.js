@@ -61,6 +61,7 @@ module.exports = function(eleventyConfig) {
   // Shortcodes
   eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
   eleventyConfig.addShortcode('figureFull', (...args) => figureShortcode(args, { layout: 'full' }));
+  eleventyConfig.addShortcode('figureOverlap', (...args) => figureShortcode(args, { layout: 'overlap' }));
   eleventyConfig.addShortcode('anchor', anchorShortcode);
   eleventyConfig.addShortcode('journalEntry', journalEntryShortcode);
   eleventyConfig.addShortcode('journalEntryShort', journalEntryShortShortcode);
