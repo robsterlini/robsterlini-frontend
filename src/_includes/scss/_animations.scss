@@ -1,29 +1,5 @@
-@keyframes opacity-transform {
-  from {
-    transform: translateY(0.5vw);
-    opacity: 0;
-  }
-}
-
-@keyframes scale-from-top {
-  0% {
-    transform: scale(1, 0);
-  }
-  100% {
-    transform: none;
-  }
-}
-
 @keyframes opacity {
   from {
     opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion) {
-  @keyframes opacity-transform {
-    from {
-      opacity: 0;
-    }
   }
 }

@@ -172,7 +172,7 @@ Thanks everyone.
 
 Onto the next one!
 
-{% figureFull
+{% figureOverlap
   "journal/triathlete/champion.jpg",
   "940x682",
   "A photo of me with my bike above my head, and my medal in my hand!",

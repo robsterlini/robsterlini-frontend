@@ -146,7 +146,9 @@ $nav-height: 2.5rem;
   }
 
   &::after {
-    transition: opacity 250ms ease-in-out;
+    transition:
+      background 125ms ease-in-out,
+      opacity 250ms ease-in-out;
   }
 
   &:hover,
@@ -168,6 +170,23 @@ $nav-height: 2.5rem;
 
     &::after {
       outline: var(--c-bS) 1px dotted;
+    }
+  }
+
+  &:focus:not(:focus-visible),
+  &:focus-visible {
+    background: none;
+    box-shadow: none;
+
+    &::after {
+      outline: none;
+    }
+  }
+
+  &:focus-visible {
+
+    &::after {
+      background: var(--c-bC);
     }
   }
 
@@ -239,6 +258,7 @@ $nav-height: 2.5rem;
   }
 
   a {
+    box-shadow: transparent -2px 0 0 0;
     box-sizing: border-box;
     align-items: center;
     display: block;
@@ -263,6 +283,10 @@ $nav-height: 2.5rem;
     &:focus {
       outline: var(--c-bC) 1px dotted;
     }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 
   &:hover,
@@ -273,6 +297,19 @@ $nav-height: 2.5rem;
 
       &:hover {
         color: var(--c-bA);
+      }
+    }
+  }
+
+  a {
+
+    &:focus-visible {
+
+      &,
+      &:hover {
+        box-shadow: var(--c-bA) -2px 0 0 0;
+        outline: none;
+        color: var(--c-hB);
       }
     }
   }

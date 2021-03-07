@@ -44,7 +44,17 @@
     }
   }
 
+  @keyframes scale-from-top {
+    0% {
+      transform: scale(1, 0);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
   &__angle {
+    // This is a very small motion change so doesn't need a prefers-reduced-motion adjustment
     animation: scale-from-top $hero-transition-duration 0ms ease-out both var(--font-loaded-animations);
     display: block;
     height: 2vw;

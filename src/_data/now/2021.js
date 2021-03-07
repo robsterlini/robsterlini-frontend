@@ -8,4 +8,12 @@ module.exports = {
       link: 'https://open.spotify.com/artist/1otDUlTEBjcyDQg6CkHRaV?si=AOsnyvVRRM-mQsgC7Jv1NA',
     },
   },
+  spring: {
+    life: 'inside on Zwift. A lot!',
+    // work: '',
+    music: {
+      artist: 'Ezra Collective',
+      link: 'https://open.spotify.com/artist/5BRAUN0yN8557PLRZIr02W?si=CeegoVOoQXGm4jJ0rfogZw',
+    },
+  },
 };

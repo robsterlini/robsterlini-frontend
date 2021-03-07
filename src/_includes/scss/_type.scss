@@ -18,7 +18,7 @@
   line-height: 1.2;
   margin: calc(0.25em + 1vw) 0 calc(0.25em + 2vw);
   font-size: 5.5vw;
-  font-size: clamp(2rem, calc(2rem + 2.5vw), 4rem);
+  font-size: clamp(2rem, calc(2rem + 2.25vw), 4rem);
 
   @include max-width(320) {
     font-size: 2rem;
@@ -65,7 +65,7 @@
   color: var(--c-bA);
   font-family: $font-family-body;
   font-weight: 500;
-  font-variant-numeric: lining-nums;
+  font-variant-numeric: oldstyle-nums;
   line-height: 1.4; // TODO: Var (from %h3)
   padding-right: 0.1em;
 
@@ -83,7 +83,11 @@
       &:hover,
       &:focus {
         --link-state-color: var(--c-bC);
-        color: var(--c-bC);
+        color: var(--link-state-color);
+      }
+
+      &:focus-visible {
+        --link-state-color: var(--c-hB);
       }
     }
   }
