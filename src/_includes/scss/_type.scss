@@ -38,7 +38,6 @@
   margin-bottom: 0.667em;
   font-size: 1.875rem;
   max-width: 22em;
-  scroll-margin-top: calc(1.5rem + 1.5em);
 
   .lead {
     @extend %heading-lead;
@@ -52,7 +51,6 @@
   line-height: 1.4; // TODO: Var
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  scroll-margin-top: calc(1.5rem + 1.5em);
 
   .lead {
     @extend %heading-lead;

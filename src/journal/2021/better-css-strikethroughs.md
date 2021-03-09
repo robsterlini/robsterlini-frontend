@@ -5,6 +5,11 @@ description: "A quick tip to control the seemingly uncontrollable text-decoratio
 descriptionHtml: "A quick tip to control the seemingly uncontrollable <code>text&#8209;decoration: line&#8209;through</code>."
 layout: post
 tlDr: "Use <code>text-underline-offset</code> and <code>@supports</code> to progressively enhance finer control over your strikethroughs – <a href=\"#the-complete-solution\">see the code</a>."
+changes:
+  - date: 2021-03-09
+    changes:
+      - "Added the caveat about <code>text-decoration-color</code> compromise; thanks to <a href=\"https://twitter.com/dannievinther/status/1369314893908836353\">@dannievinther</a>"
+      - "Moved the <code>@support</code> wrapper outside of del to be valid CSS rather than Scss; thanks to <a href=\"https://twitter.com/PaulJMorel/status/1369323083149025280\">@PaulJMorel</a>."
 ---
 
 Text decoration has been around since CSS Level 1, and it works.
@@ -56,8 +61,10 @@ While `text-underline-offset` is reasonably [well supported](https://developer.m
 ```css
 del {
   text-decoration: line-through;
+}
 
-  @supports(text-underline-offset: 1em) {
+@supports(text-underline-offset: 1em) {
+  del
     text-decoration: underline;
     text-underline-offset: -0.33em;
     text-decoration-skip-ink: none;
@@ -72,3 +79,6 @@ del {
   "Before and after… Great success!"
 %}
 
+## Caveats
+
+Sadly this comes at a compromise. As the underline is rendered behind the text, using `text-decoration-color` no longer has the desired effect. Until we get something like `text-decoration-offset` we have to choose one or the other.
