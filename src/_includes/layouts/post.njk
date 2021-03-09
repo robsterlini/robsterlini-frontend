@@ -55,7 +55,7 @@ eleventyComputed:
 
     {% if changes %}
       <hr />
-      <ul class="list post-article__changes small">
+      <ul class="list post-article__changes small" id="changelog">
         {% for changeSet in changes %}
           <li>
             <strong>Edited {{ changeSet.date | formatDate }}</strong> {{ changeSet.changes | log }}

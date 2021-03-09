@@ -1,3 +1,5 @@
+$nav-height: 2.5rem;
+
 $c-contrast-light: #FFF;
 $c-contrast-dark: #000;
 
@@ -234,6 +236,11 @@ body {
   --link-color: var(--c-youtube);
 }
 
+[id] {
+  scroll-margin-top: calc(#{$nav-height: 2.5rem;} + 1em);
+  scroll-margin-bottom: 4rem;
+}
+
 a,
 .link {
   appearance: none;
@@ -251,8 +258,6 @@ a,
   padding: unset;
   position: relative;
   border: 0;
-  scroll-margin-top: calc(1.5rem + 1.5em);
-  scroll-margin-bottom: 4rem;
 
   code {
     color: inherit;
