@@ -36,13 +36,13 @@ const figure = ([ image, dimensions, alt, caption, link, label ], args = {}) => 
 
   imageMarkup += '</div>';
 
-  let figureStyle = `--figure-count: ${image.length};`;
+  let wrapperStyle = `--figure-count: ${image.length};`;
 
   if (layout !== 'overlap') {
-    figureStyle += ` max-width: ${imageWidth}px;`;
+    wrapperStyle += ` max-width: ${imageWidth}px`;
   }
 
-  return `<div class="figure-wrapper figure-wrapper--${layout}"><figure class="figure" style="${figureStyle}">${imageMarkup}${captionMarkup}</figure></div>`;
+  return `<div class="figure-wrapper figure-wrapper--${layout}" style="${wrapperStyle}"><figure class="figure">${imageMarkup}${captionMarkup}</figure></div>`;
 };
 
 module.exports = figure;

@@ -57,14 +57,16 @@ $figure-visible-selector: '.js--figure-visible';
   border-radius: 2px;
   overflow: hidden;
   clear: both;
+  max-width: inherit;
 
   &__image {
     position: relative;
     display: grid;
     grid-gap: 2px;
+    margin: 2px;
     align-items: stretch;
     grid-template-columns: repeat(var(--figure-count, 1), 1fr);
-    opacity: var(--figO, 1);
+    opacity: var(--o-fig, 1);
     overflow: hidden;
 
     > img {
@@ -72,29 +74,8 @@ $figure-visible-selector: '.js--figure-visible';
       height: auto;
       max-width: 100%;
       width: auto;
-      transition: transform 500ms ease-out;
       position: relative;
       object-fit: cover;
-      transform: translateY(10%);
-
-      &:nth-of-type(2) {
-        transform: translateY(12.5%);
-      }
-
-      &:nth-of-type(3) {
-        transform: translateY(15%);
-      }
-
-      #{$figure-visible-selector} & {
-        transform: none;
-      }
-
-      @media (prefers-reduced-motion) {
-
-        &:nth-of-type(n) {
-          transform: none;
-        }
-      }
     }
   }
 

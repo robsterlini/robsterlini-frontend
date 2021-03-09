@@ -22,7 +22,7 @@ eleventyComputed:
 
 {% set children = "" %}
 {% set children %}
-  {% if description %}<p>{{ description | safe }}</p>{% endif %}
+  {% if description %}<p>{{ (descriptionHtml or description) | safe }}</p>{% endif %}
   {% if page.date | isOldDate %}
     <p class="post-alert alert" role="alert"><strong class="lead">Holy dinosaurs!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
   {% endif %}

@@ -7,10 +7,13 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
     data: {
       title,
       description,
+      descriptionHtml,
     } = {},
     date,
     link,
   } = entry;
+
+  const descriptionComputed = descriptionHtml || description;
 
   const titleMarkup = lead ?
     `<${titleTag} class="${titleTag}">
@@ -19,7 +22,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
     </${titleTag}>` :
     `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
 
-  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${description ? `&ensp;${description}` : ``}</p>`;
+  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${descriptionComputed ? `&ensp;${descriptionComputed}` : ``}</p>`;
 
   const linkMarkup = `<ul class="list--btns">
     <li>

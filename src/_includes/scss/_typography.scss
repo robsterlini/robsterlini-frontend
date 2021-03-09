@@ -27,8 +27,13 @@ h3,
 
 del {
   color: var(--c-bS);
-  text-decoration-color: var(--c-bC);
-  text-decoration-thickness: 2px;
+  text-decoration: line-through;
+
+  @supports(text-underline-offset: 1em) {
+    text-decoration: underline;
+    text-underline-offset: -0.33em;
+    text-decoration-skip-ink: none;
+  }
 }
 
 dd {
