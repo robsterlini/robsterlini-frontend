@@ -8,8 +8,8 @@ tlDr: "Use <code>text-underline-offset</code> and <code>@supports</code> to prog
 changes:
   - date: 2021-03-09
     changes:
-      - "Added the caveat about <code>text-decoration-color</code> compromise; thanks to <a href=\"https://twitter.com/dannievinther/status/1369314893908836353\">Dannie Vinther</a>"
-      - "Moved the <code>@support</code> wrapper outside of del to be valid CSS rather than Scss; thanks to <a href=\"https://twitter.com/PaulJMorel/status/1369323083149025280\">Paul Morel</a>."
+      - "Added the caveat about <code>text-decoration-color</code> compromise; thanks to <a href=\"https://twitter.com/dannievinther/status/1369314893908836353\">@dannievinther</a>"
+      - "Moved the <code>@support</code> wrapper outside of del to be valid CSS rather than Scss; thanks to <a href=\"https://twitter.com/PaulJMorel/status/1369323083149025280\">@PaulJMorel</a>."
 ---
 
 Text decoration has been around since CSS Level 1, and it works.
