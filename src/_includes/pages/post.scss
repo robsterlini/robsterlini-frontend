@@ -77,7 +77,8 @@
     &--current {
       color: var(--c-bS);
 
-      .lead {
+      .lead,
+      code {
         color: currentColor;
       }
 

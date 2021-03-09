@@ -6,6 +6,7 @@ $c-dark-header-bg: #110E14;
 $c-dark-body-accent: darken($c-dark-header-accent, 0%);
 $c-dark-body-bg: #1C181F;
 $c-dark-body-color: #EEE7E7;
+$c-dark-body-semi: mix($c-dark-body-color, $c-dark-body-bg, 55%);
 $c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
 $c-dark-body-highlight: #105c63;
 
@@ -14,6 +15,7 @@ $c-light-header-bg: #FCFBFB;
 $c-light-body-accent: darken($c-light-header-accent, 8%);
 $c-light-body-bg: #F6F3F3;
 $c-light-body-color: #19161C;
+$c-light-body-semi: mix($c-light-body-color, $c-light-body-bg, 60%);
 $c-light-body-decorative: mix($c-light-body-color, $c-light-header-bg, 18%);
 $c-light-body-highlight: #ffe385;
 
@@ -48,18 +50,18 @@ html {
   --c-hB: #{$c-dark-header-bg};
   --c-hA: #{$c-dark-header-accent};
 
+  --o-fig: 0.9; // Figure Opacity
+
   --c-bB: #{$c-dark-body-bg};
   --c-bC: #{$c-dark-body-color};
-  --c-bS: #{rgba($c-dark-body-color, 0.55)}; // Semi-transparent body colour
+  --c-bS: #{$c-dark-body-semi};
   --c-bA: #{$c-dark-body-accent};
   --c-bD: #{$c-dark-body-decorative};
   --c-bH: #{$c-dark-body-highlight};
 
-  --figO: 0.9; // Figure Opacity
-
   --c-cB: #{$c-contrast-dark}; // Contrast background
   --c-cC: #{$c-contrast-light}; // Contrast colour
-  --c-cS: #{rgba($c-contrast-light, 0.66)}; // Contrast semi-transparent colour
+  --c-cS: #{rgba($c-contrast-light, 0.7)}; // Contrast semi-transparent colour
   --c-cA: #{lighten($c-dark-header-accent, 10%)}; // Contrast accent
 
   --c-fueled: #{lighten($c-fueled, 10%)};
@@ -74,16 +76,18 @@ html {
   --c-hB: #{$c-light-header-bg};
   --c-hA: #{$c-light-header-accent};
 
+  --o-fig: 1;
+
   --c-bB: #{$c-light-body-bg};
   --c-bC: #{$c-light-body-color};
-  --c-bS: #{rgba($c-light-body-color, 0.6)};
+  --c-bS: #{$c-light-body-semi};
   --c-bA: #{$c-light-body-accent};
   --c-bD: #{$c-light-body-decorative};
   --c-bH: #{$c-light-body-highlight};
 
   --c-cB: #{$c-contrast-light};
   --c-cC: #{$c-contrast-dark};
-  --c-cS: #{rgba($c-contrast-dark, 0.66)};
+  --c-cS: #{rgba($c-contrast-dark, 0.7)};
   --c-cA: #{darken($c-light-header-accent, 20%)};
 }
 
@@ -94,6 +98,7 @@ html {
   --c-bC: var(--c-cC);
   --c-bS: var(--c-cS);
   --c-bA: var(--c-cA);
+  --o-fig: 1;
 }
 
 [data-color-preference='auto'] {
@@ -242,6 +247,7 @@ a,
   transition-property: background-color, box-shadow, color, opacity, text-decoration-color;
   text-decoration: underline;
   text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
+  text-underline-offset: 0.05em;
   padding: unset;
   position: relative;
   border: 0;
