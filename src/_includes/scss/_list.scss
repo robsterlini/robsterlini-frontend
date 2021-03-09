@@ -73,7 +73,7 @@
 
       &::before {
         content: counter(list) '. ';
-        font-size: $paragraph-small;
+        font-size: 14 / 16 * 1em;
         position: relative;
         right: -0.15em; // Optically adjusts for the full stop after the number
       }

@@ -53,7 +53,7 @@ body {
 
 This is a great start and means that we are respecting the user’s implied preference for the site, but there are many (myself included) that would prefer to choose themselves:
 
-> Your assumption that I want the dark theme of your website because my OS is in ‘dark mode’ makes me close the browser tab. <cite>[@StuRobson](https://twitter.com/StuRobson/status/1278036990081073152)</cite>
+> Your assumption that I want the dark theme of your website because my OS is in ‘dark mode’ makes me close the browser tab. <cite>[Stu Robson](https://twitter.com/StuRobson/status/1278036990081073152)</cite>
 
 I found that when developing this site that I prefered the light mode colour scheme even with my general preference for dark UI.
 

@@ -52,6 +52,22 @@ eleventyComputed:
     {% endif %}
 
     {{ content | safe }}
+
+    {% if changes %}
+      <hr />
+      <ul class="list post-article__changes small">
+        {% for changeSet in changes %}
+          <li>
+            <strong>Edited {{ changeSet.date | formatDate }}</strong> {{ changeSet.changes | log }}
+            <ul class="list--ul">
+              {% for change in changeSet.changes %}
+                <li>{{ change | safe }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </article>
 
   <div class="post-pagination group">
