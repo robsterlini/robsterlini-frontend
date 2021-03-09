@@ -4,7 +4,7 @@ date: 2021-03-09
 description: "A quick tip to control the seemingly uncontrollable text-decoration: line-through."
 descriptionHtml: "A quick tip to control the seemingly uncontrollable <code>text&#8209;decoration: line&#8209;through</code>."
 layout: post
-tlDr: "Use <code>text-decoration-offset</code> and <code>@supports</code> to progressively enhance finer control over your strikethroughs – <a href=\"#the-complete-solution\">see the code</a>."
+tlDr: "Use <code>text-underline-offset</code> and <code>@supports</code> to progressively enhance finer control over your strikethroughs – <a href=\"#the-complete-solution\">see the code</a>."
 ---
 
 Text decoration has been around since CSS Level 1, and it works.
@@ -13,7 +13,7 @@ More recently the introduction of `text-decoration-` modifying properties have a
 
 ## The problem
 
-I ran into this while trying to get a more aesthetic position for the strikethrough on my journal post about [redesigning this site](/journal/2020/a-fresh-lick-of-paint/#next-steps).
+I ran into this while trying to get a more aesthetic position for the strikethrough on my journal post about [redesigning this site](/journal/2020/a-fresh-lick-of-paint/#next-steps):
 
 The default position was too high.
 
@@ -24,11 +24,11 @@ The default position was too high.
   "This doesn’t actually cross the text out because it sits at 50% of the cap-height, not 50% of the x&#8209;height."
 %}
 
-You might ask why this matters, but these fine details are what stand in the way of something looking truly polished (not perfect mind you), so I wanted to fix it!
+You might ask why this matters, but these fine details are what stand in the way of something looking truly polished (not perfect mind you), so I set about fixing it!
 
-I knew that there was an offset property for text decoration, so I tried `text-decoration-offset`; this is where I realised that only `text-decoration: underline;` can have an offset.
+I knew that there was an offset property for text decoration, so I tried `text-decoration-offset` only to find out that **only underlines could have an offset**… go figure.
 
-Frustrated, but not beaten I considered that `text-decoration: line-through` is basically an underline, but positioned (or offset) in the middle. Could I fake a strikethrough using an underline?
+Frustrated – but not beaten – I considered that `text-decoration: line-through` is basically an underline, but positioned in the middle. Could I fake a strikethrough using an offset underline?
 
 ```css
 del {
