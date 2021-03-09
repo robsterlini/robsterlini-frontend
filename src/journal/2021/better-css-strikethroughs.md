@@ -1,7 +1,8 @@
 ---
 title: Better CSS strikethroughs
 date: 2021-03-09
-description: "A quick tip to control the seemingly uncontrollable <code>text&#8209;decoration: line&#8209;through</code>."
+description: "A quick tip to control the seemingly uncontrollable text-decoration: line-through."
+descriptionHtml: "A quick tip to control the seemingly uncontrollable <code>text&#8209;decoration: line&#8209;through</code>."
 layout: post
 tlDr: "Use <code>text-decoration-offset</code> and <code>@supports</code> to progressively enhance finer control over your strikethroughs – <a href=\"#the-complete-solution\">see the code</a>."
 ---
