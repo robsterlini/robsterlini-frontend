@@ -34,6 +34,12 @@ const LINKS = {
     label: 'Archive',
     link: '/archive',
   },
+  cv: {
+    abbr: 'CV',
+    link: '/cv',
+    download: true,
+    label: 'Curriculum Vitae',
+  },
 };
 
 const {
@@ -64,6 +70,7 @@ module.exports = () => ({
     LINKS.work,
     LINKS.journal,
     LINKS.contact,
+    LINKS.cv,
     LINKS.now,
     LINKS.archive,
   ],

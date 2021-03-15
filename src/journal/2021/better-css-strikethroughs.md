@@ -2,13 +2,13 @@
 title: Better CSS strikethroughs
 date: 2021-03-09
 description: "A quick tip to control the seemingly uncontrollable text-decoration: line-through."
-descriptionHtml: "A quick tip to control the seemingly uncontrollable <code>text&#8209;decoration: line&#8209;through</code>."
+descriptionHtml: "A quick tip to control the seemingly uncontrollable <code><span class=\"nowrap\">text-decoration</span>: <span class=\"nowrap\">line-through</span></code>."
 layout: post
 tlDr: "Use <code>text-underline-offset</code> and <code>@supports</code> to progressively enhance finer control over your strikethroughs – <a href=\"#the-complete-solution\">see the code</a>."
 changes:
   - date: 2021-03-09
     changes:
-      - "Added the caveat about <code>text-decoration-color</code> compromise; thanks to <a href=\"https://twitter.com/dannievinther/status/1369314893908836353\">@dannievinther</a>"
+      - "Added the caveat about <code>text-decoration-color</code> compromise; thanks to <a href=\"https://twitter.com/dannievinther/status/1369314893908836353\">@dannievinther</a>."
       - "Moved the <code>@support</code> wrapper outside of del to be valid CSS rather than Scss; thanks to <a href=\"https://twitter.com/PaulJMorel/status/1369323083149025280\">@PaulJMorel</a>."
 ---
 
@@ -26,12 +26,12 @@ The default position was too high.
   "journal/better-css-strikethroughs/before.png",
   "533x222",
   "A screenshot showing the unbalanced strikethrough with the default text-decoration value",
-  "This doesn’t actually cross the text out because it sits at 50% of the cap-height, not 50% of the x&#8209;height."
+  "This doesn’t actually cross the text out because it sits at 50% of the <span class=\"nowrap\">cap-height</span>, not 50% of the <span class=\"nowrap\">x-height</span>."
 %}
 
 You might ask why this matters, but these fine details are what stand in the way of something looking truly polished (not perfect mind you), so I set about fixing it!
 
-I knew that there was an offset property for text decoration, so I tried `text-decoration-offset` only to find out that **only underlines could have an offset**… go figure.
+I knew that there was an offset property for text decoration, so I tried <span class=nowrap><code>text-decoration-offset</code></span> only to find out that **only underlines could have an offset**… go figure.
 
 Frustrated – but not beaten – I considered that `text-decoration: line-through` is basically an underline, but positioned in the middle. Could I fake a strikethrough using an offset underline?
 

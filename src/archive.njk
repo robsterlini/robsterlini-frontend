@@ -27,7 +27,7 @@ customCss: pages/archive.scss
             imageAlt
           %}
         {% endif %}
-        <h2 id="{{ year }}" class="h2">{% if yearData.title %}<span class="p block lead">{{ year }}</span> {{ yearData.title | safe }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
+        <h2 id="{{ year }}" class="h2">{% if yearData.title %}<span class="lead">{{ year }}</span> {{ yearData.title | safe }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
         {% if yearData.description or yearData.stack or yearData.type %}
           {% if yearData.stack or yearData.type %}
             <dl class="p">

@@ -1,8 +1,8 @@
 module.exports = () => ({
   '301': {
     '/life': '/about',
-    '/cv': '/work',
-    '/resume': '/work',
+    '/cv': '/rob-sterlini-cv-2021.pdf',
+    '/resume': '/rob-sterlini-cv-2021.pdf',
     '/curriculum-vitae': '/work',
     '/site-history': '/archive',
     '/journal/archive': '/journal',
