@@ -76,14 +76,11 @@ eleventyComputed:
 
     <svg class="post-pagination__hr" aria-hidden="true" role="presentation" width="44" height="60" viewBox="0 0 44 60" xmlns="http://www.w3.org/2000/svg"><path d="M27.18 59.36c1.53 0 2.43-.72 2.43-2.25 0-11.61 12.24-11.7 12.24-25.11 0-4.59-4.05-9.09-9.63-9.09-3.06 0-5.67 1.35-7.74 3.51a11 11 0 01-.45-3.15c0-2.07.54-5.22 2.34-7.92 6.03 0 16.74-3.87 16.74-8.91 0-2.43-2.61-3.33-4.95-3.33-4.14 0-9.54 1.8-13.68 5.67-4.23 0-9.45-2.52-12.6-6.93C11.16.77 10.26.05 8.73.05A3.2 3.2 0 005.4 3.29c0 1.44.81 2.7 1.44 3.51 2.61 3.6 7.83 7.02 13.23 8.01a20.91 20.91 0 00-1.44 11.52 9.87 9.87 0 00-8.1-4.23C4.59 22.1.81 26.33.81 32.81c0 13.68 16.83 26.55 26.37 26.55z" fill="#F75C6A" fill-rule="nonzero"/></svg>
 
-    <h2 class="h2 post-pagination__title">What now?</h2>
-
     {% set twitterShareText %}{{ title }} by – @robsterlini{% endset %}
     {% set githubEntryUrl %}{{ global.github.branchUrl }}{{ page.inputPath.slice(1) }}{% endset %}
 
     <div class="post-pagination__page links--external">
-      <h3 class="lead">Thank you!</h3>
-      <p>Firstly, thanks for taking the time to read this&nbsp;entry.</p>
+      <h3 class="lead">Thanks for taking the time to read this!</h3>
       <p>If you enjoyed it, and think others would benefit from the read then feel free to <a href="https://twitter.com/share?text={{ twitterShareText | urlencode }}&url={{ page.url | url | absoluteUrl(global.url) | urlencode }}" target="_blank" rel="noopener" title="Share this entry on Twitter">share it on Twitter</a> (or elsewhere). I’m always up for a discussion about anything I’ve written too, so <a href="/#contact">get in touch</a> if you want to&nbsp;chat!</p>
       <p>If you’ve spotted something out of place or something needs correcting, feel free to open a <abbr title="Pull request" class="sc">PR</abbr> for <a href="{{ githubEntryUrl }}" target="_blank" rel="noopener">this entry</a>, <a href="https://github.com/robsterlini/robsterlini-frontend/issues/new/choose" target="_blank" rel="noopener">raise an issue</a>, or <a href="/#contact">let me&nbsp;know</a>.</p>
     </div>
@@ -92,11 +89,11 @@ eleventyComputed:
       <div class="post-pagination__page{% if not paginatedEntry %} post-pagination__page--current{% endif %}">
         {% if paginatedEntry %}
           {% set showPaginatedLink = true %}
-          {% set paginatedLead = "Newer entry" if paginatedKey == "next" else "Older entry" %}
+          {% set paginatedLead = "A newer entry" if paginatedKey == "next" else "An older entry" %}
           {% set entry = paginatedEntry %}
         {% else %}
           {% set showPaginatedLink = false %}
-          {% set paginatedLead = "Latest entry" if paginatedKey == "next" else "First entry" %}
+          {% set paginatedLead = "This is the latest entry" if paginatedKey == "next" else "This is the first entry" %}
           {% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}
         {% endif %}
         {% journalEntry entry, "h3", paginatedLead, showPaginatedLink %}
