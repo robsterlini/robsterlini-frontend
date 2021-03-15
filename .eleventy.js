@@ -110,6 +110,7 @@ module.exports = function(eleventyConfig) {
     `${input}/fonts`,
     `${input}/favicon.svg`,
     `${input}/favicon.png`,
+    `${input}/*.pdf`,
   ];
 
   filesToCopy.forEach(file => {
