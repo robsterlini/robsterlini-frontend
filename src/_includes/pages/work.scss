@@ -1,6 +1,7 @@
 @import 'scss/mixins';
 
 .project {
+  margin-top: $grid-row-gap;
 
   @include min-width(1024) {
     display: grid;

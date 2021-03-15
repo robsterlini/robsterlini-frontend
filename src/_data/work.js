@@ -17,7 +17,7 @@ module.exports = [
   {
     slug: 'tony-robbins',
     logo: tonyRobbinsSvg,
-    title: 'Taking life coaching online',
+    title: 'Taking life coaching to the digital stage',
     client: 'Robbins Research International',
     date: '2019–present',
     stack: [
