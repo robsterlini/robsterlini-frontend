@@ -22,7 +22,7 @@ customCss: pages/now.scss
     {% set current = 0 %}
 
     {% for year in now.years %}
-      <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year.year }}">{% if year.title %}<span class="p block lead">{{ year.year }}</span> {{ year.title }}{% else %}{{ year.year }}{% endif %}{% anchor year.year %}</h2>
+      <h2 class="h2{% if loop.index === 1 %} mt0{% endif %} year__title" id="{{ year.year }}">{% if year.title %}<span class="lead">{{ year.year }}</span> {{ year.title }}{% else %}{{ year.year }}{% endif %}{% anchor year.year %}</h2>
 
       <div class="year__seasons">
         {% for season in year.seasons %}

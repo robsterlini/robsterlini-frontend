@@ -13,7 +13,11 @@
           <li>
             {% if link.link %}
               <a href="{{ link.link }}"{% if nav and nav === link.nav %} class="active"{% endif %}>
+              {% if link.abbr %}
+                <abbr title="{{ link.label | safe }}">{{ link.abbr | safe }}</abbr>
+              {% else %}
                 {{ link.label | safe }}
+              {% endif %}
               </a>
             {% else %}
               <span class="soon">{{ link.label | safe }}</span>

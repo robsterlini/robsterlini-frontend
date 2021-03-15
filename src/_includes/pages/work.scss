@@ -1,76 +1,143 @@
 @import 'scss/mixins';
 
-.cv {
-
-  .group {
-    display: grid;
-    grid-gap: 0 $grid-column-gap;
-
-    @include min-width(1024) {
-      grid-template-columns: 5fr 8fr;
-      grid-template-rows: auto auto 1fr;
-    }
-  }
-}
-
-.cv-section {
-
-  @at-root {
-
-    [class^='cv-section--'] {
-
-      > :last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &--elevator {
-
-    > :first-child {
-      margin-top: 0;
-    }
-  }
+.project {
 
   @include min-width(1024) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto 1fr;
+    grid-gap: 0 $grid-column-gap;
+  }
 
-    &--elevator {
-      grid-column: 1;
+  &__logo {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    min-height: 4rem;
 
-      > :last-child > :last-child {
-        margin-bottom: 0;
+    svg {
+      width: auto;
+      height: 1.5rem;
+      height: var(--logo-height, 1.5rem);
+      max-width: 100%;
+    }
+
+    path {
+      fill: var(--c-bS);
+    }
+  }
+
+  &__client {
+    font-weight: $font-weight-body-bold;
+
+    &:not(:last-child) {
+
+      &::after {
+        content: ', ';
       }
     }
+  }
 
-    &--skills {
-      grid-row: 2;
+  &__description {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+
+    > :first-child {
+      margin-top: 0.25em; // Aligns the text with the title on the left
     }
 
-    &--employment {
-      grid-row: 1 / span 3;
-      grid-column: 2;
-
-      > :first-child {
-        margin-top: 0;
-      }
+    > :last-child {
+      margin-bottom: 0;
     }
   }
-}
 
-.cv-references {
-  color: var(--c-bS);
-  font-weight: $font-weight-body-bold;
-  margin-top: 2em;
-}
-
-@media print {
-
-  .footer {
-    display: none;
+  &__links {
+    margin-top: 1rem;
   }
 
-  .cv-save {
-    display: none;
+  // Variants
+  &--tony-robbins {
+    --logo-height: 1.25rem;
+  }
+
+  &--fueled {
+    --logo-height: 2.5rem;
+  }
+
+  &--apple {
+    --logo-height: 3.25rem;
   }
 }
 
+.other-work {
+
+  @include min-width(1024) {
+    // display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0 $grid-column-gap;
+  }
+}
+
+// .cv {
+
+//   .group {
+//     display: grid;
+//     grid-gap: 0 $grid-column-gap;
+
+//     @include min-width(1024) {
+//       grid-template-columns: 5fr 8fr;
+//       grid-template-rows: auto auto 1fr;
+//     }
+//   }
+// }
+
+// .cv-section {
+
+//   @at-root {
+
+//     [class^='cv-section--'] {
+
+//       > :last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+//   }
+
+//   &--elevator {
+
+//     > :first-child {
+//       margin-top: 0;
+//     }
+//   }
+
+//   @include min-width(1024) {
+
+//     &--elevator {
+//       grid-column: 1;
+
+//       > :last-child > :last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+
+//     &--skills {
+//       grid-row: 2;
+//     }
+
+//     &--employment {
+//       grid-row: 1 / span 3;
+//       grid-column: 2;
+
+//       > :first-child {
+//         margin-top: 0;
+//       }
+//     }
+//   }
+// }
+
+// .cv-references {
+//   color: var(--c-bS);
+//   font-weight: $font-weight-body-bold;
+//   margin-top: 2em;
+// }

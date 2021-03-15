@@ -58,7 +58,7 @@ eleventyComputed:
       <ul class="list post-article__changes small" id="changelog">
         {% for changeSet in changes %}
           <li>
-            <strong>Edited {{ changeSet.date | formatDate }}</strong> {{ changeSet.changes | log }}
+            <strong>Edited {{ changeSet.date | formatDate }}</strong>
             <ul class="list--ul">
               {% for change in changeSet.changes %}
                 <li>{{ change | safe }}</li>
