@@ -16,4 +16,4 @@ I tweeted about it at the time too, but tweets are so ephemeral:
 
 This is a very short journal entry to immortalise it a little more solidly.
 
-If you use the recipe, [let me know](/contact) what you think!
+Okay, you caught me… It was an excuse to try out embedding tweets directly into my Eleventy build (I used [Kyle Mit’s plugin](https://github.com/KyleMit/eleventy-plugin-embed-tweet) as a starting point), but if do you use the recipe, [let me know](/contact) what you think!

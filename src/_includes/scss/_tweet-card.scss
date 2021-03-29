@@ -2,7 +2,7 @@
   background: var(--c-hB);
   padding: 1em;
   border: 1px solid var(--c-bD);
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   margin: 2em 0;
   max-width: 36em;
 
@@ -31,6 +31,7 @@
     width: 3em;
     object-fit: cover;
     border-radius: 50%;
+    opacity: var(--o-fig, 1);
   }
 
   &__author,
@@ -38,6 +39,7 @@
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-weight: 500;
   }
 
   &__username {
@@ -132,6 +134,7 @@
   &__image {
     position: relative;
     border-radius: 0.25rem;
+    opacity: var(--o-fig, 1);
 
     &:hover {
 
@@ -186,13 +189,16 @@
   }
 
   &__footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+    > span {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__date {
-
+    margin-right: auto;
+    padding-right: 0.5em;
   }
 
   &__like,

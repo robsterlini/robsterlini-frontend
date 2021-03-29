@@ -20,13 +20,18 @@
   <p class="tweet__body">{{ htmlText | safe }}</p>
 
   <div class="tweet__footer small">
-    <a class="tweet__date" href="https://twitter.com/{{ user.screen_name }}/status/{{ id_str }}" rel="noopener" target="_blank"><time datetime="{{ created_at.iso }}">{{ created_at.display }}&nbsp;<span class="sc">GMT</span></time></a>
     <span class="lead">
-      {% if favorite_count > 0 %}
-        &ensp;<a class="tweet__like" href="https://twitter.com/intent/like?tweet_id={{ id_str }}" rel="noopener" target="_blank">{{ favorite_count }} like{% if favorite_count > 1%}s{% endif %}</a>
-      {% endif %}
-      {% if retweet_count > 0 %}
-        &ensp;<a class="tweet__retweet" href="https://twitter.com/intent/retweet?tweet_id={{ id_str }}" rel="noopener" target="_blank">{{ retweet_count or 0 }} retweet{% if retweet_count > 1%}s{% endif %}</a>
+      <a class="tweet__date" href="https://twitter.com/{{ user.screen_name }}/status/{{ id_str }}" rel="noopener" target="_blank"><time datetime="{{ created_at.iso }}">{{ created_at.display }}</time></a>
+
+      {% if favorite_count > 0 or retweet_count > 0 %}
+        <span>
+          {% if favorite_count > 0 %}
+            <a class="tweet__like" href="https://twitter.com/intent/like?tweet_id={{ id_str }}" rel="noopener" target="_blank">{{ favorite_count }} like{% if favorite_count > 1%}s{% endif %}</a>
+          {% endif %}
+          {% if retweet_count > 0 %}
+            &nbsp;<a class="tweet__retweet" href="https://twitter.com/intent/retweet?tweet_id={{ id_str }}" rel="noopener" target="_blank">{{ retweet_count or 0 }} retweet{% if retweet_count > 1%}s{% endif %}</a>
+          {% endif %}
+        </span>
       {% endif %}
     </span>
   </div>

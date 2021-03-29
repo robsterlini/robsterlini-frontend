@@ -110,7 +110,7 @@ function getTweetDates(tweet) {
   };
 
   return {
-    display: new Intl.DateTimeFormat('en-GB', options).format(date),
+    display: new Intl.DateTimeFormat('en-GB', options).format(date) + '\xa0GMT',
     iso: date.toISOString(),
   };
 }
