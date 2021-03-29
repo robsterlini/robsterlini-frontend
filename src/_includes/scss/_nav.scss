@@ -115,7 +115,7 @@
   margin-bottom: -0.75em;
   text-decoration: none;
   transition: 250ms ease-in-out;
-  transition-property: opacity, transform;
+  transition-property: color, transform;
   font-family: $font-family-heading;
   line-height: 1.2;
   font-size: 1.25rem;
@@ -127,7 +127,6 @@
 
   &::before,
   &::after {
-    background: var(--c-bA);
     position: absolute;
     content: '';
     top: -0.25em;
@@ -140,10 +139,11 @@
   }
 
   &::before {
-    background: var(--c-bB);
+    background: var(--c-hB);
   }
 
   &::after {
+    background: var(--c-bA);
     transition:
       background 125ms ease-in-out,
       opacity 250ms ease-in-out;
@@ -173,8 +173,7 @@
 
   &:focus:not(:focus-visible),
   &:focus-visible {
-    background: none;
-    box-shadow: none;
+    // background: none;
 
     &::after {
       outline: none;
@@ -182,10 +181,11 @@
   }
 
   &:focus-visible {
+    // color: var(--c-bC);
 
-    &::after {
-      background: var(--c-bC);
-    }
+    // &::after {
+    //   background: var(--c-bH);
+    // }
   }
 
   > span {
@@ -256,7 +256,6 @@
   }
 
   a {
-    box-shadow: transparent -2px 0 0 0;
     box-sizing: border-box;
     align-items: center;
     display: block;
@@ -276,14 +275,6 @@
       @include min-width(480) {
         padding: 0.5em 0 0.85em;
       }
-    }
-
-    &:focus {
-      outline: var(--c-bC) 1px dotted;
-    }
-
-    &:focus:not(:focus-visible) {
-      outline: none;
     }
   }
 
@@ -305,8 +296,6 @@
 
       &,
       &:hover {
-        box-shadow: var(--c-bA) -2px 0 0 0;
-        outline: none;
         color: var(--c-hB);
       }
     }

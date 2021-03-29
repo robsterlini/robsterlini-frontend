@@ -245,13 +245,12 @@ a,
 .link {
   appearance: none;
   background: none;
-  box-shadow: transparent 0 2px 0 2px;
   color: var(--link-state-color, inherit);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
-  transition-property: background-color, box-shadow, color, opacity, text-decoration-color;
+  transition-property: background-color, color, opacity, text-decoration-color;
   text-decoration: underline;
   text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   text-underline-offset: 0.05em;
@@ -272,8 +271,7 @@ a,
     text-underline-position: unset !important;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     --link-state-color: var(--c-bA);
   }
 
@@ -286,12 +284,9 @@ a,
   }
 
   &:focus-visible {
-    --link-state-color: var(--c-hB);
-
-    background: var(--c-bA);
-    box-shadow: var(--c-bA) 0 2px 0 2px;
+    background: var(--c-bH);
+    color: var(--c-bC) !important;
     outline: none;
-    text-decoration-color: var(--c-bA);
   }
 
   &:active {
@@ -319,8 +314,7 @@ a,
     text-decoration-color: var(--c-bB) !important;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
 
     &::after {
       color: var(--link-state-color);
@@ -328,9 +322,11 @@ a,
   }
 
   &:focus-visible {
+    text-decoration-color: var(--c-bC) !important;
 
     &::after {
-      text-decoration-color: var(--c-bA) !important;
+      text-decoration-color: var(--c-bH) !important;
+      color: var(--c-bC) !important;
     }
   }
 }
@@ -350,7 +346,6 @@ a,
   &:hover,
   &:focus {
     background: none;
-    box-shadow: none;
     opacity: 1;
     color: currentColor;
     text-decoration: none;
@@ -375,12 +370,11 @@ a,
 }
 
 .link__pseudo {
-  box-shadow: transparent 0 2px 0 2px;
   color: var(--link-state-color);
   text-decoration: underline;
   text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
   transition: 125ms ease-in-out;
-  transition-property: background-color, box-shadow, color, opacity, text-decoration-color;
+  transition-property: background-color, color, opacity, text-decoration-color;
 
   .link--pseudo:active & {
     opacity: 0.66;
@@ -395,17 +389,23 @@ a,
   }
 
   .link--pseudo:focus-visible & {
-    --link-state-color: var(--c-hB);
-
-    background: var(--c-bA);
-    box-shadow: var(--c-bA) 0 2px 0 2px;
     outline: none;
-    text-decoration-color: var(--c-bA);
+    background: var(--c-bH);
+    color: var(--c-bC);
+    text-decoration-color: var(--c-bC) !important;
   }
 
   .link--external[href^="https://"] &,
   .link--external[href^="http://"] & {
     @include link-external;
+  }
+
+  .link--pseudo:focus-visible & {
+
+    &::after {
+      color: var(--c-bC) !important;
+      text-decoration-color: var(--c-bH) !important;
+    }
   }
 }
 
