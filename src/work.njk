@@ -32,7 +32,7 @@ customCss: pages/work.scss
         </div>
         <div class="project__details">
           <h3 class="h3 mt0">{{ project.title or project.client }}</h3>
-          <dl>
+          <dl class="p">
             <div>
               {% if project.title %}
                 <dd class="sr-only">Client</dd> <dt class="project__client">{{ project.client }}</dt>
@@ -76,6 +76,6 @@ customCss: pages/work.scss
     <p>There are also fun side projects – like my dad’s <a href="https://ourdadmakes.pizza" target="_blank" rel="noopener">pizza recipe birthday microsite</a> and a <a href="http://legonotlegos.com" target="_blank" rel="noopener"><span class="sc">LEGO</span> naming pointer</a>.</p>
 
     <h2 class="h2">Let’s chat!</h2>
-    <p>If you’ve got a cool project you’d like me to build or you think my work experience makes me a good fit for your organisation, <a href="/contact">reach out!</a></p>
+    <p class="mb0">If you’ve got a cool project you’d like me to build or you think my work experience makes me a good fit for your organisation, <a href="/contact">reach out!</a></p>
   </div>
 </main>

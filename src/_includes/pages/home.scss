@@ -4,32 +4,32 @@
 
   .h1 {
     max-width: 17em;
-    grid-row: 2;
-    grid-column: 1;
     margin-bottom: 0.5em;
   }
 
-  @include min-width(1024) {
-
-    .h1 {
-      margin-bottom: -0.15em;
-    }
+  @include min-width($temp-large) {
 
     .group {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-gap: 0 $grid-column-gap;
+      grid-gap: 0 (100% / 12);
+      grid-template-columns: 7fr 4fr;
     }
 
     &__header {
-      grid-column: 1;
+      grid-column: 1 / -1;
       grid-row: 1;
+    }
+
+    .h1 {
+      margin-bottom: -0.15em;
+      grid-row: 2;
     }
 
     &__children {
       font-size: 1rem;
       grid-auto-rows: auto;
       grid-row: 2;
+      grid-column: 2;
       align-self: flex-end;
 
       p {

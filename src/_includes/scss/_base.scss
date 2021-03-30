@@ -35,6 +35,8 @@ body {
 }
 
 html {
+  --spacing: 2rem;
+
   --c-codepen: #1E1F26;
   --c-envato: #82b541;
   --c-fueled: #{$c-fueled};
@@ -46,6 +48,10 @@ html {
   --c-strava: #{$c-strava};
   --c-twitter: #00ACEE;
   --c-youtube: #FF0000;
+
+  @include min-width($temp-small) {
+    --spacing: calc(1rem + 2vw);
+  }
 }
 
 @mixin dark-colors {
@@ -60,6 +66,8 @@ html {
   --c-bA: #{$c-dark-body-accent};
   --c-bD: #{$c-dark-body-decorative};
   --c-bH: #{$c-dark-body-highlight};
+
+  --grid: 0, 205, 205;
 
   --c-cB: #{$c-contrast-dark}; // Contrast background
   --c-cC: #{$c-contrast-light}; // Contrast colour
@@ -86,6 +94,8 @@ html {
   --c-bA: #{$c-light-body-accent};
   --c-bD: #{$c-light-body-decorative};
   --c-bH: #{$c-light-body-highlight};
+
+  --grid: 108, 133, 255;
 
   --c-cB: #{$c-contrast-light};
   --c-cC: #{$c-contrast-dark};
@@ -131,19 +141,19 @@ html {
   font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  @include min-width(384) {
+  @include min-width($temp-xsmall) {
     font-size: 16 / 16 * 1rem;
   }
 
-  @include min-width(768) {
+  @include min-width($temp-mid) {
     font-size: 17 / 16 * 1rem;
   }
 
-  @include min-width(1024) {
+  @include min-width($temp-large) {
     font-size: 18 / 16 * 1rem;
   }
 
-  @include min-width(1280) {
+  @include min-width($temp-xlarge) {
     font-size: 19 / 16 * 1rem;
   }
 }
@@ -173,17 +183,26 @@ body {
 
 .main {
   animation: opacity $main-transition-duration ease-out both var(--font-loaded-animations);
-  padding: 8vw 0;
+  padding: calc(var(--spacing) * 2) 0;
 }
 
 .group {
   margin-left: auto;
   margin-right: auto;
-  max-width: 84rem;
+  max-width: 80rem;
   width: 92%;
 
   &--thin {
-    max-width: 60rem;
+
+    @include min-width($temp-large) {
+      max-width: 80rem / 12 * 10;
+      width: 92% / 12 * 10;
+    }
+
+    @include min-width($temp-xlarge) {
+      max-width: 80rem / 12 * 8;
+      width: 92% / 12 * 8;
+    }
   }
 }
 

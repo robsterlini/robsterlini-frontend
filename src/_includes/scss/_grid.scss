@@ -1,0 +1,32 @@
+.__grid {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  display: none;
+
+  [data-grid-preference="visible"] & {
+    display: flex;
+  }
+
+  .group {
+    position: relative;
+    background:
+
+      repeating-linear-gradient(
+        to right,
+        transparent 0 calc((100% / #{$temp-cols}) - 1px),
+        rgba(var(--grid), 1) calc((100% / #{$temp-cols}) - 1px) calc((100% / #{$temp-cols})),
+      ),
+      rgba(var(--grid), 0.1) linear-gradient(
+        to right,
+        rgba(var(--grid), 1) 0 1px,
+        transparent 1px calc(100% - 1px),
+        rgba(var(--grid), 1) calc(100% - 1px) 100%,
+      );
+  }
+}

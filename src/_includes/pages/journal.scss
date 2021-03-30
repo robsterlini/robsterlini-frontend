@@ -3,22 +3,25 @@
 .main {
 
   .group {
-    display: grid;
-    grid-gap: $grid-row-gap $grid-column-gap;
 
-    @include min-width(768) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @include min-width(960) {
-      grid-template-columns: 2fr 1fr;
+    @include min-width($temp-mid) {
+      display: grid;
+      grid-gap: 0 (100% / 12);
+      grid-template-columns: 6fr 5fr;
     }
   }
 }
 
 .journal-latest {
 
-  .h2 {
+  h2 {
     margin-top: 0;
+  }
+}
+
+.journal-older {
+
+  @include max-width($temp-mid) {
+    margin-top: var(--spacing);
   }
 }

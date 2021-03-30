@@ -1,14 +1,14 @@
 @import 'scss/mixins';
 @import 'scss/type';
 
-.post-alert {
-  animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
-}
-
 .post-article {
 
   > :first-child {
     margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
   }
 
   > p:first-child:not(.post-article__prelim),
@@ -49,18 +49,13 @@
 
 .post-pagination {
   display: grid;
-  grid-gap: 0 $grid-column-gap;
 
   &__hr {
     color: var(--c-bD);
     grid-column: 1 / -1;
-    margin: 4rem auto 5rem;
+    margin: calc(var(--spacing) * 2) auto;
     height: 1.875rem; // 30px
     width: 1.375rem; // 22px
-
-    @include min-width(768) {
-      margin: 5rem auto 6rem;
-    }
 
     path {
       fill: currentColor;
@@ -83,8 +78,9 @@
     }
   }
 
-  @include min-width(1024) {
-    grid-template-columns: 5fr 3fr 3fr;
+  @include min-width($temp-large) {
+    grid-template-columns: 4fr 3fr 3fr;
+    grid-gap: 0 (100% / 12);
 
     &__page {
       margin-bottom: 0;

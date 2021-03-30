@@ -5,17 +5,21 @@
   .group {
     box-sizing: border-box;
     position: relative;
-
-    @include min-width(480) {
-      padding-right: (33.3% + $grid-column-gap) * 0.92;
-    }
   }
 
   .h1 {
     margin-bottom: 0;
 
-    @include min-max-width(480, 768) {
+    @include min-max-width($temp-small, $temp-mid) {
       max-width: 8em;
+    }
+  }
+
+  .h1,
+  &__header {
+
+    @include min-width($temp-small) {
+      padding-right: 100% / $temp-cols * 5;
     }
   }
 
@@ -28,21 +32,35 @@
     margin: 0;
     position: relative;
 
-    @include min-width(480) {
+    @include min-width($temp-small) {
       position: absolute;
-      margin-top: -2vw;
-      width: 33.3%;
+      margin-top: calc(var(--spacing) * -2);
+      width: 100% / $temp-cols * 4;
     }
 
     .figure-wrapper {
-      margin-top: 4vw; // Equal to hero bottom padding
-      margin-bottom: -4vw * 3; // Triple hero bottom padding
-      max-width: 16rem;
+      margin-top: var(--spacing); // Equal to hero bottom padding
+      margin-bottom: calc(var(--spacing) * -3); // Triple hero bottom padding
+      max-width: 16rem !important;
       width: 100%;
+      margin-left: 0;
 
-      @include min-width(480) {
-        max-width: none;
+      @include min-width($temp-small) {
+        max-width: none !important;
         margin-top: 0;
+      }
+    }
+
+    @include min-width($temp-small) {
+      .figure {
+        display: block;
+
+        &__image {
+
+          > img {
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -53,14 +71,14 @@
   &__section {
 
     &--dev {
-      padding-top: 4vw * 2; // Double hero bottom padding
+      padding-top: var(--spacing);
 
-      @include min-width(480) {
+      @include min-width($temp-small) {
         padding-top: 0;
       }
 
-      @include min-width(720) {
-        padding-right: 33.3% + $grid-column-gap;
+      @include min-width(1140) { // The point at which the image would overlap the text
+        padding-right: 100% / 10 * 4;
       }
     }
   }

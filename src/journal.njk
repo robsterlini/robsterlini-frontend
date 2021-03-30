@@ -19,7 +19,11 @@ tag: journal
     {% for entry in collections.entries %}
       {% if loop.index == 1 %}
         <div class="journal-latest">
-          {% journalEntry entry, "h2", "Most recent entry", true, true %}
+          {% journalEntry entry, "h3", "h2", "Latest Entries", true %}
+      {% elif loop.index <= 3 %}
+        {% journalEntry entry, "h3", "h3", "", true %}
+      {% endif %}
+      {% if loop.index == 3 %}
         </div>
 
         <div class="journal-older">
@@ -27,13 +31,17 @@ tag: journal
           <ul class="list--block">
       {% endif %}
 
-      {% if loop.index > 1 %}
+      {% if loop.index > 3 %}
             <li>
               {% journalEntryShort entry %}
             </li>
       {% endif %}
 
       {% if loop.last %}
+          </ul>
+
+          <ul class="list--btns mb0">
+            <li><a href="/feed.xml">Follow the <span class="sc">RSS</span>&nbsp;feed</a></li>
           </ul>
         </div>
       {% endif %}

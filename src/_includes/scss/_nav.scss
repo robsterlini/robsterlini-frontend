@@ -72,11 +72,12 @@
   width: 44px;
   z-index: 999;
 
+  // Magic numbers come from the values from 4vw
   @include min-width(600) {
     bottom: 24px;
   }
 
-  @include min-width(1566) {
+  @include min-width(1650) {
     left: calc(50% + 40rem - 44px);
     right: auto;
   }
@@ -102,7 +103,7 @@
     }
   }
 
-  @media (hover: hover) and (pointer: fine) and (min-width: #{480 / 16 * 1em}) {
+  @media (hover: hover) and (pointer: fine) and (min-width: #{$temp-small / 16 * 1em}) {
     display: none;
   }
 }
@@ -181,11 +182,12 @@
   }
 
   &:focus-visible {
+    background: none;
     // color: var(--c-bC);
 
-    // &::after {
-    //   background: var(--c-bH);
-    // }
+    &::after {
+      background: var(--c-bH);
+    }
   }
 
   > span {
@@ -234,15 +236,17 @@
     list-style: none;
     padding-left: 0;
     margin: auto;
-    padding-right: 7rem;
+    padding-right: 4.5rem;
     text-align: left;
 
-    @include min-width(480) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    @include min-width($temp-small) {
+      grid-template-columns: repeat(12, 1fr);
+      padding-right: 0;
+      grid-gap: 0;
 
-    @include min-width(1024) {
-      grid-template-columns: repeat(4, 8em);
+      li {
+        grid-column: span 2;
+      }
     }
   }
 
@@ -263,7 +267,7 @@
     text-decoration: none;
     color: var(--c-bC);
 
-    @include min-width(480) {
+    @include min-width($temp-small) {
       color: var(--c-bS);
     }
 
@@ -272,7 +276,7 @@
       display: table;
       position: relative;
 
-      @include min-width(480) {
+      @include min-width($temp-small) {
         padding: 0.5em 0 0.85em;
       }
     }
@@ -314,7 +318,7 @@
         background: currentColor;
         height: 100%;
 
-        @include min-width(480) {
+        @include min-width($temp-small) {
           bottom: -2px;
           width: 100%;
           left: 0;

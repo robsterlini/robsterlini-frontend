@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-color-preference="auto" data-contrast-preference="auto">
+<html lang="en" data-color-preference="auto" data-contrast-preference="auto" data-grid-preference="hidden">
   <head>
     <meta charset="utf-8">
 
@@ -100,6 +100,8 @@
     </script>-->
   </head>
   <body class="page">
+    <div class="__grid" aria-hidden="true"><div class="group"></div></div>
+
     {% include "nav.njk" %}
     {{ content | safe }}
     {% include "footer.njk" %}
@@ -170,14 +172,15 @@
 
         const colorPreferenceSelect = document.getElementById('color-preference');
         const contrastPreferenceSelect = document.getElementById('contrast-preference');
+        const gridPreferenceSelect = document.getElementById('grid-preference');
 
         function setPreference(name, value) {
           localStorage.setItem(name + '-preference', value);
           document.documentElement.dataset[name + 'Preference'] = value;
         }
 
-        function getPreference(name) {
-          return localStorage.getItem(name + '-preference') || 'auto';
+        function getPreference(name, defaultPreference = 'auto') {
+          return localStorage.getItem(name + '-preference') || defaultPreference;
         }
 
         colorPreferenceSelect.addEventListener('change', function(e) {
@@ -186,6 +189,10 @@
 
         contrastPreferenceSelect.addEventListener('change', function(e) {
           setPreference('contrast', e.target.value);
+        });
+
+        gridPreferenceSelect.addEventListener('change', function(e) {
+          setPreference('grid', e.target.value);
         });
 
         if (window.matchMedia) {
@@ -210,12 +217,16 @@
 
         const colorPreference = getPreference('color');
         const contrastPreference = getPreference('contrast');
+        const gridPreference = getPreference('grid', 'hidden');
 
         colorPreferenceSelect.value = colorPreference;
         setPreference('color', colorPreference);
 
         contrastPreferenceSelect.value = contrastPreference;
         setPreference('contrast', contrastPreference);
+
+        gridPreferenceSelect.value = gridPreference;
+        setPreference('grid', gridPreference);
 
         let observer;
 

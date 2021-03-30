@@ -40,9 +40,6 @@
   }
 }
 
-$grid-row-gap: 1rem;
-$grid-column-gap: 6%;
-
 $paragraph-small: 14 / 16 * 1rem;
 $paragraph-large: 18 / 16 * 1rem;
 
@@ -58,3 +55,11 @@ $line-height-body-small: 1.5;
 
 $main-transition-duration: 400ms;
 $hero-transition-duration: 600ms;
+
+$temp-xlarge: 1380;
+$temp-large: 1024;
+$temp-mid: 768;
+$temp-small: 480;
+$temp-xsmall: 384;
+
+$temp-cols: 12;

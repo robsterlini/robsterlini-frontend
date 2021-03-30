@@ -1,8 +1,9 @@
 .footer {
   background: var(--c-bB);
   color: var(--c-bC);
+  display: grid;
   margin-top: auto;
-  padding-top: 2vw; // Height of the angle
+  padding-top: var(--spacing);
 
   .main + & {
     padding-top: 0;
@@ -10,12 +11,10 @@
 
   &__wrapper {
     animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
-    padding: calc(2vw + 1rem) 0;
+    display: grid;
+    grid-gap: calc(var(--spacing) / 2) 0;
+    padding: var(--spacing) 0;
     position: relative;
-
-    > :first-child {
-      margin-bottom: 1em;
-    }
 
     .main + .footer & {
 
@@ -31,11 +30,20 @@
     }
   }
 
+  &__colophon {
+    max-width: 46em;
+    margin-bottom: calc(var(--spacing) / 2);
+  }
+
   &__links {
-    display: block;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
     li {
       display: inline-block;
@@ -46,61 +54,103 @@
     a {
       text-decoration: none;
     }
+
+    .lead {
+      margin: 0 1rem 0 0;
+    }
   }
 
-  p {
-    margin-bottom: calc(2vw + 1rem);
-    max-width: 46em;
+  &__controls {
+    padding-bottom: 44px;
+
+    .fieldset {
+      margin-right: 0;
+      display: flex;
+
+      label {
+        margin-right: 0;
+        min-width: 100% / $temp-cols * 3;
+      }
+
+      &__input {
+        min-width: 100% / $temp-cols * 6;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) and (min-width: #{$temp-small / 16 * 1em}) {
+      padding-bottom: 0;
+    }
   }
 
-  @include max-width(480) {
+  @include min-width($temp-small) {
 
-    &__wrapper {
+    &__controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 0 (100% / 11);
+      width: 100% / $temp-cols * 11;
+      flex-wrap: wrap;
 
       .fieldset {
-        display: block;
-        padding-right: 4rem;
+        box-sizing: border-box;
+        display: flex;
         margin-right: 0;
+
+        label {
+          min-width: (100% / 3);
+        }
+
+        &__input {
+          flex: 1;
+        }
       }
+    }
+  }
+
+  @include min-max-width($temp-small, 860) {
+
+    &__controls {
+
+      .fieldset {
+        flex-wrap: wrap;
+
+        label,
+        &__input {
+          width: 100%;
+          flex: auto;
+        }
+      }
+    }
+  }
+
+  @include min-width($temp-large) {
+
+    &__wrapper {
+      grid-template-columns: 8fr 3fr;
+      grid-template-rows: auto 1fr;
+      grid-column-gap: (100% / $temp-cols);
     }
 
     &__links {
+      grid-column: 1;
 
       .lead {
-        display: block;
-      }
-    }
-  }
-
-  @include min-width(480) {
-
-    &__wrapper {
-      padding-bottom: calc(2vw + 1rem);
-    }
-  }
-
-  @include min-width(1024) {
-
-    &__wrapper {
-      display: grid;
-      grid-gap: 0 $grid-column-gap;
-      grid-template-rows: auto 1fr;
-      grid-template-columns: 2fr 1fr;
-
-      > :first-child {
-        grid-row: 1 / span 2;
-        margin-bottom: 0;
-      }
-
-      .fieldset {
+        box-sizing: border-box;
+        min-width: 100% / 8 * 1;
         margin-right: 0;
-        grid-column: 2;
-        grid-row: 1;
-
-        & + .fieldset {
-          grid-row: 2;
-        }
+        padding-right: 1em;
       }
+    }
+
+    &__controls {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: 100%;
     }
   }
 }
