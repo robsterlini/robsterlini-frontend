@@ -72,11 +72,12 @@
   width: 44px;
   z-index: 999;
 
+  // Magic numbers come from the values from 4vw
   @include min-width(600) {
     bottom: 24px;
   }
 
-  @include min-width(1566) {
+  @include min-width(1650) {
     left: calc(50% + 40rem - 44px);
     right: auto;
   }
@@ -102,7 +103,7 @@
     }
   }
 
-  @media (hover: hover) and (pointer: fine) and (min-width: #{480 / 16 * 1em}) {
+  @media (hover: hover) and (pointer: fine) and (min-width: #{$breakpoint-small / 16 * 1em}) {
     display: none;
   }
 }
@@ -115,7 +116,7 @@
   margin-bottom: -0.75em;
   text-decoration: none;
   transition: 250ms ease-in-out;
-  transition-property: opacity, transform;
+  transition-property: color, transform;
   font-family: $font-family-heading;
   line-height: 1.2;
   font-size: 1.25rem;
@@ -127,7 +128,6 @@
 
   &::before,
   &::after {
-    background: var(--c-bA);
     position: absolute;
     content: '';
     top: -0.25em;
@@ -140,10 +140,11 @@
   }
 
   &::before {
-    background: var(--c-bB);
+    background: var(--c-hB);
   }
 
   &::after {
+    background: var(--c-bA);
     transition:
       background 125ms ease-in-out,
       opacity 250ms ease-in-out;
@@ -173,8 +174,7 @@
 
   &:focus:not(:focus-visible),
   &:focus-visible {
-    background: none;
-    box-shadow: none;
+    // background: none;
 
     &::after {
       outline: none;
@@ -182,9 +182,11 @@
   }
 
   &:focus-visible {
+    background: none;
+    // color: var(--c-bC);
 
     &::after {
-      background: var(--c-bC);
+      background: var(--c-bH);
     }
   }
 
@@ -234,15 +236,17 @@
     list-style: none;
     padding-left: 0;
     margin: auto;
-    padding-right: 7rem;
+    padding-right: 4.5rem;
     text-align: left;
 
-    @include min-width(480) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    @include min-width($breakpoint-small) {
+      grid-template-columns: repeat(12, 1fr);
+      padding-right: 0;
+      grid-gap: 0;
 
-    @include min-width(1024) {
-      grid-template-columns: repeat(4, 8em);
+      li {
+        grid-column: span 2;
+      }
     }
   }
 
@@ -256,7 +260,6 @@
   }
 
   a {
-    box-shadow: transparent -2px 0 0 0;
     box-sizing: border-box;
     align-items: center;
     display: block;
@@ -264,7 +267,7 @@
     text-decoration: none;
     color: var(--c-bC);
 
-    @include min-width(480) {
+    @include min-width($breakpoint-small) {
       color: var(--c-bS);
     }
 
@@ -273,17 +276,9 @@
       display: table;
       position: relative;
 
-      @include min-width(480) {
+      @include min-width($breakpoint-small) {
         padding: 0.5em 0 0.85em;
       }
-    }
-
-    &:focus {
-      outline: var(--c-bC) 1px dotted;
-    }
-
-    &:focus:not(:focus-visible) {
-      outline: none;
     }
   }
 
@@ -305,8 +300,6 @@
 
       &,
       &:hover {
-        box-shadow: var(--c-bA) -2px 0 0 0;
-        outline: none;
         color: var(--c-hB);
       }
     }
@@ -325,7 +318,7 @@
         background: currentColor;
         height: 100%;
 
-        @include min-width(480) {
+        @include min-width($breakpoint-small) {
           bottom: -2px;
           width: 100%;
           left: 0;

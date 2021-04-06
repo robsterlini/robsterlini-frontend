@@ -93,9 +93,8 @@ hr {
   background: var(--c-bD);
   height: 2px;
   border-radius: 1px;
-  width: 80%;
-  margin: 3rem auto;
-  max-width: 16rem;
+  width: 4 / 12 * 100%;
+  margin: calc(var(--spacing) * 2) auto;
 }
 
 .blockquote {
@@ -197,7 +196,7 @@ code {
     white-space: pre-wrap;
     overflow: auto;
 
-    @include min-width(768) {
+    @include min-width($breakpoint-mid) {
       padding: 1.8em 2em 1.6em;
     }
   }

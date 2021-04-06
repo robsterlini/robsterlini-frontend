@@ -143,7 +143,7 @@ The tears of pain from the first time round came back again, but as those ‘can
 
 So how was it overall?
 
-> Excuse my language, but f**k me that was fun! What an experience! [#triathlonvirginity](https://twitter.com/hashtag/triathlonvirginity?src=hash) [@JBTrustTri](https://twitter.com/JBTrustTri). <cite>[@robsterlini](https://twitter.com/robsterlini/status/620171205178433536)</cite>
+{% tweet "620171205178433536" %}
 
 __Unbelievable!__
 

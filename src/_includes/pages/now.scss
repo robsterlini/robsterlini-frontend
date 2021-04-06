@@ -2,12 +2,13 @@
 
 .year {
 
-  @include min-width(768) {
+  @include min-width($breakpoint-mid) {
 
     &__seasons {
       display: grid;
-      grid-gap: $grid-row-gap $grid-column-gap;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 5fr 5fr;
+      grid-gap: 0 (100% / 11);
+      width: (100% / 12 * 11);
     }
 
     &__title {
@@ -15,10 +16,37 @@
     }
   }
 
-  @include min-width(1024) {
+  @include min-max-width($breakpoint-mid, $breakpoint-large) {
+
+    &:first-child {
+
+      .year__title {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include min-width($breakpoint-large) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    + .year {
+      margin-top: var(--spacing);
+    }
+
+    &__title {
+      grid-column: span 3;
+      margin-top: 0;
+    }
 
     &__seasons {
-      grid-template-columns: repeat(4, 1fr);
+      grid-column: 5 / span 9;
+      grid-gap: 0;
+      width: 100%;
+    }
+
+    &__season {
+      padding-right: 1em;
     }
   }
 }

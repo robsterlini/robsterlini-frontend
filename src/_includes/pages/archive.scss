@@ -12,26 +12,34 @@
 
   .h2 {
 
-    @include max-width(480) {
+    @include max-width($breakpoint-small) {
       margin-top: 0;
-    }
-  }
-
-  &:first-child {
-
-    .h2 {
-
-      @include min-width(480) {
-        margin-top: 0;
-      }
     }
   }
 
   .figure-wrapper {
     margin-top: 4rem;
+    margin-bottom: var(--spacing);
+  }
 
-    @include min-width(480) {
+  &:first-child {
+
+    .figure-wrapper {
+      margin-top: 0;
+    }
+  }
+
+  @include min-width($breakpoint-small) {
+
+    .figure-wrapper {
       margin-top: 2rem;
+    }
+
+    &:first-child {
+
+      .h2 {
+        margin-top: 0;
+      }
     }
   }
 }

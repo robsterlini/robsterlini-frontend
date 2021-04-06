@@ -24,7 +24,7 @@ eleventyComputed:
 {% set children %}
   {% if description %}<p>{{ (descriptionHtml or description) | safe }}</p>{% endif %}
   {% if page.date | isOldDate %}
-    <p class="post-alert alert" role="alert"><strong class="lead">Holy dinosaurs!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
+    <p class="alert" role="alert"><strong class="lead">Holy dinosaurs!</strong> This was originally published a long time ago; it might be quite out of date by&nbsp;now.</p>
   {% endif %}
 {% endset %}
 {{ hero(title, header=page.date | formatDate, children=children | safe) }}
@@ -96,7 +96,7 @@ eleventyComputed:
           {% set paginatedLead = "This is the latest entry" if paginatedKey == "next" else "This is the first entry" %}
           {% set entry = collections.internalEntries | reverse | getCollectionItem(page) %}
         {% endif %}
-        {% journalEntry entry, "h3", paginatedLead, showPaginatedLink %}
+        {% journalEntry entry, "h3", "h3", paginatedLead, showPaginatedLink %}
       </div>
     {% endfor %}
   </div>

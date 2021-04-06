@@ -10,13 +10,13 @@ $figure-visible-selector: '.js--figure-visible';
     margin-right: auto;
     width: 100%;
 
-    @include min-width(384) {
+    @include min-width($breakpoint-xsmall) {
       width: 90%;
     }
 
-    @include min-width(480) {
+    @include min-width($breakpoint-small) {
       float: right;
-      width: 47.5%;
+      width: 50%;
       margin-top: 0;
       margin-left: 5%;
       margin-right: 0;
@@ -54,7 +54,6 @@ $figure-visible-selector: '.js--figure-visible';
 .figure {
   background: var(--c-hB);
   display: table;
-  border-radius: 2px;
   overflow: hidden;
   clear: both;
   max-width: inherit;
@@ -62,8 +61,6 @@ $figure-visible-selector: '.js--figure-visible';
   &__image {
     position: relative;
     display: grid;
-    grid-gap: 2px;
-    margin: 2px;
     align-items: stretch;
     grid-template-columns: repeat(var(--figure-count, 1), 1fr);
     opacity: var(--o-fig, 1);

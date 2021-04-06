@@ -1,6 +1,6 @@
 const formatDateFilter = require('./../filters/formatDate.js');
 
-const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) => {
+const journalEntry = (entry, titleClass, titleTag, lead, showLink = true) => {
   if (!entry) return '';
 
   const {
@@ -16,7 +16,7 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
   const descriptionComputed = descriptionHtml || description;
 
   const titleMarkup = lead ?
-    `<${titleTag} class="${titleTag}">
+    `<${titleTag} class="${titleClass}">
       <span class="lead">${lead}</span>
       ${title}
     </${titleTag}>` :
@@ -30,7 +30,6 @@ const journalEntry = (entry, titleTag, lead, showLink = true, showRss = false) =
         <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>
       </a>
     </li>
-    ${showRss ? '<li><a href="/feed.xml">Follow the <span class="sc">RSS</span>&nbsp;feed</a></li>' : ''}
   </ul>`;
 
   return `${titleMarkup}${descriptionMarkup}${showLink ? linkMarkup : ''}`;

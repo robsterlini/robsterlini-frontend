@@ -1,0 +1,23 @@
+---
+metaTitle: Colphon
+heroHeader: Colophon
+heroTitle: What’s going on under the bonnet.
+layout: default
+sitemap_priority: 0.6
+---
+
+{% from "components/hero.html" import hero %}
+
+{{ hero(heroTitle, header=heroHeader, children="<p>Yup… not hood!</p>" | safe) }}
+
+<main class="main">
+  <div class="group group--thin links--external">
+    <h3 class="h3 mt0">The tech</h3>
+    <p>Built with a combination of Nunjucks, JavaScript and Sass (<a href="https://sassnotsass.com/" target="_blank" rel="noopener">not <span class="sc">SASS</span></a>) using <a href="https://twitter.com/zachleat" target="_blank" rel="noopener">Zach Leatherman’s</a> amazing <a href="https://www.11ty.dev/" target="_blank" rel="noopener">Eleventy</a> framework to do the heavy lifting. It is hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a>, with code available for dissection on <a href="https://github.com/robsterlini/robsterlini-frontend/" target="_blank" rel="noopener" title="View the repository on GitHub">GitHub</a>.</p>
+    <p>The embedded tweets (as found <a href="/journal/2021/our-dad-makes-pizza">here</a>) are built off the back of <a href="https://github.com/KyleMit/eleventy-plugin-embed-tweet" target="_blank" rel="noopener">Kyle Mit’s plugin</a>.</p>
+
+    <h3 class="h3">The design</h3>
+    <p>Titles are set in <a href="https://p22.com/family-Mackinac" target="_blank" rel="noopener">Mackinac by P22</a>, and sit beautifully with <a href="https://www.rosettatype.com/Clone" target="_blank" rel="noopener">Rosetta’s Clone Rounded</a>, and are both self&#8209;served. Code snippets are in <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">Fira Code</a> and are in the process of being moved from being served by Google Fonts</a>.
+    <p>A heavy focus on all things typographic come from a wonderful undergraduate education experienced at the Department of Typography and Graphic Communication at University of Reading – if you love type and/or design, it’s the place to be educated!</p>
+  </div>
+</main>

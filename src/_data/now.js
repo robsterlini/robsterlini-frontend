@@ -2,10 +2,10 @@ const currentYear = '2021';
 const currentSeason = 'spring';
 
 const SEASONS_MAP = [
-  'Winter',
-  'Spring',
-  'Summer',
   'Autumn',
+  'Summer',
+  'Spring',
+  'Winter',
 ];
 
 const YEARS_MAP = {

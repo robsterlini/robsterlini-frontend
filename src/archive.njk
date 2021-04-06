@@ -1,7 +1,7 @@
 ---
 metaTitle: Archive
 heroHeader: A site’s history
-heroTitle: "The iterative life of a personal website."
+heroTitle: "The iterative life of a personal site."
 layout: default
 sitemap_priority: 0.8
 nav: about
@@ -38,7 +38,7 @@ customCss: pages/archive.scss
           {% endif %}
           {% if yearData.description %}<p>{{ yearData.description | safe }}</p>{% endif %}
         {% endif %}
-        <ul class="list--btns">
+        <ul class="list--btns mb0">
           {% if yearData.link %}<li><a href="{{ yearData.link }}" target="_blank" rel="noopener">{{ yearData.label }}</a></li>{% endif %}
         </ul>
       </div>

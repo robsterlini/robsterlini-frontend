@@ -22,13 +22,15 @@
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@toycode/markdown-it-class": "^1.2.4",
+    "dotenv": "^8.2.0",
     "eleventy-plugin-reading-time": "0.0.1",
     "highlight.js": "^10.4.1",
     "html-minifier": "^4.0.0",
     "markdown-it": "^10.0.0",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^5.3.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "request-promise": "^4.2.6"
   },
   "dependencies": {
     "markdown-it-link-attributes": "^3.0.0"
