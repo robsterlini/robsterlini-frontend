@@ -7,7 +7,7 @@
     margin-bottom: 0.5em;
   }
 
-  @include min-width($temp-large) {
+  @include min-width($breakpoint-large) {
 
     .group {
       display: grid;

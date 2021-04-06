@@ -12,7 +12,7 @@
 
   .h2 {
 
-    @include max-width($temp-small) {
+    @include max-width($breakpoint-small) {
       margin-top: 0;
     }
   }
@@ -29,7 +29,7 @@
     }
   }
 
-  @include min-width($temp-small) {
+  @include min-width($breakpoint-small) {
 
     .figure-wrapper {
       margin-top: 2rem;

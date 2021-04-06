@@ -78,7 +78,7 @@
     }
   }
 
-  @include min-width($temp-large) {
+  @include min-width($breakpoint-large) {
     grid-template-columns: 4fr 3fr 3fr;
     grid-gap: 0 (100% / 12);
 

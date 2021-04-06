@@ -196,7 +196,7 @@ code {
     white-space: pre-wrap;
     overflow: auto;
 
-    @include min-width($temp-mid) {
+    @include min-width($breakpoint-mid) {
       padding: 1.8em 2em 1.6em;
     }
   }

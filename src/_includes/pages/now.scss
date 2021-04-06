@@ -2,7 +2,7 @@
 
 .year {
 
-  @include min-width($temp-mid) {
+  @include min-width($breakpoint-mid) {
 
     &__seasons {
       display: grid;
@@ -16,7 +16,7 @@
     }
   }
 
-  @include min-max-width($temp-mid, $temp-large) {
+  @include min-max-width($breakpoint-mid, $breakpoint-large) {
 
     &:first-child {
 
@@ -26,7 +26,7 @@
     }
   }
 
-  @include min-width($temp-large) {
+  @include min-width($breakpoint-large) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 

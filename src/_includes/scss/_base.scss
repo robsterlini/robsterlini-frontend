@@ -49,7 +49,7 @@ html {
   --c-twitter: #00ACEE;
   --c-youtube: #FF0000;
 
-  @include min-width($temp-small) {
+  @include min-width($breakpoint-small) {
     --spacing: calc(1rem + 2vw);
   }
 }
@@ -141,19 +141,19 @@ html {
   font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
 
-  @include min-width($temp-xsmall) {
+  @include min-width($breakpoint-xsmall) {
     font-size: 16 / 16 * 1rem;
   }
 
-  @include min-width($temp-mid) {
+  @include min-width($breakpoint-mid) {
     font-size: 17 / 16 * 1rem;
   }
 
-  @include min-width($temp-large) {
+  @include min-width($breakpoint-large) {
     font-size: 18 / 16 * 1rem;
   }
 
-  @include min-width($temp-xlarge) {
+  @include min-width($breakpoint-xlarge) {
     font-size: 19 / 16 * 1rem;
   }
 }
@@ -194,12 +194,12 @@ body {
 
   &--thin {
 
-    @include min-width($temp-large) {
+    @include min-width($breakpoint-large) {
       max-width: 80rem / 12 * 10;
       width: 92% / 12 * 10;
     }
 
-    @include min-width($temp-xlarge) {
+    @include min-width($breakpoint-xlarge) {
       max-width: 80rem / 12 * 8;
       width: 92% / 12 * 8;
     }

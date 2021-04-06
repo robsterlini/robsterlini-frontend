@@ -10,7 +10,7 @@
   .h1 {
     margin-bottom: 0;
 
-    @include min-max-width($temp-small, $temp-mid) {
+    @include min-max-width($breakpoint-small, $breakpoint-mid) {
       max-width: 8em;
     }
   }
@@ -18,8 +18,8 @@
   .h1,
   &__header {
 
-    @include min-width($temp-small) {
-      padding-right: 100% / $temp-cols * 5;
+    @include min-width($breakpoint-small) {
+      padding-right: 100% / $columns-count * 5;
     }
   }
 
@@ -32,10 +32,10 @@
     margin: 0;
     position: relative;
 
-    @include min-width($temp-small) {
+    @include min-width($breakpoint-small) {
       position: absolute;
       margin-top: calc(var(--spacing) * -2);
-      width: 100% / $temp-cols * 4;
+      width: 100% / $columns-count * 4;
     }
 
     .figure-wrapper {
@@ -45,13 +45,13 @@
       width: 100%;
       margin-left: 0;
 
-      @include min-width($temp-small) {
+      @include min-width($breakpoint-small) {
         max-width: none !important;
         margin-top: 0;
       }
     }
 
-    @include min-width($temp-small) {
+    @include min-width($breakpoint-small) {
       .figure {
         display: block;
 
@@ -73,7 +73,7 @@
     &--dev {
       padding-top: var(--spacing);
 
-      @include min-width($temp-small) {
+      @include min-width($breakpoint-small) {
         padding-top: 0;
       }
 

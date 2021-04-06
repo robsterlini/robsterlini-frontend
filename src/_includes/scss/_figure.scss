@@ -10,11 +10,11 @@ $figure-visible-selector: '.js--figure-visible';
     margin-right: auto;
     width: 100%;
 
-    @include min-width($temp-xsmall) {
+    @include min-width($breakpoint-xsmall) {
       width: 90%;
     }
 
-    @include min-width($temp-small) {
+    @include min-width($breakpoint-small) {
       float: right;
       width: 50%;
       margin-top: 0;

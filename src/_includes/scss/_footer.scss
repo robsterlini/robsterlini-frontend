@@ -69,11 +69,11 @@
 
       label {
         margin-right: 0;
-        min-width: 100% / $temp-cols * 3;
+        min-width: 100% / $columns-count * 3;
       }
 
       &__input {
-        min-width: 100% / $temp-cols * 6;
+        min-width: 100% / $columns-count * 6;
       }
 
       select {
@@ -81,18 +81,18 @@
       }
     }
 
-    @media (hover: hover) and (pointer: fine) and (min-width: #{$temp-small / 16 * 1em}) {
+    @media (hover: hover) and (pointer: fine) and (min-width: #{$breakpoint-small / 16 * 1em}) {
       padding-bottom: 0;
     }
   }
 
-  @include min-width($temp-small) {
+  @include min-width($breakpoint-small) {
 
     &__controls {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 0 (100% / 11);
-      width: 100% / $temp-cols * 11;
+      width: 100% / $columns-count * 11;
       flex-wrap: wrap;
 
       .fieldset {
@@ -111,7 +111,7 @@
     }
   }
 
-  @include min-max-width($temp-small, 860) {
+  @include min-max-width($breakpoint-small, 860) {
 
     &__controls {
 
@@ -127,12 +127,12 @@
     }
   }
 
-  @include min-width($temp-large) {
+  @include min-width($breakpoint-large) {
 
     &__wrapper {
       grid-template-columns: 8fr 3fr;
       grid-template-rows: auto 1fr;
-      grid-column-gap: (100% / $temp-cols);
+      grid-column-gap: (100% / $columns-count);
     }
 
     &__links {

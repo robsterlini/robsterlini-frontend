@@ -4,7 +4,7 @@
 
   .group {
 
-    @include min-width($temp-mid) {
+    @include min-width($breakpoint-mid) {
       display: grid;
       grid-gap: 0 (100% / 12);
       grid-template-columns: 6fr 5fr;
@@ -21,7 +21,7 @@
 
 .journal-older {
 
-  @include max-width($temp-mid) {
+  @include max-width($breakpoint-mid) {
     margin-top: var(--spacing);
   }
 }

@@ -103,7 +103,7 @@
     }
   }
 
-  @media (hover: hover) and (pointer: fine) and (min-width: #{$temp-small / 16 * 1em}) {
+  @media (hover: hover) and (pointer: fine) and (min-width: #{$breakpoint-small / 16 * 1em}) {
     display: none;
   }
 }
@@ -239,7 +239,7 @@
     padding-right: 4.5rem;
     text-align: left;
 
-    @include min-width($temp-small) {
+    @include min-width($breakpoint-small) {
       grid-template-columns: repeat(12, 1fr);
       padding-right: 0;
       grid-gap: 0;
@@ -267,7 +267,7 @@
     text-decoration: none;
     color: var(--c-bC);
 
-    @include min-width($temp-small) {
+    @include min-width($breakpoint-small) {
       color: var(--c-bS);
     }
 
@@ -276,7 +276,7 @@
       display: table;
       position: relative;
 
-      @include min-width($temp-small) {
+      @include min-width($breakpoint-small) {
         padding: 0.5em 0 0.85em;
       }
     }
@@ -318,7 +318,7 @@
         background: currentColor;
         height: 100%;
 
-        @include min-width($temp-small) {
+        @include min-width($breakpoint-small) {
           bottom: -2px;
           width: 100%;
           left: 0;

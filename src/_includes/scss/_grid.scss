@@ -19,8 +19,8 @@
 
       repeating-linear-gradient(
         to right,
-        transparent 0 calc((100% / #{$temp-cols}) - 1px),
-        rgba(var(--grid), 1) calc((100% / #{$temp-cols}) - 1px) calc((100% / #{$temp-cols})),
+        transparent 0 calc((100% / #{$columns-count}) - 1px),
+        rgba(var(--grid), 1) calc((100% / #{$columns-count}) - 1px) calc((100% / #{$columns-count})),
       ),
       rgba(var(--grid), 0.1) linear-gradient(
         to right,
