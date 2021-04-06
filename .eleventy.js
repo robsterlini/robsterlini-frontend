@@ -6,7 +6,7 @@ const { input, output } = require('./config/constants.js');
 const scssConfig = require('./config/scss.js');
 const markdownConfig = require('./config/markdown.js');
 const { getJournalLink } = require('./config/journal.js');
-const { getTweet } = require("./config/shortcodes/tweet.js");
+const getTweet = require("./config/shortcodes/tweet.js");
 
 const figureShortcode = require('./config/shortcodes/figure.js');
 const anchorShortcode = require('./config/shortcodes/anchor.js');
