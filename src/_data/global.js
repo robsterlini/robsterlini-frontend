@@ -40,6 +40,10 @@ const LINKS = {
     download: true,
     label: 'Curriculum Vitae',
   },
+  colophon: {
+    label: 'Colophon',
+    link: '/colophon',
+  },
 };
 
 const {
@@ -73,5 +77,6 @@ module.exports = () => ({
     LINKS.cv,
     LINKS.now,
     LINKS.archive,
+    LINKS.colophon,
   ],
 });
