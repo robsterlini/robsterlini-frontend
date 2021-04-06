@@ -22,7 +22,12 @@
         transparent 0 calc((100% / #{$columns-count}) - 1px),
         rgba(var(--grid), 1) calc((100% / #{$columns-count}) - 1px) calc((100% / #{$columns-count})),
       ),
-      rgba(var(--grid), 0.1) linear-gradient(
+      repeating-linear-gradient(
+        to right,
+        rgba(var(--grid), 0.1) 0 (100% / $columns-count),
+        rgba(var(--grid), 0.2) (100% / $columns-count) (100% / $columns-count * 2),
+      ),
+      linear-gradient(
         to right,
         rgba(var(--grid), 1) 0 1px,
         transparent 1px calc(100% - 1px),
