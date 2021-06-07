@@ -26,7 +26,7 @@ module.exports = [
       'Netlify',
     ],
     description: [
-      'I led the UI development of a feature-rich React web app with a Firestore cloud database (owned and architected by the web and iOS frontend teams) with a focus on accessibility and an engaging user experience. Whilst contributing to the code on the project, I have also been heavily involved in the decision making around the direction of the product and regularly own discussions around feature additions and improvements.',
+      'I led the UI development of a feature-rich React web app with a Firestore database (architected by the web and iOS frontend teams) with a focus on accessibility and an engaging user experience. Whilst contributing to the code on the project, I have also been heavily involved in the decision making around the direction of the product and regularly own discussions around feature additions and improvements.',
       'As a long-running engagement – with our role closer to that of an in-house product development team – we have worked closely with users and stakeholders to iterate and enhance the application, whilst always ensuring the codebase remains developer-friendly and <span class="nowrap">regression-free.</span>',
       'Throughout the project, we’ve split off to tackle smaller projects for individual events that pre-pandemic would have been in person, but needed to be adapted for digital consumption. Delivering as much of the full experience with short turn arounds was a challenge, but great opportunity to put the <abbr title="minimum viable product" class="sc">MVP</abbr> methodology into practice.',
     ],

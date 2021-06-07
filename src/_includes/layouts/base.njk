@@ -64,9 +64,9 @@
       "body-400",
       "body-600",
       "heading-600",
-      "heading-600-sc"
+      "heading-600-sc",
+      "heading-400i"
     ] %}
-    {% if hasBlockquote %}{% set webfonts = (webfonts.push("heading-400i"), webfonts) %}{% endif %}
     {% for webfont in webfonts %}<link rel="preload" href="/fonts/{{ webfont }}.woff2" as="font" type="font/woff2" crossorigin>
     {% endfor %}
 
@@ -141,20 +141,18 @@
           { weight: 600 }
         );
 
-        {% if hasBlockquote %}
-          var heading400i = new FontFace(
-            'rs-heading',
-            'url(/fonts/heading-400i.woff2) format(\'woff2\')',
-            { style: 'italic' }
-          );
-        {% endif %}
+        var heading400i = new FontFace(
+          'rs-heading',
+          'url(/fonts/heading-400i.woff2) format(\'woff2\')',
+          { style: 'italic' }
+        );
 
         Promise.all([
           body400.load(),
           body600.load(),
           heading600.load(),
-          {% if hasBlockquote %}heading400i.load(),{% endif %}
-          heading600sc.load()
+          heading600sc.load(),
+          heading400i.load()
         ]).then(function(loadedFonts) {
 
           // Render them at the same time

@@ -12,6 +12,8 @@ changes:
       - "Moved the <code>@support</code> wrapper outside of del to be valid CSS rather than Scss; thanks to <a href=\"https://twitter.com/PaulJMorel/status/1369323083149025280\">@PaulJMorel</a>."
 ---
 
+{% from "components/figure.html" import figure %}
+
 Text decoration has been around since CSS Level 1, and it works.
 
 More recently the introduction of `text-decoration-` modifying properties have allowed a greater control over the line, but there are still limitations…
@@ -22,12 +24,16 @@ I ran into this while trying to get a more aesthetic position for the strikethro
 
 The default position was too high.
 
-{% figureFull
-  "journal/better-css-strikethroughs/before.png",
-  "533x222",
-  "A screenshot showing the unbalanced strikethrough with the default text-decoration value",
-  "This doesn’t actually cross the text out because it sits at 50% of the <span class=\"nowrap\">cap-height</span>, not 50% of the <span class=\"nowrap\">x-height</span>."
-%}
+{{ figure(
+  [{
+    "src": "journal/better-css-strikethroughs/before.png",
+    "alt": "A screenshot showing the unbalanced strikethrough with the default text-decoration value",
+    "width": 533,
+    "height": 222
+  }],
+  layout="full",
+  caption="This doesn’t actually cross the text out because it sits at 50% of the <span class=\"nowrap\">cap-height</span>, not 50% of the <span class=\"nowrap\">x-height</span>."
+) }}
 
 You might ask why this matters, but these fine details are what stand in the way of something looking truly polished (not perfect mind you), so I set about fixing it!
 
@@ -45,12 +51,16 @@ del {
 }
 ```
 
-{% figureFull
-  "journal/better-css-strikethroughs/during.png",
-  "534x222",
-  "A screenshot showing the obscured line-through",
-  "The line is now correctly positioned, but the ink-skip means that it isn’t behaving as we would want it to."
-%}
+{{ figure(
+  [{
+    "src": "journal/better-css-strikethroughs/during.png",
+    "alt": "A screenshot showing the obscured line-through",
+    "width": 533,
+    "height": 222
+  }],
+  layout="full",
+  caption="The line is now correctly positioned, but the ink-skip means that it isn’t behaving as we would want it to."
+) }}
 
 ## The complete solution
 
@@ -72,12 +82,22 @@ del {
 }
 ```
 
-{% figureFull
-  ["journal/better-css-strikethroughs/before.png", "journal/better-css-strikethroughs/after.png"],
-  ["533x222", "544x219"],
-  ["A screenshot showing the unbalanced strikethrough with the default text-decoration value", "A screenshot showing the properly aligned strikethrough"],
-  "Before and after… Great success!"
-%}
+{{ figure(
+  [{
+    "src": "journal/better-css-strikethroughs/before.png",
+    "alt": "A screenshot showing the unbalanced strikethrough with the default text-decoration value",
+    "width": 533,
+    "height": 222
+  },
+  {
+    "src": "journal/better-css-strikethroughs/during.png",
+    "alt": "A screenshot showing the properly aligned strikethrough",
+    "width": 544,
+    "height": 219
+  }],
+  layout="full",
+  caption="Before and after… Great success!"
+) }}
 
 ## Caveats
 

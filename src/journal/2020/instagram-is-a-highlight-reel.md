@@ -6,6 +6,8 @@ contentWarning: This post has references to depression and mental health. It’s
 layout: post
 ---
 
+{% from "components/figure.html" import figure %}
+
 *[SAD]: Seasonal Affective Disorder
 
 We’ll start our story at Run Dem Crew housekeeping.
@@ -18,12 +20,22 @@ Charlie Dark was always adamant that social media obfuscated the truth:
 
 It’s a collection of freeze frames, moments in time that the poster as felt happy with sharing with the world (or at the very least those they have allowed to follow them).
 
-{% figureFull
-  ["journal/instagram-is-a-highlight-reel/bristol.jpg", "journal/instagram-is-a-highlight-reel/christmas.jpg"],
-  ["793x991", "793x991"],
-  ["A sunset snap of me looking out over the Clifton Suspension Bridge in Bristol", "A photo of me outside the local nurseries with a wrapped Christmas tree"],
-  "This is me in Bristol (left), most people know it as my happy place; and then again at Christmas (right), a time of year that I absolutely love."
-%}
+{{ figure(
+  [{
+    "src": "journal/instagram-is-a-highlight-reel/bristol.jpg",
+    "alt": "A sunset snap of me looking out over the Clifton Suspension Bridge in Bristol",
+    "width": 793,
+    "height": 991
+  },
+  {
+    "src": "journal/instagram-is-a-highlight-reel/christmas.jpg",
+    "alt": "A photo of me outside the local nurseries with a wrapped Christmas tree",
+    "width": 793,
+    "height": 991
+  }],
+  layout="full",
+  caption="This is me in Bristol (left), most people know it as my happy place; and then again at Christmas (right), a time of year that I absolutely love."
+) }}
 
 In both of these photos, I was going through a really rough patch – whether it was coming to terms with leaving a city I adored, or struggling with a particularly challenging bout of SAD.
 
@@ -65,14 +77,17 @@ By the end of the vacay I wanted to share a [few highlights](https://www.instagr
 
 So, what then…?
 
-{% figureInset
-  "journal/instagram-is-a-highlight-reel/striding-edge.jpg",
-  "500x667",
-  "A selfie at the end of Striding Edge in the Lake District",
-  "Here’s one of the posts that I chose to post at the end of the week.",
-  "https://www.instagram.com/p/CDZj--_HLr5/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "journal/instagram-is-a-highlight-reel/striding-edge.jpg",
+    "alt": "A selfie at the end of Striding Edge in the Lake District",
+    "width": 500,
+    "height": 667
+  }],
+  caption="Here’s one of the posts that I chose to post at the end of the week.",
+  link="https://www.instagram.com/p/CDZj--_HLr5/",
+  label="instagram.com"
+) }}
 
 If you thought that this was going to be a [delete Instagram](https://deletefacebook.com/) style post, then you’re mistaken. You’ll notice this post is peppered with links to photos I’ve posted and that’s deliberate. Deleting one network from your social streams probably doesn’t solve the problem. Understanding it and being in control of it does.
 

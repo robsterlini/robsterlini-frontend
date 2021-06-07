@@ -9,6 +9,7 @@ customCss: pages/archive.scss
 ---
 
 {% from "components/hero.html" import hero %}
+{% from "components/figure.html" import figure %}
 
 {% set children %}<p><a href="/">robsterlini.co.uk</a> has gone through a few (a lot) of revisions over time, and with some poking and prodding I’ve been able to rescue a few notable years. They’re to be consumed as seen, no fixes (other than ensuring the builds ran) were made, so be kind while you’re judging me!</p>{% endset %}
 
@@ -21,11 +22,12 @@ customCss: pages/archive.scss
         {% set yearData = archive.years[year] %}
         {% if yearData.image %}
           {% set imageAlt %}A screenshot from the {{ year }} build{% endset %}
-          {% figureInset
-            yearData.image,
-            "1280x720",
-            imageAlt
-          %}
+          {{ figure([{
+            "src": yearData.image,
+            "alt": imageAlt,
+            "width": 1280,
+            "height": 720
+          }]) }}
         {% endif %}
         <h2 id="{{ year }}" class="h2">{% if yearData.title %}<span class="lead">{{ year }}</span> {{ yearData.title | safe }}{% else %}{{ year }}{% endif %}{% anchor year %}</h2>
         {% if yearData.description or yearData.stack or yearData.type %}

@@ -5,6 +5,8 @@ description: Quarantine gave me back a bunch of commuting time; I put mine towar
 layout: post
 ---
 
+{% from "components/figure.html" import figure %}
+
 *[CI/CD]: Continuous integration/continuous delivery
 
 ‘Painting the Forth Bridge’.
@@ -21,12 +23,15 @@ The problem I've faced in the past is getting ahead of myself and trying to solv
 
 ### 1. No designing in the browser!
 
-{% figureInset
-  "journal/a-new-start/sketch.png",
-  "1514x815",
-  "A screenshot of the work-in-progress design in Sketch",
-  "You can probably see which aspects were kept from this&nbsp;design."
-%}
+{{ figure(
+  [{
+    "src": "journal/a-new-start/sketch.png",
+    "alt": "A screenshot of the work-in-progress design in Sketch",
+    "width": 1514,
+    "height": 815
+  }],
+  caption="You can probably see which aspects were kept from this&nbsp;design."
+) }}
 
 Sometimes it works, but with something where I’m the designer, developer, product owner _et al_ I find that I get too bogged down in the details so best to stick to Sketch to begin with.
 
@@ -40,12 +45,15 @@ The previous iteration had a `/work`, a `/life`, a `/contact`, custom `/404` and
 
 With a rough design down, and some potential typefaces chosen this would be the time to start agonising over creating a build pipeline, or which framework is the flavour of the month, or how to most efficiently serve the webfonts. Don’t get me wrong, they’re important… but not vital to getting a proof of concept up and running.
 
-{% figureInset
-  "journal/a-new-start/v0.png",
-  "1571x1067",
-  "A screenshot of the work-in-progress build deployed on Netlify Drop",
-  "I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
-%}
+{{ figure(
+  [{
+    "src": "journal/a-new-start/v0.png",
+    "alt": "A screenshot of the work-in-progress build deployed on Netlify Drop",
+    "width": 1571,
+    "height": 1067
+  }],
+  caption="I cannot stress how straightforward it is to get a site live on Netlify, either with the drag and drop of files, or with an actual build pipeline."
+) }}
 
 I created `~/Sites/robsterlini-2020/index.html` and just wrote classic HTML and timeless (inlined) CSS – shock, horror, it just worked! Within an hour or so I had a directory uploaded to [Netlify&nbsp;Drop](https://app.netlify.com/drop) and a testable and iterable [build](https://5ee125740fe15994a7992f3f--agitated-leavitt-bb4762.netlify.app/). It wasn’t clean, or extensible, but that wasn’t important.
 
@@ -57,12 +65,15 @@ Let’s iterate on production!
 
 There is no way to change from build pipeline to the drag and drop on Netlify for existing repositories, but that wasn’t an issue as the plan was always to get CI/CD working in the end. So, instead I faked it!
 
-{% figureInset
-  "journal/a-new-start/netlify-vanilla.png",
-  "419x428",
-  "A partial screenshot of my production settings in Netlify",
-  "Creating an automated deployment of static sites was a breeze!"
-%}
+{{ figure(
+  [{
+    "src": "journal/a-new-start/netlify-vanilla.png",
+    "alt": "A partial screenshot of my production settings in Netlify",
+    "width": 419,
+    "height": 428
+  }],
+  caption="Creating an automated deployment of static sites was a breeze!"
+) }}
 
 Here’s how it works:
 

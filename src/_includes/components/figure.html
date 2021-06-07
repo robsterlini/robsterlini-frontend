@@ -1,0 +1,61 @@
+{% macro figure(images, layout = 'inset', caption = '', link = '', label = '') %}
+
+{% set imagePreviews = [] %}
+
+{% for image in images %}
+  {% set imagePreview = false %}
+
+  {# Temporary code to enforce only using the ones that have been moved #}
+  {% if not "/" in image.src %}
+    {% set test = image.src.replace(".jpg", "") %}
+    {% set imagePreview = image.src.replace(".jpg", ".svg") %}
+    {% set imagePreview = imagePreview.replace(".png", ".svg") %}
+    {% set imagePreview = "/src/images/preview/" + imagePreview %}
+    {% set imagePreview = imagePreview | svgContents %}
+    {% set imagePreview = imagePreview.replace(
+      "<svg ",
+      "<svg role=\"presentation\""
+    ) %}
+    {% set imagePreview = imagePreview.replace("\"blur\"", test) %}
+    {% set imagePreview = imagePreview.replace(
+      "filter=\"url(#blur)\"",
+      "filter=\"url(#" + test + ")\""
+    ) %}
+  {% endif %}
+
+  {% set imagePreviews = (imagePreviews.push(imagePreview), imagePreviews) %}
+{% endfor %}
+
+<div
+  class="figure-wrapper figure-wrapper--{{ layout }}"
+  style="--figure-count: {{ images | length }};"
+>
+  <figure class="figure">
+    <div class="figure__image">
+      {%- for image in images -%}
+        <div>
+          <img
+            src="/images/source/{{ image.src }}"
+            alt="{{ image.alt or '' }}"
+            loading="lazy"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+          />
+          {%- if imagePreviews[loop.index0] -%}
+            {{ imagePreviews[loop.index0] | safe }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if caption -%}
+      <figcaption class="figure__caption">
+        {{ caption }}
+        {%- if link %}
+          &ensp;<a class="figure__link" href="{{ link }}" target="_blank" rel="noopener">{{ label or "source" }}</a>
+        {%- endif %}
+      </figcaption>
+    {%- endif -%}
+  </figure>
+</div>
+{% endmacro %}

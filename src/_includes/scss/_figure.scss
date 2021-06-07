@@ -20,20 +20,31 @@ $figure-visible-selector: '.js--figure-visible';
       margin-top: 0;
       margin-left: 5%;
       margin-right: 0;
+
+      .figure__caption {
+        width: (100% / 5 * 3);
+      }
     }
   }
 
   &--full {
     width: 100%;
+
+    @include min-width($breakpoint-small) {
+
+      .figure__caption {
+        width: (100% / 10 * 3);
+      }
+    }
   }
 
   &--overlap {
     width: 100%;
 
     @supports(width: clamp(1rem, 2rem, 3rem)) {
-      width: clamp(0rem, 92vw, 84rem);
+      width: clamp(0rem, 92vw, 80rem); // TODO: Var
       left: 50%;
-      margin-left: clamp(-42rem, -46vw, 0rem);
+      margin-left: clamp(-40rem, -46vw, 0rem); // TODO: Var
     }
 
     .figure {
@@ -48,12 +59,18 @@ $figure-visible-selector: '.js--figure-visible';
         }
       }
     }
+
+    @include min-width($breakpoint-small) {
+
+      .figure__caption {
+        margin-left: (100% / 12 * 8);
+        width: (100% / 12 * 3);
+      }
+    }
   }
 }
 
 .figure {
-  background: var(--c-hB);
-  display: table;
   overflow: hidden;
   clear: both;
   max-width: inherit;
@@ -66,13 +83,30 @@ $figure-visible-selector: '.js--figure-visible';
     opacity: var(--o-fig, 1);
     overflow: hidden;
 
-    > img {
+    > div {
+      position: relative;
+    }
+
+    img {
       display: block;
       height: auto;
       max-width: 100%;
-      width: auto;
+      width: 100%;
       position: relative;
       object-fit: cover;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 500ms ease-out;
+
+      .js--figure-visible & {
+        opacity: 0;
+      }
     }
   }
 
@@ -80,50 +114,14 @@ $figure-visible-selector: '.js--figure-visible';
     fill: currentColor;
   }
 
-  &__overlay {
-    background: currentColor;
-    color: var(--c-hB);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    transition: transform 500ms ease-out;
-
-    #{$figure-visible-selector} & {
-      transform: translateY(calc(-100% - #{$figure-angle-height}));
-    }
-
-    @media (prefers-reduced-motion) {
-      transition-property: opacity;
-      transition: opacity 500ms ease-out;
-      transform: none;
-
-      #{$figure-visible-selector} & {
-        opacity: 0;
-        transform: none;
-      }
-    }
-
-    > svg {
-      display: block;
-      width: calc(100% + 1px);
-      position: absolute;
-      height: $figure-angle-height;
-      top: 100%;
-      left: 0;
-    }
-  }
-
   &__caption {
-    background: var(--c-hB);
     color: var(--c-bS);
-    padding: 0.625em 0.667em 0.667em;
-    font-size: $paragraph-small;
+    font-family: $font-family-heading;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1rem;
+    margin: 0.5em 0 0 auto;
     line-height: $line-height-body-small;
-    display: table-caption;
-    caption-side: bottom;
     position: relative;
 
     > svg {
@@ -137,14 +135,14 @@ $figure-visible-selector: '.js--figure-visible';
       left: 0;
       margin-bottom: -0.5px; // Fixes aliasing issues in Safari
     }
-
-    > span {
-      display: block;
-      max-width: calc(42rem - #{0.667em}); // TODO: Var
-    }
   }
 
   &__link {
+
+    font-family: $font-family-body;
+    font-size: $paragraph-small;
+    font-weight: 500;
+    font-style: normal;
     color: var(--c-bS);
     font-variant-caps: small-caps;
     text-transform: lowercase;
@@ -153,24 +151,6 @@ $figure-visible-selector: '.js--figure-visible';
     &:focus {
       --link-state-color: var(--c-bC);
       color: var(--c-bC);
-    }
-  }
-}
-
-@media not all and (min-resolution:.001dpcm) {
-  @supports (-webkit-appearance:none) and (stroke-color:transparent) {
-    .figure {
-
-      &__image {
-
-        > img {
-          width: 100%;
-        }
-      }
-
-      &__caption {
-        display: block;
-      }
     }
   }
 }

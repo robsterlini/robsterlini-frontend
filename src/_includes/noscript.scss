@@ -20,23 +20,7 @@ body {
 }
 
 .nav-toggle,
-.footer .fieldset {
+.footer .fieldset,
+.figure__image svg {
   display: none;
-}
-
-.figure {
-
-  &__overlay {
-    display: none;
-  }
-
-  &__image {
-
-    > img {
-
-      &:nth-of-type(n) {
-        transform: none;
-      }
-    }
-  }
 }

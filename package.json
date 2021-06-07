@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "generate-images": "blur-up"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,18 @@
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^5.3.0",
     "node-sass": "^4.14.1",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "svg-blur-up": "^1.1.6"
   },
   "dependencies": {
+    "eleventy-plugin-svg-contents": "^0.7.0",
     "markdown-it-link-attributes": "^3.0.0"
+  },
+  "blurUp": {
+    "input": [
+      "src/images/source/**/*.jpg",
+      "src/images/source/**/*.png"
+    ],
+    "output": "src/images/preview"
   }
 }

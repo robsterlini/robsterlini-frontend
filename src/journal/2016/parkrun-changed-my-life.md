@@ -5,6 +5,8 @@ description: "The last two years have been a blur of running and self realisatio
 layout: post
 ---
 
+{% from "components/figure.html" import figure %}
+
 This post has been a long time coming.
 
 Chances are you’ve heard me speak about, tweet about, post photos of, just generally bang on about marathons, triathlons, running, swimming, cycling, eating, and everything in between. Sorry, not sorry.
@@ -13,12 +15,16 @@ Some of you might even remember me from before I started down this path, others 
 
 There are a few topless photos on the way, so apologies in advance if you’re in Instagram’s _no nipples on show_ corner, but here goes…
 
-{% figureInset
-  "journal/parkrun-changed-my-life/april-2014.jpg",
-  "768x768",
-  "A snap of me in April 2014",
-  "A very sad looking starting photo in early April 2014"
-%}
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/april-2014.jpg",
+    "alt": "A snap of me in April 2014",
+    "width": 768,
+    "height": 768 
+  }],
+  caption="A very sad looking starting photo in early April 2014"
+) }}
+
 
 ## April 2014
 
@@ -48,12 +54,16 @@ I say parkrun changed my life, but that’s not exactly true. I guess this proba
 
 When I moved to South London over a year ago now, I was in prime location for running in the center of London. This was the game changer. 20 minutes of running puts me on the Thames, and I can run through [the best city in the world](/journal/the-best-city/) for as long as I fancy before crossing the nearest bridge, and heading back home.
 
-{% figureInset
-  "journal/parkrun-changed-my-life/rpf.jpg",
-  "480x480",
-  "A photo of my mum and me before the start of the RPF Half Marathon",
-  "This wonder-woman of a mum and I cruised personal bests at the RPF Half in October 2015"
-%}
+
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/rpf.jpg",
+    "alt": "A photo of my mum and me before the start of the RPF Half Marathon",
+    "width": 480,
+    "height": 480
+  }],
+  caption="This wonder-woman of a mum and I cruised personal bests at the RPF Half in October 2015"
+) }}
 
 Last year, the two (well three) triathlons I did went [really](/journal/triathlete/) [well](/journal/the-london-triathon/), the Tough Mudder events went well, and the [Royal Parks Half Marathon](https://www.instagram.com/p/8tJztOP-yZ/?taken-by=robsterlini) went exceptionally well!
 
@@ -85,25 +95,32 @@ April 2016, a whole two years since starting this journey, she and I lined up on
 
 It was so special.
 
-{% figureFull
-  "journal/parkrun-changed-my-life/startline.jpg",
-  "1024x768",
-  "A selfie of my mum and me getting set to take on the Brighton Marathon",
-  "Running late for the start, but always time for a start-line selfie with this superstar!",
-  "https://www.instagram.com/p/BEV_jVrv-10/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/startline.jpg",
+    "alt": "A selfie of my mum and me getting set to take on the Brighton Marathon",
+    "width": 1024,
+    "height": 768
+  }],
+  layout="full",
+  caption="Running late for the start, but always time for a start-line selfie with this superstar!",
+  link="https://www.instagram.com/p/BEV_jVrv-10/",
+  label="instagram.com"
+) }}
 
 Now obviously I couldn’t let her cross the finish line without any cheering (she’d cheered me at every available finish line) so I set about getting there as fast as I could so that I could make all of the noise for her.
 
-{% figureInset
-  "journal/parkrun-changed-my-life/medal.jpg",
-  "540x540",
-  "A photo from the Tuesday after my marathon, where Charlie presented me with my medal",
-  "Every crew needs a captain, and running under Charlie’s banner has changed my life",
-  "https://www.instagram.com/p/BEZdnBPP-z2/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/medal.jpg",
+    "alt": "A photo from the Tuesday after my marathon, where Charlie presented me with my medal",
+    "width": 540,
+    "height": 540
+  }],
+  caption="Every crew needs a captain, and running under Charlie’s banner has changed my life",
+  link="https://www.instagram.com/p/BEZdnBPP-z2/",
+  label="instagram.com"
+) }}
 
 And I did.
 
@@ -125,12 +142,15 @@ So my mum changed my life? I’m starting to lose track…
 
 It’s been a while now since I ran that race, but I’ve not quite found the right words (and I’m still not sure that I have, but they’ll have to do).
 
-{% figureInset
-  "journal/parkrun-changed-my-life/progress.jpg",
-  "1024x1024",
-  "A photo from 2014, and a photo from now",
-  "It’s been a long way to here, and we’re not done&nbsp;yet"
-%}
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/progress.jpg",
+    "alt": "A photo from 2014, and a photo from now",
+    "width": 1024,
+    "height": 1024
+  }],
+  caption="It’s been a long way to here, and we’re not done&nbsp;yet"
+) }}
 
 I went back to Derby to take on the Jenson Button Trust Triathlon again – and I loved it (again)!
 
@@ -152,14 +172,18 @@ And I’d be lying if there wasn't a more selfish reason too. I like where I’m
 
 Oh, and the idea of an Ironman is very much something that I want to have a go at!
 
-{% figureFull
-  "journal/parkrun-changed-my-life/jbtt.jpg",
-  "1024x762",
-  "Three photos of my swim, bike, and run at Jenson Button Trust Triathlon",
-  "What a day that was!",
-  "https://www.instagram.com/p/BEZdnBPP-z2/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "journal/parkrun-changed-my-life/jbtt.jpg",
+    "alt": "Three photos of my swim, bike, and run at Jenson Button Trust Triathlon",
+    "width": 1024,
+    "height": 762
+  }],
+  layout="full",
+  caption="What a day that was!",
+  link="https://www.instagram.com/p/BEZdnBPP-z2/",
+  label="instagram.com"
+) }}
 
 So, in short…
 

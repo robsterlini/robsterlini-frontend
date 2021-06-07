@@ -6,6 +6,8 @@ description: 12 July saw me tackle two turbo triathlons in a bid to experience a
 layout: post
 ---
 
+{% from "components/figure.html" import figure %}
+
 ## Why triathlon?
 
 When I signed up for [The London Triathlon](/triathlon/#the-london-triathlon "Read about my reasons for doing The London Triathlon"), I had no experience in the sport. At&nbsp;all.
@@ -18,14 +20,19 @@ I’m still not entirely sure. I was asked by my PT at the time if I had a goal 
 
 Triathlon was perfect.
 
-{% figureInset
-  "journal/triathlete/reservoir.jpg",
-  "640x640",
-  "A snap of me on on a sunny day at the reservoir",
-  "Swimming in a reservoir is made easier by the Huub Archimedes wetsuit!",
-  "https://instagram.com/p/3lTk5Gv-4L/",
-  "instagram.com"
-%}
+{% from "components/figure.html" import figure %}
+
+{{ figure(
+  [{
+    "src": "triathlete-reservoir.jpg",
+    "alt": "A snap of me on on a sunny day at the reservoir",
+    "width": 640,
+    "height": 640
+  }],
+  caption="Swimming in a reservoir is made easier by the Huub Archimedes wetsuit!",
+  link="https://instagram.com/p/3lTk5Gv-4L/",
+  label="instagram.com"
+) }}
 
 ### How do you prepare for a triathlon?
 
@@ -47,12 +54,15 @@ Here it is.
 
 My first triathlon.
 
-{% figureInset
-  "journal/triathlete/bike-racked.jpg",
-  "500x667",
-  "A photo of my bike, hanging on the rack",
-  "Chrissy just hanging out before the big event."
-%}
+{{ figure(
+  [{
+    "src": "triathlete-bike-racked.jpg",
+    "alt": "A photo of my bike, hanging on the rack",
+    "width": 500,
+    "height": 667
+  }],
+  caption="Chrissy just hanging out before the big event."
+) }}
 
 ### Racking the bike
 
@@ -80,14 +90,18 @@ Here’s where it got interesting.
 
 We’d not anticipated the amount of rain that had come down already, and it was still peppering the road with water.
 
-{% figureInset
-  "journal/triathlete/scraped-side.jpg",
-  "480x480",
-  "A photo of my scraped side after the fall",
-  "No race is complete without war wounds, right?",
-  "https://instagram.com/p/5CD89iv-03/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "triathlete-scraped-side.jpg",
+    "alt": "A photo of my scraped side after the fall",
+    "width": 480,
+    "height": 480
+  }],
+  caption="No race is complete without war wounds, right?",
+  link="https://instagram.com/p/5CD89iv-03/",
+  label="instagram.com"
+) }}
+
 
 I probably should have been riding a bit slower, given the conditions, but try telling that to the adrenalin-fuelled, not-quite-thinking Rob who was powering through trying to make up time for the poor swim.
 
@@ -101,14 +115,18 @@ I dusted myself off, reattached the necessary parts, and got back on the bike wi
 
 I’d be lying if I said there weren’t any tears.
 
-{% figureInset
-  "journal/triathlete/the-run.jpg",
-  "480x480",
-  "A photo of me exiting T2 and into the run",
-  "Leg day, all day!",
-  "https://instagram.com/p/5CkZiTv-1s/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "triathlete-the-run.jpg",
+    "alt": "A photo of me exiting T2 and into the run",
+    "width": 480,
+    "height": 480
+  }],
+  caption="Leg day, all day!",
+  link="https://instagram.com/p/5CkZiTv-1s/",
+  label="instagram.com"
+) }}
+
 
 ### The run
 
@@ -132,12 +150,16 @@ All in all, it felt amazing to have pushed through and bettered each of the disc
 
 The tears of pain from the first time round came back again, but as those ‘can’t stop myself welling up, I’m so happy’ kind of tears.
 
-{% figureFull
-  "journal/triathlete/finish-line.jpg",
-  "1086x724",
-  "A photo of me at the finish line",
-  "Pushing myself over the line in the morning’s final leg"
-%}
+{{ figure(
+  [{
+    "src": "triathlete-finish-line.jpg",
+    "alt": "A photo of me at the finish line",
+    "width": 1086,
+    "height": 724
+  }],
+  layout="full",
+  caption="Pushing myself over the line in the morning’s final leg"
+) }}
 
 ## The experience
 
@@ -155,12 +177,16 @@ The Jenson Button Trust Triathlon itself was amazing, well run (minus a few blip
 
 Overall, it was just sensational.
 
-{% figureInset
-  "journal/triathlete/super-mum.jpg",
-  "441x507",
-  "A quick selfie with my mum before the triathlons got under way",
-  "Couldn’t have done it without her, and the unwavering support from the rest of the famiglia Sterlini!"
-%}
+{{ figure(
+  [{
+    "src": "triathlete-super-mum.jpg",
+    "alt": "A quick selfie with my mum before the triathlons got under way",
+    "width": 441,
+    "height": 507
+  }],
+  caption="Couldn’t have done it without her, and the unwavering support from the rest of the famiglia Sterlini!"
+) }}
+
 
 ## Thanks
 
@@ -172,11 +198,15 @@ Thanks everyone.
 
 Onto the next one!
 
-{% figureOverlap
-  "journal/triathlete/champion.jpg",
-  "940x682",
-  "A photo of me with my bike above my head, and my medal in my hand!",
-  "An obligatory bike-above-head, medal photo before heading home with all the DOMs",
-  "https://instagram.com/p/5Cofm6v--t/",
-  "instagram.com"
-%}
+{{ figure(
+  [{
+    "src": "triathlete-champion.jpg",
+    "alt": "A photo of me with my bike above my head, and my medal in my hand!",
+    "width": 940,
+    "height": 682
+  }],
+  layout="overlap",
+  caption="An obligatory bike-above-head, medal photo before heading home with all the DOMs",
+  link="https://instagram.com/p/5Cofm6v--t/",
+  label="instagram.com"
+) }}

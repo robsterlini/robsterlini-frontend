@@ -1,6 +1,6 @@
-const sass = require('node-sass');
 const htmlmin = require('html-minifier');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const svgContents = require("eleventy-plugin-svg-contents");
 
 const { input, output } = require('./config/constants.js');
 const scssConfig = require('./config/scss.js');
@@ -8,7 +8,6 @@ const markdownConfig = require('./config/markdown.js');
 const { getJournalLink } = require('./config/journal.js');
 const getTweet = require("./config/shortcodes/tweet.js");
 
-const figureShortcode = require('./config/shortcodes/figure.js');
 const anchorShortcode = require('./config/shortcodes/anchor.js');
 const {
   journalEntry: journalEntryShortcode,
@@ -24,6 +23,7 @@ module.exports = function(eleventyConfig) {
 
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(svgContents);
 
   // Collections
   const getAllEntries = (collectionApi, excludeExternal = false) => {
@@ -60,9 +60,6 @@ module.exports = function(eleventyConfig) {
   });
 
   // Shortcodes
-  eleventyConfig.addShortcode('figureInset', (...args) => figureShortcode(args, { layout: 'inset' }));
-  eleventyConfig.addShortcode('figureFull', (...args) => figureShortcode(args, { layout: 'full' }));
-  eleventyConfig.addShortcode('figureOverlap', (...args) => figureShortcode(args, { layout: 'overlap' }));
   eleventyConfig.addShortcode('anchor', anchorShortcode);
   eleventyConfig.addShortcode('journalEntry', journalEntryShortcode);
   eleventyConfig.addShortcode('journalEntryShort', journalEntryShortShortcode);
@@ -118,6 +115,8 @@ module.exports = function(eleventyConfig) {
   filesToCopy.forEach(file => {
     eleventyConfig.addPassthroughCopy(file);
   });
+
+  eleventyConfig.addWatchTarget("./config/**/*");
 
   return {
     dir: {

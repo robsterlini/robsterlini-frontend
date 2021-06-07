@@ -9,13 +9,18 @@ customCss: pages/about.scss
 ---
 
 {% from "components/hero.html" import hero %}
+{% from "components/figure.html" import figure %}
 
-{% set children %}{% figureInset
-  "journal/instagram-is-a-highlight-reel/striding-edge.jpg",
-  "500x667",
-  "A selfie at the end of Striding Edge in the Lake District",
-  ""
-%}{% endset %}
+{% set children %}
+{{ figure(
+  [{
+    "src": "instagram-is-a-highlight-reel-striding-edge.jpg",
+    "alt": "A selfie at the end of Striding Edge in the Lake District",
+    "width": 500,
+    "height": 667
+  }]
+) }}
+{% endset %}
 
 {{ hero(heroTitle, header=heroHeader, children=children | safe) }}
 
@@ -24,19 +29,20 @@ customCss: pages/about.scss
     <div class="about__section--dev">
       <h2 class="h2 mt0 about__pad-image"><span class="lead">I’m not just a…</span> <span class="ttu">f</span>rontend developer</h2>
       <p>What I do doesn’t define who I am! Sure, by day I’m a frontend developer at, but there are more strings to my&nbspbow. If that’s what you’re here for, you can <a href="/work">read about my work</a> to find out&nbsp;more.</p>
-
-      {# Frontend developer, typography enthusiast, amateur triathlete, & lego master builder. #}
     </div>
 
     <h2 class="h2"><span class="lead">I value being…</span> <span class="ttu">a</span>way from the keyboard</h2>
 
     <h3 class="h3" id="triathlon">An amateur triathlete{% anchor 'triathlon' %}</h3>
 
-    {% figureInset
-      "about/weymouth.jpg",
-      "819x1024",
-      "Crossing the finish line of Ironman 70.3 Weymouth"
-    %}
+    {{ figure(
+      [{
+        "src": "about-weymouth.jpg",
+        "alt": "Crossing the finish line of Ironman 70.3 Weymouth",
+        "width": 819,
+        "height": 1024
+      }]
+    ) }}
 
     <p>For me there are fewer better ways to spend an afternoon than striking out on a long bike ride. It’s a way to keep healthy – physically and mentally, experience new places, and to push myself.</p>
     <p>I discovered how much I love cycling when I moved back to London in 2014 and set about getting healthier by way of completing my first triathlon; and in 2015 <a href="/journal/2015/triathlete/">I did just that</a>.</p>
@@ -49,12 +55,25 @@ customCss: pages/about.scss
     <p>Even though I’m a London city-boy at heart, I’ve always enjoyed hiking, camping and the great outdoors, and we’re spoilt with places to enjoy those in the&nbsp;UK.</p>
     <p>In early 2019, I <a href="https://www.instagram.com/p/BwP6YTDg5NB/" target="_blank" rel="noopener">qualified</a> as a PADI open water diver, and have since put that into practice in <a href="https://www.instagram.com/p/B7_0MLWn_ii/" target="_blank" rel="noopener">Costa Rica</a> – I can safely say that <a href="https://www.instagram.com/p/B8CZ4zBnlPU/" target="_blank" rel="noopener">spotting 15 foot manta rays</a> is one of the highlights of the time I’ve had on this earth thus&nbsp;far!</p>
 
-    {% figureOverlap
-      ["about/ski.jpg", "about/scuba.jpg", "about/hiking.jpg"],
-      ["650x734", "650x734", "650x734"],
-      ["", "", ""],
-      "Pretty outdoors-y for a city boy!"
-    %}
+    {{ figure(
+      [{
+        "src": "about-ski.jpg",
+        "width": 650,
+        "height": 734
+      },
+      {
+        "src": "about-scuba.jpg",
+        "width": 650,
+        "height": 734
+      },
+      {
+        "src": "about-hiking.jpg",
+        "width": 650,
+        "height": 734
+      }],
+      layout="overlap",
+      caption="A lot of outdoors for a city boy!"
+    ) }}
 
     <h2 class="h2"><span class="lead">Deep down, I’m a…</span> <span class="ttu">C</span>reator</h3>
 
