@@ -1,7 +1,7 @@
 @import 'scss/mixins';
 
 .project {
-  margin-top: calc(var(--spacing) / 2);
+  margin-top: var(--spacing);
 
   @include min-width($breakpoint-large) {
     display: grid;
@@ -10,34 +10,8 @@
     grid-template-rows: auto auto 1fr;
   }
 
-  &__logo {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 1rem;
-    min-height: 4rem;
-
-    svg {
-      width: auto;
-      height: 1.5rem;
-      height: var(--logo-height, 1.5rem);
-      max-width: 100%;
-    }
-
-    path {
-      fill: var(--c-bS);
-    }
-  }
-
-  &__client {
-    font-weight: $font-weight-body-bold;
-
-    &:not(:last-child) {
-
-      &::after {
-        content: ', ';
-      }
-    }
+  &__date {
+    color: var(--c-bS);
   }
 
   &__details {
@@ -46,7 +20,7 @@
 
   &__description {
     grid-column: 5 / -1;
-    grid-row: 2 / span 2;
+    grid-row: 1 / span 3;
 
     > :first-child {
       margin-top: 0.25em; // Aligns the text with the title on the left
@@ -60,18 +34,9 @@
   &__links {
     margin-top: 1rem;
     grid-column: 1 / span 3;
-  }
 
-  // Variants
-  &--tony-robbins {
-    --logo-height: 1.25rem;
-  }
-
-  &--fueled {
-    --logo-height: 2.5rem;
-  }
-
-  &--apple {
-    --logo-height: 3.25rem;
+    @include min-width($breakpoint-large) {
+      margin-top: 0;
+    }
   }
 }

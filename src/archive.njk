@@ -1,7 +1,7 @@
 ---
 metaTitle: Archive
-heroHeader: A site’s history
-heroTitle: "The iterative life of a personal site."
+heroHeader: An archive of old posts and iterations
+heroTitle: "A blast from the past!"
 layout: default
 sitemap_priority: 0.8
 nav: about
@@ -16,6 +16,17 @@ customCss: pages/archive.scss
 
 <main class="main">
   <div class="group group--thin links--external">
+    <h2 class="h2 mt0" id="journal">Journal entries{% anchor "journal" %}</h2>
+    <ul class="list--ul">
+      {% for entry in collections.entries %}
+        <li>
+          {% journalEntryShort entry %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h2 class="h2" id="iterations">Previous iterations{% anchor "iterations" %}</h2>
+
     {% for year in archive.order %}
       <div class="year">
         {% set yearData = archive.years[year] %}

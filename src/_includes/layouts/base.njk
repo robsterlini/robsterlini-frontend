@@ -17,6 +17,8 @@
     <meta name="description" content="{{ metaDescription }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
+    <meta name="theme-color" data-light="#19161c" data-dark="#110e14" content="#fcfbfb">
+
     {% if not metaImageTitle %}
       {% set metaImageTitle %}{{ heroTitle if heroTitle else "Rob Sterlini" }}{% endset %}
     {% endif %}
@@ -174,7 +176,41 @@
         const contrastPreferenceSelect = document.getElementById('contrast-preference');
         const gridPreferenceSelect = document.getElementById('grid-preference');
 
+        let lightMode;
+        if (window.matchMedia) {
+          lightMode = window.matchMedia('(prefers-color-scheme: light)');
+          const highContrast = window.matchMedia('(prefers-contrast: high)');
+
+          function setAutoPreferenceAutoLabel(preferenceSelect, label) {
+            preferenceSelect[0].innerText = 'Auto (' + label + ')';
+          }
+
+          lightMode.addListener(function(e) {
+            setAutoPreferenceAutoLabel(colorPreferenceSelect, e.matches);
+          });
+
+          highContrast.addListener(function(e) {
+            setAutoPreferenceAutoLabel(contrastPreferenceSelect, e.matches);
+          });
+
+          setAutoPreferenceAutoLabel(colorPreferenceSelect, lightMode.matches ? 'Light' : 'Dark');
+          setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
+        }
+
+        const themeColorMeta = document.querySelector('[name="theme-color"]');
+
         function setPreference(name, value) {
+          if (name === "color") {
+            let newThemeColor;
+            if (value === "auto") {
+              newThemeColor = lightMode ? "light" : "dark";
+            } else {
+              newThemeColor = value;
+            }
+
+            themeColorMeta.setAttribute('content', themeColorMeta.dataset[newThemeColor]);
+          }
+
           localStorage.setItem(name + '-preference', value);
           document.documentElement.dataset[name + 'Preference'] = value;
         }
@@ -194,26 +230,6 @@
         gridPreferenceSelect.addEventListener('change', function(e) {
           setPreference('grid', e.target.value);
         });
-
-        if (window.matchMedia) {
-          const lightMode = window.matchMedia('(prefers-color-scheme: light)');
-          const highContrast = window.matchMedia('(prefers-contrast: high)');
-
-          function setAutoPreferenceAutoLabel(preferenceSelect, label) {
-            preferenceSelect[0].innerText = 'Auto (' + label + ')';
-          }
-
-          lightMode.addListener(function(e) {
-            setAutoPreferenceAutoLabel(colorPreferenceSelect, e.matches);
-          });
-
-          highContrast.addListener(function(e) {
-            setAutoPreferenceAutoLabel(contrastPreferenceSelect, e.matches);
-          });
-
-          setAutoPreferenceAutoLabel(colorPreferenceSelect, lightMode.matches ? 'Light' : 'Dark');
-          setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
-        }
 
         const colorPreference = getPreference('color');
         const contrastPreference = getPreference('contrast');

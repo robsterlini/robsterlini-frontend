@@ -12,36 +12,35 @@ customCss: pages/work.scss
 {% from "components/hero.html" import hero %}
 
 {% set heroChildren %}
-  <ul class="list--btns">
+  {# <ul class="list--btns">
     <li><a href="/cv" download>Download my <abbr class="sc" title="Curriculum Vitae">CV</abbr></a></li>
-  </ul>
+  </ul> #}
 {% endset %}
 
 {{ hero(heroTitle, header=heroHeader, children=heroChildren | safe) }}
 
 <main class="main links--external">
-  <div class="group">
-    <h2 class="h2 mt0"><span class="lead">A few standout projects</span> The ones I tell my mum about</h2>
+  <div class="group group--thin">
+    <h2 class="h2 mt0" id="zoopla"><span class="lead">Nov 2021–present</span> Zoopla{% anchor "zoopla" %}</h2>
+    <p>After nearly eight years living the agency life, it was time to switch it up and move into the world of the single product.</p>
+    <p>Check back soon to see how I'm getting on, or <a href="{{ global.links.contact.link }}">get in touch if you’re curious</a>.<p>
+
+    <h2 class="h2" id="fueled"><span class="lead">Jul 2014–Nov 2021</span> Fueled{% anchor "fueled" %}</h2>
+  {# </div> #}
+
+  {#<div class="group">
+    <h2 class="h2 mt0"><span class="lead">Work at Fueled</span> The projects I tell my mum about</h2>
 
     {% for project in work %}
-      <div class="project project--{{ project.slug }}">
-        <div class="project__logo" aria-hidden="true">
-          {% if project.logo %}
-            {{ project.logo | safe }}
-          {% endif %}
-        </div>
+      <div class="project">
         <div class="project__details">
-          <h3 class="h3 mt0">{{ project.title or project.client }}</h3>
+          <h3 class="h3 mt0">
+            {{ project.client }}
+            {% if project.date %}
+              <span class="project__date nowrap"> {{ project.date }}</span>
+            {% endif %}
+          </h3>
           <dl class="p">
-            <div>
-              {% if project.title %}
-                <dd class="sr-only">Client</dd> <dt class="project__client">{{ project.client }}</dt>
-              {% endif %}
-              {% if project.date %}
-                <dd class="sr-only">Date</dd> <dt class="nowrap">{{ project.date }}</dt>
-              {% endif %}
-            </div>
-
             {% if project.stack %}
               <div>
                 <dd class="sr-only">Stack</dd> <dt>{{ project.stack.join(', ') | safe }}</dt>
@@ -65,17 +64,22 @@ customCss: pages/work.scss
         {% endif %}
       </div>
     {% endfor %}
-  </div>
+  </div>#}
 
-  <div class="group group--thin">
-    <h2 class="h2"><span class="lead">There’s more…</span> The best of the rest</h2>
+  {# <div class="group group--thin"> #}
+    {# <h2 class="h2"><span class="lead">There’s more…</span> The best of the rest</h2> #}
 
-    <p>Having spent the better part of a decade at Fueled, I’ve worked on a wide range of projects with clients including <a href="https://bigpoint.net" target="_blank" rel="noopener">Bigpoint</a>, <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, <a href="https://svclnk.com" target="_blank" rel="noopener">ServiceLink</a>, and <a href="https://omstars.com" target="_blank" rel="noopener">Omstars</a>. You can check out my <a href="/cv" download><abbr class="sc" title="curriculum vitae">CV</abbr></a> for the other parts of my role over the years.</p>
-    <p>Just after graduating, the <strong>University of Reading</strong> in-house digital team were looking for a creative developer to redesign and redevelop the core website experience. For a year, I worked closely with almost every department in the university and, in 2014, I shipped the new site. It is still in use today on the <a href="https://rdg.ac.uk/library" target="_blank" rel="noopener">library homepage</a> and other integral parts of the prospective student journey.</p>
+    <p>Having spent the better part of a decade at Fueled, I’ve worked on a wide range of projects with clients including <strong>Apple</strong>, <strong>Tony&nbsp;Robbins</strong>, <strong>Vanity Fair</strong>, <strong>Pinterest</strong>, <a href="https://svclnk.com" target="_blank" rel="noopener">ServiceLink</a>, <a href="https://bigpoint.net" target="_blank" rel="noopener">Bigpoint</a>, and&nbsp;<a href="https://omstars.com" target="_blank" rel="noopener">Omstars</a>.{# You can check out my <a href="/cv" download><abbr class="sc" title="curriculum vitae">CV</abbr></a> for the other parts of my role over the years.#}</p>
+    <p>Having joined as a designer in 2014, I grew with the team, transitioned into a frontend role, and was a driving force in the creation of a Web Engineering Department. I had the great honour of mentoring and managing some fantastic enginners, and thoroughly enjoyed my time there.</p>
+
+    <h2 class="h2" id="freelance">Freelance &amp; before{% anchor "freelance" %}</h2>
+
+    <p>After graduating I was approached by the <strong>University of Reading</strong> who were looking for a creative developer to improve the applicant funnel of the university website. I worked with a small team to realign the design with the upcoming brand change, and to rebuild the core pages to be more versatile and more widely applicable across the university website.  It is still in use today on the <a href="https://rdg.ac.uk/library" target="_blank" rel="noopener">library homepage</a> and other integral parts of the prospective student journey.</p>
     <p>In a freelance capacity; I’ve built agency web presences for <a href="https://kickpush.co" rel="noopener" target="_blank">Kickpush</a>, rebranded sports journalists like Hotspur Related, and in 2013 I recorded an Envato Tuts+ course on <a href="https://webdesign.tutsplus.com/courses/responsive-web-design-techniques">Responsive web design techniques</a>. Other clients include <a href="https://www.unifie.com/" target="_blank" rel="noopener">Unifie</a>, and <a href="http://www.lodge192.com/" target="_blank" rel="noopener">Lion &amp; Lamb Lodge</a>.</p>
     <p>There are also fun side projects – like my dad’s <a href="https://ourdadmakes.pizza" target="_blank" rel="noopener">pizza recipe birthday microsite</a> and a <a href="http://legonotlegos.com" target="_blank" rel="noopener"><span class="sc">LEGO</span> naming pointer</a>.</p>
 
-    <h2 class="h2">Let’s chat!</h2>
-    <p class="mb0">If you’ve got a cool project you’d like me to build or you think my work experience makes me a good fit for your organisation, <a href="/contact">reach out!</a></p>
+    <ul class="list--btns">
+      <li>Got a freelance opportunity? <a href="{{ global.links.contact.link }}">Let’s chat</a></li>
+    </ul>
   </div>
 </main>

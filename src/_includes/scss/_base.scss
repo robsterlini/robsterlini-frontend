@@ -48,6 +48,7 @@ html {
   --c-strava: #{$c-strava};
   --c-twitter: #00ACEE;
   --c-youtube: #FF0000;
+  --c-mind: #2500c1;
 
   @include min-width($breakpoint-small) {
     --spacing: calc(1rem + 2vw);
@@ -80,6 +81,7 @@ html {
   --c-linkedin: #{lighten($c-linkedin, 10%)};
   --c-strava: #{mix($c-strava, yellow, 90%)}; // Mix Strava with yellow to avoid it going too beige
   --c-codepen: #FEFEFE;
+  --c-mind: #9aa8ff;
 }
 
 @mixin light-colors {
@@ -255,6 +257,10 @@ body {
   --link-color: var(--c-youtube);
 }
 
+[href="/fundraising"] {
+  --link-color: var(--c-mind);
+}
+
 [id] {
   scroll-margin-top: calc(#{$nav-height: 2.5rem;} + 1em);
   scroll-margin-bottom: 4rem;
@@ -354,6 +360,7 @@ a,
   @include link-external;
 }
 
+
 .links--external [href^="https://"],
 .links--external [href^="http://"] {
   @include link-external;
@@ -414,6 +421,7 @@ a,
     text-decoration-color: var(--c-bC) !important;
   }
 
+  .link--external &,
   .link--external[href^="https://"] &,
   .link--external[href^="http://"] & {
     @include link-external;
