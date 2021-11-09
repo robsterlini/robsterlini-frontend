@@ -294,6 +294,21 @@
     }
   }
 
+  .nav-list__link--mind {
+
+    span {
+      text-decoration: none;
+    }
+  }
+
+  &,
+  &:hover,
+  &:focus-within {
+    .nav-list__link--mind {
+      color: var(--c-mind);
+    }
+  }
+
   a {
 
     &:focus-visible {
