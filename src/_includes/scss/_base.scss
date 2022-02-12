@@ -25,6 +25,7 @@ $c-fueled: #AE0000;
 $c-netlify: #15847D;
 $c-strava: #FC4C02;
 $c-linkedin: #0077B5;
+$c-zoopla: #8046F1;
 
 html,
 body {
@@ -40,6 +41,7 @@ html {
   --c-codepen: #1E1F26;
   --c-envato: #82b541;
   --c-fueled: #{$c-fueled};
+  --c-zoopla: #{$c-zoopla};
   --c-github: #0366D6;
   --c-instagram: #F00075;
   --c-linkedin: #{$c-linkedin};
@@ -76,6 +78,7 @@ html {
   --c-cA: #{lighten($c-dark-header-accent, 10%)}; // Contrast accent
 
   --c-fueled: #{lighten($c-fueled, 10%)};
+  --c-zoopla: #{lighten($c-zoopla, 15%)};
   --c-github: #79B8FF;
   --c-netlify: #{lighten($c-netlify, 10%)};
   --c-linkedin: #{lighten($c-linkedin, 10%)};
@@ -218,6 +221,10 @@ body {
 
 [href*="fueled.com"] {
   --link-color: var(--c-fueled);
+}
+
+[href*="zoopla.co.uk"] {
+  --link-color: var(--c-zoopla);
 }
 
 [href*="tutsplus.com"] {
