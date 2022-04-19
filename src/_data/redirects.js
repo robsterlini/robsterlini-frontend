@@ -2,21 +2,23 @@ const global = require('./global.js')();
 const links = global.links;
 const social = global.social;
 
+console.log(links);
+
 module.exports = () => ({
   '301': {
-    '/life': links.home,
-    '/about': links.home,
-    '/cv': links.work,
-    '/resume': links.work,
-    '/curriculum-vitae': links.work,
-    '/site-history': links.archive,
-    '/journal': links.archive,
-    '/journal/archive': links.archive,
-    '/journal/past': links.archive,
-    '/journal/dev': links.archive,
-    '/journal/typography': links.archive,
-    '/journal/type': links.archive,
-    '/journal/life': links.archive,
+    '/life': links.home.link,
+    '/about': links.home.link,
+    '/cv': links.work.link,
+    '/resume': links.work.link,
+    '/curriculum-vitae': links.work.link,
+    '/site-history': links.archive.link,
+    '/journal': links.archive.link,
+    '/journal/archive': links.archive.link,
+    '/journal/past': links.archive.link,
+    '/journal/dev': links.archive.link,
+    '/journal/typography': links.archive.link,
+    '/journal/type': links.archive.link,
+    '/journal/life': links.archive.link,
     '/fundraising': social.justgiving,
     '/triathlon': '/2015/triathlete'
   },
