@@ -1,34 +1,56 @@
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  pointer-events: none;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
+.banner {
+  background: var(--c-mind);
+  color: var(--c-bB);
+  position: relative;
+  z-index: 9999;
+  padding: 0.25em 0;
 
-  .js--menu & {
+  &__text {
+    max-width: none;
+    margin: 0 0 0.25em;
+    text-align: center;
 
-    .nav-list {
+    &--mobile {
+      @include min-width($breakpoint-small) {
+        display: none;
+      }
+    }
+    &--desktop {
+      @include max-width($breakpoint-small) {
+        display: none;
+      }
+    }
 
-      &,
-      a::after {
-        transform: none;
+    a {
+      display: inline-block;
+      color: currentColor;
+      text-decoration-color: currentColor;
+
+      &:not(:hover) {
+        text-decoration-color: transparent;
       }
     }
   }
 }
 
-.nav-logo-wrapper {
-  animation: nav 400ms $hero-transition-duration ease-in-out both var(--font-loaded-animations);
+.nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  pointer-events: none;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.nav-logo-wrapper {
+  animation: nav 400ms $hero-transition-duration ease-in-out both
+    var(--font-loaded-animations);
   position: relative;
   z-index: 10;
-  height: 6.25rem;
-  margin-bottom: -6.25rem;
+  height: 4rem;
+  margin-bottom: -4rem;
 
   @keyframes nav {
     0% {
@@ -53,83 +75,37 @@
   }
 }
 
-.nav-toggle {
-  box-sizing: border-box;
-  appearance: none;
-  background: var(--c-hB);
-  display: flex;
-  color: var(--c-bA);
-  font-family: inherit;
-  font-weight: 500;
-  pointer-events: auto;
-  line-height: 1;
-  height: 44px;
-  border-radius: 0;
-  border: 2px solid var(--c-bD);
-  position: fixed;
-  bottom: 4vw;
-  right: 4vw; // 92%
-  width: 44px;
-  z-index: 999;
-
-  // Magic numbers come from the values from 4vw
-  @include min-width(600) {
-    bottom: 24px;
-  }
-
-  @include min-width(1650) {
-    left: calc(50% + 40rem - 44px);
-    right: auto;
-  }
-
-  &:focus {
-    border-color: currentColor;
-    outline: none;
-  }
-
-  > svg {
-    display: block;
-    margin: auto;
-    overflow: visible;
-  }
-
-  path {
-    fill: currentColor;
-    transform-origin: center center;
-    transition: transform 250ms ease-in-out;
-
-    .js--menu & {
-      transform: rotate(90deg);
-    }
-  }
-
-  @media (hover: hover) and (pointer: fine) and (min-width: #{$breakpoint-small / 16 * 1em}) {
-    display: none;
-  }
-}
-
 .nav-logo {
   color: var(--c-hB);
-  display: inline-block;
   pointer-events: auto;
-  padding: 1.25em 0.25em 0.75em;
   margin-bottom: -0.75em;
   text-decoration: none;
   transition: 250ms ease-in-out;
   transition-property: color, transform;
   font-family: $font-family-heading;
   line-height: 1.2;
-  font-size: 1.25rem;
+  font-size: 0.9375rem;
   transform: translateY(-0.25em);
-  width: 2.25em;
+  padding-top: 0.0625em;
+  width: 2.5em;
+  height: 3em;
   text-align: center;
-  position: absolute;
-  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include min-width($breakpoint-small) {
+    font-size: 1.1875rem;
+  }
+
+  @include min-width(768) {
+    font-size: 1.25rem;
+  }
 
   &::before,
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     top: -0.25em;
     left: 0;
     width: 100%;
@@ -145,9 +121,7 @@
 
   &::after {
     background: var(--c-bA);
-    transition:
-      background 125ms ease-in-out,
-      opacity 250ms ease-in-out;
+    transition: background 125ms ease-in-out, opacity 250ms ease-in-out;
   }
 
   &:hover,
@@ -166,7 +140,6 @@
   }
 
   &:focus {
-
     &::after {
       outline: var(--c-bS) 1px dotted;
     }
@@ -174,8 +147,6 @@
 
   &:focus:not(:focus-visible),
   &:focus-visible {
-    // background: none;
-
     &::after {
       outline: none;
     }
@@ -183,7 +154,6 @@
 
   &:focus-visible {
     background: none;
-    // color: var(--c-bC);
 
     &::after {
       background: var(--c-bH);
@@ -221,42 +191,59 @@
     }
   }
 
-  @include max-width(480) {
-    transform: translateY(calc(-100% + 2px));
-    transition: transform 350ms ease-in-out;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
   .group {
     box-sizing: border-box;
-    display: grid;
-    grid-gap: 1rem;
+    display: flex;
     flex-wrap: wrap;
     list-style: none;
-    padding-left: 0;
     margin: auto;
-    padding-right: 4.5rem;
-    text-align: left;
+    padding-left: 3.5rem;
 
     @include min-width($breakpoint-small) {
+      display: grid;
       grid-template-columns: repeat(12, 1fr);
-      padding-right: 0;
       grid-gap: 0;
+      padding-left: 0;
+    }
+  }
 
-      li {
-        grid-column: span 2;
-      }
+  .radiogroup {
+    justify-self: flex-end;
+    margin-left: auto;
+    margin-bottom: -2px;
+
+    @include max-width(360) {
+      display: none;
+    }
+    @include min-width($breakpoint-small) {
+      grid-column: 9 / -1;
+    }
+    @include min-width($breakpoint-large) {
+      grid-column: 10 / -1;
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include min-width($breakpoint-small) {
+      grid-column: 3 / span 6;
+    }
+
+    @include min-width($breakpoint-large) {
+      display: grid;
+      gap: 0;
+      grid-column: 2 / span 6;
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
   li {
     margin-left: 0;
-  }
-
-  ul {
-    padding: 0;
-    list-style: none;
   }
 
   a {
@@ -267,8 +254,8 @@
     text-decoration: none;
     color: var(--c-bC);
 
-    @include min-width($breakpoint-small) {
-      color: var(--c-bS);
+    &:hover {
+      color: var(--c-bA);
     }
 
     span {
@@ -282,37 +269,28 @@
     }
   }
 
-  &:hover,
-  &:focus-within {
+  .nav-list__item--mind {
+    @include max-width($breakpoint-small) {
+      display: none;
+    }
 
     a {
-      color: var(--c-bC);
-
-      &:hover {
-        color: var(--c-bA);
+      span {
+        text-decoration: none;
       }
-    }
-  }
-
-  .nav-list__link--mind {
-
-    span {
-      text-decoration: none;
     }
   }
 
   &,
   &:hover,
   &:focus-within {
-    .nav-list__link--mind {
+    .nav-list__item--mind a {
       color: var(--c-mind);
     }
   }
 
   a {
-
     &:focus-visible {
-
       &,
       &:hover {
         color: var(--c-hB);
@@ -321,26 +299,73 @@
   }
 
   .active {
-
     span {
-
       &::after {
-        content: '';
+        content: "";
         position: absolute;
-        top: 0;
-        left: -4vw;
-        width: 2px;
         background: currentColor;
         height: 100%;
-
-        @include min-width($breakpoint-small) {
-          bottom: -2px;
-          width: 100%;
-          left: 0;
-          height: 2px;
-          top: auto;
-        }
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
       }
     }
+  }
+}
+
+$temp: 0.25rem;
+
+.radiogroup {
+  display: flex;
+  text-align: center;
+  gap: 1rem;
+  position: relative;
+
+  &__focus-ring {
+    // border-radius: $temp;
+    background: var(--c-bH);
+    // border: 2px solid var(--c-bH);
+    position: absolute;
+    top: -0.125rem;
+    right: -0.5rem;
+    left: -0.5rem;
+    bottom: -0.125rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  label {
+    font-size: $paragraph-small;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    color: var(--c-bS);
+    padding: 0 0 0.125em;
+    cursor: pointer;
+    font-weight: $font-weight-body-bold;
+    user-select: none;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      // border-bottom-color: currentColor;
+      color: var(--c-bA);
+    }
+  }
+  input:checked + label {
+    color: var(--c-bC);
+    border-bottom-color: currentColor;
+    cursor: default;
+  }
+  input:focus ~ .radiogroup__focus-ring {
+    opacity: 1;
+  }
+  input:focus:not(:focus-visible) ~ .radiogroup__focus-ring {
+    opacity: 0;
+  }
+  input:focus-visible ~ .radiogroup__focus-ring {
+    opacity: 1;
   }
 }

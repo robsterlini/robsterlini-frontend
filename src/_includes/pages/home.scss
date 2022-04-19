@@ -8,11 +8,9 @@
   }
 
   @include min-width($breakpoint-large) {
-
     .group {
       display: grid;
-      grid-gap: 0 (100% / 12);
-      grid-template-columns: 7fr 4fr;
+      grid-template-columns: 8fr 4fr;
     }
 
     &__header {
@@ -24,8 +22,6 @@
       margin-bottom: -0.15em;
       grid-row: 2;
       max-width: none;
-      width: 100% + (100% / 7 * 0.5);
-      margin-right: 100% / 7 * 0.5 * -1;
     }
 
     &__children {
@@ -33,12 +29,33 @@
       grid-auto-rows: auto;
       grid-row: 2;
       grid-column: 2;
-      align-self: flex-end;
+      align-self: flex-start;
+      padding-top: 1rem;
+    }
 
-      p {
-        margin-bottom: 1em;
+    &__link {
+      margin-bottom: 1em;
+    }
+
+    &__fundraising {
+
+      [href="/fundraising"]:not(:hover):not(:focus) {
+        color: var(--link-color);
+        text-decoration-color: currentColor;
       }
     }
+  }
+
+  @include min-width($breakpoint-xlarge) {
+    .group {
+      grid-template-columns: 7fr 5fr;
+    }
+  }
+}
+
+.home-hero__chunk {
+  @include min-width($breakpoint-small) {
+    display: block;
   }
 }
 

@@ -1,3 +1,9 @@
+<div class="banner" role="banner">
+  <div class="group">
+    <p class="small banner__text banner__text--desktop">After covid and injury postponements, in July 2023 I will finally be taking on Ironman UK, and <a href="/fundraising" target="_blank">fundraising for Mind</a>!</p>
+    <p class="banner__text banner__text--mobile" aria-hidden="true"><a href="/fundraising" target="_blank">I am fundraising for Mind</a>!</p>
+  </div>
+</div>
 <nav class="nav">
   <div class="group nav-logo-wrapper">
     {% if not layoutNoLogo %}<a class="nav-logo" href="/" title="Visit the homepage">
@@ -5,22 +11,36 @@
     </a>{% endif %}
   </div>
   <div class="nav-list">
-    <ul class="group">
-      {% for item in global.nav %}
-        <li>
-          <a href="{{ item.link }}" class="lead{% if nav and nav === item.nav %} active{% endif %}">
-            <span>{{ item.label }}</span>
+    <div class="group">
+      <ul>
+        {% for item in global.nav %}
+          <li>
+            <a href="{{ item.link }}" class="lead{% if nav and nav === item.nav %} active{% endif %}">
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        {% endfor %}
+        <li class="nav-list__item nav-list__item--mind">
+          <a href="/fundraising" target="_blank" class="link--external link--pseudo lead">
+            <span class="link__pseudo">Donate</span>
           </a>
         </li>
-      {% endfor %}
-      <li>
-        <a href="/fundraising" target="_blank" class="link--external link--pseudo lead nav-list__link--mind">
-          <span class="link__pseudo">Donate</span>
-        </a>
-      </li>
-    </ul>
+      </ul>
+
+      <div class="radiogroup" role="radiogroup" aria-labelledby="nav-color-preference-label">
+        <span class="sr-only" id="nav-color-preference-label">Colour preference</span>
+
+        <input class="sr-only" type="radio" id="nav-color-dark" name="nav-color" value="dark">
+        <label for="nav-color-dark">Dark</label>
+
+        <input class="sr-only" type="radio" id="nav-color-light" name="nav-color" value="light">
+        <label for="nav-color-light">Light</label>
+
+        <input class="sr-only" type="radio" id="nav-color-auto" name="nav-color" value="auto">
+        <label for="nav-color-auto">Auto</label>
+
+        <span class="radiogroup__focus-ring" aria-hidden="true"></span>
+      </div>
+    </div>
   </div>
 </nav>
-<button class="nav-toggle sc" id="toggle-menu" aria-label="Toggle Menu">
-  <svg width="20" height="16" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg"><g fill="#000" fill-rule="evenodd"><path d="M0 0h20v2H0zM0 7h20v2H0zM0 14h20v2H0z"/></g></svg>
-</button>

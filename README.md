@@ -6,6 +6,10 @@
 
 The two main webfonts are [Mackinac by P22](https://p22.com/family-Mackinac) and [Clone by Rosetta](https://www.rosettatype.com/Clone) which are self-served and subset using [Font Squirrel](https://www.fontsquirrel.com/tools/webfont-generator). Code blocks are set in [Fira Code](https://github.com/tonsky/FiraCode) and served (only on pages that need it) by Google Fonts as a variable font.
 
+A heavy focus on all things typographic come from a wonderful undergraduate education experienced at the Department of Typography and Graphic Communication at University of Reading – if you love type and/or design, it’s the place to be educated!
+
+The embedded tweets (as found [here](https://robsterlini.co.uk/journal/2021/our-dad-makes-pizza/)) are built off the back of [Kyle Mit’s plugin](https://github.com/KyleMit/eleventy-plugin-embed-tweet].
+
 ## Core principles
 
 ### Don’t overcomplicate the build

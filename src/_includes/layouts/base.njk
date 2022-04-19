@@ -167,12 +167,12 @@
           setFontsLoaded();
         });
 
-        function toggleMenu() {
-          document.documentElement.classList.toggle('js--menu');
-        };
-        document.getElementById('toggle-menu').addEventListener('click', toggleMenu);
-
         const colorPreferenceSelect = document.getElementById('color-preference');
+        const colorPreferenceRadios = {
+          dark: document.getElementById('nav-color-dark'),
+          light: document.getElementById('nav-color-light'),
+          auto: document.getElementById('nav-color-auto'),
+        };
         const contrastPreferenceSelect = document.getElementById('contrast-preference');
         const gridPreferenceSelect = document.getElementById('grid-preference');
 
@@ -220,8 +220,20 @@
         }
 
         colorPreferenceSelect.addEventListener('change', function(e) {
-          setPreference('color', e.target.value);
+          const value = e.target.value;
+          setPreference('color', value);
+          colorPreferenceRadios[value].checked = true;
         });
+
+        function onRadioColorChange(e) {
+          const value = e.target.value;
+          setPreference('color', value);
+          colorPreferenceSelect.value = value;
+        }
+
+        colorPreferenceRadios.light.addEventListener('change', onRadioColorChange);
+        colorPreferenceRadios.dark.addEventListener('change', onRadioColorChange);
+        colorPreferenceRadios.auto.addEventListener('change', onRadioColorChange);
 
         contrastPreferenceSelect.addEventListener('change', function(e) {
           setPreference('contrast', e.target.value);
@@ -236,6 +248,7 @@
         const gridPreference = getPreference('grid', 'hidden');
 
         colorPreferenceSelect.value = colorPreference;
+        colorPreferenceRadios[colorPreference].checked = true;
         setPreference('color', colorPreference);
 
         contrastPreferenceSelect.value = contrastPreference;

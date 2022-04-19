@@ -15,7 +15,7 @@ const YEARS_MAP = {
 
 const order = Object.keys(YEARS_MAP).sort((a, b) => a < b ? 1 : -1);
 
-const years = order.map((year, yearIndex) => {
+const years = order.map((year) => {
   const { title } = YEARS_MAP[year];
 
   const seasons = SEASONS_MAP.reduce((acc, title) => {

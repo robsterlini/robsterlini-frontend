@@ -1,22 +1,29 @@
+const global = require('./global.js')();
+const links = global.links;
+const social = global.social;
+
+console.log(links);
+
 module.exports = () => ({
   '301': {
-    '/life': '/about',
-    // '/cv': '/rob-sterlini-cv-2021.pdf',
-    '/cv': '/work',
-    '/resume': '/work',
-    '/curriculum-vitae': '/work',
-    '/site-history': '/archive',
-    '/journal': '/archive',
-    '/journal/archive': '/archive',
-    '/journal/past': '/achive',
-    '/journal/dev': '/achive',
-    '/journal/typography': '/achive',
-    '/journal/type': '/achive',
-    '/journal/life': '/achive',
-    '/fundraising': 'https://www.justgiving.com/fundraising/robsterlini',
+    '/life': links.home.link,
+    '/about': links.home.link,
+    '/cv': links.work.link,
+    '/resume': links.work.link,
+    '/curriculum-vitae': links.work.link,
+    '/site-history': links.archive.link,
+    '/journal': links.archive.link,
+    '/journal/archive': links.archive.link,
+    '/journal/past': links.archive.link,
+    '/journal/dev': links.archive.link,
+    '/journal/typography': links.archive.link,
+    '/journal/type': links.archive.link,
+    '/journal/life': links.archive.link,
+    '/fundraising': social.justgiving,
+    '/triathlon': '/2015/triathlete'
   },
   '410': [
-    '/triathlon',
+    '/now'
   ],
   journal: {
     '301': {

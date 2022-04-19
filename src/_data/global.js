@@ -1,5 +1,12 @@
 const baseUrl = 'robsterlini.co.uk';
 
+const SOCIAL = {
+  twitter: 'robsterlini',
+  instagram: 'robsterlini',
+  strava: 'https://www.strava.com/athletes/6578573',
+  justgiving: "https://www.justgiving.com/fundraising/robsterlini",
+};
+
 const LINKS = {
   home: {
     link: '/',
@@ -20,16 +27,16 @@ const LINKS = {
     label: 'Work',
     nav: 'work',
   },
-  journal: {
-    link: '/journal',
-    label: 'Journal',
-    nav: 'journal',
-  },
-  now: {
-    link: '/now',
-    label: 'Now',
-    nav: 'now',
-  },
+  // journal: {
+  //   link: '/journal',
+  //   label: 'Journal',
+  //   nav: 'journal',
+  // },
+  // now: {
+  //   link: '/now',
+  //   label: 'Now',
+  //   nav: 'now',
+  // },
   archive: {
     label: 'Archive',
     link: '/archive',
@@ -42,8 +49,13 @@ const LINKS = {
   },
   colophon: {
     label: 'Colophon',
-    link: '/colophon',
+    link: 'https://github.com/robsterlini/robsterlini-frontend',
   },
+  donate: {
+    label: 'Donate',
+    link: '/fundraising',
+    external: true
+  }
 };
 
 const {
@@ -57,26 +69,20 @@ module.exports = () => ({
   github: {
     branchUrl: `https://github.com/robsterlini/robsterlini-frontend/blob/${envBranch}`,
   },
-  social: {
-    twitter: 'robsterlini',
-    instagram: 'robsterlini',
-    strava: 'https://www.strava.com/athletes/6578573',
-    justgiving: "https://www.justgiving.com/fundraising/robsterlini",
-  },
+  social: SOCIAL,
   links: LINKS,
   nav: [
-    LINKS.about,
     LINKS.work,
     LINKS.contact,
   ],
   footer: [
-    LINKS.about,
     LINKS.work,
     // LINKS.journal,
     LINKS.contact,
     // LINKS.cv,
-    LINKS.now,
+    // LINKS.now,
     LINKS.archive,
+    LINKS.donate,
     LINKS.colophon,
   ],
 });
