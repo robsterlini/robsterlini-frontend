@@ -8,18 +8,7 @@ body {
   visibility: visible;
 }
 
-.nav {
-  position: relative;
-}
-
-.nav-list {
-  &,
-  a::after {
-    transform: none !important;
-  }
-}
-
-.nav-toggle,
+.nav .radiogroup,
 .footer .fieldset {
   display: none;
 }
