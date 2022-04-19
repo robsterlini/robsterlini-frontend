@@ -369,7 +369,8 @@ a,
 
 
 .links--external [href^="https://"],
-.links--external [href^="http://"] {
+.links--external [href^="http://"],
+.links--external [href="/fundraising"] {
   @include link-external;
 }
 

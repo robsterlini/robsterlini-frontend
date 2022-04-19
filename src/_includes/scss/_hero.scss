@@ -5,12 +5,12 @@
   display: flex;
   align-items: flex-end;
   margin-bottom: 1vw;
-  padding: var(--spacing) 0;
+  padding: calc(var(--spacing) + 1rem) 0 var(--spacing);
   position: relative;
   z-index: 3;
 
   @include min-width($breakpoint-small) {
-    padding-top: calc(var(--spacing) + 4rem);
+    padding-top: calc(var(--spacing) + 2rem);
     flex: 1;
   }
 
@@ -91,7 +91,6 @@
     display: block;
     margin: 0;
     width: 100%;
-    padding-right: 4rem;
     animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
 
     a {

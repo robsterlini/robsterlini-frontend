@@ -17,7 +17,7 @@ customCss: pages/archive.scss
 <main class="main">
   <div class="group group--thin links--external">
     <h2 class="h2 mt0" id="journal">Journal entries{% anchor "journal" %}</h2>
-    <ul class="list--ul">
+    <ul class="list--ul journal__list">
       {% for entry in collections.entries %}
         <li>
           {% journalEntryShort entry %}
@@ -25,7 +25,7 @@ customCss: pages/archive.scss
       {% endfor %}
     </ul>
 
-    <h2 class="h2" id="iterations">Previous iterations{% anchor "iterations" %}</h2>
+    <h2 class="h2" id="incarnations">Previous incarnations{% anchor "incarnations" %}</h2>
 
     {% for year in archive.order %}
       <div class="year">
