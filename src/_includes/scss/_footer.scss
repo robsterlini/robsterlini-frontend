@@ -1,26 +1,26 @@
 .footer {
-  background: var(--c-bB);
-  color: var(--c-bC);
+  background: var(--c-background);
+  color: var(--c-text);
   display: grid;
   margin-top: auto;
-  padding-top: var(--spacing);
+  padding-top: calc(var(--spacing) / 2);
 
   .main + & {
     padding-top: 0;
   }
 
   &__wrapper {
-    animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
+    align-items: flex-start;
+    animation: opacity $main-transition-duration $main-transition-duration
+      ease-out both var(--font-loaded-animations);
     display: grid;
-    grid-gap: calc(var(--spacing) / 2) 0;
     padding: var(--spacing) 0;
     position: relative;
 
     .main + .footer & {
-
       &::before {
-        background: var(--c-bD);
-        content: '';
+        background: var(--c-decorative);
+        content: "";
         position: absolute;
         width: 100%;
         top: 0;
@@ -28,128 +28,86 @@
         border-radius: 1px;
       }
     }
+
+    @include min-width($breakpoint-small) {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+    }
+
+    @include min-width($breakpoint-mid) {
+      grid-template-columns: 2fr 10fr;
+    }
+
+    @include min-width($breakpoint-large) {
+      grid-template-columns: 7fr 4fr;
+      grid-column-gap: (100% / 12);
+    }
+
+    @include min-width($breakpoint-xlarge) {
+      grid-template-columns: 6fr 5fr;
+    }
   }
 
   &__colophon {
     max-width: 46em;
     margin-bottom: calc(var(--spacing) / 2);
+
+    @include min-width($breakpoint-small) {
+      grid-column: span 2;
+    }
+
+    @include min-width($breakpoint-large) {
+      grid-row: 2;
+      grid-column: 1;
+    }
+
+    @include min-width($breakpoint-xlarge) {
+      strong {
+        display: block;
+      }
+    }
   }
 
-  &__links {
-    display: flex;
-    flex-wrap: wrap;
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
-      display: inline-block;
-      vertical-align: baseline;
-      margin-right: 1em;
-    }
+  &__home {
+    margin: 0;
 
     a {
       text-decoration: none;
     }
 
-    .lead {
-      margin: 0 1rem 0 0;
-    }
-  }
-
-  &__controls {
-
-    .fieldset {
-      margin-right: 0;
-      display: flex;
-
-      label {
-        margin-right: 0;
-        min-width: 100% / $columns-count * 3;
-      }
-
-      &__input {
-        min-width: 100% / $columns-count * 6;
-      }
-
-      select {
-        width: 100%;
-      }
-    }
-
-    @media (hover: hover) and (pointer: fine) and (min-width: #{$breakpoint-small / 16 * 1em}) {
-      padding-bottom: 0;
-    }
-  }
-
-  @include min-width($breakpoint-small) {
-
-    &__controls {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 0 (100% / 11);
-      width: 100% / $columns-count * 11;
-      flex-wrap: wrap;
-
-      .fieldset {
-        box-sizing: border-box;
-        display: flex;
-        margin-right: 0;
-
-        label {
-          min-width: (100% / 3);
-        }
-
-        &__input {
-          flex: 1;
-        }
-      }
-    }
-  }
-
-  @include min-max-width($breakpoint-small, 860) {
-
-    &__controls {
-
-      .fieldset {
-        flex-wrap: wrap;
-
-        label,
-        &__input {
-          width: 100%;
-          flex: auto;
-        }
-      }
-    }
-  }
-
-  @include min-width($breakpoint-large) {
-
-    &__wrapper {
-      grid-template-columns: 8fr 3fr;
-      grid-template-rows: auto 1fr;
-      grid-column-gap: (100% / $columns-count);
-    }
-
-    &__links {
-      grid-column: 1;
-
-      .lead {
-        box-sizing: border-box;
-        min-width: 100% / 8 * 1;
-        margin-right: 0;
-        padding-right: 1em;
-      }
-    }
-
-    &__controls {
-      display: block;
+    @include min-width($breakpoint-large) {
       grid-column: 2;
-      grid-row: 1 / span 2;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include min-width($breakpoint-large) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       width: 100%;
+    }
+
+    @include min-width($breakpoint-xlarge) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    li {
+      display: inline-block;
+      vertical-align: baseline;
+
+      @include max-width($breakpoint-large) {
+        margin-right: 1em;
+      }
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 }

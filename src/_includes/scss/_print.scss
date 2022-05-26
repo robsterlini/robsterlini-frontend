@@ -10,13 +10,13 @@
 
 html {
 
-  &[data-color-preference],
+  &[data-theme],
   body {
     width: 210mm;
     height: 297mm;
   }
 
-  &[data-color-preference] {
+  &[data-theme] {
     margin: 0;
     border: initial;
     border-radius: initial;
@@ -26,12 +26,12 @@ html {
     background: initial;
     page-break-after: always;
 
-    --c-hB: white;
+    --c-header-background: white;
 
-    --c-bB: white;
-    --c-bC: black;
-    --c-bA: black;
-    --c-bS: rgba(black, 0.75);
+    --c-background: white;
+    --c-text: black;
+    --c-accent: black;
+    --c-semi: rgba(black, 0.75);
 
     font-size: 13px;
   }
@@ -61,7 +61,7 @@ html {
       top: auto;
       font-size: inherit;
       text-decoration: underline;
-      text-decoration-color: var(--c-bB) !important;
+      text-decoration-color: var(--c-background) !important;
     }
   }
 

@@ -26,18 +26,21 @@
   abbr {
     text-decoration: underline dotted;
     text-underline-position: under;
-    text-decoration-color: var(--c-bS);
+    text-decoration-color: var(--c-semi);
   }
 
   .figure-wrapper {
     counter-increment: section;
+  }
+
+  .figure {
 
     &__caption {
 
       > span {
 
         &::before {
-          @include lead(false);
+          @include lead;
 
           content: 'Fig. ' counter(section) " ";
           margin-right: 0.1em;
@@ -51,7 +54,7 @@
   display: grid;
 
   &__hr {
-    color: var(--c-bD);
+    color: var(--c-decorative);
     grid-column: 1 / -1;
     margin: calc(var(--spacing) * 2) auto;
     height: 1.875rem; // 30px
@@ -65,7 +68,7 @@
   &__page {
 
     &--current {
-      color: var(--c-bS);
+      color: var(--c-semi);
 
       .lead,
       code {

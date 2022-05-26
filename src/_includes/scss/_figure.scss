@@ -52,7 +52,7 @@ $figure-visible-selector: '.js--figure-visible';
 }
 
 .figure {
-  background: var(--c-hB);
+  background: var(--c-header-background);
   display: table;
   overflow: hidden;
   clear: both;
@@ -63,7 +63,7 @@ $figure-visible-selector: '.js--figure-visible';
     display: grid;
     align-items: stretch;
     grid-template-columns: repeat(var(--figure-count, 1), 1fr);
-    opacity: var(--o-fig, 1);
+    opacity: var(--figure-opacity, 1);
     overflow: hidden;
 
     > img {
@@ -82,7 +82,7 @@ $figure-visible-selector: '.js--figure-visible';
 
   &__overlay {
     background: currentColor;
-    color: var(--c-hB);
+    color: var(--c-header-background);
     position: absolute;
     top: 0;
     left: 0;
@@ -117,8 +117,8 @@ $figure-visible-selector: '.js--figure-visible';
   }
 
   &__caption {
-    background: var(--c-hB);
-    color: var(--c-bS);
+    background: var(--c-header-background);
+    color: var(--c-semi);
     padding: 0.625em 0.667em 0.667em;
     font-size: $paragraph-small;
     line-height: $line-height-body-small;
@@ -127,7 +127,7 @@ $figure-visible-selector: '.js--figure-visible';
     position: relative;
 
     > svg {
-      color: var(--c-hB);
+      color: var(--c-header-background);
       display: block;
       height: $figure-angle-height;
       width: 100%;
@@ -145,14 +145,13 @@ $figure-visible-selector: '.js--figure-visible';
   }
 
   &__link {
-    color: var(--c-bS);
+    color: var(--c-semi);
     font-variant-caps: small-caps;
     text-transform: lowercase;
 
     &:hover,
     &:focus {
-      --link-state-color: var(--c-bC);
-      color: var(--c-bC);
+      color: var(--c-text);
     }
   }
 }

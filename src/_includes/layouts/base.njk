@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-color-preference="auto" data-contrast-preference="auto" data-grid-preference="hidden">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8">
 
@@ -16,8 +16,6 @@
     <meta name="title" content="{{ metaTitle }}">
     <meta name="description" content="{{ metaDescription }}">
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
-
-    <meta name="theme-color" data-light="#19161c" data-dark="#110e14" content="#fcfbfb">
 
     {% if not metaImageTitle %}
       {% set metaImageTitle %}{{ heroTitle if heroTitle else "Rob Sterlini" }}{% endset %}
@@ -167,96 +165,6 @@
           setFontsLoaded();
         });
 
-        const colorPreferenceSelect = document.getElementById('color-preference');
-        const colorPreferenceRadios = {
-          dark: document.getElementById('nav-color-dark'),
-          light: document.getElementById('nav-color-light'),
-          auto: document.getElementById('nav-color-auto'),
-        };
-        const contrastPreferenceSelect = document.getElementById('contrast-preference');
-        const gridPreferenceSelect = document.getElementById('grid-preference');
-
-        let lightMode;
-        if (window.matchMedia) {
-          lightMode = window.matchMedia('(prefers-color-scheme: light)');
-          const highContrast = window.matchMedia('(prefers-contrast: high)');
-
-          function setAutoPreferenceAutoLabel(preferenceSelect, label) {
-            preferenceSelect[0].innerText = 'Auto (' + label + ')';
-          }
-
-          lightMode.addListener(function(e) {
-            setAutoPreferenceAutoLabel(colorPreferenceSelect, e.matches);
-          });
-
-          highContrast.addListener(function(e) {
-            setAutoPreferenceAutoLabel(contrastPreferenceSelect, e.matches);
-          });
-
-          setAutoPreferenceAutoLabel(colorPreferenceSelect, lightMode.matches ? 'Light' : 'Dark');
-          setAutoPreferenceAutoLabel(contrastPreferenceSelect, highContrast.matches ? 'High' : 'Regular');
-        }
-
-        const themeColorMeta = document.querySelector('[name="theme-color"]');
-
-        function setPreference(name, value) {
-          if (name === "color") {
-            let newThemeColor;
-            if (value === "auto") {
-              newThemeColor = lightMode ? "light" : "dark";
-            } else {
-              newThemeColor = value;
-            }
-
-            themeColorMeta.setAttribute('content', themeColorMeta.dataset[newThemeColor]);
-          }
-
-          localStorage.setItem(name + '-preference', value);
-          document.documentElement.dataset[name + 'Preference'] = value;
-        }
-
-        function getPreference(name, defaultPreference = 'auto') {
-          return localStorage.getItem(name + '-preference') || defaultPreference;
-        }
-
-        colorPreferenceSelect.addEventListener('change', function(e) {
-          const value = e.target.value;
-          setPreference('color', value);
-          colorPreferenceRadios[value].checked = true;
-        });
-
-        function onRadioColorChange(e) {
-          const value = e.target.value;
-          setPreference('color', value);
-          colorPreferenceSelect.value = value;
-        }
-
-        colorPreferenceRadios.light.addEventListener('change', onRadioColorChange);
-        colorPreferenceRadios.dark.addEventListener('change', onRadioColorChange);
-        colorPreferenceRadios.auto.addEventListener('change', onRadioColorChange);
-
-        contrastPreferenceSelect.addEventListener('change', function(e) {
-          setPreference('contrast', e.target.value);
-        });
-
-        gridPreferenceSelect.addEventListener('change', function(e) {
-          setPreference('grid', e.target.value);
-        });
-
-        const colorPreference = getPreference('color');
-        const contrastPreference = getPreference('contrast');
-        const gridPreference = getPreference('grid', 'hidden');
-
-        colorPreferenceSelect.value = colorPreference;
-        colorPreferenceRadios[colorPreference].checked = true;
-        setPreference('color', colorPreference);
-
-        contrastPreferenceSelect.value = contrastPreference;
-        setPreference('contrast', contrastPreference);
-
-        gridPreferenceSelect.value = gridPreference;
-        setPreference('grid', gridPreference);
-
         let observer;
 
         const figures = document.querySelectorAll('.figure');
@@ -288,5 +196,7 @@
         });
       })();
     </script>
+
+    {% include "components/theme-selector.html" %}
   </body>
 </html>

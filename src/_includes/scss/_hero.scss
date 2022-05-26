@@ -1,7 +1,5 @@
 .hero {
-  --hero-link-underline: var(--c-bD);
-
-  background: var(--c-hB);
+  background: var(--c-header-background);
   display: flex;
   align-items: flex-end;
   margin-bottom: 1vw;
@@ -14,34 +12,36 @@
     flex: 1;
   }
 
-  a:not(:hover):not(:focus) {
-    text-decoration-color: var(--hero-link-underline);
-  }
-
   .link--external {
-
     &::after {
-      text-decoration-color: var(--c-hB) !important;
+      text-decoration-color: var(--c-header-background) !important;
     }
   }
 
   .group {
-
     > :last-child {
       margin-bottom: 0;
     }
   }
 
   &__children {
-    animation: opacity $main-transition-duration ease-out both var(--font-loaded-animations);
+    animation: opacity $main-transition-duration ease-out both
+      var(--font-loaded-animations);
 
     .alert {
       margin-top: 2em;
-      animation: opacity $main-transition-duration $main-transition-duration ease-out both var(--font-loaded-animations);
+      animation: opacity $main-transition-duration $main-transition-duration
+        ease-out both var(--font-loaded-animations);
     }
 
     > :last-child {
       margin-bottom: 0;
+    }
+
+    a[href] {
+      &::after {
+        text-decoration-color: var(--c-header-background) !important;
+      }
     }
   }
 
@@ -56,14 +56,15 @@
 
   &__angle {
     // This is a very small motion change so doesn't need a prefers-reduced-motion adjustment
-    animation: scale-from-top $hero-transition-duration 0ms ease-out both var(--font-loaded-animations);
+    animation: scale-from-top $hero-transition-duration 0ms ease-out both
+      var(--font-loaded-animations);
     display: block;
     height: 2vw;
     width: 100%;
     position: absolute;
     bottom: -2vw;
     transform-origin: center top;
-    color: var(--c-hB);
+    color: var(--c-header-background);
 
     path {
       fill: currentColor;
@@ -87,21 +88,30 @@
     }
 
     box-sizing: border-box;
-    color: var(--c-bS);
+    color: var(--c-semi);
     display: block;
     margin: 0;
-    width: 100%;
-    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
+    animation: hero-header $hero-transition-duration ease-out both
+      var(--font-loaded-animations);
+
+    .lead {
+      color: currentColor;
+      display: inline-block;
+    }
 
     a {
-      color: currentColor;
       text-decoration: none;
+
+      &:hover {
+        color: var(--c-link-hover);
+      }
     }
   }
 
   .h1 {
-    animation: hero-header $hero-transition-duration ease-out both var(--font-loaded-animations);
-    color: var(--c-hA);
+    animation: hero-header $hero-transition-duration ease-out both
+      var(--font-loaded-animations);
+    color: var(--c-header-accent);
     margin-bottom: 0.25em;
     margin-top: 0.25em;
 
@@ -112,7 +122,6 @@
   }
 
   &--children {
-
     .h1 {
       margin-bottom: 0.5em;
     }
@@ -121,18 +130,5 @@
   &--center {
     align-items: center;
     flex: 1;
-  }
-}
-
-@include prefers-high-contrast {
-
-  .hero {
-    --hero-link-underline: currentColor;
-
-    &__angle {
-      height: 2px;
-      background: var(--c-bD);
-      color: transparent;
-    }
   }
 }

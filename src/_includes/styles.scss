@@ -2,13 +2,14 @@
 
 @import 'scss/reset';
 
+@import 'scss/theme';
 @import 'scss/base';
 @import 'scss/animations';
 
 @import 'scss/grid';
 @import 'scss/typography';
 @import 'scss/list';
-@import 'scss/fieldset';
+// @import 'scss/fieldset';
 @import 'scss/figure';
 @import 'scss/alert';
 
