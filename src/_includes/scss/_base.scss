@@ -1,32 +1,3 @@
-$nav-height: 2.5rem;
-
-$c-contrast-light: #FFF;
-$c-contrast-dark: #000;
-
-$c-dark-header-accent: #F75C6A;
-$c-dark-header-bg: #110E14;
-$c-dark-body-accent: darken($c-dark-header-accent, 0%);
-$c-dark-body-bg: #1C181F;
-$c-dark-body-color: #EEE7E7;
-$c-dark-body-semi: mix($c-dark-body-color, $c-dark-body-bg, 55%);
-$c-dark-body-decorative: mix($c-dark-body-color, $c-dark-header-bg, 25%);
-$c-dark-body-highlight: #105c63;
-
-$c-light-header-accent: #EA3243;
-$c-light-header-bg: #FCFBFB;
-$c-light-body-accent: darken($c-light-header-accent, 8%);
-$c-light-body-bg: #F6F3F3;
-$c-light-body-color: #19161C;
-$c-light-body-semi: mix($c-light-body-color, $c-light-body-bg, 60%);
-$c-light-body-decorative: mix($c-light-body-color, $c-light-header-bg, 18%);
-$c-light-body-highlight: #ffe385;
-
-$c-fueled: #AE0000;
-$c-netlify: #15847D;
-$c-strava: #FC4C02;
-$c-linkedin: #0077B5;
-$c-zoopla: #8046F1;
-
 html,
 body {
   display: flex;
@@ -36,112 +7,7 @@ body {
 }
 
 html {
-  --spacing: 2rem;
-
-  --c-codepen: #1E1F26;
-  --c-envato: #82b541;
-  --c-fueled: #{$c-fueled};
-  --c-zoopla: #{$c-zoopla};
-  --c-github: #0366D6;
-  --c-instagram: #F00075;
-  --c-linkedin: #{$c-linkedin};
-  --c-netlify: #{$c-netlify};
-  --c-spotify: #1DB954;
-  --c-strava: #{$c-strava};
-  --c-twitter: #00ACEE;
-  --c-youtube: #FF0000;
-  --c-mind: #2500c1;
-
-  @include min-width($breakpoint-small) {
-    --spacing: calc(1rem + 2vw);
-  }
-}
-
-@mixin dark-colors {
-  --c-hB: #{$c-dark-header-bg};
-  --c-hA: #{$c-dark-header-accent};
-
-  --o-fig: 0.9; // Figure Opacity
-
-  --c-bB: #{$c-dark-body-bg};
-  --c-bC: #{$c-dark-body-color};
-  --c-bS: #{$c-dark-body-semi};
-  --c-bA: #{$c-dark-body-accent};
-  --c-bD: #{$c-dark-body-decorative};
-  --c-bH: #{$c-dark-body-highlight};
-
-  --grid: 0, 205, 205;
-
-  --c-cB: #{$c-contrast-dark}; // Contrast background
-  --c-cC: #{$c-contrast-light}; // Contrast colour
-  --c-cS: #{rgba($c-contrast-light, 0.7)}; // Contrast semi-transparent colour
-  --c-cA: #{lighten($c-dark-header-accent, 10%)}; // Contrast accent
-
-  --c-fueled: #{lighten($c-fueled, 10%)};
-  --c-zoopla: #{lighten($c-zoopla, 15%)};
-  --c-github: #79B8FF;
-  --c-netlify: #{lighten($c-netlify, 10%)};
-  --c-linkedin: #{lighten($c-linkedin, 10%)};
-  --c-strava: #{mix($c-strava, yellow, 90%)}; // Mix Strava with yellow to avoid it going too beige
-  --c-codepen: #FEFEFE;
-  --c-mind: #9aa8ff;
-}
-
-@mixin light-colors {
-  --c-hB: #{$c-light-header-bg};
-  --c-hA: #{$c-light-header-accent};
-
-  --o-fig: 1;
-
-  --c-bB: #{$c-light-body-bg};
-  --c-bC: #{$c-light-body-color};
-  --c-bS: #{$c-light-body-semi};
-  --c-bA: #{$c-light-body-accent};
-  --c-bD: #{$c-light-body-decorative};
-  --c-bH: #{$c-light-body-highlight};
-
-  --grid: 108, 133, 255;
-
-  --c-cB: #{$c-contrast-light};
-  --c-cC: #{$c-contrast-dark};
-  --c-cS: #{rgba($c-contrast-dark, 0.7)};
-  --c-cA: #{darken($c-light-header-accent, 20%)};
-}
-
-@mixin contrast-colors {
-  --c-hB: var(--c-cB);
-  --c-hA: var(--c-cA);
-  --c-bB: var(--c-cB);
-  --c-bC: var(--c-cC);
-  --c-bS: var(--c-cS);
-  --c-bA: var(--c-cA);
-  --o-fig: 1;
-}
-
-[data-color-preference='auto'] {
-  @include dark-colors;
-
-  @media (prefers-color-scheme: light) {
-    @include light-colors;
-  }
-}
-
-[data-color-preference='dark'] {
-  @include dark-colors;
-}
-
-[data-color-preference='light'] {
-  @include light-colors;
-}
-
-@include prefers-high-contrast {
-  @include contrast-colors;
-
-  --link-state-color: var(--c-bC);
-}
-
-html {
-  background: var(--c-bB);
+  background: var(--c-background);
   line-height: $line-height-body;
   font-size: 15 / 16 * 1rem;
   scroll-behavior: smooth;
@@ -169,8 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  color: var(--c-bC);
-  font-family: $font-family-body;
+  color: var(--c-text);
+  font-family: var(--font-family-body);
   font-variant-numeric: oldstyle-nums;
   font-weight: 300;
   visibility: hidden;
@@ -183,11 +49,12 @@ body {
 }
 
 ::selection {
-  background: var(--c-bH);
+  background: var(--c-highlight);
 }
 
 .main {
-  animation: opacity $main-transition-duration ease-out both var(--font-loaded-animations);
+  animation: opacity $main-transition-duration ease-out both
+    var(--font-loaded-animations);
   padding: calc(var(--spacing) * 2) 0;
 }
 
@@ -198,7 +65,6 @@ body {
   width: 92%;
 
   &--thin {
-
     @include min-width($breakpoint-large) {
       max-width: 80rem / 12 * 10;
       width: 92% / 12 * 10;
@@ -212,64 +78,60 @@ body {
 }
 
 [href*="twitter.com"] {
-  --link-color: var(--c-twitter);
+  --c-link-arrow-idle: var(--c-twitter);
 }
 
 [href*="github.com"] {
-  --link-color: var(--c-github);
+  --c-link-arrow-idle: var(--c-github);
 }
 
 [href*="fueled.com"] {
-  --link-color: var(--c-fueled);
+  --c-link-arrow-idle: var(--c-fueled);
 }
 
 [href*="zoopla.co.uk"] {
-  --link-color: var(--c-zoopla);
+  --c-link-arrow-idle: var(--c-zoopla);
 }
 
 [href*="tutsplus.com"] {
-  --link-color: var(--c-envato);
+  --c-link-arrow-idle: var(--c-envato);
 }
 
 [href*="instagram.com"] {
-  --link-color: var(--c-instagram);
+  --c-link-arrow-idle: var(--c-instagram);
 }
 
 [href*="netlify.com"],
 [href*="netlify.app"] {
-  --link-color: var(--c-netlify);
+  --c-link-arrow-idle: var(--c-netlify);
 }
 
 [href*="11ty.dev"] {
-  --link-color: #00BCD4;
+  --c-link-arrow-idle: var(--c-11ty);
 }
 
 [href*="strava.com"] {
-  --link-color: var(--c-strava);
+  --c-link-arrow-idle: var(--c-strava);
 }
 
 [href*="codepen.io"] {
-  --link-color: var(--c-codepen);
+  --c-link-arrow-idle: var(--c-codepen);
 }
 
 [href*="linkedin.com"] {
-  --link-color: var(--c-linkedin);
-}
-
-[href*="spotify.com"] {
-  --link-color: var(--c-spotify);
+  --c-link-arrow-idle: var(--c-linkedin);
 }
 
 [href*="youtube.com"] {
-  --link-color: var(--c-youtube);
+  --c-link-arrow-idle: var(--c-youtube);
 }
 
 [href="/fundraising"] {
-  --link-color: var(--c-mind);
+  --c-link-arrow-idle: var(--c-mind);
 }
 
 [id] {
-  scroll-margin-top: calc(#{$nav-height: 2.5rem;} + 1em);
+  scroll-margin-top: calc(2.5rem + 1em);
   scroll-margin-bottom: 4rem;
 }
 
@@ -277,14 +139,14 @@ a,
 .link {
   appearance: none;
   background: none;
-  color: var(--link-state-color, inherit);
+  color: var(--c-link-idle);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
   transition: 125ms ease-in-out;
   transition-property: background-color, color, opacity, text-decoration-color;
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
+  text-decoration-color: var(--c-link-underline-idle);
   text-underline-offset: 0.05em;
   padding: unset;
   position: relative;
@@ -304,21 +166,12 @@ a,
   }
 
   &:hover {
-    --link-state-color: var(--c-bA);
-  }
-
-  &:focus {
-    outline: var(--c-bS) 1px dotted;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
+    color: var(--c-link-hover);
+    text-decoration-color: var(--c-link-underline-hover);
   }
 
   &:focus-visible {
-    background: var(--c-bH);
-    color: var(--c-bC) !important;
-    outline: none;
+    outline: 2px solid var(--c-focus-ring);
   }
 
   &:active {
@@ -327,11 +180,10 @@ a,
 }
 
 @mixin link-external {
-
   &::after {
-    color: var(--link-state-color, var(--link-color, var(--c-bA)));
-    content: '↗';
-    font-family: $font-family-body;
+    color: var(--c-link-arrow-idle);
+    content: "↗";
+    font-family: var(--font-family-body);
     font-weight: $font-weight-body-bold;
     position: relative;
     top: -0.2em;
@@ -341,62 +193,39 @@ a,
     margin-right: 0.2em;
     font-size: 0.825em;
     transition: 125ms ease-in-out;
-    transition-property: color, text-decoration-color;
-    text-decoration: underline;
-    text-decoration-color: var(--c-bB) !important;
-  }
-
-  &:hover {
-
-    &::after {
-      color: var(--link-state-color);
-    }
-  }
-
-  &:focus-visible {
-    text-decoration-color: var(--c-bC) !important;
-
-    &::after {
-      text-decoration-color: var(--c-bH) !important;
-      color: var(--c-bC) !important;
-    }
+    transition-property: color;
+    text-decoration: inherit;
+    text-decoration-color: var(--c-background) !important;
   }
 }
 
-.link--external {
-  @include link-external;
+@mixin link-external-hover {
+  &::after {
+    color: var(--c-link-arrow-hover);
+  }
 }
 
-
-.links--external [href^="https://"],
-.links--external [href^="http://"],
+.link--external,
+.links--external [href^="http"],
 .links--external [href="/fundraising"] {
   @include link-external;
+
+  &:hover {
+    @include link-external-hover;
+  }
 }
 
 .link--pseudo {
-
-  &,
-  &:hover,
-  &:focus {
-    background: none;
-    opacity: 1;
-    color: currentColor;
-    text-decoration: none;
-    transition: none;
-  }
-
-  &:hover,
-  &:focus {
-    --link-state-color: var(--c-bA);
-  }
+  color: currentColor;
+  text-decoration: none;
+  transition: none;
+  font-weight: inherit;
 
   &:focus-visible {
-    --link-state-color: var(--c-hB);
+    outline: 0;
   }
 
   &.link--external {
-
     &::after {
       display: none;
     }
@@ -404,43 +233,32 @@ a,
 }
 
 .link__pseudo {
-  color: var(--link-state-color);
+  color: var(--c-link-idle);
   text-decoration: underline;
-  text-decoration-color: var(--link-state-color, var(--c-bS, currentColor));
+  font-weight: 500;
+  text-decoration-color: var(--c-link-underline-idle);
   transition: 125ms ease-in-out;
   transition-property: background-color, color, opacity, text-decoration-color;
+
+  .link--pseudo:hover & {
+    color: var(--c-link-hover);
+    text-decoration-color: var(--c-link-underline-hover);
+  }
+
+  .link--pseudo:focus-visible & {
+    outline: 2px solid var(--c-focus-ring);
+  }
 
   .link--pseudo:active & {
     opacity: 0.66;
   }
 
-  .link--pseudo:focus & {
-    outline: var(--c-bS) 1px dotted;
-  }
-
-  .link--pseudo:focus:not(:focus-visible) & {
-    outline: none;
-  }
-
-  .link--pseudo:focus-visible & {
-    outline: none;
-    background: var(--c-bH);
-    color: var(--c-bC);
-    text-decoration-color: var(--c-bC) !important;
-  }
-
-  .link--external &,
-  .link--external[href^="https://"] &,
-  .link--external[href^="http://"] & {
+  .link--external[href^="http"] & {
     @include link-external;
   }
 
-  .link--pseudo:focus-visible & {
-
-    &::after {
-      color: var(--c-bC) !important;
-      text-decoration-color: var(--c-bH) !important;
-    }
+  .link--external[href^="http"]:hover & {
+    @include link-external-hover;
   }
 }
 
@@ -449,20 +267,13 @@ a,
 
   @keyframes fade-highlight {
     0% {
-      background-color: var(--c-bH);
-      box-shadow:
-        var(--c-bH) 0.25rem 0 0 0,
-        var(--c-bH) -0.25rem 0 0 0;
+      background-color: var(--c-highlight);
+      box-shadow: var(--c-highlight) 0.25rem 0 0 0,
+        var(--c-highlight) -0.25rem 0 0 0;
     }
     100% {
       background-color: transparent;
-      box-shadow:
-        transparent 0.25rem 0 0 0,
-        transparent -0.25rem 0 0 0;
+      box-shadow: transparent 0.25rem 0 0 0, transparent -0.25rem 0 0 0;
     }
   }
-}
-
-.accent {
-  color: var(--c-bA);
 }

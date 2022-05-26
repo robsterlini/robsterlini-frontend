@@ -26,7 +26,7 @@
 
   label {
     font-weight: 500;
-    color: var(--c-bA);
+    color: var(--c-accent);
     margin-right: 0.5em;
   }
 
@@ -34,9 +34,9 @@
     @include sc;
 
     background: none;
-    color: var(--c-bC);
+    color: var(--c-text);
     display: block;
-    border-bottom: 2px solid var(--c-bD);
+    border-bottom: 2px solid var(--c-decorative);
     padding: 0.25rem 1rem 0.25em 0;
     transition: border-color 125ms ease-in-out;
     font-size: 1rem; // TODO: Var
@@ -44,11 +44,11 @@
 
     &:hover,
     &:focus {
-      border-color: var(--c-bC);
+      border-color: var(--c-text);
     }
 
     &:focus {
-      outline: var(--c-bS) 1px dotted;
+      outline: var(--c-semi) 1px dotted;
     }
   }
 }

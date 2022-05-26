@@ -15,32 +15,26 @@
 }
 
 %list-item {
-  padding-left: 1em;
+  padding-left: 2em;
 
   &::before {
     box-sizing: border-box;
-    content: '–';
-    color: var(--c-bA);
+    content: '—';
+    color: var(--c-accent);
     font-family: inherit;
     font-weight: 500;
     display: inline-block;
+    width: 2em;
     margin-left: -2em;
-    width: 1.5em;
-    text-align: right;
-    margin-right: 0.5em;
+    text-align: left;
+    line-height: 1;
+    transform: scale(2, 1);
+    transform-origin: left center;
   }
 }
 
 %btn {
   @extend %list-item;
-
-  padding-left: 1.25em;
-
-  &::before {
-    content: '—';
-    margin-left: -2.5em;
-    width: 2em;
-  }
 }
 
 .list {
@@ -74,8 +68,9 @@
       &::before {
         content: counter(list) '. ';
         font-size: 14 / 16 * 1em;
-        position: relative;
-        right: -0.15em; // Optically adjusts for the full stop after the number
+        text-align: right;
+        padding-right: 0.5em;
+        transform: none;
       }
     }
   }

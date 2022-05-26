@@ -7,6 +7,10 @@
     margin-bottom: 0.5em;
   }
 
+  &__link {
+    margin-bottom: 1em;
+  }
+
   @include min-width($breakpoint-large) {
     .group {
       display: grid;
@@ -33,10 +37,6 @@
       padding-top: 1rem;
     }
 
-    &__link {
-      margin-bottom: 1em;
-    }
-
     &__fundraising {
 
       [href="/fundraising"]:not(:hover):not(:focus) {
@@ -48,7 +48,7 @@
 
   @include min-width($breakpoint-xlarge) {
     .group {
-      grid-template-columns: 7fr 5fr;
+      grid-template-columns: 7fr 4fr 1fr;
     }
   }
 }

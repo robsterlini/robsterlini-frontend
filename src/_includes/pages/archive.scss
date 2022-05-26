@@ -1,7 +1,6 @@
-@import 'scss/mixins';
+@import "scss/mixins";
 
 .hero {
-
   .h1 {
     max-width: 14em;
   }
@@ -9,7 +8,7 @@
 
 .journal__list {
   .nowrap {
-    display: block;
+    color: var(--c-semi);
   }
 }
 
@@ -17,7 +16,6 @@
   clear: both;
 
   .h2 {
-
     @include max-width($breakpoint-small) {
       margin-top: 0;
     }
@@ -26,23 +24,28 @@
   .figure-wrapper {
     margin-top: 4rem;
     margin-bottom: var(--spacing);
+
+    @at-root {
+      .h2 + .year .figure-wrapper {
+        @include max-width($breakpoint-small) {
+          margin-top: 0;
+        }
+      }
+    }
   }
 
   &:first-child {
-
     .figure-wrapper {
       margin-top: 0;
     }
   }
 
   @include min-width($breakpoint-small) {
-
     .figure-wrapper {
       margin-top: 2rem;
     }
 
     &:first-child {
-
       .h2 {
         margin-top: 0;
       }

@@ -1,6 +1,6 @@
 # Rob Sterlini
 
-## Under the hood
+## Under the bonnet
 
 [robsterlini.co.uk](https://robsterlini.co.uk) is built using [Eleventy](11ty.dev). The templating is done in Nunjucks and spits out HTML based on data stored as a mixture of JavaScript and JSON. The styling is pre-processed using Sass and inlined to reduce the need for an extra HTTP request; some pages have extra styles which are inlined in the same way and served on a per-page basis.
 
@@ -9,6 +9,8 @@ The two main webfonts are [Mackinac by P22](https://p22.com/family-Mackinac) and
 A heavy focus on all things typographic come from a wonderful undergraduate education experienced at the Department of Typography and Graphic Communication at University of Reading – if you love type and/or design, it’s the place to be educated!
 
 The embedded tweets (as found [here](https://robsterlini.co.uk/journal/2021/our-dad-makes-pizza/)) are built off the back of [Kyle Mit’s plugin](https://github.com/KyleMit/eleventy-plugin-embed-tweet].
+
+The theme picker ([originally just a light/dark mode](https://robsterlini.co.uk/journal/2020/light-and-dark-mode-plus/)) is now heavily inspired by the one found on [Max Böck’s site](https://mxb.dev/), kudos if you understand the little references in there. It automatically selects a theme based on your browser and contrast preferences, but then stores an overriden selection in `localStorage` for next time you come back! The code for this can be found in [`theme-selector.html`](src/_includes/components/theme-selector.html)
 
 ## Core principles
 

@@ -1,52 +1,47 @@
-const formatDateFilter = require('./../filters/formatDate.js');
+const formatDateFilter = require("./../filters/formatDate.js");
 
 const journalEntry = (entry, titleClass, titleTag, lead, showLink = true) => {
-  if (!entry) return '';
+  if (!entry?.data) return "";
 
-  const {
-    data: {
-      title,
-      description,
-      descriptionHtml,
-    } = {},
-    date,
-    link,
-  } = entry;
+  const { data, date, link } = entry;
+  const { title, description, descriptionHtml } = data;
 
-  const descriptionComputed = descriptionHtml || description;
+  let descriptionText = "";
+  if (descriptionHtml || description) {
+    descriptionText = `&ensp;${descriptionHtml || description}`;
+  }
 
-  const titleMarkup = lead ?
-    `<${titleTag} class="${titleClass}">
-      <span class="lead">${lead}</span>
-      ${title}
-    </${titleTag}>` :
-    `<${titleTag} class="${titleTag}">${title}</${titleTag}>`;
+  const formattedDate = formatDateFilter(date);
 
-  const descriptionMarkup = `<p><strong>${formatDateFilter(date)}</strong>${descriptionComputed ? `&ensp;${descriptionComputed}` : ``}</p>`;
+  const leadMarkup = lead ? `<span class="lead">${lead}</span>` : "";
+  const titleMarkup = `<${titleTag} class="${titleClass}">${leadMarkup}${title}</${titleTag}>`;
+  const descriptionMarkup = `<p><strong>${formattedDate}</strong>${descriptionText}</p>`;
 
-  const linkMarkup = `<ul class="list--btns">
-    <li>
-      <a class="journal-first link--pseudo" ${link.htmlAttrs}>
-        <span class="link__pseudo">Read the entry${link.domain ? ` on ${link.domain}` : ``}</span>
-      </a>
-    </li>
-  </ul>`;
+  let linkMarkup = "";
 
-  return `${titleMarkup}${descriptionMarkup}${showLink ? linkMarkup : ''}`;
+  if (showLink) {
+    linkMarkup = `<ul class="list--btns">
+      <li>
+        <a ${link.htmlAttrs}>
+          Read the entry${link.domain ? ` on ${link.domain}` : ``}
+        </a>
+      </li>
+    </ul>`;
+  }
+
+  return `${titleMarkup}${descriptionMarkup}${linkMarkup}`;
 };
 
-const journalEntryShort = (entry, inline = false) => {
-  if (!entry) return '';
-  const {
-    data: {
-      title,
-    },
-    date,
-    link,
-  } = entry;
+const journalEntryShort = (entry) => {
+  if (!entry?.data) return "";
+
+  const { data, date, link } = entry;
 
   return `<a class="link--pseudo link--external" ${link.htmlAttrs}>
-    <span class="link__pseudo">${title}</span><span class="regular">${inline ? ', posted on ' : ''} <span class="nowrap">${formatDateFilter(date)}</span></span></a>`;
+    <span class="link__pseudo">${data.title}</span>
+    <span class="sr-only">Posted on</span>
+    <span class="regular nowrap">${formatDateFilter(date)}</span>
+  </a>`;
 };
 
 module.exports = {

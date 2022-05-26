@@ -1,12 +1,27 @@
 {% macro hero(heading, header='', children='', center=false) %}
-<header class="hero{% if children %} hero--children{% endif %}{% if center %} hero--center{% endif %}">
+<header
+  class="hero{% if children %} hero--children{% endif %}{% if center %} hero--center{% endif %}"
+>
   <div class="group">
     {% if header %}
-      <span class="hero__header lead large">{{ header }}</span>
+    <span class="hero__header large"
+      ><span class="lead">{{ header }}</span></span
+    >
     {% endif %}
     <h1 class="h1">{{ heading }}</h1>
-    {% if children %}<div class="hero__children large">{{ children }}</div>{% endif %}
+    {% if children %}
+    <div class="hero__children large">{{ children }}</div>
+    {% endif %}
   </div>
-  <svg class="hero__angle" preserveAspectRatio="none" width="1000" height="50" viewBox="0 0 1000 50" xmlns="http://www.w3.org/2000/svg"><path d="M1000 0H0v50z" fill="none" fill-rule="evenodd"/></svg>
+  <svg
+    class="hero__angle"
+    preserveAspectRatio="none"
+    width="1000"
+    height="50"
+    viewBox="0 0 1000 50"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1000 0H0v50z" fill="none" fill-rule="evenodd" />
+  </svg>
 </header>
 {% endmacro %}

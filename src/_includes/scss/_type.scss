@@ -25,23 +25,18 @@
   }
 }
 
-%heading-lead {
-  font-size: 1.05rem; // TODO: Var 1.05 (from @mixin lead below)
-  margin-bottom: 0.5em;
-  display: block;
-}
-
 %h2 {
   @extend %heading-large;
 
-  margin-top: var(--spacing);
+  margin-top: calc(var(--spacing) * 2);
   line-height: 1.3;
   margin-bottom: 0.667em;
   font-size: 1.875rem;
   max-width: 22em;
 
   .lead {
-    @extend %heading-lead;
+    margin-bottom: 0.5em;
+    display: block;
   }
 }
 
@@ -54,39 +49,37 @@
   margin-bottom: 0.5em;
 
   .lead {
-    @extend %heading-lead;
+    display: block;
   }
 }
 
-@mixin lead($link: true) {
+@mixin lead {
   @include sc;
 
-  color: var(--c-bA);
-  font-family: $font-family-body;
+  color: var(--c-accent);
+  font-family: var(--font-family-body);
   font-weight: 500;
   font-variant-numeric: oldstyle-nums;
   line-height: 1.4; // TODO: Var (from %h3)
   padding-right: 0.1em;
+  font-size: 1rem;
 
   abbr {
     border: 0;
     text-decoration: none;
   }
 
-  @if ($link) {
+  a {
+    color: inherit;
+    text-decoration-color: currentColor !important;
 
-    a {
-      --link-state-color: var(--c-bA);
-      text-decoration-color: currentColor !important;
+    &::after {
+      color: currentColor !important;
+      transition: none !important;
+    }
 
-      &:hover {
-        --link-state-color: var(--c-bC);
-        color: var(--link-state-color);
-      }
-
-      &:focus-visible {
-        --link-state-color: var(--c-cH);
-      }
+    &:hover {
+      color: var(--c-text);
     }
   }
 }

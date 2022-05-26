@@ -1,7 +1,7 @@
 .tweet {
-  background: var(--c-hB);
+  background: var(--c-header-background);
   padding: 1em;
-  border: 1px solid var(--c-bD);
+  border: 1px solid var(--c-decorative);
   border-radius: 0.5rem;
   margin: 2em 0;
   max-width: 36em;
@@ -15,14 +15,15 @@
 
   &__profile {
     display: grid;
-    grid-template-columns: auto 1fr;
-    overflow: hidden;
     grid-gap: 0.5em;
     margin-right: 1em;
 
+    @include min-width($breakpoint-xsmall) {
+      grid-template-columns: auto 1fr;
+    }
+
     > span {
       display: block;
-      overflow: hidden;
     }
   }
 
@@ -31,20 +32,19 @@
     width: 3em;
     object-fit: cover;
     border-radius: 50%;
-    opacity: var(--o-fig, 1);
+    opacity: var(--figure-opacity, 1);
+    overflow: hidden;
   }
 
   &__author,
   &__username {
     display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
     font-weight: 500;
   }
 
   &__username {
     font-weight: 300;
-    color: var(--c-bS);
+    color: var(--c-semi);
   }
 
   &__bird {
@@ -134,7 +134,7 @@
   &__image {
     position: relative;
     border-radius: 0.25rem;
-    opacity: var(--o-fig, 1);
+    opacity: var(--figure-opacity, 1);
 
     &:hover {
 
@@ -145,7 +145,7 @@
 
     &:focus {
       background: none;
-      outline: 1px dotted var(--c-bS);
+      outline: 1px dotted var(--c-semi);
     }
 
     &:focus:not(:focus-visible) {
@@ -163,7 +163,7 @@
     &::before {
       content: '';
       position: absolute;
-      border: 3px var(--c-bH) solid;
+      border: 3px var(--c-focus-ring) solid;
       opacity: 0;
       border-radius: calc(0.25rem + 3px);
       top: -3px;
