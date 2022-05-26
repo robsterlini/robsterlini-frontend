@@ -15,11 +15,13 @@
     &--mobile {
       @include min-width($breakpoint-small) {
         display: none;
+        visibility: hidden;
       }
     }
     &--desktop {
       @include max-width($breakpoint-small) {
         display: none;
+        visibility: hidden;
       }
     }
 

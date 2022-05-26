@@ -1,7 +1,7 @@
 <div class="banner" role="banner">
   <div class="group">
-    <p class="small banner__text banner__text--desktop">After covid and injury postponements, in July 2023 I will finally be taking on Ironman UK, and <a href="/fundraising" target="_blank">fundraising for Mind!</a></p>
-    <p class="banner__text banner__text--mobile" aria-hidden="true"><a href="/fundraising" target="_blank">I am fundraising for Mind!</a></p>
+    <p class="small banner__text">
+      <span class="banner__text--desktop">After <span class="sc">Covid</span> and injury postponements, in July 2023 I will finally be taking on Ironman UK, and </span><a href="/fundraising" target="_blank"><span class="banner__text banner__text--mobile">I am </span>fundraising for Mind!</a></p>
   </div>
 </div>
 <nav class="nav">
@@ -13,63 +13,63 @@
         <span>R<span class="nav-logo__hide">ob </span>S<span class="nav-logo__hide">terlini</span></span>
       </a>
       </div>
-      <div class="nav-list__shim" aria-hidden="true">
-      <ul class="nav-list__list links" id="nav-list">
-        {% for item in global.nav %}
-          <li class="nav-list__item">
-            <a href="{{ item.link }}" class="nav-list__link lead{% if nav and nav === item.nav %} active{% endif %}">
-              {{ item.label }}
+      <div class="nav-list__shim">
+        <ul class="nav-list__list links" id="nav-list">
+          {% for item in global.nav %}
+            <li class="nav-list__item">
+              <a href="{{ item.link }}" class="nav-list__link lead{% if nav and nav === item.nav %} active{% endif %}">
+                {{ item.label }}
+              </a>
+            </li>
+          {% endfor %}
+          <li class="nav-list__item nav-list__item--mind">
+            <a href="/fundraising" target="_blank" class="nav-list__link link--external lead">
+              Donate
             </a>
           </li>
-        {% endfor %}
-        <li class="nav-list__item nav-list__item--mind">
-          <a href="/fundraising" target="_blank" class="nav-list__link link--external lead">
-            Donate
-          </a>
-        </li>
-      </ul>
+        </ul>
 
-      <div class="nav-list__theme-selector" hidden id="nav-theme-selector" role="radiogroup" aria-labelledby="nav-color-preference-label">
-        <span class="sr-only" id="nav-color-preference-label">Theme</span>
+        <div class="nav-list__theme-selector" hidden id="nav-theme-selector" role="radiogroup" aria-labelledby="nav-color-preference-label">
+          <span class="sr-only" id="nav-color-preference-label">Theme</span>
 
-        <input class="sr-only" type="radio" id="nav-color-light" name="nav-color" value="light">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-light">Linen</label>
+          <input class="sr-only" type="radio" id="nav-color-light" name="nav-color" value="light">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-light">Linen</label>
+          </div>
+
+          <input class="sr-only" type="radio" id="nav-color-dark" name="nav-color" value="dark">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-dark">Shade</label>
+          </div>
+
+          <input class="sr-only" type="radio" id="nav-color-light-contrast" name="nav-color" value="light-contrast">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-light-contrast">
+              <abbr title="Come on you Spurs" class="soon">COYS</abbr>
+              <span class="sr-only">(high contrast)</span>
+            </label>
+          </div>
+
+          <input class="sr-only" type="radio" id="nav-color-rs" name="nav-color" value="rs">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-rs">Gielinor</label>
+          </div>
+
+          <input class="sr-only" type="radio" id="nav-color-it" name="nav-color" value="it">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-it" lang="it">Azzurri</label>
+          </div>
+
+          <input class="sr-only" type="radio" id="nav-color-dark-contrast" name="nav-color" value="dark-contrast">
+          <div class="nav-list__item">
+            <label class="nav-list__link" for="nav-color-dark-contrast">
+              <span class="soon">Neon</span>
+              <span class="sr-only">(high contrast)</span>
+            </label>
+          </div>
+
+          <span class="focus-ring" aria-hidden="true"></span>
         </div>
-
-        <input class="sr-only" type="radio" id="nav-color-dark" name="nav-color" value="dark">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-dark">Shade</label>
-        </div>
-
-        <input class="sr-only" type="radio" id="nav-color-light-contrast" name="nav-color" value="light-contrast">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-light-contrast">
-            <abbr title="Come on you Spurs" class="soon">COYS</abbr>
-            <span class="sr-only">(high contrast)</span>
-          </label>
-        </div>
-
-        <input class="sr-only" type="radio" id="nav-color-rs" name="nav-color" value="rs">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-rs">Gielinor</label>
-        </div>
-
-        <input class="sr-only" type="radio" id="nav-color-it" name="nav-color" value="it">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-it" lang="it">Azzurri</label>
-        </div>
-
-        <input class="sr-only" type="radio" id="nav-color-dark-contrast" name="nav-color" value="dark-contrast">
-        <div class="nav-list__item">
-          <label class="nav-list__link" for="nav-color-dark-contrast">
-            <span class="soon">Neon</span>
-            <span class="sr-only">(high contrast)</span>
-          </label>
-        </div>
-
-        <span class="focus-ring" aria-hidden="true"></span>
-      </div>
       </div>
 
       <div class="nav-list__theme-toggle">
