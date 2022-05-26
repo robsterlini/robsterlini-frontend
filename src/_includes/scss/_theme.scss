@@ -11,7 +11,7 @@ html {
   // --c-grid: 108, 133, 255;
   --c-grid: 0, 205, 205;
   --c-accent: var(--c-text);
-  --c-highlight: var(--c-text);
+  --c-highlight: var(--c-accent);
   --c-focus-ring: var(--c-link-idle);
   --c-decorative: var(--c-semi);
 
@@ -161,6 +161,7 @@ $c-light-text: #19161c;
   --c-text: white;
   --c-semi: #{rgba(white, 0.8)};
   --c-accent: #e6d28d;
+  --c-highlight: #{darken(#004ca0, 10%)};
   --c-focus-ring: var(--c-accent);
   --c-header-background: #{darken(#0058b8, 5%)};
   --c-decorative: #{darken(#0058b8, 5%)};
