@@ -317,7 +317,8 @@
     grid-column: 1;
     display: flex;
     gap: calc(var(--spacing) / 2);
-    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out,
       visibility 0ms 0ms;
     margin: 0 calc(var(--nav-spacing) * -1);
