@@ -19,8 +19,8 @@
   },
   "homepage": "https://robsterlini.co.uk",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@toycode/markdown-it-class": "^1.2.4",
     "dotenv": "^8.2.0",
     "eleventy-plugin-reading-time": "0.0.1",
