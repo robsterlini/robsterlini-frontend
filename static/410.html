@@ -44,37 +44,37 @@
       href="/favicon-light.svg"
     />
 
-    <link rel="preload" href="styles.css" as="style" crossorigin />
+    <link rel="preload" href="/styles.css" as="style" crossorigin />
     <link
       rel="preload"
-      href="fonts/body-400.woff2"
+      href="/fonts/body-400.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="fonts/body-600.woff2"
+      href="/fonts/body-600.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="fonts/heading-600.woff2"
+      href="/fonts/heading-600.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="fonts/heading-sc-600.woff2"
+      href="/fonts/heading-sc-600.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <main>
@@ -97,7 +97,7 @@
               title="Switch theme"
             >
               <svg
-                aria-hidden="true"
+                role="presentation"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 352 512"
               >
@@ -108,7 +108,7 @@
               </svg>
 
               <svg
-                aria-hidden="true"
+                role="presentation"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
               >
@@ -192,7 +192,7 @@
       }
 
       function getFontFace(name, weight) {
-        const source = `url('fonts/${name}-${weight}.woff2') format('woff2')`;
+        const source = `url('/fonts/${name}-${weight}.woff2') format('woff2')`;
         return new FontFace(name, source, { weight: weight });
       }
 
@@ -228,7 +228,7 @@
       function setTheme(theme) {
         document.documentElement.dataset.theme = theme;
         localStorage.setItem(THEME_LOCAL_KEY, theme);
-        favicon.setAttribute("href", `favicon-${theme}.svg`);
+        favicon.setAttribute("href", `/favicon-${theme}.svg`);
 
         if (theme === "rs") {
           Promise.all([getFontFace("gielinor", 600).load()]).then(function (
