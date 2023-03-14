@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Rob Sterlini – Front-end developer &amp; more</title>
+    <meta name="title" content="Rob Sterlini" />
+    <meta
+      name="description"
+      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+    />
+    <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://robsterlini.co.uk/" />
+    <meta property="og:title" content="Rob Sterlini" />
+    <meta
+      property="og:description"
+      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+    />
+    <!-- TODO: Get this -->
+    <!-- <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dym2d96h6/image/upload/w_1440,h_720,q_100/w_800,h_86,c_fit,y_160,x_195,g_north_west,co_rgb:EEE7E7,l_text:rs-b-600.otf_56_bold_left_:Rob%20Sterlini/w_1200,h_420,y_280,x_110,c_fit,g_north_west,co_rgb:F75C6A,l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:Front-end%20developer%252C%20amateur%20triathlete%252C%20typography%20enthusiast%252C%20%2526%C2%A0LEGO%20master%20builder/v1592751314/robsterlini/meta.png"
+    />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="720" /> -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://robsterlini.co.uk/" />
+    <meta property="twitter:title" content="Rob Sterlini" />
+    <meta
+      property="twitter:description"
+      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+    />
+
+    <!-- TODO: Get this -->
+    <!-- <meta
+      property="twitter:image"
+      content="https://res.cloudinary.com/dym2d96h6/image/upload/w_1440,h_720,q_100/w_800,h_86,c_fit,y_160,x_195,g_north_west,co_rgb:EEE7E7,l_text:rs-b-600.otf_56_bold_left_:Rob%20Sterlini/w_1200,h_420,y_280,x_110,c_fit,g_north_west,co_rgb:F75C6A,l_text:rs-h-700.otf_90_bold_left_line_spacing_20_:Front-end%20developer%252C%20amateur%20triathlete%252C%20typography%20enthusiast%252C%20%2526%C2%A0LEGO%20master%20builder/v1592751314/robsterlini/meta.png"
+    /> -->
+    <meta name="twitter:label1" value="Let’s chat!" />
+    <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
+    <meta name="twitter:label2" value="Tweet me" />
+    <meta name="twitter:data2" value="@robsterlini" />
+
+    <meta name="author" content="Rob Sterlini" />
+
+    <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg" />
+
+    <link rel="preload" href="./styles.css" as="style" crossorigin />
+    <link rel="preload" href="./fonts/body-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/body-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/heading-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/heading-sc-600.woff2" as="font" type="font/woff2" crossorigin />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="home">
+      <header>
+        <div class="header__content">
+          <h1 class="lead animate-in">
+            <a href="/">Rob Sterlini</a>
+          </h1>
+          <p class="heading animate-in--child">
+            <span>I’m a pug dad, </span>
+            <span>typo<span class="heading__hide">graphy</span> geek, </span>
+            <span><span class="heading__hide">amateur </span>triathlete, </span>
+            <span><span class="sc">LEGO</span> enthusiast, </span>
+            
+            <span> espresso snob, </span>
+            <span><span lang="it">pastaiolo</span> &amp; </span>
+            <span class="show--rs" aria-hidden="true">
+              maxed
+              <abbr class="heading__hide sc" title="Old School RuneScape">OSRS</abbr>
+              main.
+            </span>
+            <span class="hide--rs">web dev<span class="heading__hide">eloper</span>.</span>
+          </p>
+          <div class="theme-selector animate-in">
+            <button id="theme-selector" class="theme-selector__button" aria-label="Switch theme" title="Switch theme">
+              <svg role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+                <path
+                  class="theme-selector__path--light"
+                  d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16 16-16c0-35.3 28.72-64 64-64 8.84 0 16-7.16 16-16s-7.16-16-16-16zM96.06 459.17c0 3.15.93 6.22 2.68 8.84l24.51 36.84c2.97 4.46 7.97 7.14 13.32 7.14h78.85c5.36 0 10.36-2.68 13.32-7.14l24.51-36.84c1.74-2.62 2.67-5.7 2.68-8.84l.05-43.18H96.02l.04 43.18zM176 0C73.72 0 0 82.97 0 176c0 44.37 16.45 84.85 43.56 115.78 16.64 18.99 42.74 58.8 52.42 92.16v.06h48v-.12c-.01-4.77-.72-9.51-2.15-14.07-5.59-17.81-22.82-64.77-62.17-109.67-20.54-23.43-31.52-53.15-31.61-84.14-.2-73.64 59.67-128 127.95-128 70.58 0 128 57.42 128 128 0 30.97-11.24 60.85-31.65 84.14-39.11 44.61-56.42 91.47-62.1 109.46a47.507 47.507 0 0 0-2.22 14.3v.1h48v-.05c9.68-33.37 35.78-73.18 52.42-92.16C335.55 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z"
+                />
+              </svg>
+
+              <svg role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  class="theme-selector__path--dark"
+                  d="M405.8 373.8c-1.4 0-2.8.3-4.3.9-23.2 10.5-47.3 15.4-70.8 15.4-75.9 0-146.6-50.8-166-129.3-14.6-59.2 4-121.4 48.7-163.3 6.7-6.3 2.1-17.5-7-17.5h-.6c-13.3.8-26.6 2.7-39.5 5.8C49.4 114.1-22.3 231 6.3 347c24.3 98.7 113.4 165 211.6 165 17.1 0 34.5-2 51.8-6.2C335 490 387.4 446.1 415 388.3c3.4-7.1-2.3-14.5-9.2-14.5zm-147.4 85.3c-13.3 3.2-27 4.9-40.5 4.9-78.5 0-146.4-52.8-165-128.5-10.7-43.3-3.8-88.2 19.4-126.4 12.7-20.9 29.4-38.4 49.1-51.8-11.3 36.8-12.8 76.5-3.3 115 22.4 91 99.8 156.3 192.1 164.8-15.7 10.1-33.1 17.5-51.8 22zm200.3-277.8L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208l-53.3-26.7zM304 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32z"
+                />
+
+                <path
+                  class="theme-selector__path--rs"
+                  d="M507.31 462.06L448 402.75l31.64-59.03c3.33-6.22 2.2-13.88-2.79-18.87l-17.54-17.53c-6.25-6.25-16.38-6.25-22.63 0L420 324 112 16 18.27.16C8.27-1.27-1.42 7.17.17 18.26l15.84 93.73 308 308-16.69 16.69c-6.25 6.25-6.25 16.38 0 22.62l17.53 17.54a16 16 0 0 0 18.87 2.79L402.75 448l59.31 59.31c6.25 6.25 16.38 6.25 22.63 0l22.62-22.62c6.25-6.25 6.25-16.38 0-22.63zm-149.36-76.01L60.78 88.89l-5.72-33.83 33.84 5.72 297.17 297.16-28.12 28.11zm65.17-325.27l33.83-5.72-5.72 33.84L340.7 199.43l33.94 33.94L496.01 112l15.84-93.73c1.43-10-7.01-19.69-18.1-18.1l-93.73 15.84-121.38 121.36 33.94 33.94L423.12 60.78zM199.45 340.69l-45.38 45.38-28.12-28.12 45.38-45.38-33.94-33.94-45.38 45.38-16.69-16.69c-6.25-6.25-16.38-6.25-22.62 0l-17.54 17.53a16 16 0 0 0-2.79 18.87L64 402.75 4.69 462.06c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L109.25 448l59.03 31.64c6.22 3.33 13.88 2.2 18.87-2.79l17.53-17.54c6.25-6.25 6.25-16.38 0-22.63L188 420l45.38-45.38-33.93-33.93z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="animate-in">
+        <h2 class="dynamic-color lead">
+          <span>In life</span>
+        </h2>
+        <p>
+          I run a bit, cycle a lot, and swim just enough to call myself
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BZJncXEAQgv/">a triathlete</a>, and as
+          often as possible I head to the mountains to
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/CmTc8B7Na6V/">carve up the&nbsp;pistes</a
+          >.
+        </p>
+        <p>
+          Being half Italian is essentially my entire identity which means I value good food and drink. Freshly ground
+          espresso, <span lang="it">vino rosso</span>, and hand-made pasta cooked <span lang="it">al dente</span> (<span
+            lang="it"
+            >pastaiolo</span
+          >
+          is a loose translation of pasta maker) are a staple in our house; thankfully we have
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/CSqxmKOoJ5Q/">Frankie the pug</a>
+          on hand to deal with any grated cheese that might have missed the&nbsp;dish.
+        </p>
+        <p>
+          You’ll find me at my happiest
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BdIlUsggiIe/"
+            >building <span class="sc">LEGO</span> sets</a
+          >,<span class="show--rs"> raiding with my maxed main on
+          <abbr class="sc" title="Old School RuneScape">OSRS</abbr>,</span> or rewatching the original <span class="nbsp">Star Wars</span> trilogy. I suffer through the highs and lows at
+          <span class="nbsp">White Hart Lane</span> supporting my beloved&nbsp;<abbr title="Tottenham Hotspur FC"
+            >Spurs</abbr
+          >.
+        </p>
+      </section>
+
+      <section class="animate-in" style="--nth-child: 3">
+        <h2 class="dynamic-color lead">
+          <span>As a developer</span>
+        </h2>
+        <p>
+          I’m an experienced front-end developer with a first-class degree in Typography &amp; Graphic Communication
+          and a product mindset, and have led projects across all three disciplines throughout my&nbsp;career.</p>
+        </p>
+        <p>
+          Since 2021 I’ve been working to re-imagine home decisions at
+          <strong>Zoopla</strong> as a Senior Software Engineer, specifically handling the journey for prospective
+          sellers looking for the best estate agents as part of the
+          <strong class="nbsp">Valuation Leads&nbsp;team</strong>.
+        </p>
+        <p>
+          Before that, I spent nearly eight years building web experiences at
+          <strong>Fueled</strong> for the likes of <strong>Apple</strong>, <strong>Pinterest</strong>,
+          <strong class="nbsp">Vanity Fair</strong>, and <strong class="nbsp">Tony&nbsp;Robbins</strong>.
+        </p>
+        <p>
+          On the side, I’ve worked with
+          <a target="_blank" rel="noopener" href="https://kickpush.co"><strong>Kickpush</strong></a>
+          to develop their digital presence, created a
+          <abbr class="sc" title="public service announcement">PSA</abbr> to help folks with
+          <a target="_blank" rel="noopener" href="https://legonotlegos.com/"
+            >pluralising <span class="sc">LEGO</span></a
+          >
+          (it’s not <span class="sc">legos</span>), and for my Dad’s 60th birthday I brought
+          <a target="_blank" rel="noopener" href="https://ourdadmakes.pizza">his pizza recipe</a>
+          to the&nbsp;masses.
+        </p>
+        <!--<p class="list">
+          <span class="list__item">
+            <a href="/cv"
+              >Download my
+              <abbr class="sc" title="curriculum vitae">CV</abbr></a
+            >
+          </span>
+        </p>-->
+      </section>
+
+      <section class="animate-in" id="contact" style="--nth-child: 5">
+        <h2 class="dynamic-color lead">
+          <span>Say hi</span>
+        </h2>
+        <ul class="list">
+          <li>
+            <a href="mailto:hi@robsterlini.co.uk">hi@robsterlini.co.uk</a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener" href="https://instagram.com/robsterlini">Instagram</a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener" href="https://twitter.com/robsterlini">Twitter</a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener" href="https://www.strava.com/athletes/6578573">Strava</a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener" href="https://linked.in/robsterlini">LinkedIn</a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="animate-in">
+        <span class="flourish" aria-hidden="true">❦</span>
+        <p>
+          Built in 2023 using good ol’ <span class="sc">HTML</span> and <span class="sc">CSS</span>, hosted on
+          <a target="_blank" rel="noopener" href="https://netlify.com/">Netlify</a>, with self-served typefaces from
+          <a target="_blank" rel="noopener" href="https://p22.com/family-Mackinac">P22</a> and
+          <a target="_blank" rel="noopener" href="https://www.rosettatype.com/Clone">Rosetta</a>, and icons from
+          <a class="nbsp" target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>. More about
+          this site, its history, and at the <abbr class="sc" title="Creative Commons">CC</abbr>&nbsp;license on&nbsp;<a
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/robsterlini/robsterlini-frontend/"
+            >GitHub</a
+          >.
+        </p>
+        <p>
+          <strong>No cookies, no tracking, nothing&nbsp;evil!</strong>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      function setFontsLoaded() {
+        document.documentElement.className += " fonts-loaded";
+      }
+
+      function getFontFace(name, weight) {
+        const source = `url('./fonts/${name}-${weight}.woff2') format('woff2')`;
+        return new FontFace(name, source, { weight: weight });
+      }
+
+      function initFonts() {
+        if (!("fonts" in document)) {
+          setFontsLoaded();
+          return;
+        }
+
+        Promise.all([
+          getFontFace("body", 400).load(),
+          getFontFace("body", 600).load(),
+          getFontFace("heading", 600).load(),
+          getFontFace("heading-sc", 600).load(),
+        ])
+          .then(function (loadedFonts) {
+            // Render them at the same time
+            loadedFonts.forEach(function (font) {
+              document.fonts.add(font);
+            });
+
+            setFontsLoaded();
+          })
+          .catch(function () {
+            setFontsLoaded();
+          });
+      }
+
+      const THEME_LOCAL_KEY = "rs-theme-selector-v3";
+      const THEMES = ["dark", "light", "rs"];
+      const favicon = document.getElementById('favicon');
+
+      function setTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem(THEME_LOCAL_KEY, theme);
+        favicon.setAttribute('href', `./favicon-${theme}.svg`);
+
+        if (theme === "rs") {
+          Promise.all([getFontFace("gielinor", 600).load()]).then(function (loadedFonts) {
+            loadedFonts.forEach(function (font) {
+              document.fonts.add(font);
+            });
+          });
+        }
+      }
+
+      function getLocalTheme() {
+        const localTheme = localStorage.getItem(THEME_LOCAL_KEY);
+        return THEMES.includes(localTheme) ? localTheme : null;
+      }
+
+      function switchTheme() {
+        const currentTheme = getLocalTheme();
+        const index = THEMES.indexOf(currentTheme);
+        const nextIndex = index + 1 === THEMES.length ? 0 : index + 1;
+        const nextTheme = THEMES[nextIndex];
+        setTheme(nextTheme);
+      }
+
+      function initTheme() {
+        const themeSelector = document.getElementById("theme-selector");
+
+        themeSelector.addEventListener("click", switchTheme);
+
+        const localTheme = getLocalTheme();
+
+        if (localTheme) {
+          setTheme(localTheme);
+          return;
+        }
+
+        if (!window.matchMedia) {
+          setTheme("light");
+          return;
+        }
+
+        const colorSchemeMatch = window.matchMedia("(prefers-color-scheme: dark)");
+        setTheme(colorSchemeMatch.matches ? "dark" : "light");
+      }
+
+      initTheme();
+      initFonts();
+    </script>
+  </body>
+</html>
