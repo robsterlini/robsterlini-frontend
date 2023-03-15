@@ -139,7 +139,7 @@ main {
   visibility: visible;
 }
 
-main::after {
+body::after {
   --color-l-start: var(--color-accent-l);
   --color-l-end: calc(var(--color-accent-l) + (var(--n-max) * var(--l-diff) * 1.5));
 
@@ -168,7 +168,7 @@ main::after {
   width: 100%;
 }
 
-.home {
+.home main {
   --section-count: 3;
 }
 
@@ -403,7 +403,7 @@ footer {
     --main-border: 0.5rem;
   }
 
-  main::after {
+  body::after {
     left: 50%;
     max-width: calc(var(--max-width-h1) - (var(--gap) * 2));
     width: calc(100% - (var(--gap) * 2));
@@ -429,7 +429,7 @@ footer {
 }
 
 @media screen and (min-width: 70em) and (min-height: 42em) {
-  .home {
+  .home main {
     --header-section-count: 0;
     --max-width-h1: calc(var(--font-size-h1) * 10);
 
@@ -519,7 +519,7 @@ footer {
     --font-size-h1: clamp(3.5rem, calc(3rem + 1vw), 4.25rem);
     --gap: 2.5rem;
   }
-  .home {
+  .home main {
     grid-template-columns: 1fr 1fr;
     padding-left: var(--gap);
   }
