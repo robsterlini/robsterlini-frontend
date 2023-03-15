@@ -38,11 +38,7 @@
 }
 
 html {
-  --color-accent: hsl(
-    var(--color-accent-h),
-    var(--color-accent-s),
-    var(--color-accent-l)
-  );
+  --color-accent: hsl(var(--color-accent-h), var(--color-accent-s), var(--color-accent-l));
   background: var(--color-background);
   color: var(--color-text);
   min-height: 100%;
@@ -122,9 +118,7 @@ abbr {
 main {
   --section-count: 1;
   --header-section-count: 1;
-  --auto-rows-count: calc(
-    var(--header-section-count) + var(--section-count, 1)
-  );
+  --auto-rows-count: calc(var(--header-section-count) + var(--section-count, 1));
 
   padding: var(--gap);
   padding-top: calc(var(--gap) + var(--main-border));
@@ -147,9 +141,7 @@ main {
 
 main::after {
   --color-l-start: var(--color-accent-l);
-  --color-l-end: calc(
-    var(--color-accent-l) + (var(--n-max) * var(--l-diff) * 1.5)
-  );
+  --color-l-end: calc(var(--color-accent-l) + (var(--n-max) * var(--l-diff) * 1.5));
 
   --ca: var(--color-accent-h);
   --cs: var(--color-accent-s);
@@ -483,9 +475,7 @@ footer {
     --h1-line-space: calc(var(--font-size-h1) * var(--line-height-heading));
     --lead-line-space: calc(var(--font-size-lead) * var(--line-height-lead));
 
-    --space-1: calc(
-      var(--main-border) + var(--gap) + var(--lead-line-space) + var(--gap)
-    );
+    --space-1: calc(var(--main-border) + var(--gap) + var(--lead-line-space) + var(--gap));
     --space-2: calc(var(--space-1) + var(--h1-line-space));
     --space-3: calc(var(--space-2) + var(--h1-line-space));
     --space-4: calc(var(--space-3) + var(--h1-line-space));
