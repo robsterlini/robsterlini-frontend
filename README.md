@@ -8,7 +8,7 @@ The two main webfonts are [Mackinac by P22](https://p22.com/family-Mackinac) and
 
 A heavy focus on all things typographic come from a wonderful undergraduate education experienced at the Department of Typography and Graphic Communication at University of Reading – if you love type and/or design, it’s the place to be educated!
 
-The theme picker ([originally just a light/dark mode](https://20221.robsterlini.co.uk/journal/2020/light-and-dark-mode-plus/)) is now heavily inspired by the one found on [Max Böck’s site](https://mxb.dev/), kudos if you understand the Gielinor reference in there. It automatically selects a theme based on your browser and contrast preferences, but then stores an overriden selection in `localStorage` for next time you come back!
+The theme picker ([originally just a light/dark mode](https://2022.robsterlini.co.uk/journal/2020/light-and-dark-mode-plus/)) is now heavily inspired by the one found on [Max Böck’s site](https://mxb.dev/), kudos if you understand the Gielinor reference in there. It automatically selects a theme based on your browser and contrast preferences, but then stores an overriden selection in `localStorage` for next time you come back!
 
 ## Core principles
 
@@ -31,7 +31,32 @@ It’s okay for it to be improved iteratively… there will always be more to do
 
 ## Archive
 
-Coming soon…
+robsterlini.co.uk has gone through a few (a lot) of revisions over time, and with some poking and prodding I’ve been able to rescue a few notable years. They’re to be consumed as seen, no fixes (other than ensuring the builds ran) were made, so be kind while you’re judging me!
+
+### Previous builds
+
+- [2022.robsterlini.co.uk](https://2022.robsterlini.co.uk/)
+- [2019.robsterlini.co.uk](https://2019.robsterlini.co.uk/)
+- [2018.robsterlini.co.uk](https://2018.robsterlini.co.uk/)
+- [2017.robsterlini.co.uk](https://2017.robsterlini.co.uk/)
+- [2015.robsterlini.co.uk](https://2015.robsterlini.co.uk/)
+- [2014.robsterlini.co.uk](https://2014.robsterlini.co.uk/)
+
+### Journal posts
+
+Shown on the 2022 archive build
+
+- [The last pizza recipe you’ll ever need](https://2022.robsterlini.co.uk/journal/2021/our-dad-makes-pizza/)
+- [Better CSS strikethroughs](https://2022.robsterlini.co.uk/journal/2021/better-css-strikethroughs/)
+- [The right tool for the wrong person](https://2022.robsterlini.co.uk/journal/2020/the-wrong-tool/)
+- [Instagram is nothing but a highlight reel](https://2022.robsterlini.co.uk/journal/2020/instagram-is-a-highlight-reel/)
+- [Light & dark mode, plus…](https://2022.robsterlini.co.uk/journal/2020/light-and-dark-mode-plus/)
+- [A fresh lick of paint](https://2022.robsterlini.co.uk/journal/2020/a-fresh-lick-of-paint/)
+- [Parkrun changed my life](https://2022.robsterlini.co.uk/journal/2016/parkrun-changed-my-life/)
+- [I’m a triathlete](https://2022.robsterlini.co.uk/journal/2015/triathlete/)
+- [My first three months at Fueled](https://fueled.com/blog/three-months-fueled/)
+- [Opentype & ::selection don’t mix](https://2022.robsterlini.co.uk/journal/2014/opentype-and-selection-dont-mix/)
+- [Responsive web design techniques](https://webdesign.tutsplus.com/courses/responsive-web-design-techniques)
 
 ## Styleguide
 
@@ -44,18 +69,7 @@ Coming soon…
 
 ## Setup
 
-To run the project locally:
-
-```
-$ npm i
-$ npm start
-```
-
-To build the project:
-
-```
-$ npm run build
-```
+To run the project locally just open `index.html` in your browser :tada:
 
 ## License
 
