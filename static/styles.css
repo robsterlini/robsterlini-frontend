@@ -14,13 +14,14 @@
 
   --font-size-h1: 1.75rem;
   --font-size-text: 1.125rem;
-  --font-size-lead: 1.25rem;
+  --font-size-lead: 1.125rem;
   --font-size-footer: 1rem;
 
   --max-width-h1: calc(var(--font-size-h1) * 20);
   --max-width-text: calc(var(--font-size-text) * 38);
 
   --gap: 1rem;
+  --main-border: 0.25rem;
 
   --l-diff: 1.8%;
   --n-max: 5;
@@ -37,7 +38,11 @@
 }
 
 html {
-  --color-accent: hsl(var(--color-accent-h), var(--color-accent-s), var(--color-accent-l));
+  --color-accent: hsl(
+    var(--color-accent-h),
+    var(--color-accent-s),
+    var(--color-accent-l)
+  );
   background: var(--color-background);
   color: var(--color-text);
   min-height: 100%;
@@ -60,24 +65,6 @@ body {
   flex-grow: 1;
   display: flex;
   position: relative;
-}
-
-body::after {
-  --color-l-start: var(--color-accent-l);
-  --color-l-end: calc(var(--color-accent-l) + (var(--n-max) * var(--l-diff)));
-
-  content: "";
-  height: 0.5rem;
-  display: block;
-  background: linear-gradient(
-    to right,
-    hsl(var(--color-accent-h) var(--color-accent-s) var(--color-l-start)),
-    hsl(var(--color-accent-h) var(--color-accent-s) var(--color-l-end))
-  );
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
 }
 
 p,
@@ -135,9 +122,12 @@ abbr {
 main {
   --section-count: 1;
   --header-section-count: 1;
-  --auto-rows-count: calc(var(--header-section-count) + var(--section-count, 1));
+  --auto-rows-count: calc(
+    var(--header-section-count) + var(--section-count, 1)
+  );
 
   padding: var(--gap);
+  padding-top: calc(var(--gap) + var(--main-border));
   padding-bottom: calc(var(--gap) * 2);
   margin: 0 auto;
   max-width: var(--max-width-h1);
@@ -153,6 +143,37 @@ main {
 
 .fonts-loaded main {
   visibility: visible;
+}
+
+main::after {
+  --color-l-start: var(--color-accent-l);
+  --color-l-end: calc(
+    var(--color-accent-l) + (var(--n-max) * var(--l-diff) * 1.5)
+  );
+
+  --ca: var(--color-accent-h);
+  --cs: var(--color-accent-s);
+  --cl: var(--color-accent-l);
+  --ld: calc(var(--l-diff) * 1.5);
+
+  --color-1: hsl(var(--ca) var(--cs) calc(var(--cl) + (0 * var(--ld))));
+  --color-2: hsl(var(--ca) var(--cs) calc(var(--cl) + (1 * var(--ld))));
+  --color-3: hsl(var(--ca) var(--cs) calc(var(--cl) + (2 * var(--ld))));
+  --color-4: hsl(var(--ca) var(--cs) calc(var(--cl) + (3 * var(--ld))));
+  --color-5: hsl(var(--ca) var(--cs) calc(var(--cl) + (4 * var(--ld))));
+  --color-6: hsl(var(--ca) var(--cs) calc(var(--cl) + (5 * var(--ld))));
+  --color-7: hsl(var(--ca) var(--cs) calc(var(--cl) + (6 * var(--ld))));
+  --color-8: hsl(var(--ca) var(--cs) calc(var(--cl) + (7 * var(--ld))));
+  --color-9: hsl(var(--ca) var(--cs) calc(var(--cl) + (8 * var(--ld))));
+
+  content: "";
+  height: var(--main-border);
+  display: block;
+  background: linear-gradient(to right, var(--color-1), var(--color-9));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .home {
@@ -199,7 +220,7 @@ footer {
 }
 
 .flourish {
-  --nth-child: var(--n-max);
+  --nth-child: 8;
 
   margin-bottom: var(--gap);
   display: block;
@@ -361,6 +382,7 @@ footer {
 @media screen and (min-width: 20em) {
   :root {
     --font-size-h1: 2rem;
+    --font-size-lead: 1.25rem;
     --gap: 1.25rem;
   }
 }
@@ -368,8 +390,8 @@ footer {
 @media screen and (min-width: 32em) {
   :root {
     --font-size-h1: 2.25rem;
-    --font-size-text: 1.25rem;
     --gap: 1.75rem;
+    --main-border: 0.375rem;
   }
 
   .nbsp {
@@ -384,7 +406,16 @@ footer {
 @media screen and (min-width: 48em) {
   :root {
     --font-size-h1: 2.5rem;
+    --font-size-text: 1.25rem;
     --gap: 2rem;
+    --main-border: 0.5rem;
+  }
+
+  main::after {
+    left: 50%;
+    max-width: calc(var(--max-width-h1) - (var(--gap) * 2));
+    width: calc(100% - (var(--gap) * 2));
+    transform: translateX(-50%);
   }
 
   .home .heading > span {
@@ -405,13 +436,14 @@ footer {
   }
 }
 
-@media screen and (min-width: 72em) and (min-height: 42em) {
+@media screen and (min-width: 70em) and (min-height: 42em) {
   .home {
     --header-section-count: 0;
     --max-width-h1: calc(var(--font-size-h1) * 10);
 
     grid-template-columns: var(--max-width-h1) 1fr;
     max-width: calc(var(--max-width-h1) + var(--gap) + var(--max-width-text));
+    padding-left: calc(var(--gap) + var(--main-border));
   }
 
   .home header {
@@ -421,7 +453,7 @@ footer {
 
   .home .header__content {
     position: sticky;
-    top: var(--gap);
+    top: calc(var(--main-border) + var(--gap));
   }
 
   .home section,
@@ -439,6 +471,67 @@ footer {
     transition-delay: calc(50ms * var(--nth-child));
     transform: translateY(var(--transform-y));
     display: block;
+    position: relative;
+  }
+
+  .home::after {
+    --ca: var(--color-accent-h);
+    --cs: var(--color-accent-s);
+    --cl: var(--color-accent-l);
+    --ld: calc(var(--l-diff) * 1.5);
+
+    --h1-line-space: calc(var(--font-size-h1) * var(--line-height-heading));
+    --lead-line-space: calc(var(--font-size-lead) * var(--line-height-lead));
+
+    --space-1: calc(
+      var(--main-border) + var(--gap) + var(--lead-line-space) + var(--gap)
+    );
+    --space-2: calc(var(--space-1) + var(--h1-line-space));
+    --space-3: calc(var(--space-2) + var(--h1-line-space));
+    --space-4: calc(var(--space-3) + var(--h1-line-space));
+    --space-5: calc(var(--space-4) + var(--h1-line-space));
+    --space-6: calc(var(--space-5) + var(--h1-line-space));
+    --space-7: calc(var(--space-6) + var(--h1-line-space));
+    --space-8: calc(var(--space-7) + var(--h1-line-space));
+
+    height: auto;
+    background: linear-gradient(
+      to bottom,
+      var(--color-1) var(--space-1),
+      var(--color-2) var(--space-1),
+      var(--color-2) var(--space-2),
+      var(--color-3) var(--space-2),
+      var(--color-3) var(--space-3),
+      var(--color-4) var(--space-3),
+      var(--color-4) var(--space-4),
+      var(--color-5) var(--space-4),
+      var(--color-5) var(--space-5),
+      var(--color-6) var(--space-5),
+      var(--color-6) var(--space-6),
+      var(--color-7) var(--space-6),
+      var(--color-7) var(--space-7),
+      var(--color-8) var(--space-7),
+      var(--color-8) var(--space-8),
+      var(--color-9) var(--space-8)
+    );
+    width: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    transform: none;
+    max-width: none;
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 84em) and (min-height: 48em) {
+  :root {
+    --font-size-h1: clamp(3.5rem, calc(3rem + 1vw), 4.25rem);
+    --gap: 2.5rem;
+  }
+  .home {
+    grid-template-columns: 1fr 1fr;
+    padding-left: var(--gap);
   }
 }
 
