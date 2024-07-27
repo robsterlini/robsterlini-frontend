@@ -314,6 +314,8 @@ footer {
 }
 
 [data-theme="light"] .theme-selector__path--light,
+/* TODO: Come and get an icon for this */
+[data-theme="mind"] .theme-selector__path--light,
 [data-theme="dark"] .theme-selector__path--dark,
 [data-theme="rs"] .theme-selector__path--rs {
   opacity: 1;
@@ -550,6 +552,20 @@ footer {
   --color-text: #eee7e7;
   --color-link-underline: #777;
   --color-selection-background: rgba(119, 119, 119, 0.5);
+}
+
+[data-theme="mind"] {
+  --color-background: #1300c1;
+  --color-text: #fff; /* TODO: Should this actually be white */
+  --color-accent-h: 346deg;
+  --color-accent-s: 100%;
+  --color-accent-l: 90%;
+  --color-link-underline: #ffcdd9;
+  --color-selection-background: #0b0069;
+}
+[data-theme="mind"] .hide--mind,
+.show--mind:not([data-theme="mind"] .show--mind) {
+  display: none !important;
 }
 
 [data-theme="rs"] {
