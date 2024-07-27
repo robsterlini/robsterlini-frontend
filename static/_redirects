@@ -14,8 +14,10 @@ https://robsterlini-frontend.netlify.com/* https://robsterlini.co.uk/:splat 301!
 /curriculum-vitae   /#work    301
 /site-history       /#footer  301
 
+# 302
+/fundraising   https://justgiving.com/page/robsterlini 302
+
 # 410
 /journal       /410   410
 /journal/*     /410   410
 /triathlon     /410   410
-/fundraising   /410   410

@@ -79,18 +79,28 @@
           </h1>
           <p class="heading animate-in--child">
             <span>I’m a pug dad, </span>
+
             <span>typo<span class="heading__hide">graphy</span> geek, </span>
-            <span><span class="heading__hide">amateur </span>triathlete, </span>
+
+            <span>
+              <span class="hide--mind"><span class="heading__hide">amateur </span>triathlete, </span>
+              <span class="show--mind"><span class="heading__hide">marathon </span> runner, </span>
+            </span>
+
             <span><span class="sc">LEGO</span> enthusiast, </span>
 
             <span> espresso snob, </span>
+
             <span><span lang="it">pastaiolo</span> &amp; </span>
-            <span class="show--rs" aria-hidden="true">
-              maxed
-              <abbr class="heading__hide sc" title="Old School RuneScape">OSRS</abbr>
-              main.
+
+            <span>
+              <span class="show--rs" aria-hidden="true">
+                maxed
+                <abbr class="heading__hide sc" title="Old School RuneScape">OSRS</abbr>
+                main.
+              </span>
+              <span class="hide--rs">web&nbsp;dev<span class="heading__hide">eloper</span>.</span>
             </span>
-            <span class="hide--rs">web&nbsp;dev<span class="heading__hide">eloper</span>.</span>
           </p>
           <div class="theme-selector animate-in">
             <button id="theme-selector" class="theme-selector__button" aria-label="Switch theme" title="Switch theme">
@@ -129,6 +139,12 @@
           >.
         </p>
         <p>
+          <strong
+            >I am currently <a href="_blank" rel="noopener" href="/fundraising">fundraising for Mind</a> by taking on
+            the 2025 London&nbsp;Marathon.</strong
+          >
+        </p>
+        <p>
           Being half Italian is essentially my entire identity which means I value good food and drink. Freshly ground
           espresso, <span lang="it">vino rosso</span>, and hand-made pasta cooked <span lang="it">al dente</span> (<span
             lang="it"
@@ -142,8 +158,10 @@
           You’ll find me at my happiest
           <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BdIlUsggiIe/"
             >building <span class="sc">LEGO</span> sets</a
-          >,<span class="show--rs"> raiding with my maxed main on
-          <abbr class="sc" title="Old School RuneScape">OSRS</abbr>,</span> or rewatching the original <span class="nbsp">Star Wars</span> trilogy. I suffer through the highs and lows at
+          >,<span class="show--rs">
+            raiding with my maxed main on <abbr class="sc" title="Old School RuneScape">OSRS</abbr>,</span
+          >
+          or rewatching the original <span class="nbsp">Star Wars</span> trilogy. I suffer through the highs and lows at
           <span class="nbsp">White Hart Lane</span> supporting my beloved&nbsp;<abbr title="Tottenham Hotspur FC"
             >Spurs</abbr
           >.
@@ -155,14 +173,20 @@
           <span>As a developer</span>
         </h2>
         <p>
-          I’m an experienced front-end developer with a first-class degree in Typography &amp; Graphic Communication
-          and a product mindset, and have led projects across all three disciplines throughout my&nbsp;career.</p>
+          I’m an experienced front-end developer with a first-class degree in Typography &amp; Graphic Communication and
+          a product mindset, and have led projects across all three disciplines throughout my&nbsp;career.
         </p>
         <p>
-          Since 2021 I’ve been working to re-imagine home decisions at
-          <strong>Zoopla</strong> as a Senior Software Engineer, specifically handling the journey for prospective
-          sellers looking for the best estate agents as part of the
-          <strong class="nbsp">Valuation Leads&nbsp;team</strong>.
+          Since August 2024, I have been a <strong>Staff Full Stack Software Engineer</strong> at
+          <strong>UNiDAYS</strong>. More on that&nbsp;soon…
+        </p>
+        <p>
+          Between 2021&ndash;24, I worked to re-imagine home decisions at
+          <strong>Zoopla</strong> as a Senior Software Engineer I and II. Initially, as part of the Valuation Leads team
+          focused on products that connected prospective sellers to estate agents, before moving into the Web Platform
+          team where I enabled product teams as a TypeScript&nbsp;<abbr title="subject matter expert" class="sc"
+            >SME</abbr
+          >.
         </p>
         <p>
           Before that, I spent nearly eight years building web experiences at
@@ -199,6 +223,9 @@
         <ul class="list">
           <li>
             <a href="mailto:hi@robsterlini.co.uk">hi@robsterlini.co.uk</a>
+          </li>
+          <li>
+            <a target="_blank" rel="noopener" href="/fundraising">JustGiving</a>
           </li>
           <li>
             <a target="_blank" rel="noopener" href="https://instagram.com/robsterlini">Instagram</a>
@@ -271,14 +298,18 @@
           });
       }
 
-      const THEME_LOCAL_KEY = "rs-theme-selector-v3";
-      const THEMES = ["dark", "light", "rs"];
-      const favicon = document.getElementById('favicon');
+      const THEME_LOCAL_KEY = "rs-theme-selector-v4";
+      const THEMES = ["mind", "dark", "light", "rs"];
+      // These are both set to Mind while I'm fundraising
+      const DEFAULT_DARK_THEME = "mind";
+      const DEFAULT_LIGHT_THEME = "mind";
+
+      const favicon = document.getElementById("favicon");
 
       function setTheme(theme) {
         document.documentElement.dataset.theme = theme;
         localStorage.setItem(THEME_LOCAL_KEY, theme);
-        favicon.setAttribute('href', `./favicon-${theme}.svg`);
+        favicon.setAttribute("href", `./favicon-${theme}.svg`);
 
         if (theme === "rs") {
           Promise.all([getFontFace("gielinor", 600).load()]).then(function (loadedFonts) {
@@ -320,7 +351,7 @@
         }
 
         const colorSchemeMatch = window.matchMedia("(prefers-color-scheme: dark)");
-        setTheme(colorSchemeMatch.matches ? "dark" : "light");
+        setTheme(colorSchemeMatch.matches ? DEFAULT_LIGHT_THEME : DEFAULT_LIGHT_THEME);
       }
 
       initTheme();
