@@ -176,35 +176,36 @@ body::after {
 
 .home-mind {
   --mind-border-radius: 8px;
-  --mind-padding: 0.75em;
+  --mind-padding: calc(var(--mind-logo-height) / 4);
 
   --color-link-underline: currentColor;
 
   color: var(--color-mind);
-  margin: 0 0 var(--gap);
+  margin: -0.25rem 0 var(--gap);
 }
 
 .home-mind__logo {
   display: grid;
-  grid-template-columns: var(--mind-padding) auto 1fr;
-  gap: var(--mind-padding);
+  grid-template-columns: 1fr auto calc(var(--mind-logo-height) / 4);
+  gap: calc(var(--mind-logo-height) / 4);
+  margin-bottom: calc(var(--mind-logo-height) / -4);
 }
 .home-mind__logo::before,
 .home-mind__logo::after {
   content: "";
   border: 2px solid var(--color-mind);
-  border-bottom: 0;
+  border-top: 0;
   width: 100%;
   display: block;
-  margin-top: calc(var(--mind-logo-height) / 2);
+  margin-bottom: calc(var(--mind-logo-height) / 2 - 1px);
 }
 .home-mind__logo::before {
   border-right: 0;
-  border-top-left-radius: var(--mind-border-radius);
+  border-bottom-left-radius: var(--mind-border-radius);
 }
 .home-mind__logo::after {
   border-left: 0;
-  border-top-right-radius: var(--mind-border-radius);
+  border-bottom-right-radius: var(--mind-border-radius);
 }
 
 .home-mind__logo svg {
@@ -218,18 +219,19 @@ body::after {
 
 .home-mind__text {
   border: 2px solid var(--color-mind);
-  border-radius: 0 0 var(--mind-border-radius) var(--mind-border-radius);
-  border-top: 0;
+  border-radius: var(--mind-border-radius) var(--mind-border-radius) 0 0;
+  border-bottom: 0;
   margin-top: 0;
-  padding: 0 var(--mind-padding) var(--mind-padding);
+  padding: calc(var(--mind-logo-height) / 4);
+  padding-bottom: calc(var(--mind-logo-height) / 8);
   display: block;
 }
 
-.home-mind__text span {
+.home-mind__text > span {
   display: block;
 }
 
-.home-mind__text a {
+.home-mind__text > a {
   display: inline-block;
 }
 
@@ -335,8 +337,11 @@ footer {
   --nth-child: 8;
 }
 
-.heading__hide {
+.hide--small {
   display: none;
+}
+.capitalise--small {
+  text-transform: capitalize;
 }
 
 .heading .sc {
@@ -443,8 +448,6 @@ footer {
     --font-size-h1: 2rem;
     --font-size-lead: 1.25rem;
     --gap: 1.25rem;
-
-    --mind-logo-height: 4rem;
   }
 }
 
@@ -453,14 +456,18 @@ footer {
     --font-size-h1: 2.25rem;
     --gap: 1.75rem;
     --main-border: 0.375rem;
+    --mind-logo-height: 3.25rem;
   }
 
   .nbsp {
     white-space: nowrap;
   }
 
-  .heading__hide {
+  .hide--small {
     display: inline;
+  }
+  .capitalise--small {
+    text-transform: none;
   }
 }
 
@@ -470,6 +477,7 @@ footer {
     --font-size-text: 1.25rem;
     --gap: 2rem;
     --main-border: 0.5rem;
+    --mind-logo-height: 3.5rem;
   }
 
   body::after {
