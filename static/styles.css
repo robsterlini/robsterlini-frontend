@@ -27,6 +27,12 @@
   --n-max: 5;
 
   --color-mind: #1300c1;
+  --color-mind-semi: rgba(19, 0, 193, 0.3);
+  --color-strava: #fc4c02;
+  --color-instagram: #e1306c;
+  --color-linkedin: #0077b5;
+  --color-twitter: #1da1f2;
+
   --mind-logo-height: 3rem;
 }
 
@@ -72,6 +78,12 @@ ul {
   max-width: var(--max-width-text);
 }
 
+ul,
+li {
+  display: block;
+  padding: 0;
+}
+
 button {
   all: unset;
   border-radius: 0.25rem;
@@ -85,17 +97,64 @@ button:hover {
 }
 
 a {
+  /* --link-color: var(--color-link-underline); */
+  --link-color: var(--color-accent);
+
+  color: inherit;
+  border-radius: 2px;
+}
+
+a:not(.link),
+.link > span {
   font-weight: var(--font-weight-body-bold);
+  text-decoration: underline;
   text-decoration-color: var(--color-link-underline);
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.1em;
-  border-radius: 2px;
-  color: inherit;
 }
 
-a:hover {
-  color: var(--color-accent);
-  text-decoration-color: var(--color-accent);
+.link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.link::before {
+  content: "↗";
+  width: 1em;
+  font-weight: var(--font-weight-body-bold);
+  color: var(--color-link-underline);
+  position: relative;
+  top: 0.05em;
+}
+
+a[href*="strava.com"] {
+  --link-color: var(--color-strava);
+}
+
+a[href*="/fundraising"] {
+  --link-color: var(--color-mind);
+}
+
+a[href*="instagram.com"] {
+  --link-color: var(--color-instagram);
+}
+
+a[href*="linkedin.com"] {
+  --link-color: var(--color-linkedin);
+}
+
+a[href*="twitter.com"] {
+  --link-color: var(--color-twitter);
+}
+
+a:hover,
+.link:hover > span,
+.link:hover::before {
+  text-decoration-color: var(--link-color);
+}
+
+.link:hover::before {
+  color: var(--link-color);
 }
 
 button:focus,
@@ -106,6 +165,10 @@ a:focus {
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--color-accent);
+  text-decoration: none;
+}
+
+.link:focus-visible > span {
   text-decoration: none;
 }
 
@@ -175,11 +238,20 @@ body::after {
   --section-count: 4;
 }
 
+@media screen and (min-width: 20em) {
+  .home__contact-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
+    column-gap: var(--gap);
+    max-width: none;
+  }
+}
+
 .home-mind {
   --mind-border-radius: 8px;
   --mind-padding: calc(var(--mind-logo-height) / 4);
 
-  --color-link-underline: currentColor;
+  --color-link-underline: var(--color-mind-semi);
 
   color: var(--color-mind);
   margin: -0.25rem 0 0;
@@ -230,10 +302,6 @@ body::after {
 
 .home-mind__text > span {
   display: block;
-}
-
-.home-mind__text > a {
-  display: inline-block;
 }
 
 .header__content {
@@ -425,30 +493,6 @@ footer {
   margin-top: calc(0.5em - 0.25rem);
 }
 
-.list {
-  display: block;
-  padding: 0;
-}
-
-.list__item,
-.list > li {
-  display: block;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1em auto;
-  justify-content: flex-start;
-}
-
-.list__item::before,
-.list > li::before {
-  content: "↗";
-  width: 1em;
-  font-weight: var(--font-weight-body-bold);
-  color: var(--color-link-underline);
-  position: relative;
-  top: 0.05em;
-}
-
 @media screen and (min-width: 20em) {
   :root {
     --font-size-h1: 2rem;
@@ -632,6 +676,7 @@ footer {
   --color-background: #1c181f;
   --color-text: #eee7e7;
   --color-link-underline: #777;
+  --color-mind-semi: var(--color-link-underline);
   --color-selection-background: rgba(119, 119, 119, 0.5);
   --color-mind: white;
 }
@@ -642,7 +687,8 @@ footer {
   --color-accent-h: 246deg;
   --color-accent-s: 100%;
   --color-accent-l: 38%;
-  --color-link-underline: #ffcdd9;
+  /* --color-link-underline: #ffcdd9; */
+  --color-link-underline: var(--color-mind-semi);
   --color-selection-background: #1300c2;
   --color-selection-text: white;
 }
