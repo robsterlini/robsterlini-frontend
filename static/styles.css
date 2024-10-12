@@ -316,6 +316,12 @@ body::after {
   margin-top: 0;
 }
 
+.header__pronouns {
+  font-weight: var(--font-weight-body-regular);
+  text-transform: none;
+  font-variant-caps: unset;
+}
+
 .animate-in,
 .animate-in--child > span {
   transition: 1000ms ease;
