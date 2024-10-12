@@ -9,7 +9,7 @@
     <meta name="title" content="Rob Sterlini" />
     <meta
       name="description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Rob Sterlini" />
     <meta
       property="og:description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
     <!-- TODO: Get this -->
     <!-- <meta
@@ -32,7 +32,7 @@
     <meta property="twitter:title" content="Rob Sterlini" />
     <meta
       property="twitter:description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
 
     <!-- TODO: Get this -->
@@ -78,32 +78,32 @@
           <h1 class="lead animate-in">
             <a href="/">Rob Sterlini</a>
           </h1>
-          <p class="heading animate-in--child">
+          <p class="heading animate-in--child" data-heading="default">
             <span>I’m a pug dad, </span>
-
             <span>typo<span class="hide--small">graphy</span> geek, </span>
-
-            <!-- This is in a span to preserve the animation -->
-            <span>
-              <span class="hide--mind"><span class="hide--small">amateur </span>triathlete, </span>
-              <span class="show--mind"><span class="hide--small">marathon </span> runner, </span>
-            </span>
-
+            <!-- <span><span class="hide--small">amateur </span>triathlete, </span> -->
             <span><span class="sc">LEGO</span> enthusiast, </span>
-
             <span> espresso snob, </span>
-
             <span><span lang="it">pastaiolo</span> &amp; </span>
+            <span>web&nbsp;dev<span class="hide--small">eloper</span>.</span>
+          </p>
 
-            <!-- This is in a span to preserve the animation -->
-            <span>
-              <span class="show--rs" aria-hidden="true">
-                maxed
-                <abbr class="hide--small sc" title="Old School RuneScape">OSRS</abbr>
-                main.
-              </span>
-              <span class="hide--rs">web&nbsp;dev<span class="hide--small">eloper</span>.</span>
-            </span>
+          <p class="heading animate-in--child" data-heading="mind" aria-hidden="true">
+            <span>I’m a mental health </span>
+            <span>reform advocate, </span>
+            <span><span class="hide--small">London </span>marathon </span>
+            <span><span class="hide--small sc">2025 </span> runner &amp; </span>
+            <span>fundraiser, </span>
+            <span>in aid of&nbsp;Mind!</span>
+          </p>
+
+          <p class="heading animate-in--child" data-heading="rs" aria-hidden="true">
+            <span>I’m an <abbr class="sc" title="Old School RuneScape">OSRS</abbr> player, </span>
+            <span>adventurer, </span>
+            <span>c<span class="hide--small">ollection </span>logger, </span>
+            <span><abbr class="sc" title="Random Number Generator">RNG</abbr> chaser, </span>
+            <span>raid<span class="hide--small">s enjoy</span>er &amp; </span>
+            <span>maxed&nbsp;main.</span>
           </p>
           <div class="theme-selector animate-in">
             <button id="theme-selector" class="theme-selector__button">Switch theme</button>
@@ -144,7 +144,7 @@
         </p>
       </section>
 
-      <section class="animate-in">
+      <section class="animate-in" style="--nth-child: 1">
         <h2 class="lead" id="life">
           <span>In life</span>
         </h2>
