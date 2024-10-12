@@ -26,6 +26,7 @@
   --l-diff: 1.8%;
   --n-max: 5;
 
+  --color-mind: #1300c1;
   --mind-logo-height: 3rem;
 }
 
@@ -181,7 +182,7 @@ body::after {
   --color-link-underline: currentColor;
 
   color: var(--color-mind);
-  margin: -0.25rem 0 var(--gap);
+  margin: -0.25rem 0 0;
 }
 
 .home-mind__logo {
@@ -616,7 +617,6 @@ footer {
   --color-text: #240f67;
   --color-link-underline: #af8dfc;
   --color-selection-background: rgba(175, 141, 252, 0.5);
-  --color-mind: #1300c1;
 }
 
 [data-theme="dark"] {
@@ -632,14 +632,14 @@ footer {
 }
 
 [data-theme="mind"] {
-  --color-background: #1300c1;
-  --color-text: #fff; /* TODO: Should this actually be white */
-  --color-accent-h: 346deg;
+  --color-background: #fff;
+  --color-text: #0b0069;
+  --color-accent-h: 246deg;
   --color-accent-s: 100%;
-  --color-accent-l: 90%;
+  --color-accent-l: 38%;
   --color-link-underline: #ffcdd9;
-  --color-selection-background: #0b0069;
-  --color-mind: white;
+  --color-selection-background: #1300c2;
+  --color-selection-text: white;
 }
 [data-theme="mind"] .hide--mind,
 .show--mind:not([data-theme="mind"] .show--mind) {
@@ -655,7 +655,6 @@ footer {
   --color-link-underline: rgba(27, 25, 21, 0.5);
   --color-selection-background: var(--color-text);
   --color-selection-text: yellow;
-  --color-mind: #1300c1;
 }
 [data-theme="rs"] .hide--rs,
 .show--rs:not([data-theme="rs"] .show--rs) {
