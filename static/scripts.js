@@ -50,12 +50,10 @@ function setTheme(theme) {
   localStorage.setItem(THEME_LOCAL_KEY, theme);
   favicon.setAttribute("href", `./favicon-${theme}.svg`);
 
-  const currentHeading = document.querySelector("[data-heading][aria-hidden='false']");
+  const currentHeading =
+    document.querySelector("[data-heading][aria-hidden='false']") || document.querySelector("[data-heading='default']");
   if (currentHeading) {
     currentHeading.setAttribute("aria-hidden", "true");
-  } else {
-    const defaultHeading = document.querySelector("[data-heading='default']");
-    defaultHeading.setAttribute("aria-hidden", "true");
   }
 
   const headingId = HEADING_MAP[theme] || "default";

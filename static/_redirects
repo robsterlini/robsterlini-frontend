@@ -16,6 +16,7 @@ https://robsterlini-frontend.netlify.com/* https://robsterlini.co.uk/:splat 301!
 
 # 302
 /fundraising   https://justgiving.com/page/robsterlini 302
+/mind          https://justgiving.com/page/robsterlini 302
 
 # 410
 /journal       /410   410
