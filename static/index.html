@@ -9,7 +9,7 @@
     <meta name="title" content="Rob Sterlini" />
     <meta
       name="description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Rob Sterlini" />
     <meta
       property="og:description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
     <!-- TODO: Get this -->
     <!-- <meta
@@ -32,7 +32,7 @@
     <meta property="twitter:title" content="Rob Sterlini" />
     <meta
       property="twitter:description"
-      content="Rob Sterlini is a pug dad, typography geek, amateur triathlete, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
     />
 
     <!-- TODO: Get this -->
@@ -76,34 +76,34 @@
       <header>
         <div class="header__content">
           <h1 class="lead animate-in">
-            <a href="/">Rob Sterlini</a>
+            <a href="/">Rob Sterlini</a>&emsp;<span class="header__pronouns">he/him</span>
           </h1>
-          <p class="heading animate-in--child">
+          <p class="heading animate-in--child" data-heading="default">
             <span>I’m a pug dad, </span>
-
             <span>typo<span class="hide--small">graphy</span> geek, </span>
-
-            <!-- This is in a span to preserve the animation -->
-            <span>
-              <span class="hide--mind"><span class="hide--small">amateur </span>triathlete, </span>
-              <span class="show--mind"><span class="hide--small">marathon </span> runner, </span>
-            </span>
-
+            <!-- <span><span class="hide--small">amateur </span>triathlete, </span> -->
             <span><span class="sc">LEGO</span> enthusiast, </span>
-
             <span> espresso snob, </span>
-
             <span><span lang="it">pastaiolo</span> &amp; </span>
+            <span>web&nbsp;dev<span class="hide--small">eloper</span>.</span>
+          </p>
 
-            <!-- This is in a span to preserve the animation -->
-            <span>
-              <span class="show--rs" aria-hidden="true">
-                maxed
-                <abbr class="hide--small sc" title="Old School RuneScape">OSRS</abbr>
-                main.
-              </span>
-              <span class="hide--rs">web&nbsp;dev<span class="hide--small">eloper</span>.</span>
-            </span>
+          <p class="heading animate-in--child" data-heading="mind" aria-hidden="true">
+            <span>I’m a mental health </span>
+            <span>reform advocate, </span>
+            <span><span class="hide--small">London </span>marathon </span>
+            <span><span class="hide--small sc">2025 </span> runner &amp; </span>
+            <span>fundraiser, </span>
+            <span>in aid of&nbsp;Mind!</span>
+          </p>
+
+          <p class="heading animate-in--child" data-heading="rs" aria-hidden="true">
+            <span>I’m an <abbr class="sc" title="Old School RuneScape">OSRS</abbr> player, </span>
+            <span>adventurer, </span>
+            <span>c<span class="hide--small">ollection </span>logger, </span>
+            <span><abbr class="sc" title="Random Number Generator">RNG</abbr> chaser, </span>
+            <span>raid<span class="hide--small">s enjoy</span>er &amp; </span>
+            <span>maxed&nbsp;main.</span>
           </p>
           <div class="theme-selector animate-in">
             <button id="theme-selector" class="theme-selector__button">Switch theme</button>
@@ -118,9 +118,16 @@
               >I am currently fundraising for <strong>Mind</strong> as I prepare to run the London&nbsp;Marathon in
               April&nbsp;2025.</span
             >
-            <a target="_blank" rel="noopener" href="/fundraising" aria-label="Find out why and donate on JustGiving"
-              ><span class="hide--small">Find out why and </span
-              ><span class="capitalise--small">donate</span> on&nbsp;JustGiving</a
+            <a
+              class="link"
+              target="_blank"
+              rel="noopener"
+              href="/fundraising"
+              aria-label="Find out why and donate on JustGiving"
+              ><span
+                ><span class="hide--small">Find out why and </span
+                ><span class="capitalise--small">donate</span> on&nbsp;JustGiving</span
+              ></a
             >
           </span>
 
@@ -142,8 +149,10 @@
             </svg>
           </span>
         </p>
+      </section>
 
-        <h2 class="dynamic-color lead" id="life">
+      <section class="animate-in" style="--nth-child: 1">
+        <h2 class="lead" id="life">
           <span>In life</span>
         </h2>
         <p>
@@ -179,7 +188,7 @@
       </section>
 
       <section class="animate-in" style="--nth-child: 3">
-        <h2 class="dynamic-color lead" id="work">
+        <h2 class="lead" id="work">
           <span>As a developer</span>
         </h2>
         <p>
@@ -214,39 +223,38 @@
           <a target="_blank" rel="noopener" href="https://ourdadmakes.pizza">his pizza recipe</a>
           to the&nbsp;masses.
         </p>
-        <!-- If you can see this and you can’t wait, get in touch! -->
-        <!--<p class="list">
-          <span class="list__item">
-            <a href="/cv"
-              >Download my
-              <abbr class="sc" title="curriculum vitae">CV</abbr></a
-            >
-          </span>
-        </p>-->
       </section>
 
       <section class="animate-in" id="contact" style="--nth-child: 5">
-        <h2 class="dynamic-color lead">
+        <h2 class="lead">
           <span>Say hi</span>
         </h2>
-        <ul class="list">
+        <ul class="home__contact-list">
           <li>
-            <a href="mailto:hi@robsterlini.co.uk">hi@robsterlini.co.uk</a>
+            <a class="link" href="mailto:hi@robsterlini.co.uk"><span>hi@robsterlini.co.uk</span></a>
           </li>
           <li>
-            <a target="_blank" rel="noopener" href="/fundraising">JustGiving</a>
+            <a class="link" target="_blank" rel="noopener" href="/fundraising"><span>JustGiving</span></a>
           </li>
           <li>
-            <a target="_blank" rel="noopener" href="https://instagram.com/robsterlini">Instagram</a>
+            <a class="link" target="_blank" rel="noopener" href="https://instagram.com/robsterlini"
+              ><span>Instagram</span></a
+            >
           </li>
           <li>
-            <a target="_blank" rel="noopener" href="https://twitter.com/robsterlini">Twitter</a>
+            <a class="link" target="_blank" rel="noopener" href="https://twitter.com/robsterlini"
+              ><span>Twitter</span></a
+            >
           </li>
           <li>
-            <a target="_blank" rel="noopener" href="https://www.strava.com/athletes/6578573">Strava</a>
+            <a class="link" target="_blank" rel="noopener" href="https://www.strava.com/athletes/6578573">
+              <span>Strava</span></a
+            >
           </li>
           <li>
-            <a target="_blank" rel="noopener" href="https://linked.in/robsterlini">LinkedIn</a>
+            <a class="link" target="_blank" rel="noopener" href="https://linkedin.com/robsterlini"
+              ><span>LinkedIn</span></a
+            >
           </li>
         </ul>
       </section>

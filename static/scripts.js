@@ -32,11 +32,16 @@ function initFonts() {
     });
 }
 
-const THEME_LOCAL_KEY = "rs-theme-selector-v4";
+const THEME_LOCAL_KEY = "rs-theme-selector-v5";
 const THEMES = ["mind", "dark", "light", "rs"];
 // These are both set to Mind while I'm fundraising
 const DEFAULT_DARK_THEME = "mind";
 const DEFAULT_LIGHT_THEME = "mind";
+
+const HEADING_MAP = {
+  mind: "mind",
+  rs: "rs",
+};
 
 const favicon = document.getElementById("favicon");
 
@@ -44,6 +49,18 @@ function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem(THEME_LOCAL_KEY, theme);
   favicon.setAttribute("href", `./favicon-${theme}.svg`);
+
+  const currentHeading =
+    document.querySelector("[data-heading][aria-hidden='false']") || document.querySelector("[data-heading='default']");
+  if (currentHeading) {
+    currentHeading.setAttribute("aria-hidden", "true");
+  }
+
+  const headingId = HEADING_MAP[theme] || "default";
+  const newHeading = document.querySelector("[data-heading='" + headingId + "']");
+  if (newHeading) {
+    newHeading.setAttribute("aria-hidden", "false");
+  }
 
   if (theme === "rs") {
     Promise.all([getFontFace("gielinor", 600).load()]).then(function (loadedFonts) {
