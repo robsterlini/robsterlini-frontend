@@ -60,7 +60,7 @@
 
     <noscript>
       <style>
-        #theme-selector {
+        .theme-selector {
           display: none;
         }
         .animate-in,
@@ -73,60 +73,64 @@
   </head>
   <body class="home">
     <main>
-      <nav>
-        <div class="group theme-selector animate-in">
+      <div class="theme-selector">
+        <div class="group animate-in" style="--nth-child: 2">
           <button id="theme-selector" class="theme-selector__button">Switch theme</button>
         </div>
-      </nav>
+      </div>
 
       <header class="home-header group">
         <h1 class="h1 home-h1 animate-in">
-          <span class="accent">Hi, I’m Rob.</span>
-          I’ve been building
-          <span class="home-h1__text--big"
-            >experiences for the web since 2013 with a passion for beautiful typography, accessible user journeys, and
-            strong engineering&nbsp;principles.</span
-          >
-          <span class="home-h1__text--small" aria-hidden="true">
-            web experiences since 2013 with a passion for typography, and accessibility.
-          </span>
+          <span><span class="accent">Hi, I’m Rob.</span> I’ve been building accessible, </span>
+          <span>typographically rich, user-obsessed</span>
+          <span>web&nbsp;experiences since 2013.</span>
         </h1>
       </header>
 
-      <div class="home-content">
+      <div class="home-content animate-in">
         <section class="group">
           <h2 class="h2">Between nine and five</h2>
 
           <p>
             <span class="lead c--unidays">I have been a Staff Software Engineer at UNiDAYS since summer 2024.</span>
             In that time I have led the frontend strategy and implementation for a new, best-in-class authentication and
-            verification system with composability, accessibility and our users experiences at its core.
+            verification system with composability, accessibility and delivering a frictionless journey for our users at
+            its&nbsp;core.
           </p>
-
           <p>
-            Within all of my past, present and future roles, I ensure that there is time to mentor and support other
-            engineers as they learn and grow, specifically mentoring as a TypeScript
-            <abbr title="Subject Matter Expert">SME</abbr>.
+            We extensively researched, prototyped and tested the implementation of right-to-left Arabic text to support
+            new regions that had previously been served in English, delivering student verification for a
+            trillion-dollar company as it opened a new marketplace in Saudi&nbsp;Arabia.
           </p>
 
           <p>
             <span class="lead c--zoopla">Between 2021–24, I worked to re-imagine home decisions at Zoopla.</span>
-            Initially, as a Senior Software Engineer as part of the Valuation Leads team focused on products that
-            connected prospective sellers to estate agents; before moving into the Web Platform team as a Staff Software
-            Engineer where I focused on the foundations of zoopla.co.uk, improving performance through
-            <abbr class="sc" title="Core web vitals">CWV</abbr> optimisation, and enabling product teams.
+            Initially, as a Senior Software Engineer&nbsp;I as part of the Valuation Leads team I worked on products
+            that connected prospective sellers to estate agents; before moving into the Web Platform team as a Senior
+            Software Engineer II&nbsp;(staff) where I focused on the foundations of zoopla.co.uk, improving performance
+            through
+            <abbr class="sc" title="Core web vitals">CWV</abbr> optimisation, and enabling product&nbsp;teams.
           </p>
           <p>
-            It was here that I was part of a small team dedicated to accessibility improvements to our products and
-            processes; we were recognised by ContentSquare with a third place award for
+            It was here that I was part of a small but mighty team dedicated to championing accessibility in our
+            products and processes; we were recognised by ContentSquare with a third place award for
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7136394834885398528/" target="_blank"
-              >Best Digital Accessibility Mission</a
+              >Best Digital Accessibility&nbsp;Mission</a
             >.
           </p>
 
           <p>
             <span class="lead">Before that, I spent nearly eight years building web experiences at Fueled</span>. I led
             projects for the likes of Apple, Pinterest, Vanity Fair, and Tony Robbins.
+          </p>
+
+          <p>
+            Within all of my past, present and future roles, I ensure that there is time to mentor and support other
+            engineers as they learn and grow, specifically mentoring as a TypeScript, React and Next.js&nbsp;<abbr
+              class="sc"
+              title="Subject Matter Expert"
+              >SME</abbr
+            >.
           </p>
 
           <p>
@@ -146,7 +150,9 @@
             </li>
             <li>
               <a class="btn" href="mailto:hi@robsterlini.co.uk"
-                ><span class="btn__inner">Email me at <span class="btn__link">hi@robsterlini.co.uk</span></span></a
+                ><span class="btn__inner"
+                  >Email me at <span class="btn__link">hi@</span><span class="btn__link">robsterlini.co.uk</span></span
+                ></a
               >
             </li>
           </ul>
@@ -163,22 +169,23 @@
           </p>
           <p>
             I relax by building <span class="sc">LEGO</span> Star Wars sets, training my maxed
-            <abbr title="OldSchool RuneScape" class="sc">OSRS</abbr> account, and sofa surfing with our pug Frankie.
+            <abbr title="OldSchool RuneScape" class="sc">OSRS</abbr> account, and sofa surfing with our pug Frankie. I
+            balance that relaxation by watching Tottenham Hotspur Football Club, which until our triumph in Bilbao was a
+            largely unsuccessful&nbsp;endeavour.
           </p>
           <p>
-            Depending on the season, you might also find me on (or off) piste, striking out on a long bike ride, or just
+            Depending on the season, you might also find me on/off piste, striking out on a long bike ride, or just
             reminiscing about the marathons and triathlons that made up my twenties (although, I did run the London
-            Marathon in April 2025, raising over £3,000 for the incredible
-            <a href="https://www.mind.org.uk/" target="_blank">Mind</a> charity).
+            Marathon in April 2025,
+            <a href="https://justgiving.com/page/robsterlini" target="_blank">raising over £3,000 for Mind</a>).
           </p>
         </section>
 
-        <footer class="group animate-in">
-          <!-- <span class="h2" aria-hidden="true"> -->
+        <footer class="footer group">
           <span class="flourish">❦</span>
-          <!-- </span> -->
           <p>
-            Built in 2025 using good ol’ <span class="sc">HTML</span> and <span class="sc">CSS</span>, hosted on
+            Built in 2025 by <a href="/">Rob Sterlini</a> using good ol’ <span class="sc">HTML</span> and
+            <span class="sc">CSS</span>. It is hosted on
             <a target="_blank" rel="noopener" href="https://netlify.com/">Netlify</a>, with self-served typefaces from
             <a target="_blank" rel="noopener" href="https://p22.com/family-Mackinac">P22</a> and
             <a target="_blank" rel="noopener" href="https://www.rosettatype.com/Clone">Rosetta</a>, and icons from
