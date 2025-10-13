@@ -322,7 +322,7 @@ body::after {
   font-variant-caps: unset;
 }
 
-.animate-in,
+  nimate-in,
 .animate-in--child > span {
   transition: 1000ms ease;
   transition-delay: calc(50ms * var(--nth-child));
