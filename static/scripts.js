@@ -2,25 +2,23 @@ function setFontsLoaded() {
   document.documentElement.className += " fonts-loaded";
 }
 
-function getFontFace(name, weight) {
-  const source = `url('./fonts/${name}-${weight}.woff2') format('woff2')`;
-  return new FontFace(name, source, { weight: weight });
-}
-
 function initFonts() {
   if (!("fonts" in document)) {
     setFontsLoaded();
     return;
   }
 
-  Promise.all([
-    getFontFace("body", 400).load(),
-    getFontFace("body", 600).load(),
-    getFontFace("heading", 600).load(),
-    getFontFace("heading-sc", 600).load(),
-  ])
+  const bodyFontFace = new FontFace("body", "url('./fonts/body-400.woff2')", {
+    weight: 400,
+    style: "normal",
+  });
+  const headingFontFace = new FontFace("heading", "url('./fonts/heading-400.woff2')", {
+    weight: 400,
+    style: "normal",
+  });
+
+  Promise.all([bodyFontFace.load(), headingFontFace.load()])
     .then(function (loadedFonts) {
-      // Render them at the same time
       loadedFonts.forEach(function (font) {
         document.fonts.add(font);
       });
@@ -32,16 +30,10 @@ function initFonts() {
     });
 }
 
-const THEME_LOCAL_KEY = "rs-theme-selector-v5";
-const THEMES = ["mind", "dark", "light", "rs"];
-// These are both set to Mind while I'm fundraising
-const DEFAULT_DARK_THEME = "mind";
-const DEFAULT_LIGHT_THEME = "mind";
-
-const HEADING_MAP = {
-  mind: "mind",
-  rs: "rs",
-};
+const THEME_LOCAL_KEY = "rs-theme-selector-v6";
+const THEMES = ["light", "dark"];
+const DEFAULT_DARK_THEME = "dark";
+const DEFAULT_LIGHT_THEME = "light";
 
 const favicon = document.getElementById("favicon");
 
@@ -49,26 +41,6 @@ function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem(THEME_LOCAL_KEY, theme);
   favicon.setAttribute("href", `./favicon-${theme}.svg`);
-
-  const currentHeading =
-    document.querySelector("[data-heading][aria-hidden='false']") || document.querySelector("[data-heading='default']");
-  if (currentHeading) {
-    currentHeading.setAttribute("aria-hidden", "true");
-  }
-
-  const headingId = HEADING_MAP[theme] || "default";
-  const newHeading = document.querySelector("[data-heading='" + headingId + "']");
-  if (newHeading) {
-    newHeading.setAttribute("aria-hidden", "false");
-  }
-
-  if (theme === "rs") {
-    Promise.all([getFontFace("gielinor", 600).load()]).then(function (loadedFonts) {
-      loadedFonts.forEach(function (font) {
-        document.fonts.add(font);
-      });
-    });
-  }
 }
 
 function getLocalTheme() {
@@ -90,12 +62,6 @@ const LIGHT_PATH =
 const DARK_PATH =
   "M405.8 373.8c-1.4 0-2.8.3-4.3.9-23.2 10.5-47.3 15.4-70.8 15.4-75.9 0-146.6-50.8-166-129.3-14.6-59.2 4-121.4 48.7-163.3 6.7-6.3 2.1-17.5-7-17.5h-.6c-13.3.8-26.6 2.7-39.5 5.8C49.4 114.1-22.3 231 6.3 347c24.3 98.7 113.4 165 211.6 165 17.1 0 34.5-2 51.8-6.2C335 490 387.4 446.1 415 388.3c3.4-7.1-2.3-14.5-9.2-14.5zm-147.4 85.3c-13.3 3.2-27 4.9-40.5 4.9-78.5 0-146.4-52.8-165-128.5-10.7-43.3-3.8-88.2 19.4-126.4 12.7-20.9 29.4-38.4 49.1-51.8-11.3 36.8-12.8 76.5-3.3 115 22.4 91 99.8 156.3 192.1 164.8-15.7 10.1-33.1 17.5-51.8 22zm200.3-277.8L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208l-53.3-26.7zM304 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32z";
 
-const RS_PATH =
-  "M507.31 462.06L448 402.75l31.64-59.03c3.33-6.22 2.2-13.88-2.79-18.87l-17.54-17.53c-6.25-6.25-16.38-6.25-22.63 0L420 324 112 16 18.27.16C8.27-1.27-1.42 7.17.17 18.26l15.84 93.73 308 308-16.69 16.69c-6.25 6.25-6.25 16.38 0 22.62l17.53 17.54a16 16 0 0 0 18.87 2.79L402.75 448l59.31 59.31c6.25 6.25 16.38 6.25 22.63 0l22.62-22.62c6.25-6.25 6.25-16.38 0-22.63zm-149.36-76.01L60.78 88.89l-5.72-33.83 33.84 5.72 297.17 297.16-28.12 28.11zm65.17-325.27l33.83-5.72-5.72 33.84L340.7 199.43l33.94 33.94L496.01 112l15.84-93.73c1.43-10-7.01-19.69-18.1-18.1l-93.73 15.84-121.38 121.36 33.94 33.94L423.12 60.78zM199.45 340.69l-45.38 45.38-28.12-28.12 45.38-45.38-33.94-33.94-45.38 45.38-16.69-16.69c-6.25-6.25-16.38-6.25-22.62 0l-17.54 17.53a16 16 0 0 0-2.79 18.87L64 402.75 4.69 462.06c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L109.25 448l59.03 31.64c6.22 3.33 13.88 2.2 18.87-2.79l17.53-17.54c6.25-6.25 6.25-16.38 0-22.63L188 420l45.38-45.38-33.93-33.93z";
-
-const MIND_PATH =
-  "M165.3 15.34s-138.98 179.52-64 178.74c55.88-.58 31.42-174.6-44.52-170.5-21.06 1.14-39.4 27.91 4.27 49.02 29.04 14.03 121.5 32.67 128.44 72.72 7.5 43.3-182.5-62.78-174.82-12.47 6.56 42.87 165.95 7.92 178.7-40.19";
-
 function initTheme() {
   const themeSelector = document.getElementById("theme-selector");
 
@@ -105,10 +71,6 @@ function initTheme() {
     </svg>
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path class="theme-selector__path--dark" d="${DARK_PATH}" />
-      <path class="theme-selector__path--rs" d="${RS_PATH}" />
-    </svg>
-    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211 210">
-      <path class="theme-selector__path--mind" d="${MIND_PATH}" stroke-width="20" />
     </svg>
   `;
 
@@ -130,10 +92,20 @@ function initTheme() {
   }
 
   const colorSchemeMatch = window.matchMedia("(prefers-color-scheme: dark)");
-  setTheme(colorSchemeMatch.matches ? DEFAULT_LIGHT_THEME : DEFAULT_LIGHT_THEME);
+  setTheme(colorSchemeMatch.matches ? DEFAULT_DARK_THEME : DEFAULT_LIGHT_THEME);
+}
+
+const GREETINGS = ["Hello", "Ciao", "Hola", "Bonjour", "Hallo", "Hej", "Olá", "Namaste", "Salaam"];
+
+function initHeading() {
+  const greeting = document.getElementById("greeting");
+  if (!greeting) return;
+
+  greeting.textContent = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
 }
 
 (function () {
   initTheme();
+  initHeading();
   initFonts();
 })();

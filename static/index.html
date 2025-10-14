@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Rob Sterlini – Front-end developer &amp; more</title>
+    <title>Rob Sterlini – Staff Software Engineer</title>
     <meta name="title" content="Rob Sterlini" />
     <meta
       name="description"
-      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob has been building accessible, typographically rich, user-obsessed web experiences since 2013."
     />
     <meta name="google-site-verification" content="K74mLxYjMkRGdLWUB40XVTim2djLfxvKZEDsQ2grJ08" />
 
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Rob Sterlini" />
     <meta
       property="og:description"
-      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob has been building accessible, typographically rich, user-obsessed web experiences since 2013."
     />
     <!-- TODO: Get this -->
     <!-- <meta
@@ -32,7 +32,7 @@
     <meta property="twitter:title" content="Rob Sterlini" />
     <meta
       property="twitter:description"
-      content="Rob Sterlini is a pug dad, typography geek, LEGO enthusiast, pastaiolo, and web developer"
+      content="Rob has been building accessible, typographically rich, user-obsessed web experiences since 2013."
     />
 
     <!-- TODO: Get this -->
@@ -42,8 +42,8 @@
     /> -->
     <meta name="twitter:label1" value="Let’s chat!" />
     <meta name="twitter:data1" value="hi@robsterlini.co.uk" />
-    <meta name="twitter:label2" value="Tweet me" />
-    <meta name="twitter:data2" value="@robsterlini" />
+    <meta name="twitter:label2" value="Connect on LinkedIn" />
+    <meta name="twitter:data2" value="https://linkedin.com/in/robsterlini" />
 
     <meta name="author" content="Rob Sterlini" />
 
@@ -52,20 +52,20 @@
     <link rel="preload" href="./styles.css" as="style" crossorigin />
     <link rel="preload" href="./scripts.js" as="script" crossorigin />
     <link rel="preload" href="./fonts/body-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="./fonts/body-600.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="./fonts/heading-600.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="./fonts/heading-sc-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/heading-400.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="stylesheet" href="./styles.css" />
 
     <noscript>
       <style>
-        #theme-selector {
+        .theme-selector {
           display: none;
         }
-        .animate-in,
-        .animate-in--child > span {
+        .animate-in {
           opacity: 1 !important;
+          transform: none !important;
+        }
+        .home-h1 > span {
           transform: none !important;
         }
       </style>
@@ -73,211 +73,133 @@
   </head>
   <body class="home">
     <main>
-      <header>
-        <div class="header__content">
-          <h1 class="lead animate-in">
-            <a href="/">Rob Sterlini</a>&emsp;<span class="header__pronouns">he/him</span>
-          </h1>
-          <p class="heading animate-in--child" data-heading="default">
-            <span>I’m a pug dad, </span>
-            <span>typo<span class="hide--small">graphy</span> geek, </span>
-            <!-- <span><span class="hide--small">amateur </span>triathlete, </span> -->
-            <span><span class="sc">LEGO</span> enthusiast, </span>
-            <span> espresso snob, </span>
-            <span><span lang="it">pastaiolo</span> &amp; </span>
-            <span>web&nbsp;dev<span class="hide--small">eloper</span>.</span>
-          </p>
-
-          <p class="heading animate-in--child" data-heading="mind" aria-hidden="true">
-            <span>I’m a mental health </span>
-            <span>reform advocate, </span>
-            <span><span class="hide--small">London </span>marathon </span>
-            <span><span class="hide--small sc">2025 </span> runner &amp; </span>
-            <span>fundraiser, </span>
-            <span>in aid of&nbsp;Mind!</span>
-          </p>
-
-          <p class="heading animate-in--child" data-heading="rs" aria-hidden="true">
-            <span>I’m an <abbr class="sc" title="Old School RuneScape">OSRS</abbr> player, </span>
-            <span>adventurer, </span>
-            <span>c<span class="hide--small">ollection </span>logger, </span>
-            <span><abbr class="sc" title="Random Number Generator">RNG</abbr> chaser, </span>
-            <span>raid<span class="hide--small">s enjoy</span>er &amp; </span>
-            <span>maxed&nbsp;main.</span>
-          </p>
-          <div class="theme-selector animate-in">
-            <button id="theme-selector" class="theme-selector__button">Switch theme</button>
-          </div>
+      <div class="theme-selector">
+        <div class="group animate-in" style="--nth-child: 2">
+          <button id="theme-selector" class="theme-selector__button">Switch theme</button>
         </div>
-      </header>
+      </div>
 
-      <section class="animate-in">
-        <p class="home-mind">
-          <span class="home-mind__text"
-            ><span
-              >I am currently fundraising for <strong>Mind</strong> as I prepare to run the London&nbsp;Marathon in
-              April&nbsp;2025.</span
-            >
-            <a
-              class="link"
-              target="_blank"
-              rel="noopener"
-              href="/fundraising"
-              aria-label="Find out why and donate on JustGiving"
-              ><span
-                ><span class="hide--small">Find out why and </span
-                ><span class="capitalise--small">donate</span> on&nbsp;JustGiving</span
-              ></a
-            >
-          </span>
+      <div class="home-header__outer">
+        <header class="home-header__inner group">
+          <h1 class="h1 home-h1 animate-in">
+            <span
+              ><span class="accent"><span id="greeting">Hi</span>, I’m Rob Sterlini.</span> I’ve been
+            </span>
+            <span>creating user first, typographically rich, </span>
+            <span>and accessible web&nbsp;experiences since 2013.</span>
+          </h1>
+        </header>
+      </div>
 
-          <span class="home-mind__logo">
-            <svg
-              viewBox="0 0 608 177"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              aria-hidden="true"
-            >
-              <path
-                d="M20.88 56.65v4.68h-7.24v41.8h7.24v4.68H.96v-4.68h7.17v-41.8H.96v-4.68h19.92Zm25.89 16.37c4.02 0 7.15 1.26 9.4 3.77 2.23 2.52 3.35 5.94 3.35 10.27v20.75h-5.2V87.36c0-3.02-.74-5.37-2.2-7.06-1.45-1.68-3.6-2.52-6.41-2.52a9.95 9.95 0 0 0-8.56 4.41C35.05 85.13 34 89.52 34 95.36v12.45h-5.2v-34.1H34v7.16c2.57-5.23 6.82-7.85 12.76-7.85Zm51.16 0c4.83 0 8.58 1.22 11.24 3.66 2.67 2.44 4 5.82 4 10.15v20.98h-5.2v-4.3c-3.93 3.32-8.13 4.98-12.6 4.98-3.48 0-6.4-1-8.76-3.02a9.9 9.9 0 0 1-3.55-7.92c0-3.02 1.09-5.4 3.25-7.13 2.16-1.74 5.2-2.6 9.13-2.6h12.53v-.69c0-2.97-.83-5.27-2.5-6.9-1.65-1.64-4.17-2.45-7.54-2.45-3.52 0-7.2 1.1-11.02 3.32l-2.26-4a22.57 22.57 0 0 1 13.28-4.08Zm-2.04 30.79c2.01 0 4.11-.47 6.3-1.4a19.48 19.48 0 0 0 5.78-3.73v-6.64H95.29c-4.58 0-6.87 1.73-6.87 5.2 0 1.97.68 3.55 2.04 4.76 1.36 1.2 3.17 1.81 5.43 1.81Zm31.24-41.05a4.23 4.23 0 0 1-2.86 1.13 4.28 4.28 0 0 1-2.91-1.17 3.89 3.89 0 0 1-1.32-3.05 3.9 3.9 0 0 1 1.32-3.06 4.28 4.28 0 0 1 2.9-1.17 4.3 4.3 0 0 1 2.91 1.17 3.9 3.9 0 0 1 1.32 3.06c0 1.25-.45 2.28-1.36 3.09Zm-.22 45.05h-5.21v-34.1h5.2v34.1Zm36.82-27.77V54.38h5.2v53.43h-5.2v-6.34c-3.02 4.68-7.34 7.02-12.98 7.02-4.93 0-8.93-1.7-12-5.1-3.06-3.39-4.6-7.6-4.6-12.63 0-5.04 1.54-9.25 4.6-12.64 3.07-3.4 7.07-5.1 12-5.1 5.64 0 9.96 2.34 12.98 7.02Zm-12.15 23.7c3.72 0 6.68-1.26 8.87-3.78a13.23 13.23 0 0 0 3.28-8.98v-.45c0-3.47-1.1-6.47-3.28-8.98-2.19-2.52-5.15-3.77-8.87-3.77-3.77 0-6.73 1.23-8.86 3.7-2.14 2.46-3.21 5.55-3.21 9.28 0 3.72 1.07 6.81 3.2 9.28 2.14 2.46 5.1 3.7 8.87 3.7Zm71.92-.08c-3.32 3.22-7.5 4.83-12.53 4.83-5.03 0-9.2-1.62-12.53-4.87-3.32-3.24-4.98-7.53-4.98-12.86 0-5.34 1.68-9.63 5.02-12.87 3.35-3.25 7.5-4.87 12.49-4.87 5.03 0 9.2 1.62 12.53 4.87 3.32 3.24 4.98 7.53 4.98 12.87 0 5.33-1.66 9.63-4.98 12.9Zm-21.43-3.55c2.16 2.42 5.13 3.62 8.9 3.62 3.77 0 6.74-1.2 8.9-3.62 2.17-2.41 3.25-5.53 3.25-9.35 0-3.83-1.08-6.95-3.25-9.36-2.16-2.42-5.13-3.62-8.9-3.62-3.72 0-6.68 1.22-8.87 3.66-2.19 2.44-3.28 5.54-3.28 9.32 0 3.82 1.08 6.94 3.25 9.35ZM251.27 58c-5.84 0-8.76 2.97-8.76 8.91v6.8h13.13v4.44h-13.13v29.66h-5.2V78.15h-5.9V73.7h5.9v-6.72c0-4.22 1.22-7.55 3.66-10 2.44-2.43 5.8-3.65 10.07-3.65 3.37 0 6.72.78 10.04 2.34l-1.82 4.22a18.6 18.6 0 0 0-8-1.88Z"
-                fill-rule="nonzero"
-              />
-              <path
-                d="M322.19.53c1.97.97 3.47 2.34 5.08 3.82l1.7 1.52c5.41 5.04 9.66 10.88 13.91 16.9.64.89 1.3 1.77 1.98 2.63.84 1.18.84 1.18.84 2.46l1.17-.61c6.29-3.07 12.9-4.68 19.8-5.75l.41-1.22 1.93-5.53.65-1.92c1.29-3.62 2.45-6.46 5.27-9.12 2.83-.4 3.96-.32 6.35 1.27.54 3.86-.26 5.97-2.26 9.24-1.6 2.73-2.82 5.65-4.1 8.55l2.11.12c9.25 1.19 17.9 7.92 23.47 15.05 6.24 8.6 9.39 17.27 11.62 27.59.2 1.1.2 1.1.93 1.72l.75-.93 1-1.21.98-1.21c1.93-1.95 3.35-2.34 6.09-2.6 2.75.07 4.3.99 6.43 2.77a20.2 20.2 0 0 1 3.18 4.45l1.02-1.2 1.36-1.58 1.34-1.56c2.1-2.13 3.38-2.6 6.37-2.89 2.78.1 4.31.9 6.43 2.78 5.16 6.13 6.19 15.07 7.67 22.68 1.3 7.04 1.3 7.04 5.67 12.27 2.08-.05 3.06-.55 4.73-1.79 4.23-4.66 6.04-11.13 7.74-17.05.99-2.4 2.08-3.65 4.05-5.3 1.63-.4 1.63-.4 3.18 0 3.06 2.8 3.25 6.13 3.81 10.04.66 4.54 1.43 8.23 3.81 12.2 1.78 1.44 1.78 1.44 3.74 1.23 2.76-.83 4.33-2.42 5.84-4.89.65-1.24 1.26-2.5 1.86-3.77l.66-1.36a451.7 451.7 0 0 0 2.8-5.89c2.72-5.69 2.72-5.69 5.44-7.57 2.34-.03 2.34-.03 4.44.64 1.65 1.94 1.63 4.53 1.91 6.99l1.51-2.03c2.72-3.14 6.03-5.2 10.18-5.83 2.27.05 3.67.45 5.45 1.88 4.1 4.4 6.04 9.75 8.15 15.28a35.6 35.6 0 0 0 3.3 6.58c1.49.03 1.49.03 3.18-.63 2.26-2.55 3.41-4.97 4.6-8.14 2.43-6.03 6.37-10.3 12.34-12.9 3.2-1.22 5.84-1.9 9.25-1.86l1.73.01 1.31.01-.01-1.42-.03-6.48-.02-2.24c-.03-10.65-.03-10.65 1.49-13.68a5.39 5.39 0 0 1 4.29-1.6c1.68.93 1.68.93 3.18 2.55.26 1.98.32 3.6.24 5.57l-.03 1.66a385.1 385.1 0 0 1-.14 5.28c-.49 16.55-.49 16.55 5 31.97 1.38 1.33 2.15 1.85 4.05 2.11l1.6-.05 1.69-.04c1.67-.09 1.67-.09 3.7-.55 1.68-.2 1.68-.2 3.19.4 1.38 1.75 1.4 3.01 1.27 5.2-.24 1.19-.24 1.19-1.23 2.38-4.63 2.14-9.38 2.85-14.3 1.35-4.09-1.7-6.95-5.4-9.5-8.9l-.87 1.32a27.56 27.56 0 0 1-17.35 9.13c-3.6-.48-6.61-1.36-9.1-4.1l-2.54 1.28-1.66 1.03c-2.9 1.18-5.41 1.32-8.5.88-6.12-2.9-8.1-9.3-10.37-15.21l-.87-2.24c-.71-1.8-1.41-3.62-2.1-5.43-2.72.53-3.51 1.52-5.09 3.81a95.24 95.24 0 0 0-2.18 4.21l-.58 1.18c-1.2 2.43-2.3 4.88-3.4 7.36-2.05 4.55-2.05 4.55-4 6.32-1.63.35-1.63.35-3.18 0-1.7-1.85-2.24-3.43-2.66-5.88l-.3-1.72-.22-1.3-.75.98c-3.18 3.91-6.73 7.32-11.86 8.24-3.79.15-6.73-.36-9.63-2.87a38.7 38.7 0 0 1-6.35-8.26l-.94 1.42c-3.12 4.55-5.85 7.62-11.14 9.39-3.62.42-7.19.68-10.36-1.35-6.02-5.6-7.73-14.15-9.21-21.89l-.83-4.07a440.6 440.6 0 0 1-.72-3.65 28.75 28.75 0 0 0-1.75-5.26c-1.24.1-1.24.1-2.54.63-4.6 7.56-4.68 18.97-5.25 27.54l-.14 1.8-.1 1.61a8.69 8.69 0 0 1-1.5 4c-2.3.48-2.3.48-4.45.64-1.88-2.1-2.15-3.5-2.19-6.28l-.04-2.24-.03-2.37c-.13-5.34-.27-10.65-.88-15.96l-.14-1.31a63.73 63.73 0 0 0-1.8-8.7h-3.18a126.02 126.02 0 0 0-6.03 26.88l-.15 1.3-.35 3.5c-.53 2.3-1.41 3.47-3 5.18-1.47-.12-1.47-.12-3.18-.64-1.94-2.5-2.12-4.36-2.04-7.47l.01-1.24.06-2.63c.05-2.3.06-4.6.07-6.91l.01-1.38c.03-12.6-1.8-25.37-7-36.92l-.8-1.8c-3.44-6.92-9.1-13.6-16.36-16.63a103.76 103.76 0 0 0-9.53-2.54l-.2 1.25c-.57 2.54-1.43 4.93-2.3 7.38l-.56 1.57-1.74 4.93-1.19 3.36-2.9 8.2 2.44-.02 3.25-.01 1.6-.02c8.53-.02 18.14.37 25.11 5.77 1.27 1.27 1.27 1.27 1.59 3.21-.6 4.78-3.46 7.85-7.15 10.77-1.3.96-2.52 1.81-3.97 2.54-.2 1.45-.2 1.45-.24 3.17-.43 5.67-2.81 10.5-6.75 14.62-.92.55-1.85 1.1-2.78 1.63-1.36.88-1.36.88-2.3 2.18a30.97 30.97 0 0 0-.1 6.6c.18 3.5-.12 6.95-.42 10.44l-.14 1.83c-.55 6.42-1.92 13.26-6.88 17.79-2.43 1.48-4.96 1.21-7.71.83-5.38-2.48-8.03-7.88-10.1-13.16a47.4 47.4 0 0 1-2.61-16.7l-1.08.03c-11.11.26-23.2.12-31.81-8.06-2.5-2.16-5.38-2.2-8.57-2.5-5.7-.68-10.39-1.5-15.17-4.84-1.43-2.15-1.7-3.48-1.54-6.03.64-2.75 2.24-4.55 4.16-6.56l1-1.1a21.22 21.22 0 0 1 6.59-4.5c6.98-3.11 9.78-6.14 13.1-12.97 4.1-8.38 11.01-15.45 17.43-22.1a34.99 34.99 0 0 0-3.2-7.39l-1.15-2.03-1.2-2.1c-10.14-17.73-10.14-17.73-9.43-24.75.98-3.23 4.6-3.03 7.36-2.49Zm48.93 84.51 1.27 5.72c2.7-2.52 2.7-2.52 4.44-5.72v-1.9c-2.1 0-3.82 1.06-5.71 1.9Zm-29.59-45.43-1.55 1.59.65 1.84a80.61 80.61 0 0 1 3.8 14.68l9.53-.64c-4.4-9.91-4.4-9.91-10.17-19.06-.94-.07-.94-.07-2.26 1.59Zm-9.6 8.34c-4.44 4.8-8.04 10.05-11.65 15.49 2.3.76 3.03.43 5.3-.28l1.97-.61 2.07-.66 2.08-.65 5.1-1.61c-.83-6.58-.83-6.58-3.17-12.71-.81-.08-.81-.08-1.7 1.03Zm46.81 16.76 3.81 5.72c3.13-1.25 3.13-1.25 5.72-3.18v-1.27a24.95 24.95 0 0 0-9.53-1.27Zm-20.21-33.76-2.36.67c-1.85.57-3.6 1.2-5.39 1.95.4 1.88 1 3.36 1.95 5.02l.78 1.36.8 1.4.83 1.44 2 3.5c1.88-.95 1.95-2.22 2.64-4.18l.77-2.17.8-2.28.8-2.28c.67-1.87 1.32-3.75 1.98-5.62-1.97 0-3.72.65-5.6 1.2Zm-57.63 51.7-1.92 1.17c-1.65 1.07-1.65 1.07-2.1 2.64l-.1 1.12c2.16 1.45 3.28 1.5 5.83 1.67l3.7.24-1.28-8.9c-1.42 0-2.97 1.36-4.13 2.07Zm57.5-14.13-3.17 13.34 6.99-1.9-3.18-11.44h-.63Zm8.27-1.9 2.54 10.16c3.45-.54 3.45-.54 6.35-1.9-1.1-3.5-3.15-5.48-6.15-7.51-1.38-.85-1.38-.85-2.74-.76Zm-51.47 8.25c-2.32 3.29-2.25 6.9-1.9 10.8.19.86.39 1.7.63 2.55 7.36-1.09 14.33-6.4 18.84-12.14a23.45 23.45 0 0 0 3.4-8.2c-5.98 0-15.9 3.88-20.97 7Zm246.22 13.47a14.26 14.26 0 0 0-2.86 8.77c.42 1.43.42 1.43 1.27 2.55 3.38 1.1 5.7.48 8.76-1.05 4.28-2.62 7-6.2 8.4-11.03a21.5 21.5 0 0 0 0-4.44c-6.22-.54-11.1.64-15.57 5.2Zm-217-22.36-.25 1.54c-1.47 7.48-4.73 13.24-9.9 18.8l3.13-.25 1.76-.13a73.8 73.8 0 0 0 7.81-1.53l1.9-7.54.65-2.56c.3-1.23.62-2.45.93-3.68l.56-2.24c.46-1.68.46-1.68.4-3.05-2.4-.07-4.6.22-6.98.64Zm-19.05-52.74c1.1 3.09 2.69 5.88 4.29 8.74l.85 1.54c1.95 3.46 3.97 6.83 6.3 10.05l2.54-1.27a22.25 22.25 0 0 0-3.23-6l-1.16-1.56-1.21-1.61-1.2-1.6c-2.1-2.84-4.22-5.64-6.55-8.29h-.63Zm29.22 76.88c-1.7 2.73-1.37 5.76-1.27 8.9 4.09-.63 7.72-1.36 11.44-3.18l-.63-6.99c-3.51-.87-6.25-.17-9.54 1.27Zm-15.01 3.38-1.45.26-4.58.81-3.1.55-7.63 1.36c4.35 2.9 9.48 3.35 14.58 3.65l1.41.09c2.28.1 4.01 0 6.25-.56l.64-7c-2.07 0-4.09.48-6.12.84Zm22.62 11.3-1.56.43-1.64.46-1.64.46-4.04 1.13c.84 7.38 2.27 15.63 7 21.6h1.9c2.5-7.9 3.25-16.52 3.18-24.78-1.1 0-2.14.4-3.2.7ZM483.98 56c2.14 1.07 2.14 1.07 2.78 2.34.24 2.26.26 3.41-1 5.33-2.14 1.42-3.47 1.39-6 1.03-1.58-1-1.58-1-2.53-2.54.04-2.26.15-3.8 1.5-5.64 2.11-1.46 2.8-1.4 5.25-.52Z"
-              />
-            </svg>
-          </span>
-        </p>
-      </section>
+      <div class="home-content animate-in">
+        <section class="group">
+          <h2 class="h2">Between nine and five</h2>
 
-      <section class="animate-in" style="--nth-child: 1">
-        <h2 class="lead" id="life">
-          <span>In life</span>
-        </h2>
-        <p>
-          I run a bit, cycle a lot, and swim just enough to call myself
-          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BZJncXEAQgv/">a triathlete</a>, and as
-          often as possible I head to the mountains to
-          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/CmTc8B7Na6V/">carve up the&nbsp;pistes</a
-          >.
-        </p>
+          <p>
+            <span class="lead c--unidays">I joined UNiDAYS as a Staff Software Engineer in summer 2024.</span>
+            In that time I have led the frontend strategy for a new, best-in-class authentication and verification
+            system with composability, accessibility and delivering a frictionless journey for our users at
+            its&nbsp;core.
+          </p>
+          <p>
+            We extensively researched, prototyped and tested the nuances of right-to-left interfaces before building a
+            system that worked with Arabic, delivering student verification for a trillion-dollar company as it opened a
+            new marketplace in Saudi&nbsp;Arabia.
+          </p>
+          <p>
+            I mentor engineers of all experience levels, helping them grow their skills with a particular focus on
+            frontend technologies like TypeScript, React and Next.js.
+          </p>
 
-        <p>
-          Being half Italian is essentially my entire identity which means I value good food and drink. Freshly ground
-          espresso, <span lang="it">vino rosso</span>, and hand-made pasta cooked <span lang="it">al dente</span> (<span
-            lang="it"
-            >pastaiolo</span
-          >
-          is a loose translation of pasta maker) are a staple in our house; thankfully we have
-          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/CSqxmKOoJ5Q/">Frankie the pug</a>
-          on hand to deal with any grated cheese that might have missed the&nbsp;dish.
-        </p>
-        <p>
-          You’ll find me at my happiest
-          <a target="_blank" rel="noopener" href="https://www.instagram.com/p/BdIlUsggiIe/"
-            >building <span class="sc">LEGO</span> sets</a
-          >,<span class="show--rs">
-            raiding with my maxed main on <abbr class="sc" title="Old School RuneScape">OSRS</abbr>,</span
-          >
-          or rewatching the original <span class="nbsp">Star Wars</span> trilogy. I suffer through the highs and lows at
-          <span class="nbsp">White Hart Lane</span> supporting my beloved&nbsp;<abbr title="Tottenham Hotspur FC"
-            >Spurs</abbr
-          >.
-        </p>
-      </section>
+          <p>
+            <span class="lead c--zoopla">Between 2021–24, I re-imagined home decisions at Zoopla.</span>
+            As a Senior Software Engineer&nbsp;1 in the Valuation Leads team, I worked on building novel journeys and
+            enhancing existing experiences that connected prospective sellers to estate agents.
+          </p>
+          <p>
+            I then transitioned into the Web Platform team as a Senior Software Engineer 2&nbsp;(Staff) where I focused
+            on improving the core performance of zoopla.co.uk through
+            <abbr class="sc" title="Core web vitals">CWV</abbr> optimisation, as well as enabling product teams to
+            deliver with robust tooling, infrastructure and technical&nbsp;guidance.
+          </p>
+          <p>
+            It was at Zoopla that I was part of a small but mighty team dedicated to championing accessibility in our
+            products and processes; we were recognised by ContentSquare with a third place award for
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7136394834885398528/" target="_blank"
+              >Best Digital Accessibility&nbsp;Mission</a
+            >.
+          </p>
 
-      <section class="animate-in" style="--nth-child: 3">
-        <h2 class="lead" id="work">
-          <span>As a developer</span>
-        </h2>
-        <p>
-          I’m an experienced front-end developer with a first-class degree in Typography &amp; Graphic Communication and
-          a product mindset, and have led projects across all three disciplines throughout my&nbsp;career.
-        </p>
-        <p>
-          Since August 2024, I have been a <strong>Staff Full Stack Software Engineer</strong> at
-          <strong>UNiDAYS</strong>. More on that&nbsp;soon…
-        </p>
-        <p>
-          Between 2021&ndash;24, I worked to re-imagine home decisions at
-          <strong>Zoopla</strong> as a Senior Software Engineer I and II. Initially, as part of the Valuation Leads team
-          focused on products that connected prospective sellers to estate agents; before moving into the Web Platform
-          team where I focused on performance, <abbr title="Core Web Vitals">CWVs</abbr>, and enabling product teams. I
-          also mentored engineers as a TypeScript&nbsp;<abbr title="subject matter expert" class="sc">SME</abbr>.
-        </p>
-        <p>
-          Before that, I spent nearly eight years building web experiences at
-          <strong>Fueled</strong> for the likes of <strong>Apple</strong>, <strong>Pinterest</strong>,
-          <strong class="nbsp">Vanity Fair</strong>, and <strong class="nbsp">Tony&nbsp;Robbins</strong>.
-        </p>
-        <p>
-          On the side, I’ve worked with
-          <a target="_blank" rel="noopener" href="https://kickpush.co"><strong>Kickpush</strong></a>
-          to develop their digital presence, created a
-          <abbr class="sc" title="public service announcement">PSA</abbr> to help folks with
-          <a target="_blank" rel="noopener" href="https://legonotlegos.com/"
-            >pluralising <span class="sc">LEGO</span></a
-          >
-          (it’s not <span class="sc">legos</span>), and for my Dad’s 60th birthday I brought
-          <a target="_blank" rel="noopener" href="https://ourdadmakes.pizza">his pizza recipe</a>
-          to the&nbsp;masses.
-        </p>
-      </section>
+          <p>
+            <span class="lead">Before that, I spent nearly eight years building web experiences at Fueled.</span> I led
+            projects for global giants like Apple, Pinterest, Vanity Fair, and Tony Robbins.
+          </p>
 
-      <section class="animate-in" id="contact" style="--nth-child: 5">
-        <h2 class="lead">
-          <span>Say hi</span>
-        </h2>
-        <ul class="home__contact-list">
-          <li>
-            <a class="link" href="mailto:hi@robsterlini.co.uk"><span>hi@robsterlini.co.uk</span></a>
-          </li>
-          <li>
-            <a class="link" target="_blank" rel="noopener" href="/fundraising"><span>JustGiving</span></a>
-          </li>
-          <li>
-            <a class="link" target="_blank" rel="noopener" href="https://instagram.com/robsterlini"
-              ><span>Instagram</span></a
-            >
-          </li>
-          <li>
-            <a class="link" target="_blank" rel="noopener" href="https://twitter.com/robsterlini"
-              ><span>Twitter</span></a
-            >
-          </li>
-          <li>
-            <a class="link" target="_blank" rel="noopener" href="https://www.strava.com/athletes/6578573">
-              <span>Strava</span></a
-            >
-          </li>
-          <li>
-            <a class="link" target="_blank" rel="noopener" href="https://linkedin.com/robsterlini"
-              ><span>LinkedIn</span></a
-            >
-          </li>
-        </ul>
-      </section>
+          <p>
+            <span class="lead">On the side,</span> I’ve worked with
+            <a href="https://kickpush.co" target="_blank">Kickpush</a> to develop their digital presence, created a
+            <span class="sc">PSA</span> to help folks with
+            <a href="https://legonotlegos.com" target="_blank">pluralising <span class="sc">LEGO</span></a> (it’s not
+            legos), and for my Dad’s 60th birthday I brought
+            <a href="https://ourdadmakes.pizza/" target="_blank">his pizza recipe</a> to the masses.
+          </p>
 
-      <footer class="animate-in">
-        <span class="flourish" aria-hidden="true">❦</span>
-        <p>
-          Built in 2023 using good ol’ <span class="sc">HTML</span> and <span class="sc">CSS</span>, hosted on
-          <a target="_blank" rel="noopener" href="https://netlify.com/">Netlify</a>, with self-served typefaces from
-          <a target="_blank" rel="noopener" href="https://p22.com/family-Mackinac">P22</a> and
-          <a target="_blank" rel="noopener" href="https://www.rosettatype.com/Clone">Rosetta</a>, and icons from
-          <a class="nbsp" target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>. More about
-          this site, its history, and at the <abbr class="sc" title="Creative Commons">CC</abbr>&nbsp;license on&nbsp;<a
-            target="_blank"
-            rel="noopener"
-            href="https://github.com/robsterlini/robsterlini-frontend/"
-            >GitHub</a
-          >.
-        </p>
-        <p>
-          <strong>No cookies, no tracking, nothing&nbsp;evil!</strong>
-        </p>
-      </footer>
+          <ul class="btns">
+            <li>
+              <a class="btn" href="https://www.linkedin.com/in/robsterlini/" target="_blank">
+                <span class="btn__inner">Reach out on <span class="btn__link">LinkedIn</span></span></a
+              >
+            </li>
+            <li>
+              <a class="btn" href="mailto:hi@robsterlini.co.uk"
+                ><span class="btn__inner"
+                  >Email me at <span class="btn__link">hi@</span><span class="btn__link">robsterlini.co.uk</span></span
+                ></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section class="group">
+          <h2 class="h2">Away from my desk</h2>
+
+          <p>
+            Having grown up with Italian home cooking, I’ve always had a passion for making food and sharing in the
+            experience with those I care about the most – my
+            <a href="https://amyand.robsterlini.co.uk/ragu" target="_blank">ragu recipe</a> was one of our wedding
+            favours.
+          </p>
+          <p>
+            I relax by building <span class="sc">LEGO</span> Star Wars sets, training my maxed
+            <abbr title="OldSchool RuneScape" class="sc">OSRS</abbr> account, and sofa surfing with our pug Frankie. I
+            balance that relaxation by watching Tottenham Hotspur Football Club, which until our triumph in Bilbao was a
+            largely unsuccessful&nbsp;endeavour.
+          </p>
+          <p>
+            Depending on the season, you might also find me on/off piste, striking out on a long bike ride, or just
+            reminiscing about the marathons and triathlons that made up my twenties (although, I did run the London
+            Marathon in April 2025,
+            <a href="https://justgiving.com/page/robsterlini" target="_blank">raising over £3,000 for Mind</a>).
+          </p>
+        </section>
+
+        <footer class="footer group">
+          <span class="flourish">❦</span>
+          <p>
+            Built in 2025 by <a href="/">Rob Sterlini</a> using good ol’ <span class="sc">HTML</span> and
+            <span class="sc">CSS</span>. It is hosted on
+            <a target="_blank" rel="noopener" href="https://netlify.com/">Netlify</a>, with self-served typefaces from
+            <a target="_blank" rel="noopener" href="https://p22.com/family-Mackinac">P22</a> and
+            <a target="_blank" rel="noopener" href="https://www.rosettatype.com/Clone">Rosetta</a>, and icons from
+            <a class="nbsp" target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>. More about
+            this site, its history, and at the <abbr class="sc" title="Creative Commons">CC</abbr>&nbsp;license
+            on&nbsp;<a target="_blank" rel="noopener" href="https://github.com/robsterlini/robsterlini-frontend/"
+              >GitHub</a
+            >.
+          </p>
+          <p>No cookies, no tracking, nothing&nbsp;evil!</p>
+        </footer>
+      </div>
     </main>
 
     <script src="scripts.js"></script>
