@@ -95,6 +95,7 @@ function initTheme() {
   setTheme(colorSchemeMatch.matches ? DEFAULT_DARK_THEME : DEFAULT_LIGHT_THEME);
 }
 
+// TODO: Probably remove this
 const GREETINGS = ["Hello", "Ciao", "Hola", "Bonjour", "Hallo", "Hej", "Olá", "Namaste", "Salaam"];
 
 function initHeading() {
