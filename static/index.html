@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -74,7 +74,7 @@
   <body class="home">
     <main>
       <div class="theme-selector">
-        <div class="group animate-in" style="--nth-child: 2">
+        <div class="animate-in" style="--nth-child: 2">
           <button id="theme-selector" class="theme-selector__button">Switch theme</button>
         </div>
       </div>
@@ -82,149 +82,59 @@
       <div class="home-header__outer">
         <header class="home-header__inner group">
           <h1 class="h1 home-h1 animate-in">
-            <span><span class="accent">Hi, I’m Rob Sterlini.</span> I’ve been creating</span>
+            <span>
+              <span class="home-headshot__outer">
+                <span class="home-headshot__inner">
+                  <img src="./images//headshot.jpeg" width="200" />
+                </span>
+              </span>
+              <span class="accent">Hi, I’m Rob Sterlini.</span> I’ve&nbsp;been creating</span
+            >
             <span>user obsessed, typographically rich, </span>
             <span>and accessible web&nbsp;experiences since 2013.</span>
           </h1>
         </header>
       </div>
 
-      <div class="group">
-        <section class="home-tl">
-          <h2 class="home-tl__date" style="grid-area: date25">2025</h2>
-          <span class="home-tl__line" style="grid-area: line25a"></span>
-          <div class="home-tl__event--full" style="grid-area: unidays">
-            <h3 class="h2">Identity and verification for a world of students</h3>
-
-            <p>
-              <span class="lead">August 24–present, remote (UK) </span>
-              I joined UNiDAYS as a Staff Software Engineer in the summer of 2024. In that time I have led the frontend
-              strategy for a new, best-in-class authentication and verification system with composability, accessibility
-              and delivering a frictionless journey for our users at its&nbsp;core.
-            </p>
-            <p>
-              We extensively researched, prototyped and tested the nuances of right-to-left interfaces before building a
-              system that worked with Arabic, delivering student verification for a trillion-dollar company as it opened
-              a new marketplace in Saudi&nbsp;Arabia.
-            </p>
-            <p>
-              I mentor engineers of all experience levels, helping them grow their skills with a particular focus on
-              frontend technologies like TypeScript, React and Next.js.
-            </p>
-          </div>
-
-          <span class="home-tl__line" style="grid-area: line25b"></span>
-
-          <div class="home-tl__event--left" style="grid-area: mind">
-            <p>
-              <span class="lead">April 25</span>
-              I ran the London Marathon to raise money for Mind, the mental health charity, raising over £3,000 to
-              support their incredible and necessary work to support those facing mental health&nbsp;challenges.
-            </p>
-          </div>
-
-          <div class="home-tl__event--right" style="grid-area: wedding">
-            <p>
-              <span class="lead">March 25</span> I married my incredible wife Amy, immortalising our
-              <a href="https://amyand.robsterlini.co.uk" target="_blank">favourite recipes</a> as one of our wedding
-              favours.
-            </p>
-          </div>
-
-          <h2 class="home-tl__date" style="grid-area: date24">2024</h2>
-          <span class="home-tl__line" style="grid-area: line24a"></span>
-          <div class="home-tl__event--left" style="grid-area: rpfh">
-            <p>
-              <span class="lead">October 24</span> Conquered my first half marathon in over X years at the
-              Royal&nbsp;Parks.
-            </p>
-          </div>
-          <div class="home-tl__event--full" style="grid-area: zoopla">
-            <h3 class="h2">Re-imagining digital home decisions</h3>
-            <p>
-              <span class="lead">November 21–August 24, Hybrid (London, UK)</span>
-
-              As a Senior Software Engineer&nbsp;1 in the Valuation Leads team, I worked on building novel journeys and
-              enhancing existing experiences that connected prospective sellers to estate agents.
-            </p>
-
-            <p>
-              I then transitioned into the Web Platform team as a Senior Software Engineer&nbsp;2&nbsp;(Staff) where I
-              focused on improving the core performance of zoopla.co.uk through
-              <abbr class="sc" title="Core web vitals">CWV</abbr> optimisation, as well as enabling product teams to
-              deliver with robust tooling, infrastructure and technical&nbsp;guidance.
-            </p>
-            <p>
-              It was at Zoopla that I was part of a small but mighty team dedicated to championing accessibility in our
-              products and processes; we were recognised by ContentSquare with a third place award for
-              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7136394834885398528/" target="_blank"
-                >Best Digital Accessibility&nbsp;Mission</a
-              >.
-            </p>
-          </div>
-          <span class="home-tl__line" style="grid-area: line24b"></span>
-          <div class="home-tl__event--right" style="grid-area: parkrun100">
-            <p>
-              <span class="lead">May 24</span> Hit the parkrun century, running my 100th a full thirteen years after my
-              first.
-            </p>
-          </div>
-
-          <h2 class="home-tl__date" style="grid-area: date23">2023</h2>
-          <span class="home-tl__line" style="grid-area: line23a"></span>
-          <div class="home-tl__event--right" style="grid-area: tri23">
-            <p>
-              <span class="lead">August 23</span> Got back into the ExCeL docks to complete a sprint at the London
-              Triathlon.
-            </p>
-          </div>
-          <div class="home-tl__event--full" style="grid-area: kickpush">
-            <h3 class="h2">Relaunching Kickpush</h3>
-            <p>
-              <span class="lead">July 23, Freelance (UK)</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quisquam
-              voluptatem autem placeat repudiandae delectus provident corrupti ut reiciendis sint dolor, nulla tempore
-              minima, optio unde neque. Voluptatem, tenetur voluptas!
-            </p>
-          </div>
-          <span class="home-tl__line" style="grid-area: line23b"></span>
-          <div class="home-tl__event--right" style="grid-area: ridelondon">
-            <!-- TODO: Make this a hairspace -->
-            <p>
-              <span class="lead">May 23</span> I completed the 100&nbsp;mile RideLondon cycling event for the first
-              time.
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
       <div class="home-content animate-in">
         <section class="group">
-          <h2 class="h2">Between nine and five</h2>
+          <h2 class="h2" id="#work">Between nine and five</h2>
+
+          <p>
+            <span class="lead"> Since August 2024, I have been a Staff Software Engineer at UNiDAYS.</span>
+            In that time I have led the frontend strategy for a platform that underpins our global verification
+            offering. The new architecture balances composability for a more tailored partner experience, with an
+            accessible and smooth <abbr class="sc" title="user experience">UX</abbr> for our&nbsp;users.
+          </p>
+          <p>
+            We had the added challenge of serving a new Saudi Arabian audience for the first time; I collaborated
+            closely with our research and design teams to understand the nauances of this market, ultimately delivering
+            a right-to-left experience that felt native to our Arabic speaking users whilst retaining the
+            UNiDAYS&nbsp;feel.
+          </p>
 
           <p>
             <span class="lead c--zoopla">Between 2021–24, I re-imagined home decisions at Zoopla.</span>
-            As a Senior Software Engineer&nbsp;1 in the Valuation Leads team, I worked on building novel journeys and
-            enhancing existing experiences that connected prospective sellers to estate agents.
+            I championed experimentation as a Senior Software Engineer&nbsp;1 to enhance existing valuation experiences,
+            using real user data to improve conversion&nbsp;rates.
           </p>
           <p>
-            I then transitioned into the Web Platform team as a Senior Software Engineer 2&nbsp;(Staff) where I focused
-            on improving the core performance of zoopla.co.uk through
-            <abbr class="sc" title="Core web vitals">CWV</abbr> optimisation, as well as enabling product teams to
-            deliver with robust tooling, infrastructure and technical&nbsp;guidance.
+            Moving into the Web Platform team as a Senior Software Engineer&nbsp;2&nbsp;(Staff), I focused on improving
+            the performance of zoopla.co.uk through better
+            <abbr class="sc" title="Core web vitals">CWV</abbr>s; I worked closely with product teams to identify
+            bottlenecks in their workflows, improved their tools and processes, and enabled them to deliver&nbsp;faster.
           </p>
           <p>
-            It was at Zoopla that I was part of a small but mighty team dedicated to championing accessibility in our
-            products and processes; we were recognised by ContentSquare with a third place award for
+            It was here that I was part of a bootstrapped team dedicated to championing accessibility in our products
+            and processes; we were recognised by ContentSquare with a third place award for
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7136394834885398528/" target="_blank"
               >Best Digital Accessibility&nbsp;Mission</a
             >.
           </p>
 
           <p>
-            <span class="lead">Before that, I spent nearly eight years building web experiences at Fueled.</span> I led
-            projects for global giants like Apple, Pinterest, Vanity Fair, and Tony Robbins.
+            <span class="lead">Before that, I spent nearly eight years at Fueled.</span> I led web design and
+            development projects for global giants like Apple, Pinterest, Vanity&nbsp;Fair, and Tony&nbsp;Robbins.
           </p>
 
           <p>
@@ -232,8 +142,9 @@
             <a href="https://kickpush.co" target="_blank">Kickpush</a> to develop their digital presence, created a
             <span class="sc">PSA</span> to help folks with
             <a href="https://legonotlegos.com" target="_blank">pluralising <span class="sc">LEGO</span></a> (it’s not
-            legos), and for my Dad’s 60th birthday I brought
-            <a href="https://ourdadmakes.pizza/" target="_blank">his pizza recipe</a> to the masses.
+            legos), and for my Dad’s 60th birthday I gave
+            <a href="https://ourdadmakes.pizza/" target="_blank">his pizza recipe</a> its own corner of
+            the&nbsp;internet.
           </p>
 
           <ul class="btns">
@@ -262,10 +173,9 @@
             favours.
           </p>
           <p>
-            I relax by building <span class="sc">LEGO</span> Star Wars sets, training my maxed
+            I relax by building <span class="sc">LEGO</span> Star Wars sets, logging new collections on my maxed
             <abbr title="OldSchool RuneScape" class="sc">OSRS</abbr> account, and sofa surfing with our pug Frankie. I
-            balance that relaxation by watching Tottenham Hotspur Football Club, which until our triumph in Bilbao was a
-            largely unsuccessful&nbsp;endeavour.
+            balance that relaxation by watching Tottenham Hotspur Football Club, which is seldom an easy&nbsp;watch.
           </p>
           <p>
             Depending on the season, you might also find me on/off piste, striking out on a long bike ride, or just
